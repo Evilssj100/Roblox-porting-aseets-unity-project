@@ -1,0 +1,2128 @@
+{
+ "hero": "ElRugido",
+ "studsPerUnit": 2.56,
+ "bones": [
+  "Pelvis",
+  "LLeg1",
+  "LLeg2",
+  "Spine",
+  "Ribcage",
+  "RLeg1",
+  "Neck",
+  "Head",
+  "LArm21",
+  "LArm22",
+  "LArmPalm",
+  "LArm1",
+  "LArmCollarbone",
+  "RArmCollarbone",
+  "RArm1",
+  "LArmDigit41",
+  "LArmDigit31",
+  "LArmDigit32",
+  "LArmDigit21",
+  "LArmDigit11",
+  "LArmDigit42",
+  "LArmDigit22",
+  "LArmDigit12",
+  "LLegAnkle",
+  "LLegDigit11",
+  "RLeg2",
+  "RArm21",
+  "RArm22",
+  "RArmDigit41",
+  "RArmPalm",
+  "RArmDigit31",
+  "RArmDigit32",
+  "RArmDigit21",
+  "RArmDigit11",
+  "RArmDigit42",
+  "RArmDigit22",
+  "RArmDigit12",
+  "RLegAnkle",
+  "RLegDigit11"
+ ],
+ "parents": [
+  "motion_transfer",
+  "Pelvis",
+  "LLeg1",
+  "Pelvis",
+  "Spine",
+  "Pelvis",
+  "Ribcage",
+  "Neck",
+  "LArm1",
+  "LArm21",
+  "LArm22",
+  "LArmCollarbone",
+  "Ribcage",
+  "Ribcage",
+  "RArmCollarbone",
+  "LArmPalm",
+  "LArmPalm",
+  "LArmDigit31",
+  "LArmPalm",
+  "LArmPalm",
+  "LArmDigit41",
+  "LArmDigit21",
+  "LArmDigit11",
+  "LLeg2",
+  "LLegAnkle",
+  "RLeg1",
+  "RArm1",
+  "RArm21",
+  "RArmPalm",
+  "RArm22",
+  "RArmPalm",
+  "RArmDigit31",
+  "RArmPalm",
+  "RArmPalm",
+  "RArmDigit41",
+  "RArmDigit21",
+  "RArmDigit11",
+  "RLeg2",
+  "RLegAnkle"
+ ],
+ "parts": [
+  {
+   "name": "ElRugido_Body",
+   "verts": 2041,
+   "tris": 2584,
+   "material": "ElRugido_Body",
+   "rest_min": [
+    -5.7253,
+    -0.0341,
+    -1.526
+   ],
+   "rest_max": [
+    5.7253,
+    7.074,
+    0.8726
+   ]
+  },
+  {
+   "name": "ElRugido_Head",
+   "verts": 217,
+   "tris": 258,
+   "material": "ElRugido_Head",
+   "rest_min": [
+    -0.575,
+    5.465,
+    -0.9997
+   ],
+   "rest_max": [
+    0.575,
+    6.6516,
+    0.3521
+   ]
+  }
+ ],
+ "clips": [
+  {
+   "name": "Take 001",
+   "duration": 3.6,
+   "samples": 217,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.03622,
+   "scales": true,
+   "wrapMode": 0,
+   "events": []
+  },
+  {
+   "name": "attack_L1",
+   "duration": 1.333333,
+   "samples": 81,
+   "rate": 60.0,
+   "maxScaleDeviation": 1.19126,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.20000000298023224,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.15",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.3499999940395355,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:0.566667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.5833330154418945,
+     "function": "OnCollisionEnableAnimTag",
+     "data": "1",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.7166669964790344,
+     "function": "OnCollisionDisableAnimTag",
+     "data": "1",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.8333330154418945,
+     "function": "OnChainAttackAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.9166669845581055,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.200003",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.0499999523162842,
+     "function": "OnChainAttackAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "attack_L2",
+   "duration": 1.6,
+   "samples": 97,
+   "rate": 60.0,
+   "maxScaleDeviation": 1.14184,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.25,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.05000001",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.30000001192092896,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.116667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.41666701436042786,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:0.883333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.75,
+     "function": "OnCollisionEnableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.9166669845581055,
+     "function": "OnCollisionDisableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.0833300352096558,
+     "function": "OnChainAttackAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.2999999523162842,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.2",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "attack_L3",
+   "duration": 1.833333,
+   "samples": 111,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.77866,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.0,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:0.183333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.18333299458026886,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.233334",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.41666701436042786,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:0.950003",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.5833330154418945,
+     "function": "OnCollisionEnableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.0,
+     "function": "OnCollisionDisableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.25,
+     "function": "OnChainAttackAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.36667001247406,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.3",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "attack_L4",
+   "duration": 1.333333,
+   "samples": 81,
+   "rate": 60.0,
+   "maxScaleDeviation": 2.55196,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.0,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:0.316667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.31666699051856995,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.166666",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.4666669964790344,
+     "function": "OnCollisionEnableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.4833329916000366,
+     "function": "OnFaceAnimTag",
+     "data": "custom1:0.466667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.800000011920929,
+     "function": "OnCollisionDisableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.8166670203208923,
+     "function": "OnChainAttackAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.949999988079071,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:0.3",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "attack_L5",
+   "duration": 1.833333,
+   "samples": 111,
+   "rate": 60.0,
+   "maxScaleDeviation": 3.28121,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.0,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:0.366667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.3666670024394989,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.283333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.6499999761581421,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:0.2",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.8500000238418579,
+     "function": "OnFaceAnimTag",
+     "data": "custom1:0.26667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.100000023841858,
+     "function": "OnCollisionEnableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.11667001247406,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:0.26666",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.38332998752594,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:0.28334",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.4166699647903442,
+     "function": "OnCollisionDisableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.6666699647903442,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.11666",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "attack_R1",
+   "duration": 1.833333,
+   "samples": 111,
+   "rate": 60.0,
+   "maxScaleDeviation": 2.1722,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.21666699647903442,
+     "function": "OnFaceAnimTag",
+     "data": "happy:0.950003",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.5833330154418945,
+     "function": "OnCollisionEnableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.8166670203208923,
+     "function": "OnCollisionDisableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.1666699647903442,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.33333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.5499999523162842,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.08333004",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "attack_R2",
+   "duration": 1.833333,
+   "samples": 111,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.16666699945926666,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.166666",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.33333298563957214,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:0.5",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.8333330154418945,
+     "function": "OnFaceAnimTag",
+     "data": "custom1:0.566667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.8500000238418579,
+     "function": "OnCollisionEnableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.399999976158142,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:0.26667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.4166699647903442,
+     "function": "OnCollisionDisableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.6666699647903442,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.1666601",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "attack_R3",
+   "duration": 2.333333,
+   "samples": 141,
+   "rate": 60.0,
+   "maxScaleDeviation": 1.04308,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.18333299458026886,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.25",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.43333300948143005,
+     "function": "OnFaceAnimTag",
+     "data": "happy:0.749997",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.1833300590515137,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.06666994",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.216670036315918,
+     "function": "OnCollisionEnableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.25,
+     "function": "OnFaceAnimTag",
+     "data": "custom1:0.6",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.5833300352096558,
+     "function": "OnCollisionDisableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.850000023841858,
+     "function": "OnFaceAnimTag",
+     "data": "happy:0.33333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.1833300590515137,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.0999999",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "attack_super",
+   "duration": 3.4,
+   "samples": 205,
+   "rate": 60.0,
+   "maxScaleDeviation": 1.04888,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.3833329975605011,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.616667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.0,
+     "function": "OnFaceAnimTag",
+     "data": "squint:1.33333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.5166699886322021,
+     "function": "OnCollisionEnableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.533329963684082,
+     "function": "OnFootstepAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.7666699886322021,
+     "function": "OnCollisionDisableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.333329916000366,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.1166701",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.450000047683716,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:0.3999999",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.8499999046325684,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.23333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.75,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.23333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.983330011367798,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.2",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "block",
+   "duration": 2.0,
+   "samples": 121,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.0,
+     "function": "OnFaceAnimTag",
+     "data": "squint:2",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.0,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.01",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_angry",
+   "duration": 4.333333,
+   "samples": 261,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.31221,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.3833329975605011,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.616667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.0,
+     "function": "OnFaceAnimTag",
+     "data": "squint:1.33333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.333329916000366,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.1166701",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.450000047683716,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:1.3",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.75,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.23333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.983330011367798,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.2",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_approve",
+   "duration": 3.666667,
+   "samples": 221,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.16666699945926666,
+     "function": "OnFaceAnimTag",
+     "data": "blink:2.000003",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_blush",
+   "duration": 4.666667,
+   "samples": 281,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.6666669845581055,
+     "function": "OnFaceAnimTag",
+     "data": "happy:3.750003",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_bow",
+   "duration": 3.0,
+   "samples": 181,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.5166670083999634,
+     "function": "OnFaceAnimTag",
+     "data": "blink:2.333333",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_cheer",
+   "duration": 3.6,
+   "samples": 217,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.22522,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.33333298563957214,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.5",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.8333330154418945,
+     "function": "OnFaceAnimTag",
+     "data": "happy:0.666667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.5,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.5",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.0,
+     "function": "OnFaceAnimTag",
+     "data": "happy:1.33333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.333329916000366,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.1666701",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_clap",
+   "duration": 3.333333,
+   "samples": 201,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.23333300650119781,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.183334",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.41666701436042786,
+     "function": "OnFaceAnimTag",
+     "data": "happy:2.583333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.0,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.06666994",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_confused",
+   "duration": 4.5,
+   "samples": 271,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.5,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:2.2",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.700000047683716,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:1.61667",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_dance",
+   "duration": 4.833333,
+   "samples": 291,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.20437,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.33333298563957214,
+     "function": "OnFaceAnimTag",
+     "data": "happy:4.5",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_disapprove",
+   "duration": 2.0,
+   "samples": 121,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.35734,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.25,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.333333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.5833330154418945,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:0.999997",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.5833300352096558,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.08333993",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_eat",
+   "duration": 6.666667,
+   "samples": 401,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.08798,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.20000000298023224,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.1",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.30000001192092896,
+     "function": "OnFaceAnimTag",
+     "data": "happy:1.55",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.850000023841858,
+     "function": "OnFaceAnimTag",
+     "data": "custom1:0.4666699",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.3166699409484863,
+     "function": "OnFaceAnimTag",
+     "data": "happy:3.36666",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 5.683330059051514,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.53334",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_greet",
+   "duration": 2.333333,
+   "samples": 141,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.10000000149011612,
+     "function": "OnFaceAnimTag",
+     "data": "happy:2.13333",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_laugh",
+   "duration": 4.333333,
+   "samples": 261,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.16666699945926666,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.616666",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.7833330035209656,
+     "function": "OnFaceAnimTag",
+     "data": "happy:3.516667",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_manipulate_loop",
+   "duration": 2.5,
+   "samples": 151,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.01316,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.0,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:1.46667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.466670036315918,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.1999999",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.6666699647903442,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:0.8333303",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_point",
+   "duration": 2.666667,
+   "samples": 161,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": []
+  },
+  {
+   "name": "emote_poke",
+   "duration": 1.833333,
+   "samples": 111,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": []
+  },
+  {
+   "name": "emote_pose",
+   "duration": 3.833333,
+   "samples": 231,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 1.1833300590515137,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.18334",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.36667001247406,
+     "function": "OnFaceAnimTag",
+     "data": "happy:1.8",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.166670083999634,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.1666598",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_raise_hand",
+   "duration": 3.733334,
+   "samples": 225,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.1333329975605011,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.166667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.30000001192092896,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:2.98333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.283329963684082,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.28334",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_rude",
+   "duration": 3.833333,
+   "samples": 231,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.18206,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.5,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.133333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.6333330273628235,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:2.966667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.5999999046325684,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.1166701",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_sad",
+   "duration": 3.333333,
+   "samples": 201,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.1166670024394989,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.216666",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.33333298563957214,
+     "function": "OnFaceAnimTag",
+     "data": "squint:2.866667",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_scared",
+   "duration": 6.0,
+   "samples": 361,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.5,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.2",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.699999988079071,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:0.233333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.9333329796791077,
+     "function": "OnFaceAnimTag",
+     "data": "squint:2.999997",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.9333300590515137,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.08334017",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 4.566669940948486,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.25",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 5.516670227050781,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.4833302",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_shock",
+   "duration": 3.666667,
+   "samples": 221,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.1632,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.16666699945926666,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.333333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.5,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:0.166667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.6666669845581055,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:2.000003",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.666670083999634,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.1666598",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_sneeze",
+   "duration": 5.5,
+   "samples": 331,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.25299,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.33333298563957214,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.4",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.149999976158142,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.38333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.9833300113677979,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.3333399",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.700000047683716,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.6333299",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.333329916000366,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.3333402",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 4.650000095367432,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.1166701",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_taunt",
+   "duration": 3.6,
+   "samples": 217,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.43333300948143005,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.15",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.5833330154418945,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:2.383337",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.966670036315918,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.25",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_think",
+   "duration": 5.166667,
+   "samples": 311,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.5833330154418945,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:2.083337",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.666670083999634,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:1.66666",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 4.333330154418945,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.5166698",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_victory",
+   "duration": 3.333333,
+   "samples": 201,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": []
+  },
+  {
+   "name": "jump_fall",
+   "duration": 0.8,
+   "samples": 49,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.05101,
+   "scales": true,
+   "wrapMode": 0,
+   "events": []
+  },
+  {
+   "name": "jump_fall_loop",
+   "duration": 1.066667,
+   "samples": 65,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.05669,
+   "scales": true,
+   "wrapMode": 0,
+   "events": []
+  },
+  {
+   "name": "jump_land",
+   "duration": 0.833333,
+   "samples": 51,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.22057,
+   "scales": true,
+   "wrapMode": 0,
+   "events": []
+  },
+  {
+   "name": "jump_run_fall",
+   "duration": 0.8,
+   "samples": 49,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.01464,
+   "scales": true,
+   "wrapMode": 0,
+   "events": []
+  },
+  {
+   "name": "jump_run_land",
+   "duration": 0.466667,
+   "samples": 29,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": []
+  },
+  {
+   "name": "jump_run_up",
+   "duration": 0.566667,
+   "samples": 35,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.2902,
+   "scales": true,
+   "wrapMode": 0,
+   "events": []
+  },
+  {
+   "name": "jump_up",
+   "duration": 0.566667,
+   "samples": 35,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.4476,
+   "scales": true,
+   "wrapMode": 0,
+   "events": []
+  },
+  {
+   "name": "movement_idle",
+   "duration": 2.833333,
+   "samples": 171,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": []
+  },
+  {
+   "name": "movement_run",
+   "duration": 0.833333,
+   "samples": 51,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": []
+  },
+  {
+   "name": "pickup",
+   "duration": 1.666667,
+   "samples": 101,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": []
+  },
+  {
+   "name": "pickup_idle",
+   "duration": 3.333333,
+   "samples": 201,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.550000011920929,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.116667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.3666698932647705,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.23333",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "pickup_run",
+   "duration": 0.833333,
+   "samples": 51,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.11536,
+   "scales": true,
+   "wrapMode": 0,
+   "events": []
+  },
+  {
+   "name": "pickup_throw",
+   "duration": 1.3,
+   "samples": 79,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.44999998807907104,
+     "function": "OnFaceAnimTag",
+     "data": "happy:1",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.5666670203208923,
+     "function": "OnProjectileFireAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "power_emote_1",
+   "duration": 3.4,
+   "samples": 205,
+   "rate": 60.0,
+   "maxScaleDeviation": 1.04888,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.25,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.516667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.4833300113677979,
+     "function": "OnCollisionEnableAnimTag",
+     "data": "1",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.5,
+     "function": "OnFaceAnimTag",
+     "data": "squint:1.45",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.7333300113677979,
+     "function": "OnCollisionDisableAnimTag",
+     "data": "1",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "power_emote_2",
+   "duration": 4.733334,
+   "samples": 285,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.1784,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.05000000074505806,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.083333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.7000000476837158,
+     "function": "OnFootstepAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.7999999523162842,
+     "function": "OnFaceAnimTag",
+     "data": "squint:1",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.799999952316284,
+     "function": "OnFaceAnimTag",
+     "data": "happy:0.3666701",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.166670083999634,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.5999999",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.766669988632202,
+     "function": "OnFaceAnimTag",
+     "data": "happy:0.8333299",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "power_emote_3",
+   "duration": 2.166667,
+   "samples": 131,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.2666670083999634,
+     "function": "OnMoveStartAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.6499999761581421,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.216667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.6833329796791077,
+     "function": "OnMoveEndAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.7333329916000366,
+     "function": "OnCollisionEnableAnimTag",
+     "data": "1",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.8666669726371765,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:0.300003",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.949999988079071,
+     "function": "OnCollisionDisableAnimTag",
+     "data": "1",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.1666699647903442,
+     "function": "OnFaceAnimTag",
+     "data": "custom1:0.5500001",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.716670036315918,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.1999999",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "recoil_back",
+   "duration": 1.0,
+   "samples": 61,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.0,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.9",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "recoil_big",
+   "duration": 1.0,
+   "samples": 61,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.0,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.95",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "recoil_death",
+   "duration": 2.0,
+   "samples": 121,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.17051,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.0,
+     "function": "OnFaceAnimTag",
+     "data": "squint:2",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.0,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.01",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "recoil_getup",
+   "duration": 1.366667,
+   "samples": 83,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.21283,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.0,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.2",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.20000000298023224,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:0.3",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.5,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.433333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.9333329796791077,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:0.216667",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "recoil_launch",
+   "duration": 2.0,
+   "samples": 121,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.0,
+     "function": "OnFaceAnimTag",
+     "data": "squint:2",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.0,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.01",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "recoil_launch_land",
+   "duration": 1.0,
+   "samples": 61,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.0,
+     "function": "OnFaceAnimTag",
+     "data": "squint:1",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.0,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.01",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "recoil_small",
+   "duration": 1.0,
+   "samples": 61,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.0,
+   "scales": false,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.0,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.933333",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "recoil_stun",
+   "duration": 1.5,
+   "samples": 91,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.01835,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.0,
+     "function": "OnFaceAnimTag",
+     "data": "squint:2.83333",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "sit_down",
+   "duration": 2.0,
+   "samples": 121,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.00567,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.800000011920929,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.35",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "sit_idle",
+   "duration": 6.666667,
+   "samples": 401,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.02958,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 1.0666699409484863,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.21666",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.899999976158142,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.2166699",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 4.25,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.1999998",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 5.783329963684082,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.21667",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "sit_stand",
+   "duration": 1.9,
+   "samples": 115,
+   "rate": 60.0,
+   "maxScaleDeviation": 0.45542,
+   "scales": true,
+   "wrapMode": 0,
+   "events": [
+    {
+     "time": 0.5333330035209656,
+     "function": "OnFaceAnimTag",
+     "data": "happy:0.866667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.399999976158142,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.1833301",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  }
+ ],
+ "textures": {
+  "ElRugido_Body": {
+   "file": "ElRugido_Body.rgba",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "ElRugido_Face_0": {
+   "file": "ElRugido_Face_0.rgba",
+   "size": [
+    256,
+    256
+   ]
+  },
+  "ElRugido_Face_1": {
+   "file": "ElRugido_Face_1.rgba",
+   "size": [
+    256,
+    256
+   ]
+  },
+  "ElRugido_Face_2": {
+   "file": "ElRugido_Face_2.rgba",
+   "size": [
+    256,
+    256
+   ]
+  },
+  "ElRugido_Face_3": {
+   "file": "ElRugido_Face_3.rgba",
+   "size": [
+    256,
+    256
+   ]
+  },
+  "ElRugido_Face_4": {
+   "file": "ElRugido_Face_4.rgba",
+   "size": [
+    256,
+    256
+   ]
+  },
+  "ElRugido_Face_5": {
+   "file": "ElRugido_Face_5.rgba",
+   "size": [
+    256,
+    256
+   ]
+  },
+  "ElRugido_Face_6": {
+   "file": "ElRugido_Face_6.rgba",
+   "size": [
+    256,
+    256
+   ]
+  },
+  "ElRugido_Face_7": {
+   "file": "ElRugido_Face_7.rgba",
+   "size": [
+    256,
+    256
+   ]
+  }
+ },
+ "faceExpressions": [
+  "Normal",
+  "Happy",
+  "Surprised",
+  "Aggressive",
+  "Squint",
+  "Blink",
+  "Custom1",
+  "Custom2"
+ ]
+}

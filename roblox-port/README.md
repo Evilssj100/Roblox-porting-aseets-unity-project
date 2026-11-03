@@ -9,3 +9,5 @@ Work for porting this game to Roblox. The original Unity project is untouched; e
 - `tools/`: the pipeline scripts (Unity bundle extraction, exact 60 fps animation sampling, Blender builders, checks).
 
 Animations are exact: Blender playback matches the original skinning within 1e-5 units on every clip, including bone scaling.
+
+- `heroes/ElRugido/roblox_data/`: binary data for exact custom skinning in Roblox (EditableMesh): `mesh.bin` (rest mesh in studs, skin weights, UVs and normals), `clips/<clip>.bin` (per-frame skinning matrices at 60 fps, bone scaling included), raw RGBA textures and `manifest.json`. The format is documented in `tools/export_roblox_skin_data.py`.

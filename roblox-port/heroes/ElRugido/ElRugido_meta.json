@@ -1,0 +1,388 @@
+{
+ "hero": "ElRugido",
+ "height_bu": 2.776602163910866,
+ "bones": [
+  "Pelvis",
+  "LLeg1",
+  "LLeg2",
+  "LLegAnkle",
+  "LLegDigit11",
+  "Spine",
+  "Ribcage",
+  "Neck",
+  "Head",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm21",
+  "LArm22",
+  "LArmPalm",
+  "LArmDigit41",
+  "LArmDigit42",
+  "LArmDigit31",
+  "LArmDigit32",
+  "LArmDigit21",
+  "LArmDigit22",
+  "LArmDigit11",
+  "LArmDigit12",
+  "RArmCollarbone",
+  "RArm1",
+  "RArm21",
+  "RArm22",
+  "RArmPalm",
+  "RArmDigit41",
+  "RArmDigit42",
+  "RArmDigit31",
+  "RArmDigit32",
+  "RArmDigit21",
+  "RArmDigit22",
+  "RArmDigit11",
+  "RArmDigit12",
+  "RLeg1",
+  "RLeg2",
+  "RLegAnkle",
+  "RLegDigit11"
+ ],
+ "parents": [
+  "",
+  "Pelvis",
+  "LLeg1",
+  "LLeg2",
+  "LLegAnkle",
+  "Pelvis",
+  "Spine",
+  "Ribcage",
+  "Neck",
+  "Ribcage",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm21",
+  "LArm22",
+  "LArmPalm",
+  "LArmDigit41",
+  "LArmPalm",
+  "LArmDigit31",
+  "LArmPalm",
+  "LArmDigit21",
+  "LArmPalm",
+  "LArmDigit11",
+  "Ribcage",
+  "RArmCollarbone",
+  "RArm1",
+  "RArm21",
+  "RArm22",
+  "RArmPalm",
+  "RArmDigit41",
+  "RArmPalm",
+  "RArmDigit31",
+  "RArmPalm",
+  "RArmDigit21",
+  "RArmPalm",
+  "RArmDigit11",
+  "Pelvis",
+  "RLeg1",
+  "RLeg2",
+  "RLegAnkle"
+ ],
+ "fx_points": {
+  "fx_Lpalm": {
+   "bone": "LArmPalm",
+   "world": [
+    1.397220253944397,
+    0.053316786885261536,
+    1.924151062965393
+   ],
+   "offset_in_bone": [
+    0.08569356799125671,
+    -0.002661540638655424,
+    -0.003963693976402283
+   ]
+  },
+  "fx_Rpalm": {
+   "bone": "RArmPalm",
+   "world": [
+    -1.3972197771072388,
+    0.053317319601774216,
+    1.9196264743804932
+   ],
+   "offset_in_bone": [
+    0.09021087735891342,
+    -0.0028021924663335085,
+    0.0041725412011146545
+   ]
+  }
+ },
+ "clips": [
+  {
+   "name": "Take 001",
+   "duration": 3.6
+  },
+  {
+   "name": "attack_L1",
+   "duration": 1.333333
+  },
+  {
+   "name": "attack_L2",
+   "duration": 1.6
+  },
+  {
+   "name": "attack_L3",
+   "duration": 1.833333
+  },
+  {
+   "name": "attack_L4",
+   "duration": 1.333333
+  },
+  {
+   "name": "attack_L5",
+   "duration": 1.833333
+  },
+  {
+   "name": "attack_R1",
+   "duration": 1.833333
+  },
+  {
+   "name": "attack_R2",
+   "duration": 1.833333
+  },
+  {
+   "name": "attack_R3",
+   "duration": 2.333333
+  },
+  {
+   "name": "attack_super",
+   "duration": 3.4
+  },
+  {
+   "name": "block",
+   "duration": 2.0
+  },
+  {
+   "name": "emote_angry",
+   "duration": 4.333333
+  },
+  {
+   "name": "emote_approve",
+   "duration": 3.666667
+  },
+  {
+   "name": "emote_blush",
+   "duration": 4.666667
+  },
+  {
+   "name": "emote_bow",
+   "duration": 3.0
+  },
+  {
+   "name": "emote_cheer",
+   "duration": 3.6
+  },
+  {
+   "name": "emote_clap",
+   "duration": 3.333333
+  },
+  {
+   "name": "emote_confused",
+   "duration": 4.5
+  },
+  {
+   "name": "emote_dance",
+   "duration": 4.833333
+  },
+  {
+   "name": "emote_disapprove",
+   "duration": 2.0
+  },
+  {
+   "name": "emote_eat",
+   "duration": 6.666667
+  },
+  {
+   "name": "emote_greet",
+   "duration": 2.333333
+  },
+  {
+   "name": "emote_laugh",
+   "duration": 4.333333
+  },
+  {
+   "name": "emote_manipulate_loop",
+   "duration": 2.5
+  },
+  {
+   "name": "emote_point",
+   "duration": 2.666667
+  },
+  {
+   "name": "emote_poke",
+   "duration": 1.833333
+  },
+  {
+   "name": "emote_pose",
+   "duration": 3.833333
+  },
+  {
+   "name": "emote_raise_hand",
+   "duration": 3.733334
+  },
+  {
+   "name": "emote_rude",
+   "duration": 3.833333
+  },
+  {
+   "name": "emote_sad",
+   "duration": 3.333333
+  },
+  {
+   "name": "emote_scared",
+   "duration": 6.0
+  },
+  {
+   "name": "emote_shock",
+   "duration": 3.666667
+  },
+  {
+   "name": "emote_sneeze",
+   "duration": 5.5
+  },
+  {
+   "name": "emote_taunt",
+   "duration": 3.6
+  },
+  {
+   "name": "emote_think",
+   "duration": 5.166667
+  },
+  {
+   "name": "emote_victory",
+   "duration": 3.333333
+  },
+  {
+   "name": "jump_fall",
+   "duration": 0.8
+  },
+  {
+   "name": "jump_fall_loop",
+   "duration": 1.066667
+  },
+  {
+   "name": "jump_land",
+   "duration": 0.833333
+  },
+  {
+   "name": "jump_run_fall",
+   "duration": 0.8
+  },
+  {
+   "name": "jump_run_land",
+   "duration": 0.466667
+  },
+  {
+   "name": "jump_run_up",
+   "duration": 0.566667
+  },
+  {
+   "name": "jump_up",
+   "duration": 0.566667
+  },
+  {
+   "name": "movement_idle",
+   "duration": 2.833333
+  },
+  {
+   "name": "movement_run",
+   "duration": 0.833333
+  },
+  {
+   "name": "pickup",
+   "duration": 1.666667
+  },
+  {
+   "name": "pickup_idle",
+   "duration": 3.333333
+  },
+  {
+   "name": "pickup_run",
+   "duration": 0.833333
+  },
+  {
+   "name": "pickup_throw",
+   "duration": 1.3
+  },
+  {
+   "name": "power_emote_1",
+   "duration": 3.4
+  },
+  {
+   "name": "power_emote_2",
+   "duration": 4.733334
+  },
+  {
+   "name": "power_emote_3",
+   "duration": 2.166667
+  },
+  {
+   "name": "recoil_back",
+   "duration": 1.0
+  },
+  {
+   "name": "recoil_big",
+   "duration": 1.0
+  },
+  {
+   "name": "recoil_death",
+   "duration": 2.0
+  },
+  {
+   "name": "recoil_getup",
+   "duration": 1.366667
+  },
+  {
+   "name": "recoil_launch",
+   "duration": 2.0
+  },
+  {
+   "name": "recoil_launch_land",
+   "duration": 1.0
+  },
+  {
+   "name": "recoil_small",
+   "duration": 1.0
+  },
+  {
+   "name": "recoil_stun",
+   "duration": 1.5
+  },
+  {
+   "name": "sit_down",
+   "duration": 2.0
+  },
+  {
+   "name": "sit_idle",
+   "duration": 6.666667
+  },
+  {
+   "name": "sit_stand",
+   "duration": 1.9
+  }
+ ],
+ "face_tiles": [
+  "ElRugido_Face_0.png",
+  "ElRugido_Face_1.png",
+  "ElRugido_Face_2.png",
+  "ElRugido_Face_3.png",
+  "ElRugido_Face_4.png",
+  "ElRugido_Face_5.png",
+  "ElRugido_Face_6.png",
+  "ElRugido_Face_7.png"
+ ],
+ "face_tile_names": [
+  "neutral_smile",
+  "grin",
+  "surprised",
+  "gritted",
+  "wink",
+  "smirk",
+  "shout",
+  "focused"
+ ]
+}

@@ -3,33 +3,78 @@
 --     the way the original CharacterMotionController + BehaviorMovement chose clips
 --   * actions replicated by the server in the "SPSO_Action" attribute ("clip|serverTime|fade|seq"):
 --     attacks, hit reactions, emotes, death; "none" ends the action
+--   * the original effect sequences for each action (attack effects, power emotes, hurt, death) via FxPlayer
 --   * root motion of actions applied to the local player's own character (the server moves enemies)
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local SPSO = ReplicatedStorage:WaitForChild("SPSO")
 local HeroPack = require(SPSO:WaitForChild("Runtime"):WaitForChild("HeroPack"))
 local ExactAnimator = require(SPSO.Runtime:WaitForChild("ExactAnimator"))
-local Config = require(SPSO:WaitForChild("Game"):WaitForChild("GameConfig"))
+local Game = SPSO:WaitForChild("Game")
+local Config = require(Game:WaitForChild("GameConfig"))
+local GameData = require(Game:WaitForChild("GameData"))
+local FxPlayer = require(Game:WaitForChild("FxPlayer"))
 
 local CharacterAnimator = {}
 CharacterAnimator.__index = CharacterAnimator
 
+-- clip -> effect sequence names for a fighter's data (hero or enemy archetype)
+local effectCache = {}
+local function effectsFor(dataKey: string, data, fxHero: string)
+	if effectCache[dataKey] then return effectCache[dataKey] end
+	local map = {}
+	local function add(clip, name)
+		if not name then return end
+		map[clip] = map[clip] or {}
+		for _, n in { name, (string.gsub(name, "_Snd_sequence$", "sequence")), (string.gsub(name, "_audio_sequence$", "sequence")) } do
+			if FxPlayer.has(fxHero, n) and not table.find(map[clip], n) then table.insert(map[clip], n) end
+		end
+	end
+	for _, a in data.attacks or {} do add(a.anim, a.effect) end
+	for i = 1, 3 do add("power_emote_" .. i, "Power Emote " .. i) end
+	local seqs = require(Game.FxData).Heroes[fxHero]
+	if seqs then
+		for name in seqs.sequences do
+			local l = string.lower(name)
+			if string.find(l, "hurt") then add("recoil_small", name); add("recoil_big", name) end
+			if string.find(l, "death") then add("recoil_death", name) end
+		end
+	end
+	effectCache[dataKey] = map
+	return map
+end
+
 function CharacterAnimator.new(model: Model, opts)
 	opts = opts or {}
-	local heroName = model:GetAttribute("SPSO_Hero") or Config.PlayerHero
-	local cfg = Config.Heroes[heroName] or Config.Heroes[Config.PlayerHero]
+	local heroName = model:GetAttribute("SPSO_Hero") or Config.DefaultHero
+	local cfg = Config.Heroes[heroName] or Config.Heroes[Config.DefaultHero]
+	local archetype = model:GetAttribute("SPSO_Archetype")
+	local data = archetype and GameData.Enemies[archetype] or cfg.data
 	local self = setmetatable({}, CharacterAnimator)
-	self.model, self.cfg, self.isLocal = model, cfg, opts.isLocal == true
+	self.model, self.cfg, self.isLocal, self.hero = model, cfg, opts.isLocal == true, heroName
 	self.humanoid = model:FindFirstChildOfClass("Humanoid")
 	self.hrp = model:FindFirstChild("HumanoidRootPart")
+	local facesList = nil
+	if opts.faces ~= false and cfg.faceTextures then
+		facesList = table.clone(cfg.faceTextures)
+		if facesList[1] == "" or facesList[1] == nil then
+			local head = model:FindFirstChild(cfg.headPart, true)
+			facesList[1] = head and head.TextureID or ""
+		end
+		for i = 2, 8 do
+			if facesList[i] == "" then facesList[i] = facesList[1] end
+		end
+	end
 	self.anim = ExactAnimator.new(HeroPack.get(cfg.pack), model, {
 		wrapModes = cfg.wrapModes,
-		faceTextures = opts.faces ~= false and cfg.faceTextures or nil,
+		faceTextures = facesList,
 		headPart = cfg.headPart,
 		skin = opts.skin ~= false,
 		prebuildSkin = opts.prebuildSkin,
 		lodDistance = opts.lodDistance or 120,
 	})
+	self.effects = effectsFor((archetype or heroName), data, heroName)
+	self.fx = nil
 	self.action, self.actionSeq, self.loco = nil, nil, nil
 	self.airTime, self.landLock = 0, 0
 	local params = RaycastParams.new()
@@ -51,6 +96,10 @@ function CharacterAnimator:_onAction()
 	local clip, t0, fade, seq = string.match(s, "^([^|]+)|([^|]+)|([^|]+)|([^|]+)$")
 	if not clip or seq == self.actionSeq then return end
 	self.actionSeq = seq
+	if self.fx then
+		for _, h in self.fx do h.stop() end
+		self.fx = nil
+	end
 	if clip == "none" then
 		self.action = nil
 		return
@@ -62,6 +111,14 @@ function CharacterAnimator:_onAction()
 	local late = workspace:GetServerTimeNow() - (tonumber(t0) or 0)
 	if late > 0 and late < 0.3 then anim:GetState(clip).time = late end
 	self.action, self.loco = clip, nil
+	local names = self.effects[clip]
+	if names and late < 1 then
+		self.fx = {}
+		for _, n in names do
+			local h = FxPlayer.play(self.hero, n, self.model)
+			if h then table.insert(self.fx, h) end
+		end
+	end
 end
 
 function CharacterAnimator:_loco(name: string, fade: number)
@@ -144,6 +201,10 @@ end
 
 function CharacterAnimator:Destroy()
 	for _, c in self.conns do c:Disconnect() end
+	if self.fx then
+		for _, h in self.fx do h.stop() end
+	end
+	FxPlayer.clear(self.model)
 	self.anim:Destroy()
 end
 

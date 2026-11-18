@@ -1,8 +1,9 @@
 -- SPSO world setup (Studio, Edit mode; idempotent):
 --   require(game.ServerStorage.SPSO.Setup["01_world"])()
 -- * archives the template baseplate / spawn and old test objects (ServerStorage.SPSO_Archive, nothing deleted)
--- * builds the playable character templates from the uploaded El Rugido model:
---     ServerStorage.SPSO.Characters.Hero_ElRugido / Enemy_Luchador, StarterPlayer.StarterCharacter
+-- * inserts every hero's uploaded model and data package (Assets.lua) and builds the character templates
+--     ServerStorage.SPSO.Characters.Hero_<Hero> plus select-screen previews in ReplicatedStorage.SPSO.Previews
+--     (players spawn as the hero they pick: Players.CharacterAutoLoads is off)
 -- * configures the arena (workspace.OrbitalArena from the uploaded model: collision, glass, spawns), or builds
 --   a simple placeholder arena with the same layout when the map has not been inserted yet
 -- * lighting and player settings
@@ -32,22 +33,43 @@ return function(): string
 		end
 	end
 
-	-- hero source model (the uploaded El Rugido asset)
+	-- hero source models (uploaded FBX assets, Assets.Heroes[H].model) and their data packages
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local InsertService = game:GetService("InsertService")
+	local Players = game:GetService("Players")
+	local Game = ReplicatedStorage:WaitForChild("SPSO"):WaitForChild("Game")
+	local Assets = require(Game:WaitForChild("Assets"):Clone())
+	local GameData = require(Game:WaitForChild("GameData"):Clone())
+	local unpack = require(spso.Tools.Unpack:Clone())
 	local source = folder(spso, "Source")
-	local import = workspace:FindFirstChild("ElRugido_Import") or source:FindFirstChild("ElRugido_Import")
-	assert(import, "El Rugido model not found (workspace.ElRugido_Import)")
-	import.Parent = source
-	local rigSrc = import:FindFirstChild("ElRugido")
-	assert(rigSrc and rigSrc:FindFirstChild("RootPart"), "ElRugido_Import.ElRugido.RootPart missing")
+	local legacy = workspace:FindFirstChild("ElRugido_Import")
+	if legacy then legacy.Parent = source end
+	local heroesFolder = folder(ReplicatedStorage.SPSO, "Heroes")
+	for _, hero in GameData.HeroOrder do
+		local a = Assets.Heroes[hero] or {}
+		if not source:FindFirstChild(hero .. "_Import") and a.model then
+			local m = InsertService:LoadAsset(a.model)
+			m.Name = hero .. "_Import"
+			m.Parent = source
+			table.insert(log, "inserted " .. hero)
+		end
+		local hf = heroesFolder:FindFirstChild(hero)
+		local pack = hf and hf:FindFirstChild("Pack")
+		if a.package and (not pack or pack:GetAttribute("PackageId") ~= a.package) then
+			unpack(a.package)
+			heroesFolder:WaitForChild(hero):WaitForChild("Pack"):SetAttribute("PackageId", a.package)
+			table.insert(log, "hero data " .. hero)
+		end
+	end
 
-	-- playable character: Humanoid + HumanoidRootPart driving the skinned rig (animated by script)
+	-- playable characters: Humanoid + HumanoidRootPart driving the skinned rig (animated by script)
 	local HIP, HRP_SIZE = 2.0, Vector3.new(3, 2.6, 2)
-	local function buildCharacter(name: string): Model
+	local function buildCharacter(rigSrc: Model, name: string): Model
 		local char = Instance.new("Model")
 		char.Name = name
 		local rig = rigSrc:Clone()
 		for _, c in rig:GetChildren() do
-			if c:IsA("AnimationController") then
+			if c:IsA("AnimationController") or c.Name == "InitialPoses" then
 				c:Destroy()
 			else
 				c.Parent = char
@@ -87,15 +109,37 @@ return function(): string
 		return char
 	end
 	local chars = folder(spso, "Characters")
-	for _, n in { "Hero_ElRugido", "Enemy_Luchador" } do
+	local previews = folder(ReplicatedStorage.SPSO, "Previews")
+	for _, n in { "Enemy_Luchador" } do
 		local old = chars:FindFirstChild(n)
 		if old then old:Destroy() end
-		buildCharacter(n).Parent = chars
+	end
+	for _, hero in GameData.HeroOrder do
+		local import = source:FindFirstChild(hero .. "_Import")
+		local rigSrc = import and import:FindFirstChild(hero)
+		if rigSrc and rigSrc:FindFirstChild("RootPart") then
+			local old = chars:FindFirstChild("Hero_" .. hero)
+			if old then old:Destroy() end
+			buildCharacter(rigSrc, "Hero_" .. hero).Parent = chars
+			-- select-screen preview: the bare rig, posed on the client by its own ExactAnimator
+			local pv = previews:FindFirstChild(hero)
+			if pv then pv:Destroy() end
+			pv = rigSrc:Clone()
+			for _, c in pv:GetChildren() do
+				if c:IsA("AnimationController") or c.Name == "InitialPoses" then c:Destroy() end
+			end
+			for _, p in pv:GetDescendants() do
+				if p:IsA("BasePart") then p.Anchored = true end
+			end
+			pv.Name = hero
+			pv.Parent = previews
+		else
+			table.insert(log, "MISSING model for " .. hero)
+		end
 	end
 	local sc = StarterPlayer:FindFirstChild("StarterCharacter")
-	if sc then sc:Destroy() end
-	local starter = buildCharacter("StarterCharacter")
-	starter.Parent = StarterPlayer
+	if sc then sc.Parent = archive end
+	Players.CharacterAutoLoads = false
 	table.insert(log, "characters built")
 
 	-- arena
@@ -209,9 +253,8 @@ return function(): string
 	-- settings
 	workspace.StreamingEnabled = false
 	StarterPlayer.LoadCharacterAppearance = false
-	StarterPlayer.CharacterWalkSpeed = 24
 	StarterPlayer.CharacterUseJumpPower = true
-	StarterPlayer.CharacterJumpPower = 62
+	workspace.Gravity = GameData.Heroes[GameData.HeroOrder[1]].gravity -- the original 20 units/s^2
 	Lighting.Brightness = 2
 	Lighting.Ambient = Color3.fromRGB(96, 106, 120)
 	Lighting.OutdoorAmbient = Color3.fromRGB(128, 138, 150)

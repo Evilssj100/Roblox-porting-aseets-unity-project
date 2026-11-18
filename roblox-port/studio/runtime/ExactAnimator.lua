@@ -690,6 +690,18 @@ function ExactAnimator:Step(dt: number)
 	end
 end
 
+-- frame of a node (bone, fx_ point, collider node) in rig space, i.e. relative to the rig's RootPart,
+-- from the last evaluated pose (nil before the first pose or for unknown nodes)
+function ExactAnimator:NodeCFrame(name: string): CFrame?
+	local i = self.pack.nodeIndex[name]
+	if not i then return nil end
+	local W, o = self.W, (i - 1) * 12
+	local r00, r11, r22 = W[o + 1], W[o + 6], W[o + 11]
+	if r00 == 0 and r11 == 0 and r22 == 0 and W[o + 2] == 0 then return nil end
+	return CFrame.new(W[o + 4], W[o + 8], W[o + 12], W[o + 1], W[o + 2], W[o + 3], W[o + 5], W[o + 6], W[o + 7],
+		W[o + 9], W[o + 10], W[o + 11]):Orthonormalize()
+end
+
 -- sample one clip at time t (no blending) into self.SM; used by SelfTest and tools
 function ExactAnimator:PoseAt(name: string, t: number)
 	local st = { clip = self.pack.clips[name], length = self.pack.clips[name].duration, time = t,

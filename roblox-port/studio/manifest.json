@@ -5,7 +5,7 @@
    "parent": "ReplicatedStorage/SPSO/Runtime",
    "name": "ExactAnimator",
    "class": "ModuleScript",
-   "sha": "e1a0f4fcff26491b"
+   "sha": "deca6916909ceebb"
   },
   {
    "path": "studio/runtime/HeroPack.lua",
@@ -15,11 +15,18 @@
    "sha": "04b378e5e44e64b7"
   },
   {
+   "path": "studio/game/shared/Assets.lua",
+   "parent": "ReplicatedStorage/SPSO/Game",
+   "name": "Assets",
+   "class": "ModuleScript",
+   "sha": "e2541714577b8f1e"
+  },
+  {
    "path": "studio/game/shared/CharacterAnimator.lua",
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "CharacterAnimator",
    "class": "ModuleScript",
-   "sha": "a272ef42732d9957"
+   "sha": "af4d3a686de383bb"
   },
   {
    "path": "studio/game/shared/FxData.lua",
@@ -29,11 +36,18 @@
    "sha": "b72f114e23c76238"
   },
   {
+   "path": "studio/game/shared/FxPlayer.lua",
+   "parent": "ReplicatedStorage/SPSO/Game",
+   "name": "FxPlayer",
+   "class": "ModuleScript",
+   "sha": "96b23bcdf4a4c81b"
+  },
+  {
    "path": "studio/game/shared/GameConfig.lua",
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "GameConfig",
    "class": "ModuleScript",
-   "sha": "780704ce5274a14d"
+   "sha": "77bb6ef697723155"
   },
   {
    "path": "studio/game/shared/GameData.lua",
@@ -50,18 +64,25 @@
    "sha": "cc7eb7257363c524"
   },
   {
+   "path": "studio/game/shared/Sound.lua",
+   "parent": "ReplicatedStorage/SPSO/Game",
+   "name": "Sound",
+   "class": "ModuleScript",
+   "sha": "e230f426b11216c8"
+  },
+  {
    "path": "studio/game/server/Brawler.server.lua",
    "parent": "ServerScriptService/SPSO",
    "name": "Brawler",
    "class": "Script",
-   "sha": "13c8fdb4c8e8acec"
+   "sha": "f6a92157c18060ab"
   },
   {
    "path": "studio/game/client/BrawlerClient.client.lua",
    "parent": "StarterPlayer/StarterPlayerScripts",
    "name": "BrawlerClient",
    "class": "LocalScript",
-   "sha": "160c6c2866e07f6e"
+   "sha": "70cd347874f4d747"
   },
   {
    "path": "studio/game/character/Animate.client.lua",

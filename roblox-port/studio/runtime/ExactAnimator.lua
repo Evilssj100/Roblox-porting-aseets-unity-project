@@ -183,6 +183,7 @@ function ExactAnimator:_bindRig(model: Model)
 	if self.faceIds then
 		task.spawn(function() pcall(ContentProvider.PreloadAsync, ContentProvider, self.faceIds) end)
 	end
+	self.textureOverride = {}
 	self.skinEnabled = config.skin ~= false
 	self.skinTolerance = config.skinTolerance or 0.002
 	self.lodDistance = config.lodDistance or 120
@@ -216,7 +217,7 @@ function ExactAnimator:_buildSkin()
 			mp.Size = mp.MeshSize
 			mp.Anchored, mp.CanCollide, mp.CanQuery, mp.CanTouch, mp.Massless = false, false, false, false, true
 			if rigPart then
-				mp.TextureID = rigPart.TextureID
+				mp.TextureContent = self.textureOverride[part.name] or rigPart.TextureContent
 				mp.Material, mp.Color = rigPart.Material, rigPart.Color
 			end
 			mp.Transparency = 1
@@ -354,6 +355,19 @@ function ExactAnimator:_faceTag(data: string)
 	if k then self:SetFace(k) end
 	local s = tonumber(secs)
 	if s and s > 0 then self.faceRevertAt = self.clock + s end
+end
+
+-- replace a part's texture on the imported mesh and on its exact-skin copy (e.g. a recolored EditableImage)
+function ExactAnimator:SetPartTexture(partName: string, content: Content)
+	if self.headless then return end
+	self.textureOverride[partName] = content
+	local rp = self.rigParts[partName]
+	if rp then rp.TextureContent = content end
+	if type(self.skin) == "table" then
+		for _, s in self.skin do
+			if s.part.name == partName then s.mp.TextureContent = content end
+		end
+	end
 end
 
 -- root motion: forward studs accumulated since the last call (performRootMotion semantics)

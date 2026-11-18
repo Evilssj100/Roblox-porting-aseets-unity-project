@@ -5,7 +5,7 @@
    "parent": "ReplicatedStorage/SPSO/Runtime",
    "name": "ExactAnimator",
    "class": "ModuleScript",
-   "sha": "73c9b6ff0dfbb453"
+   "sha": "d7c66c79487880fa"
   },
   {
    "path": "studio/runtime/HeroPack.lua",
@@ -13,6 +13,55 @@
    "name": "HeroPack",
    "class": "ModuleScript",
    "sha": "04b378e5e44e64b7"
+  },
+  {
+   "path": "studio/game/shared/CharacterAnimator.lua",
+   "parent": "ReplicatedStorage/SPSO/Game",
+   "name": "CharacterAnimator",
+   "class": "ModuleScript",
+   "sha": "a272ef42732d9957"
+  },
+  {
+   "path": "studio/game/shared/GameConfig.lua",
+   "parent": "ReplicatedStorage/SPSO/Game",
+   "name": "GameConfig",
+   "class": "ModuleScript",
+   "sha": "771b6b8730645979"
+  },
+  {
+   "path": "studio/game/shared/Net.lua",
+   "parent": "ReplicatedStorage/SPSO/Game",
+   "name": "Net",
+   "class": "ModuleScript",
+   "sha": "cc7eb7257363c524"
+  },
+  {
+   "path": "studio/game/server/Brawler.server.lua",
+   "parent": "ServerScriptService/SPSO",
+   "name": "Brawler",
+   "class": "Script",
+   "sha": "21d90eac33152d52"
+  },
+  {
+   "path": "studio/game/client/BrawlerClient.client.lua",
+   "parent": "StarterPlayer/StarterPlayerScripts",
+   "name": "BrawlerClient",
+   "class": "LocalScript",
+   "sha": "cd6cc2fabb020348"
+  },
+  {
+   "path": "studio/game/character/Animate.client.lua",
+   "parent": "StarterPlayer/StarterCharacterScripts",
+   "name": "Animate",
+   "class": "LocalScript",
+   "sha": "35b4c95473c38e26"
+  },
+  {
+   "path": "studio/game/character/Health.server.lua",
+   "parent": "StarterPlayer/StarterCharacterScripts",
+   "name": "Health",
+   "class": "Script",
+   "sha": "9e7d6a07ab2ae14f"
   }
  ],
  "heroes": [
@@ -22,5 +71,7 @@
    "sha": "9e2c489c4be87477"
   }
  ],
- "setup": []
+ "setup": [
+  "studio/setup/01_world.lua"
+ ]
 }

@@ -1,0 +1,2 @@
+-- Replaces Roblox's default Animate script: SPSO characters are animated by the exact animation
+-- runtime (ReplicatedStorage.SPSO.Runtime.ExactAnimator) from StarterPlayerScripts.BrawlerClient.

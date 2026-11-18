@@ -7,7 +7,7 @@
 * renames everything with RENAME (no original franchise names), splits glass faces to their own object
 * scales to studs (k per unit) and moves the floor to height 0 (Z up; FBX import makes it Y up)
 * collision mesh exported as its own object "<Map>_Collision" (Studio: invisible, precise collision)
-* writes <out>.blend (images packed), <out>.json (objects, floor height, bounds) and a preview render
+* writes <out>.blend (images packed), <out>.fbx / <out>.glb (upload-ready), <out>.json and a preview render
 
 Usage: python prep_roblox_arena.py <arena.blend> <out_prefix> <MapName> [studs_per_unit] [floor_object]
 """
@@ -178,6 +178,19 @@ for o in objs:
     P = np.array([v.co[:] for v in me.vertices])
     info["objects"].append({"name": o.name, "collision": is_col, "verts": len(me.vertices), "tris": sum(len(p.vertices) - 2 for p in me.polygons),
                             "min": P.min(0).round(3).tolist(), "max": P.max(0).round(3).tolist()})
+# importer-safe meshes: triangulated, every mesh with a UV set and a material
+import bmesh  # noqa: E402
+for o in objs:
+    bm = bmesh.new()
+    bm.from_mesh(o.data)
+    bmesh.ops.triangulate(bm, faces=bm.faces[:])
+    bm.to_mesh(o.data)
+    bm.free()
+    if not o.data.uv_layers:
+        o.data.uv_layers.new(name="UVMap")
+    if not o.data.materials:
+        mat = bpy.data.materials.new(o.name + "_mat")
+        o.data.materials.append(mat)
 for im in list(bpy.data.images):
     if im.users == 0:
         bpy.data.images.remove(im)
@@ -206,5 +219,13 @@ bpy.ops.render.render(write_still=True)
 bpy.data.objects.remove(cam, do_unlink=True)
 col.hide_render = False
 bpy.ops.wm.save_as_mainfile(filepath=out + ".blend", compress=True)
+# upload-ready exports (studs already applied): FBX like the Roblox Uploader add-on, plus GLB
+for o in bpy.data.objects:
+    o.select_set(o.type == "MESH")
+bpy.ops.export_scene.fbx(filepath=out + ".fbx", use_selection=True, global_scale=1.0, apply_scale_options="FBX_SCALE_UNITS",
+                         axis_forward="-Z", axis_up="Y", object_types={"MESH"}, mesh_smooth_type="FACE", add_leaf_bones=False,
+                         bake_anim=False, path_mode="COPY", embed_textures=True)
+bpy.ops.export_scene.gltf(filepath=out + ".glb", use_selection=True, export_format="GLB", export_yup=True, export_apply=True,
+                          export_animations=False)
 json.dump(info, open(out + ".json", "w"), indent=1)
 print(json.dumps({o["name"]: o["tris"] for o in info["objects"]}), "floor z (units)", round(fz, 3))

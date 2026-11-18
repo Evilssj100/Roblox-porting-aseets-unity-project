@@ -1,0 +1,1 @@
+-- Replaces Roblox's default Health regeneration: health is managed by the brawler server.

@@ -1,12 +1,11 @@
 -- SPSO brawler client: animates every fighter with the exact animation runtime, the original
--- brawler-style fixed camera, input (attacks, super, emotes), HUD, hit effects, enemy costume recolors.
+-- brawler-style fixed camera, input (attacks, super, emotes), HUD, hit effects.
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
 local ContextActionService = game:GetService("ContextActionService")
 local CollectionService = game:GetService("CollectionService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local AssetService = game:GetService("AssetService")
 local TweenService = game:GetService("TweenService")
 
 local SPSO = ReplicatedStorage:WaitForChild("SPSO")
@@ -18,77 +17,6 @@ local CharacterAnimator = require(Game:WaitForChild("CharacterAnimator"))
 local player = Players.LocalPlayer
 local AttackRemote, EmoteRemote, FxRemote = Net.event("Attack"), Net.event("Emote"), Net.event("Fx")
 local heroCfg = Config.Heroes[Config.PlayerHero]
-
--- enemy costume recolors (EditableImage hue shift of the crimson costume; skin, mane, tape untouched) --
-local recolored = {}
-local function hsv2rgb(h, s, v)
-	local i = math.floor(h * 6) % 6
-	local f = h * 6 - math.floor(h * 6)
-	local p, q, t = v * (1 - s), v * (1 - f * s), v * (1 - (1 - f) * s)
-	if i == 0 then return v, t, p elseif i == 1 then return q, v, p elseif i == 2 then return p, v, t
-	elseif i == 3 then return p, q, v elseif i == 4 then return t, p, v end
-	return v, p, q
-end
-
-local function recolor(content: Content, key: string, variant)
-	if recolored[key] ~= nil then
-		while recolored[key] == "busy" do task.wait() end
-		return recolored[key]
-	end
-	recolored[key] = "busy"
-	local ok, ei = pcall(AssetService.CreateEditableImageAsync, AssetService, content)
-	if not ok then
-		warn("[SPSO] recolor unavailable: " .. tostring(ei))
-		recolored[key] = false
-		return false
-	end
-	local size = ei.Size
-	local buf = ei:ReadPixelsBuffer(Vector2.zero, size)
-	local n = size.X * size.Y
-	for i = 0, n - 1 do
-		local o = i * 4
-		local r, g, b = buffer.readu8(buf, o) / 255, buffer.readu8(buf, o + 1) / 255, buffer.readu8(buf, o + 2) / 255
-		local mx, mn = math.max(r, g, b), math.min(r, g, b)
-		local d = mx - mn
-		if mx > 0.06 and d > 0.42 * mx then
-			local h
-			if mx == r then h = ((g - b) / d) % 6 elseif mx == g then h = (b - r) / d + 2 else h = (r - g) / d + 4 end
-			h /= 6
-			local s = d / mx
-			local nr, ng, nb
-			if h > 0.93 or h < 0.025 then
-				nr, ng, nb = hsv2rgb(variant.hue, math.clamp(s * variant.sat, 0, 1), math.clamp(mx * variant.val, 0, 1))
-			elseif variant.gold == "silver" and h > 0.09 and h < 0.17 and s > 0.45 then
-				nr, ng, nb = hsv2rgb(0.58, s * 0.12, math.clamp(mx * 1.05, 0, 1))
-			end
-			if nr then
-				buffer.writeu8(buf, o, math.floor(nr * 255 + 0.5))
-				buffer.writeu8(buf, o + 1, math.floor(ng * 255 + 0.5))
-				buffer.writeu8(buf, o + 2, math.floor(nb * 255 + 0.5))
-			end
-		end
-		if i % 131072 == 0 then task.wait() end
-	end
-	ei:WritePixelsBuffer(Vector2.zero, size, buf)
-	local c = Content.fromObject(ei)
-	recolored[key] = c
-	return c
-end
-
-local function applyVariant(ca, model: Model, variantName: string)
-	local variant
-	for _, v in Config.Variants do
-		if v.name == variantName then variant = v end
-	end
-	if not variant then return end
-	for _, partName in { ca.cfg.bodyPart, ca.cfg.headPart } do
-		local part = model:FindFirstChild(partName, true)
-		if part and part:IsA("MeshPart") then
-			local c = recolor(part.TextureContent, partName .. "/" .. variant.name, variant)
-			if c and model.Parent then ca.anim:SetPartTexture(partName, c) end
-		end
-	end
-end
 
 -- animators for every fighter ----------------------------------------------------------------------------
 local animators = {}
@@ -135,8 +63,9 @@ local function attach(model: Instance)
 		local variant = model:GetAttribute("SPSO_Variant")
 		local enemy = model:GetAttribute("SPSO_Team") == "Enemy"
 		local ok, ca = pcall(CharacterAnimator.new, model, {
-			isLocal = isLocal, skin = true, prebuildSkin = isLocal,
-			faces = not (variant and variant ~= ""), lodDistance = isLocal and 300 or 80,
+			-- exact bone-scale skinning (EditableMesh) for the local hero; others use the bones (memory budget)
+			isLocal = isLocal, skin = isLocal, prebuildSkin = isLocal,
+			faces = not (variant and variant ~= ""), lodDistance = 300,
 		})
 		if not ok then
 			warn("[SPSO] animator failed for " .. model:GetFullName() .. ": " .. tostring(ca))
@@ -150,7 +79,6 @@ local function attach(model: Instance)
 		end
 		animators[model] = ca
 		if enemy then makeHealthBar(model) end
-		if variant and variant ~= "" then task.spawn(applyVariant, ca, model, variant) end
 	end)
 end
 

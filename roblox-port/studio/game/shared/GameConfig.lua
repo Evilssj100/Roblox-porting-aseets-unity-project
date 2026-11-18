@@ -80,12 +80,12 @@ Config.Enemy = {
 	despawnAfter = 3.5,
 }
 
--- costume recolors for enemies (client EditableImage hue shift of the crimson costume; skin untouched)
+-- enemy costume variants: recolored El Rugido textures (tools/recolor_variants.py, uploaded as images)
 Config.Variants = {
-	{ name = "Azul", hue = 0.60, sat = 1.0, val = 1.0, gold = "silver" },
-	{ name = "Verde", hue = 0.36, sat = 0.9, val = 0.95, gold = "gold" },
-	{ name = "Morado", hue = 0.78, sat = 0.9, val = 1.0, gold = "gold" },
-	{ name = "Negro", hue = 0.0, sat = 0.0, val = 0.42, gold = "silver" },
+	{ name = "Azul", body = "rbxassetid://70368986942892", head = "rbxassetid://123547823862723" },
+	{ name = "Verde", body = "rbxassetid://74383374415269", head = "rbxassetid://131632527789308" },
+	{ name = "Morado", body = "rbxassetid://126193897515330", head = "rbxassetid://78351291351379" },
+	{ name = "Negro", body = "rbxassetid://73001122951843", head = "rbxassetid://133342632575321" },
 }
 
 Config.Waves = { 2, 3, 4, 5, 6 }

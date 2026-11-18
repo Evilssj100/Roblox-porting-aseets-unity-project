@@ -201,6 +201,7 @@ function ExactAnimator:_buildSkin()
 		for _, part in self.pack.parts do
 			local rigPart = self.rigParts[part.name]
 			local em = AssetService:CreateEditableMesh()
+			if not em then error("EditableMesh memory budget reached", 0) end
 			local pos, nrm, uv, tri = part.pos, part.nrm, part.uv, part.tri
 			local vids, nids, uids = table.create(part.nV), table.create(part.nN), table.create(part.nUV)
 			for v = 1, part.nV do vids[v] = em:AddVertex(Vector3.new(pos[3 * v - 2], pos[3 * v - 1], pos[3 * v])) end
@@ -723,6 +724,7 @@ function ExactAnimator:Destroy()
 	if type(self.skin) == "table" then
 		for _, s in self.skin do
 			s.mp:Destroy()
+			pcall(s.em.Destroy, s.em)
 			if s.rigPart then s.rigPart.Transparency = self.rigTransparency[s.rigPart] or 0 end
 		end
 	end

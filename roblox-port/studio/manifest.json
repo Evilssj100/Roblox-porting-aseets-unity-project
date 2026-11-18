@@ -5,7 +5,7 @@
    "parent": "ReplicatedStorage/SPSO/Runtime",
    "name": "ExactAnimator",
    "class": "ModuleScript",
-   "sha": "d7c66c79487880fa"
+   "sha": "e1a0f4fcff26491b"
   },
   {
    "path": "studio/runtime/HeroPack.lua",
@@ -26,7 +26,7 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "GameConfig",
    "class": "ModuleScript",
-   "sha": "2948dad045e878f5"
+   "sha": "780704ce5274a14d"
   },
   {
    "path": "studio/game/shared/Net.lua",
@@ -40,14 +40,14 @@
    "parent": "ServerScriptService/SPSO",
    "name": "Brawler",
    "class": "Script",
-   "sha": "5490d8b1567275e8"
+   "sha": "13c8fdb4c8e8acec"
   },
   {
    "path": "studio/game/client/BrawlerClient.client.lua",
    "parent": "StarterPlayer/StarterPlayerScripts",
    "name": "BrawlerClient",
    "class": "LocalScript",
-   "sha": "cd6cc2fabb020348"
+   "sha": "160c6c2866e07f6e"
   },
   {
    "path": "studio/game/character/Animate.client.lua",

@@ -379,6 +379,10 @@ local function spawnEnemy(i: number)
 	local variant = Config.Variants[(i - 1) % #Config.Variants + 1]
 	e.Name = Config.Enemy.name .. " " .. variant.name
 	e:SetAttribute("SPSO_Variant", variant.name)
+	local body = e:FindFirstChild(heroCfg.bodyPart, true)
+	local head = e:FindFirstChild(heroCfg.headPart, true)
+	if body and variant.body then body.TextureID = variant.body end
+	if head and variant.head then head.TextureID = variant.head end
 	local hum = e:FindFirstChildOfClass("Humanoid")
 	hum.MaxHealth, hum.Health = Config.Enemy.health, Config.Enemy.health
 	hum.BreakJointsOnDeath = false

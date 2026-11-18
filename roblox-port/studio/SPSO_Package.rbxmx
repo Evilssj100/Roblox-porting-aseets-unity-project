@@ -1,4 +1,4 @@
-<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4"><External>null</External><External>nil</External><Item class="Folder" referent="RBX000034"><Properties><string name="Name">SPSO_Package</string></Properties><Item class="StringValue" referent="RBX000025"><Properties><string name="Name">_version</string><string name="Value">game-v2</string></Properties></Item><Item class="Folder" referent="RBX000026"><Properties><string name="Name">ReplicatedStorage/SPSO/Runtime</string></Properties><Item class="ModuleScript" referent="RBX000001"><Properties><string name="Name">ExactAnimator</string><ProtectedString name="Source"><![CDATA[--!native
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4"><External>null</External><External>nil</External><Item class="Folder" referent="RBX000034"><Properties><string name="Name">SPSO_Package</string></Properties><Item class="StringValue" referent="RBX000025"><Properties><string name="Name">_version</string><string name="Value">game-v3</string></Properties></Item><Item class="Folder" referent="RBX000026"><Properties><string name="Name">ReplicatedStorage/SPSO/Runtime</string></Properties><Item class="ModuleScript" referent="RBX000001"><Properties><string name="Name">ExactAnimator</string><ProtectedString name="Source"><![CDATA[--!native
 -- SPSO ExactAnimator: plays a hero's ORIGINAL animation curves exactly the way Unity's legacy
 -- Animation component did: Hermite curves, quaternion components normalised, the full node chain,
 -- crossfades, wrap modes, animation events, facial expressions (FacialAnimation.cs) and root motion
@@ -201,6 +201,7 @@ function ExactAnimator:_buildSkin()
 		for _, part in self.pack.parts do
 			local rigPart = self.rigParts[part.name]
 			local em = AssetService:CreateEditableMesh()
+			if not em then error("EditableMesh memory budget reached", 0) end
 			local pos, nrm, uv, tri = part.pos, part.nrm, part.uv, part.tri
 			local vids, nids, uids = table.create(part.nV), table.create(part.nN), table.create(part.nUV)
 			for v = 1, part.nV do vids[v] = em:AddVertex(Vector3.new(pos[3 * v - 2], pos[3 * v - 1], pos[3 * v])) end
@@ -723,6 +724,7 @@ function ExactAnimator:Destroy()
 	if type(self.skin) == "table" then
 		for _, s in self.skin do
 			s.mp:Destroy()
+			pcall(s.em.Destroy, s.em)
 			if s.rigPart then s.rigPart.Transparency = self.rigTransparency[s.rigPart] or 0 end
 		end
 	end
@@ -1146,12 +1148,12 @@ Config.Enemy = {
 	despawnAfter = 3.5,
 }
 
--- costume recolors for enemies (client EditableImage hue shift of the crimson costume; skin untouched)
+-- enemy costume variants: recolored El Rugido textures (tools/recolor_variants.py, uploaded as images)
 Config.Variants = {
-	{ name = "Azul", hue = 0.60, sat = 1.0, val = 1.0, gold = "silver" },
-	{ name = "Verde", hue = 0.36, sat = 0.9, val = 0.95, gold = "gold" },
-	{ name = "Morado", hue = 0.78, sat = 0.9, val = 1.0, gold = "gold" },
-	{ name = "Negro", hue = 0.0, sat = 0.0, val = 0.42, gold = "silver" },
+	{ name = "Azul", body = "rbxassetid://70368986942892", head = "rbxassetid://123547823862723" },
+	{ name = "Verde", body = "rbxassetid://74383374415269", head = "rbxassetid://131632527789308" },
+	{ name = "Morado", body = "rbxassetid://126193897515330", head = "rbxassetid://78351291351379" },
+	{ name = "Negro", body = "rbxassetid://73001122951843", head = "rbxassetid://133342632575321" },
 }
 
 Config.Waves = { 2, 3, 4, 5, 6 }
@@ -1584,6 +1586,10 @@ local function spawnEnemy(i: number)
 	local variant = Config.Variants[(i - 1) % #Config.Variants + 1]
 	e.Name = Config.Enemy.name .. " " .. variant.name
 	e:SetAttribute("SPSO_Variant", variant.name)
+	local body = e:FindFirstChild(heroCfg.bodyPart, true)
+	local head = e:FindFirstChild(heroCfg.headPart, true)
+	if body and variant.body then body.TextureID = variant.body end
+	if head and variant.head then head.TextureID = variant.head end
 	local hum = e:FindFirstChildOfClass("Humanoid")
 	hum.MaxHealth, hum.Health = Config.Enemy.health, Config.Enemy.health
 	hum.BreakJointsOnDeath = false
@@ -1636,14 +1642,13 @@ task.spawn(function()
 	end
 end)
 ]]></ProtectedString></Properties></Item></Item><Item class="Folder" referent="RBX000029"><Properties><string name="Name">StarterPlayer/StarterPlayerScripts</string></Properties><Item class="LocalScript" referent="RBX000007"><Properties><string name="Name">BrawlerClient</string><ProtectedString name="Source"><![CDATA[-- SPSO brawler client: animates every fighter with the exact animation runtime, the original
--- brawler-style fixed camera, input (attacks, super, emotes), HUD, hit effects, enemy costume recolors.
+-- brawler-style fixed camera, input (attacks, super, emotes), HUD, hit effects.
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
 local ContextActionService = game:GetService("ContextActionService")
 local CollectionService = game:GetService("CollectionService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local AssetService = game:GetService("AssetService")
 local TweenService = game:GetService("TweenService")
 
 local SPSO = ReplicatedStorage:WaitForChild("SPSO")
@@ -1655,77 +1660,6 @@ local CharacterAnimator = require(Game:WaitForChild("CharacterAnimator"))
 local player = Players.LocalPlayer
 local AttackRemote, EmoteRemote, FxRemote = Net.event("Attack"), Net.event("Emote"), Net.event("Fx")
 local heroCfg = Config.Heroes[Config.PlayerHero]
-
--- enemy costume recolors (EditableImage hue shift of the crimson costume; skin, mane, tape untouched) --
-local recolored = {}
-local function hsv2rgb(h, s, v)
-	local i = math.floor(h * 6) % 6
-	local f = h * 6 - math.floor(h * 6)
-	local p, q, t = v * (1 - s), v * (1 - f * s), v * (1 - (1 - f) * s)
-	if i == 0 then return v, t, p elseif i == 1 then return q, v, p elseif i == 2 then return p, v, t
-	elseif i == 3 then return p, q, v elseif i == 4 then return t, p, v end
-	return v, p, q
-end
-
-local function recolor(content: Content, key: string, variant)
-	if recolored[key] ~= nil then
-		while recolored[key] == "busy" do task.wait() end
-		return recolored[key]
-	end
-	recolored[key] = "busy"
-	local ok, ei = pcall(AssetService.CreateEditableImageAsync, AssetService, content)
-	if not ok then
-		warn("[SPSO] recolor unavailable: " .. tostring(ei))
-		recolored[key] = false
-		return false
-	end
-	local size = ei.Size
-	local buf = ei:ReadPixelsBuffer(Vector2.zero, size)
-	local n = size.X * size.Y
-	for i = 0, n - 1 do
-		local o = i * 4
-		local r, g, b = buffer.readu8(buf, o) / 255, buffer.readu8(buf, o + 1) / 255, buffer.readu8(buf, o + 2) / 255
-		local mx, mn = math.max(r, g, b), math.min(r, g, b)
-		local d = mx - mn
-		if mx > 0.06 and d > 0.42 * mx then
-			local h
-			if mx == r then h = ((g - b) / d) % 6 elseif mx == g then h = (b - r) / d + 2 else h = (r - g) / d + 4 end
-			h /= 6
-			local s = d / mx
-			local nr, ng, nb
-			if h > 0.93 or h < 0.025 then
-				nr, ng, nb = hsv2rgb(variant.hue, math.clamp(s * variant.sat, 0, 1), math.clamp(mx * variant.val, 0, 1))
-			elseif variant.gold == "silver" and h > 0.09 and h < 0.17 and s > 0.45 then
-				nr, ng, nb = hsv2rgb(0.58, s * 0.12, math.clamp(mx * 1.05, 0, 1))
-			end
-			if nr then
-				buffer.writeu8(buf, o, math.floor(nr * 255 + 0.5))
-				buffer.writeu8(buf, o + 1, math.floor(ng * 255 + 0.5))
-				buffer.writeu8(buf, o + 2, math.floor(nb * 255 + 0.5))
-			end
-		end
-		if i % 131072 == 0 then task.wait() end
-	end
-	ei:WritePixelsBuffer(Vector2.zero, size, buf)
-	local c = Content.fromObject(ei)
-	recolored[key] = c
-	return c
-end
-
-local function applyVariant(ca, model: Model, variantName: string)
-	local variant
-	for _, v in Config.Variants do
-		if v.name == variantName then variant = v end
-	end
-	if not variant then return end
-	for _, partName in { ca.cfg.bodyPart, ca.cfg.headPart } do
-		local part = model:FindFirstChild(partName, true)
-		if part and part:IsA("MeshPart") then
-			local c = recolor(part.TextureContent, partName .. "/" .. variant.name, variant)
-			if c and model.Parent then ca.anim:SetPartTexture(partName, c) end
-		end
-	end
-end
 
 -- animators for every fighter ----------------------------------------------------------------------------
 local animators = {}
@@ -1772,8 +1706,9 @@ local function attach(model: Instance)
 		local variant = model:GetAttribute("SPSO_Variant")
 		local enemy = model:GetAttribute("SPSO_Team") == "Enemy"
 		local ok, ca = pcall(CharacterAnimator.new, model, {
-			isLocal = isLocal, skin = true, prebuildSkin = isLocal,
-			faces = not (variant and variant ~= ""), lodDistance = isLocal and 300 or 80,
+			-- exact bone-scale skinning (EditableMesh) for the local hero; others use the bones (memory budget)
+			isLocal = isLocal, skin = isLocal, prebuildSkin = isLocal,
+			faces = not (variant and variant ~= ""), lodDistance = 300,
 		})
 		if not ok then
 			warn("[SPSO] animator failed for " .. model:GetFullName() .. ": " .. tostring(ca))
@@ -1787,7 +1722,6 @@ local function attach(model: Instance)
 		end
 		animators[model] = ca
 		if enemy then makeHealthBar(model) end
-		if variant and variant ~= "" then task.spawn(applyVariant, ca, model, variant) end
 	end)
 end
 

@@ -1,13 +1,17 @@
 # Roblox port workspace
 
 Work for porting this game to Roblox. The original Unity project is untouched; everything new lives here.
+Start with `HANDOFF.md`: it covers the current state, the 3-step update loop and every pipeline.
 
-- `heroes/ElRugido/`: El Rugido, the first repurposed hero (original brute rig, mesh, weights and all 63 animations; new design).
-  - `ElRugido.blend`: Roblox-ready Blender file (Blender 5.x, 60 fps). Body and head are separate meshes, and the head uses face tile 0.
-  - `textures/`: body texture and the 8 face-expression tiles (0 Normal, 1 Happy, 2 Surprised, 3 Aggressive, 4 Squint, 5 Blink, 6 Custom1, 7 Custom2).
-  - `ElRugido_anim_exact.json`: clip list with durations, sample counts and the original animation events (face tags, hitbox windows, combo windows, footsteps).
-- `tools/`: the pipeline scripts (Unity bundle extraction, exact 60 fps animation sampling, Blender builders, checks).
-
-Animations are exact: Blender playback matches the original skinning within 1e-5 units on every clip, including bone scaling.
-
-- `heroes/ElRugido/roblox_data/`: binary data for exact custom skinning in Roblox (EditableMesh): `mesh.bin` (rest mesh in studs, skin weights, UVs and normals), `clips/<clip>.bin` (per-frame skinning matrices at 60 fps, bone scaling included), raw RGBA textures and `manifest.json`. The format is documented in `tools/export_roblox_skin_data.py`.
+- `studio/`: everything that runs in Roblox.
+  - `runtime/`: HeroPack (pack decoder) and ExactAnimator. ExactAnimator plays the original Unity animation curves exactly, using bones, or EditableMesh skinning when bones scale.
+  - `game/`: the brawler. `shared/` holds config, net and the character animator; `server/Brawler`; `client/BrawlerClient`; `character/` holds Animate and Health overrides.
+  - `setup/01_world.lua`: idempotent world setup (character templates, StarterCharacter, arena collision and spawns, lighting).
+  - `manifest.json`, `SPSO_Package.rbxmx`, `unpack.lua`, `install.lua`: packaging and installing into Studio.
+- `heroes/ElRugido/`: El Rugido, the first repurposed hero (original rig, mesh, weights and all 63 animations; new design).
+  - `ElRugido.blend` and `textures/`: the Roblox-ready model and its textures (8 face-expression tiles).
+  - `runtime/ElRugido.spsohero.b64`: runtime pack (original curves, mesh, bind data, self-tests). `ElRugido.pack.json` summarises it.
+  - `variants/`: enemy costume recolors.
+  - `roblox_data/`: per-frame skinning matrices, used for verification.
+- `maps/OrbitalArena/`: the arena, Roblox-ready (`.blend`, upload-ready `.fbx`/`.glb`, preview).
+- `tools/`: the pipeline scripts (bundle extraction, exact animation, hero packs, map prep, recolors, packaging).

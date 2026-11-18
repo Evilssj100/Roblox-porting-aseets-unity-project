@@ -1,0 +1,26 @@
+{
+ "scripts": [
+  {
+   "path": "studio/runtime/ExactAnimator.lua",
+   "parent": "ReplicatedStorage/SPSO/Runtime",
+   "name": "ExactAnimator",
+   "class": "ModuleScript",
+   "sha": "73c9b6ff0dfbb453"
+  },
+  {
+   "path": "studio/runtime/HeroPack.lua",
+   "parent": "ReplicatedStorage/SPSO/Runtime",
+   "name": "HeroPack",
+   "class": "ModuleScript",
+   "sha": "04b378e5e44e64b7"
+  }
+ ],
+ "heroes": [
+  {
+   "name": "ElRugido",
+   "path": "heroes/ElRugido/runtime/ElRugido.spsohero.b64",
+   "sha": "9e2c489c4be87477"
+  }
+ ],
+ "setup": []
+}

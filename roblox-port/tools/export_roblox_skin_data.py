@@ -102,7 +102,8 @@ print("mesh:", part_meta)
 # rest-pose sanity: skinning with the identity pose must give back the rest mesh -> check S at bind
 bind_inv = np.stack([np.linalg.inv(b) for b in ex["bind_world"]])
 clips_meta = []
-for c in meta["clips"]:
+MESH_ONLY = os.environ.get("MESH_ONLY") == "1"  # spso_hero_pack.py only needs mesh.bin
+for c in ([] if MESH_ONLY else meta["clips"]):
     name = c["name"]
     W = ex[f"clip__{name}"]
     T = W.shape[0]
@@ -117,13 +118,13 @@ for c in meta["clips"]:
                        "wrapMode": c["wrapMode"], "events": c["events"]})
 
 textures = {}
-for fn in sorted(os.listdir(tex_dir)):
+for fn in ([] if MESH_ONLY else sorted(os.listdir(tex_dir))):
     if fn.endswith(".png"):
         im = Image.open(os.path.join(tex_dir, fn)).convert("RGBA")
         raw = os.path.splitext(fn)[0] + ".rgba"
         open(os.path.join(out, raw), "wb").write(im.tobytes())
         textures[os.path.splitext(fn)[0]] = {"file": raw, "size": list(im.size)}
-json.dump({"hero": "ElRugido", "studsPerUnit": k, "bones": bones, "parents": meta["parents"], "parts": part_meta,
+json.dump({"hero": arm.name, "studsPerUnit": k, "bones": bones, "parents": meta["parents"], "parts": part_meta,
            "clips": clips_meta, "textures": textures,
            "faceExpressions": ["Normal", "Happy", "Surprised", "Aggressive", "Squint", "Blink", "Custom1", "Custom2"]},
           open(os.path.join(out, "manifest.json"), "w"), indent=1)

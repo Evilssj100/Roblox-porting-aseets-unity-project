@@ -1,0 +1,448 @@
+{
+ "hero": "NightGecko",
+ "height_bu": 1.985625387635082,
+ "bones": [
+  "Pelvis",
+  "LLeg1",
+  "LLeg2",
+  "LLegAnkle",
+  "LLegDigit11",
+  "Spine",
+  "Ribcage",
+  "Neck",
+  "Head",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm21",
+  "LArm22",
+  "LArmPalm",
+  "LArmDigit41",
+  "LArmDigit42",
+  "LArmDigit31",
+  "LArmDigit32",
+  "LArmDigit21",
+  "LArmDigit22",
+  "LArmDigit11",
+  "LArmDigit12",
+  "RArmCollarbone",
+  "RArm1",
+  "RArm21",
+  "RArm22",
+  "RArmPalm",
+  "RArmDigit31",
+  "RArmDigit32",
+  "RArmDigit41",
+  "RArmDigit42",
+  "RArmDigit21",
+  "RArmDigit22",
+  "RArmDigit11",
+  "RArmDigit12",
+  "RLeg1",
+  "RLeg2",
+  "RLegAnkle",
+  "RLegDigit11"
+ ],
+ "parents": [
+  "",
+  "Pelvis",
+  "LLeg1",
+  "LLeg2",
+  "LLegAnkle",
+  "Pelvis",
+  "Spine",
+  "Ribcage",
+  "Neck",
+  "Ribcage",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm21",
+  "LArm22",
+  "LArmPalm",
+  "LArmDigit41",
+  "LArmPalm",
+  "LArmDigit31",
+  "LArmPalm",
+  "LArmDigit21",
+  "LArmPalm",
+  "LArmDigit11",
+  "Ribcage",
+  "RArmCollarbone",
+  "RArm1",
+  "RArm21",
+  "RArm22",
+  "RArmPalm",
+  "RArmDigit31",
+  "RArmPalm",
+  "RArmDigit41",
+  "RArmPalm",
+  "RArmDigit21",
+  "RArmPalm",
+  "RArmDigit11",
+  "Pelvis",
+  "RLeg1",
+  "RLeg2",
+  "RLegAnkle"
+ ],
+ "fx_points": {
+  "fx_Lpalm": {
+   "bone": "LArmPalm",
+   "world": [
+    0.9730002880096436,
+    0.008320986293256283,
+    1.3389999866485596
+   ],
+   "offset_in_bone": [
+    0.049269162118434906,
+    0.10908039659261703,
+    -0.009670725092291832
+   ]
+  },
+  "fx_Rpalm": {
+   "bone": "RArmPalm",
+   "world": [
+    -0.9730008244514465,
+    0.008000070229172707,
+    1.33899986743927
+   ],
+   "offset_in_bone": [
+    0.04928450286388397,
+    0.1091022714972496,
+    0.00935134757310152
+   ]
+  }
+ },
+ "clips": [
+  {
+   "name": "Take 001",
+   "duration": 0.7
+  },
+  {
+   "name": "attack_L1",
+   "duration": 1.666667
+  },
+  {
+   "name": "attack_L2",
+   "duration": 1.833333
+  },
+  {
+   "name": "attack_L3",
+   "duration": 1.6
+  },
+  {
+   "name": "attack_L4",
+   "duration": 1.133333
+  },
+  {
+   "name": "attack_L5",
+   "duration": 2.1
+  },
+  {
+   "name": "attack_R1",
+   "duration": 2.5
+  },
+  {
+   "name": "attack_R2",
+   "duration": 3.1
+  },
+  {
+   "name": "attack_R3",
+   "duration": 0.5
+  },
+  {
+   "name": "attack_R3_end",
+   "duration": 1.366667
+  },
+  {
+   "name": "attack_super",
+   "duration": 3.666667
+  },
+  {
+   "name": "attack_super_move",
+   "duration": 3.1
+  },
+  {
+   "name": "block",
+   "duration": 1.5
+  },
+  {
+   "name": "combo",
+   "duration": 6.766667
+  },
+  {
+   "name": "emote_angry",
+   "duration": 4.5
+  },
+  {
+   "name": "emote_approve",
+   "duration": 2.666667
+  },
+  {
+   "name": "emote_blush",
+   "duration": 5.166667
+  },
+  {
+   "name": "emote_bow",
+   "duration": 3.5
+  },
+  {
+   "name": "emote_cheer",
+   "duration": 2.9
+  },
+  {
+   "name": "emote_clap",
+   "duration": 3.5
+  },
+  {
+   "name": "emote_confused",
+   "duration": 4.033334
+  },
+  {
+   "name": "emote_dance",
+   "duration": 0.966667
+  },
+  {
+   "name": "emote_disapprove",
+   "duration": 3.0
+  },
+  {
+   "name": "emote_eat",
+   "duration": 6.666667
+  },
+  {
+   "name": "emote_greet",
+   "duration": 2.033334
+  },
+  {
+   "name": "emote_laugh",
+   "duration": 4.666667
+  },
+  {
+   "name": "emote_manipulate_loop",
+   "duration": 2.166667
+  },
+  {
+   "name": "emote_no",
+   "duration": 3.0
+  },
+  {
+   "name": "emote_point",
+   "duration": 2.666667
+  },
+  {
+   "name": "emote_poke",
+   "duration": 1.566667
+  },
+  {
+   "name": "emote_pose",
+   "duration": 3.833333
+  },
+  {
+   "name": "emote_power_1",
+   "duration": 3.266667
+  },
+  {
+   "name": "emote_power_2",
+   "duration": 4.0
+  },
+  {
+   "name": "emote_power_3",
+   "duration": 4.0
+  },
+  {
+   "name": "emote_raise_hand",
+   "duration": 3.0
+  },
+  {
+   "name": "emote_rude",
+   "duration": 4.666667
+  },
+  {
+   "name": "emote_sad",
+   "duration": 5.0
+  },
+  {
+   "name": "emote_scared",
+   "duration": 3.833333
+  },
+  {
+   "name": "emote_shock",
+   "duration": 4.233334
+  },
+  {
+   "name": "emote_sneeze",
+   "duration": 5.0
+  },
+  {
+   "name": "emote_taunt",
+   "duration": 4.8
+  },
+  {
+   "name": "emote_think",
+   "duration": 5.066667
+  },
+  {
+   "name": "emote_yes",
+   "duration": 2.666667
+  },
+  {
+   "name": "hs_climb",
+   "duration": 0.566667
+  },
+  {
+   "name": "hs_launch",
+   "duration": 1.066667
+  },
+  {
+   "name": "hs_launch_climb",
+   "duration": 1.066667
+  },
+  {
+   "name": "jump_fall",
+   "duration": 0.8
+  },
+  {
+   "name": "jump_fall_2",
+   "duration": 0.833333
+  },
+  {
+   "name": "jump_fall_loop",
+   "duration": 1.066667
+  },
+  {
+   "name": "jump_land",
+   "duration": 0.733333
+  },
+  {
+   "name": "jump_run_fall",
+   "duration": 0.8
+  },
+  {
+   "name": "jump_run_fall_loop",
+   "duration": 1.066667
+  },
+  {
+   "name": "jump_run_land",
+   "duration": 0.433333
+  },
+  {
+   "name": "jump_run_up",
+   "duration": 0.666667
+  },
+  {
+   "name": "jump_run_up_2",
+   "duration": 1.0
+  },
+  {
+   "name": "jump_up",
+   "duration": 0.666667
+  },
+  {
+   "name": "jump_up_2",
+   "duration": 1.0
+  },
+  {
+   "name": "jump_up_3",
+   "duration": 1.866667
+  },
+  {
+   "name": "movement_idle",
+   "duration": 2.0
+  },
+  {
+   "name": "movement_run",
+   "duration": 0.7
+  },
+  {
+   "name": "pickup",
+   "duration": 1.666667
+  },
+  {
+   "name": "pickup_idle",
+   "duration": 2.0
+  },
+  {
+   "name": "pickup_run",
+   "duration": 0.7
+  },
+  {
+   "name": "pickup_throw",
+   "duration": 0.9
+  },
+  {
+   "name": "power_emote_1",
+   "duration": 2.0
+  },
+  {
+   "name": "power_emote_2",
+   "duration": 8.666667
+  },
+  {
+   "name": "power_emote_3",
+   "duration": 6.066667
+  },
+  {
+   "name": "recoil_back",
+   "duration": 0.966667
+  },
+  {
+   "name": "recoil_big",
+   "duration": 0.933333
+  },
+  {
+   "name": "recoil_death",
+   "duration": 0.933333
+  },
+  {
+   "name": "recoil_getup",
+   "duration": 1.366667
+  },
+  {
+   "name": "recoil_launch",
+   "duration": 0.933333
+  },
+  {
+   "name": "recoil_launch_land",
+   "duration": 1.0
+  },
+  {
+   "name": "recoil_small",
+   "duration": 0.966667
+  },
+  {
+   "name": "recoil_stun",
+   "duration": 2.0
+  },
+  {
+   "name": "sit_down",
+   "duration": 2.0
+  },
+  {
+   "name": "sit_idle",
+   "duration": 6.666667
+  },
+  {
+   "name": "sit_stand",
+   "duration": 1.9
+  }
+ ],
+ "face_tiles": [
+  "NightGecko_Face_0.png",
+  "NightGecko_Face_1.png",
+  "NightGecko_Face_2.png",
+  "NightGecko_Face_3.png",
+  "NightGecko_Face_4.png",
+  "NightGecko_Face_5.png",
+  "NightGecko_Face_6.png",
+  "NightGecko_Face_7.png"
+ ],
+ "face_tile_names": [
+  "neutral_smile",
+  "grin",
+  "surprised",
+  "gritted",
+  "wink",
+  "smirk",
+  "shout",
+  "focused"
+ ]
+}

@@ -1,10 +1,10 @@
 {
  "hero": "ElRugido",
  "studsPerUnit": 2.56,
- "rawBytes": 2230381,
- "zstdBytes": 1469893,
+ "rawBytes": 2230383,
+ "zstdBytes": 1469839,
  "nodes": [
-  "hulk_01_prefab",
+  "rugido_01_prefab",
   "export_node",
   "motion_export",
   "motion_transfer",

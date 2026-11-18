@@ -41,6 +41,7 @@ import zstandard
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from unity_hero_to_glb import comps, components, mat4  # noqa: E402
+from spso_names import clean  # noqa: E402
 
 S4 = np.diag([-1.0, 1.0, 1.0, 1.0])
 DIM = {0: 4, 1: 3, 2: 3}
@@ -277,8 +278,9 @@ def build(args):
     w.pack("f", args.studs)
     w.str(args.hero)
     w.pack("H", len(hero.nodes))
-    for n in hero.nodes:
-        w.str(n["name"])
+    bone_nodes = set(hero.bones)
+    for ni, n in enumerate(hero.nodes):
+        w.str(n["name"] if ni in bone_nodes else clean(n["name"]))  # bones must keep the rig's names
         w.pack("h", n["parent"])
         w.f32(n["t"])
         w.f32(n["q"])
@@ -414,7 +416,7 @@ def build(args):
     open(os.path.join(args.out, f"{args.hero}.spsohero"), "wb").write(z)
     open(os.path.join(args.out, f"{args.hero}.spsohero.b64"), "w").write(base64.b64encode(z).decode())
     info = {"hero": args.hero, "studsPerUnit": args.studs, "rawBytes": len(raw), "zstdBytes": len(z),
-            "nodes": [n["name"] for n in hero.nodes], "bones": [hero.nodes[b]["name"] for b in hero.bones],
+            "nodes": [n["name"] if i in set(hero.bones) else clean(n["name"]) for i, n in enumerate(hero.nodes)], "bones": [hero.nodes[b]["name"] for b in hero.bones],
             "mesh": mesh_info, "curveKeys": n_keys, "constantCurves": n_const, "selfTest": picks,
             "clips": [{"name": c["name"], "duration": round(c["duration"], 6), "rootMotion": c["root_motion"],
                        "maxScaleDeviation": round(scale_dev[c["name"]], 5), "events": c["events"]} for c in hero.clips]}

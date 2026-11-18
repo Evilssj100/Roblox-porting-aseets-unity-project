@@ -1,0 +1,412 @@
+{
+ "hero": "Skyvolt",
+ "height_bu": 1.996305761858821,
+ "bones": [
+  "Pelvis",
+  "LLeg1",
+  "LLeg2",
+  "LLegAnkle",
+  "LLegDigit11",
+  "Spine",
+  "Ribcage",
+  "Neck",
+  "Head",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm21",
+  "LArm22",
+  "LArmPalm",
+  "LArmDigit31",
+  "LArmDigit32",
+  "LArmDigit41",
+  "LArmDigit42",
+  "LArmDigit21",
+  "LArmDigit22",
+  "LArmDigit11",
+  "LArmDigit12",
+  "LArmWing1",
+  "LArmWingTips1",
+  "LArmWing2",
+  "LArmWingTips2",
+  "RArmCollarbone",
+  "RArm1",
+  "RArm21",
+  "RArm22",
+  "RArmPalm",
+  "RArmDigit31",
+  "RArmDigit32",
+  "RArmDigit41",
+  "RArmDigit42",
+  "RArmDigit21",
+  "RArmDigit22",
+  "RArmDigit11",
+  "RArmDigit12",
+  "RArmWing1",
+  "RArmWingTips1",
+  "RArmWing2",
+  "RArmWingTips2",
+  "RLeg1",
+  "RLeg2",
+  "RLegAnkle",
+  "RLegDigit11"
+ ],
+ "parents": [
+  "",
+  "Pelvis",
+  "LLeg1",
+  "LLeg2",
+  "LLegAnkle",
+  "Pelvis",
+  "Spine",
+  "Ribcage",
+  "Neck",
+  "Ribcage",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm21",
+  "LArm22",
+  "LArmPalm",
+  "LArmDigit31",
+  "LArmPalm",
+  "LArmDigit41",
+  "LArmPalm",
+  "LArmDigit21",
+  "LArmPalm",
+  "LArmDigit11",
+  "LArm21",
+  "LArmWing1",
+  "LArm1",
+  "LArmWing2",
+  "Ribcage",
+  "RArmCollarbone",
+  "RArm1",
+  "RArm21",
+  "RArm22",
+  "RArmPalm",
+  "RArmDigit31",
+  "RArmPalm",
+  "RArmDigit41",
+  "RArmPalm",
+  "RArmDigit21",
+  "RArmPalm",
+  "RArmDigit11",
+  "RArm21",
+  "RArmWing1",
+  "RArm1",
+  "RArmWing2",
+  "Pelvis",
+  "RLeg1",
+  "RLeg2",
+  "RLegAnkle"
+ ],
+ "fx_points": {
+  "fx_Lpalm": {
+   "bone": "LArmPalm",
+   "world": [
+    0.9690719842910767,
+    -0.0020135887898504734,
+    1.304000735282898
+   ],
+   "offset_in_bone": [
+    0.08461645245552063,
+    0.10486441105604172,
+    -0.0007275498937815428
+   ]
+  },
+  "fx_Rpalm": {
+   "bone": "RArmPalm",
+   "world": [
+    -0.9690720438957214,
+    -0.002013880293816328,
+    1.304000735282898
+   ],
+   "offset_in_bone": [
+    0.08461609482765198,
+    0.10486429184675217,
+    0.0007275838870555162
+   ]
+  }
+ },
+ "clips": [
+  {
+   "name": "Take 001",
+   "duration": 0.7
+  },
+  {
+   "name": "attack_L1",
+   "duration": 2.0
+  },
+  {
+   "name": "attack_L2",
+   "duration": 1.9
+  },
+  {
+   "name": "attack_L3",
+   "duration": 1.833333
+  },
+  {
+   "name": "attack_L4",
+   "duration": 1.566667
+  },
+  {
+   "name": "attack_L5",
+   "duration": 1.933333
+  },
+  {
+   "name": "attack_R1",
+   "duration": 2.533334
+  },
+  {
+   "name": "attack_R2",
+   "duration": 2.9
+  },
+  {
+   "name": "attack_R3",
+   "duration": 3.4
+  },
+  {
+   "name": "attack_super",
+   "duration": 4.5
+  },
+  {
+   "name": "block",
+   "duration": 1.5
+  },
+  {
+   "name": "emote_angry",
+   "duration": 3.166667
+  },
+  {
+   "name": "emote_approve",
+   "duration": 3.6
+  },
+  {
+   "name": "emote_blush",
+   "duration": 2.9
+  },
+  {
+   "name": "emote_bow",
+   "duration": 3.333333
+  },
+  {
+   "name": "emote_cheer",
+   "duration": 3.166667
+  },
+  {
+   "name": "emote_clap",
+   "duration": 4.266667
+  },
+  {
+   "name": "emote_confused",
+   "duration": 4.833333
+  },
+  {
+   "name": "emote_dance",
+   "duration": 5.333333
+  },
+  {
+   "name": "emote_disapprove",
+   "duration": 2.0
+  },
+  {
+   "name": "emote_eat",
+   "duration": 6.666667
+  },
+  {
+   "name": "emote_greet",
+   "duration": 2.333333
+  },
+  {
+   "name": "emote_laugh",
+   "duration": 5.666667
+  },
+  {
+   "name": "emote_manipulate_loop",
+   "duration": 2.133333
+  },
+  {
+   "name": "emote_point",
+   "duration": 3.333333
+  },
+  {
+   "name": "emote_poke",
+   "duration": 1.566667
+  },
+  {
+   "name": "emote_pose",
+   "duration": 3.833333
+  },
+  {
+   "name": "emote_raise_hand",
+   "duration": 3.833333
+  },
+  {
+   "name": "emote_rude",
+   "duration": 3.5
+  },
+  {
+   "name": "emote_sad",
+   "duration": 4.333333
+  },
+  {
+   "name": "emote_scared",
+   "duration": 3.9
+  },
+  {
+   "name": "emote_shock",
+   "duration": 4.333333
+  },
+  {
+   "name": "emote_sneeze",
+   "duration": 5.5
+  },
+  {
+   "name": "emote_taunt",
+   "duration": 3.166667
+  },
+  {
+   "name": "emote_think",
+   "duration": 5.0
+  },
+  {
+   "name": "hs_fly",
+   "duration": 1.433333
+  },
+  {
+   "name": "hs_launch",
+   "duration": 1.166667
+  },
+  {
+   "name": "jump_fall",
+   "duration": 0.8
+  },
+  {
+   "name": "jump_fall_loop",
+   "duration": 1.066667
+  },
+  {
+   "name": "jump_land",
+   "duration": 0.733333
+  },
+  {
+   "name": "jump_run_fall",
+   "duration": 0.8
+  },
+  {
+   "name": "jump_run_fall_loop",
+   "duration": 1.066667
+  },
+  {
+   "name": "jump_run_land",
+   "duration": 0.466667
+  },
+  {
+   "name": "jump_run_up",
+   "duration": 0.566667
+  },
+  {
+   "name": "jump_up",
+   "duration": 0.566667
+  },
+  {
+   "name": "movement_idle",
+   "duration": 2.666667
+  },
+  {
+   "name": "movement_run",
+   "duration": 0.7
+  },
+  {
+   "name": "pickup",
+   "duration": 1.666667
+  },
+  {
+   "name": "pickup_idle",
+   "duration": 2.0
+  },
+  {
+   "name": "pickup_run",
+   "duration": 0.7
+  },
+  {
+   "name": "pickup_throw",
+   "duration": 1.5
+  },
+  {
+   "name": "power_emote_1",
+   "duration": 2.9
+  },
+  {
+   "name": "power_emote_2",
+   "duration": 13.700001
+  },
+  {
+   "name": "power_emote_3",
+   "duration": 6.666667
+  },
+  {
+   "name": "recoil_back",
+   "duration": 0.966667
+  },
+  {
+   "name": "recoil_big",
+   "duration": 0.933333
+  },
+  {
+   "name": "recoil_death",
+   "duration": 0.933333
+  },
+  {
+   "name": "recoil_getup",
+   "duration": 1.366667
+  },
+  {
+   "name": "recoil_launch",
+   "duration": 2.0
+  },
+  {
+   "name": "recoil_launch_land",
+   "duration": 1.0
+  },
+  {
+   "name": "recoil_small",
+   "duration": 0.966667
+  },
+  {
+   "name": "recoil_stun",
+   "duration": 1.5
+  },
+  {
+   "name": "sit_down",
+   "duration": 2.0
+  },
+  {
+   "name": "sit_idle",
+   "duration": 6.666667
+  },
+  {
+   "name": "sit_stand",
+   "duration": 1.9
+  }
+ ],
+ "face_tiles": [
+  "Skyvolt_Face_0.png",
+  "Skyvolt_Face_1.png",
+  "Skyvolt_Face_2.png",
+  "Skyvolt_Face_3.png",
+  "Skyvolt_Face_4.png",
+  "Skyvolt_Face_5.png",
+  "Skyvolt_Face_6.png",
+  "Skyvolt_Face_7.png"
+ ],
+ "face_tile_names": [
+  "neutral_smile",
+  "grin",
+  "surprised",
+  "gritted",
+  "wink",
+  "smirk",
+  "shout",
+  "focused"
+ ]
+}

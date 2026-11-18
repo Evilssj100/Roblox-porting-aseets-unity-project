@@ -22,11 +22,25 @@
    "sha": "a272ef42732d9957"
   },
   {
+   "path": "studio/game/shared/FxData.lua",
+   "parent": "ReplicatedStorage/SPSO/Game",
+   "name": "FxData",
+   "class": "ModuleScript",
+   "sha": "b72f114e23c76238"
+  },
+  {
    "path": "studio/game/shared/GameConfig.lua",
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "GameConfig",
    "class": "ModuleScript",
    "sha": "780704ce5274a14d"
+  },
+  {
+   "path": "studio/game/shared/GameData.lua",
+   "parent": "ReplicatedStorage/SPSO/Game",
+   "name": "GameData",
+   "class": "ModuleScript",
+   "sha": "a6b4bb605361fad9"
   },
   {
    "path": "studio/game/shared/Net.lua",
@@ -66,9 +80,29 @@
  ],
  "heroes": [
   {
+   "name": "Aurora",
+   "path": "heroes/Aurora/runtime/Aurora.spsohero.b64",
+   "sha": "164b7188ee68bb2e"
+  },
+  {
    "name": "ElRugido",
    "path": "heroes/ElRugido/runtime/ElRugido.spsohero.b64",
-   "sha": "9e2c489c4be87477"
+   "sha": "a9749758ef9aa52d"
+  },
+  {
+   "name": "Magmaul",
+   "path": "heroes/Magmaul/runtime/Magmaul.spsohero.b64",
+   "sha": "b07558a5b82123fa"
+  },
+  {
+   "name": "NightGecko",
+   "path": "heroes/NightGecko/runtime/NightGecko.spsohero.b64",
+   "sha": "592d3d4fa1f0e663"
+  },
+  {
+   "name": "Skyvolt",
+   "path": "heroes/Skyvolt/runtime/Skyvolt.spsohero.b64",
+   "sha": "36029706757191dd"
   }
  ],
  "setup": [

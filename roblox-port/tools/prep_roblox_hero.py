@@ -10,7 +10,9 @@
 * every action sampled at 30 fps: armature-space bone matrices (world, Blender axes) saved to
   <Hero>_anim.npz for building Roblox KeyframeSequences later
 
-Usage: python prep_roblox_hero.py <hero.blend> <face_atlas.png> <out_dir> <Hero>
+Usage: python prep_roblox_hero.py <hero.blend> <face_atlas.png> <out_dir> <Hero> [body.png]
+The head part is the one whose texture image (or material) is named "head"; any other materials are
+joined into the body. Pass body.png when the .blend's body image is packed.
 """
 import json
 import os
@@ -74,14 +76,30 @@ bpy.ops.mesh.select_all(action="SELECT")
 bpy.ops.mesh.separate(type="MATERIAL")
 bpy.ops.object.mode_set(mode="OBJECT")
 parts = [o for o in bpy.data.objects if o.type == "MESH"]
-body = head = None
+
+
+def is_head(mat):
+    """The head material shows the face atlas: its image name (or failing that the material name) says 'head'."""
+    tex = next((n for n in mat.node_tree.nodes if n.type == "TEX_IMAGE" and n.image), None) if mat and mat.node_tree else None
+    if tex is not None:
+        return "head" in tex.image.name.lower() or mat.name.lower().endswith("_head")
+    return "head" in (mat.name if mat else "").lower()
+
+
+heads, bodies = [], []
 for o in parts:
     used = {p.material_index for p in o.data.polygons}
-    mat = o.material_slots[min(used)].material
-    if "Head" in mat.name:
-        head = o
-    else:
-        body = o
+    (heads if is_head(o.material_slots[min(used)].material) else bodies).append(o)
+assert len(heads) == 1 and bodies, f"expected one head part and a body, got heads={[o.name for o in heads]}"
+head = heads[0]
+if len(bodies) > 1:  # extra non-face materials: keep them on one body mesh
+    bpy.ops.object.select_all(action="DESELECT")
+    for o in bodies:
+        o.select_set(True)
+    bpy.context.view_layer.objects.active = bodies[0]
+    bpy.ops.object.join()
+body = bodies[0]
+parts = [body, head]
 for o in parts:
     bpy.ops.object.select_all(action="DESELECT")
     o.select_set(True)
@@ -101,6 +119,8 @@ uv = np.zeros(len(uvl) * 2)
 uvl.foreach_get("uv", uv)
 uv = uv.reshape(-1, 2)
 print("head uv range before:", uv.min(0).round(3), uv.max(0).round(3))
+if uv[:, 0].max() > 0.2505 or uv[:, 1].min() < 0.4995:
+    print("WARNING: head UVs are not inside expression tile 0 (u<=.25, v>=.5); face tiles will be wrong")
 uv[:, 0] = uv[:, 0] * 4.0
 uv[:, 1] = uv[:, 1] * 2.0 - 1.0
 uvl.foreach_set("uv", uv.ravel())
@@ -118,9 +138,12 @@ tex.image = face0
 bm = body.material_slots[0].material
 btex = next(n for n in bm.node_tree.nodes if n.type == "TEX_IMAGE")
 body_png = os.path.join(tex_dir, f"{hero}_Body.png")
-btex.image.filepath_raw = body_png
-btex.image.file_format = "PNG"
-btex.image.save()
+if len(sys.argv) > 5:  # the repurposed body texture as a file (the .blend copy is packed)
+    Image.open(sys.argv[5]).convert("RGB").save(body_png)
+else:
+    w, h = btex.image.size
+    px = np.array(btex.image.pixels[:], np.float32).reshape(h, w, -1)[::-1, :, :3]
+    Image.fromarray((np.clip(px, 0, 1) * 255 + 0.5).astype(np.uint8)).save(body_png)
 btex.image.name = f"{hero}_Body"
 # absolute paths next to the output .blend (save_as remaps them to //textures/...), and pack both
 for im, fn in ((btex.image, f"{hero}_Body.png"), (face0, f"{hero}_Face_0.png")):
@@ -140,7 +163,7 @@ arm.data.name = f"{hero}_Rig"
 renamed = 0
 for a in bpy.data.actions:
     for s in a.slots:
-        if s.identifier in ("OB" + old_arm_name, "OBmotion_transfer"):
+        if s.identifier.startswith("OB") and s.identifier != "OB" + hero:
             try:
                 s.name_display = hero
                 renamed += 1

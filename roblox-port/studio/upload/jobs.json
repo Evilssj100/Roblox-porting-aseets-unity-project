@@ -1,0 +1,1059 @@
+[
+{
+"key": "fx_aura3_add_tex_e3f9",
+"path": "roblox-port/assets/fx/fx_aura3_add_tex_e3f9.png",
+"kind": "image",
+"name": "fx_aura3_add_tex_e3f9",
+"ctype": "image/png"
+},
+{
+"key": "fx_aura_alphprem_tex_afab",
+"path": "roblox-port/assets/fx/fx_aura_alphprem_tex_afab.png",
+"kind": "image",
+"name": "fx_aura_alphprem_tex_afab",
+"ctype": "image/png"
+},
+{
+"key": "fx_blast_add_tex_a3c6",
+"path": "roblox-port/assets/fx/fx_blast_add_tex_a3c6.png",
+"kind": "image",
+"name": "fx_blast_add_tex_a3c6",
+"ctype": "image/png"
+},
+{
+"key": "fx_blobs_tex_206d",
+"path": "roblox-port/assets/fx/fx_blobs_tex_206d.png",
+"kind": "image",
+"name": "fx_blobs_tex_206d",
+"ctype": "image/png"
+},
+{
+"key": "fx_chunkA_tex_1f91",
+"path": "roblox-port/assets/fx/fx_chunkA_tex_1f91.png",
+"kind": "image",
+"name": "fx_chunkA_tex_1f91",
+"ctype": "image/png"
+},
+{
+"key": "fx_chunkB_tex_b5b0",
+"path": "roblox-port/assets/fx/fx_chunkB_tex_b5b0.png",
+"kind": "image",
+"name": "fx_chunkB_tex_b5b0",
+"ctype": "image/png"
+},
+{
+"key": "fx_cloud_addprem_tex_8954",
+"path": "roblox-port/assets/fx/fx_cloud_addprem_tex_8954.png",
+"kind": "image",
+"name": "fx_cloud_addprem_tex_8954",
+"ctype": "image/png"
+},
+{
+"key": "fx_cracks_alpha_tex_aee5",
+"path": "roblox-port/assets/fx/fx_cracks_alpha_tex_aee5.png",
+"kind": "image",
+"name": "fx_cracks_alpha_tex_aee5",
+"ctype": "image/png"
+},
+{
+"key": "fx_dot_yellow_add_tex_dad4",
+"path": "roblox-port/assets/fx/fx_dot_yellow_add_tex_dad4.png",
+"kind": "image",
+"name": "fx_dot_yellow_add_tex_dad4",
+"ctype": "image/png"
+},
+{
+"key": "fx_dust_alpha_tex_250e",
+"path": "roblox-port/assets/fx/fx_dust_alpha_tex_250e.png",
+"kind": "image",
+"name": "fx_dust_alpha_tex_250e",
+"ctype": "image/png"
+},
+{
+"key": "fx_explosion_alphpremsoft_tex_9807",
+"path": "roblox-port/assets/fx/fx_explosion_alphpremsoft_tex_9807.png",
+"kind": "image",
+"name": "fx_explosion_alphpremsoft_tex_9807",
+"ctype": "image/png"
+},
+{
+"key": "fx_explosionsmoke_alphprem_tex_736a",
+"path": "roblox-port/assets/fx/fx_explosionsmoke_alphprem_tex_736a.png",
+"kind": "image",
+"name": "fx_explosionsmoke_alphprem_tex_736a",
+"ctype": "image/png"
+},
+{
+"key": "fx_falc_feather_alpha_19d1",
+"path": "roblox-port/assets/fx/fx_falc_feather_alpha_19d1.png",
+"kind": "image",
+"name": "fx_falc_feather_alpha_19d1",
+"ctype": "image/png"
+},
+{
+"key": "fx_feathershard_add_tex_c4af",
+"path": "roblox-port/assets/fx/fx_feathershard_add_tex_c4af.png",
+"kind": "image",
+"name": "fx_feathershard_add_tex_c4af",
+"ctype": "image/png"
+},
+{
+"key": "fx_gecko_camera_diff_tex_a62a",
+"path": "roblox-port/assets/fx/fx_gecko_camera_diff_tex_a62a.png",
+"kind": "image",
+"name": "fx_gecko_camera_diff_tex_a62a",
+"ctype": "image/png"
+},
+{
+"key": "fx_gecko_flash_add_tex_c619",
+"path": "roblox-port/assets/fx/fx_gecko_flash_add_tex_c619.png",
+"kind": "image",
+"name": "fx_gecko_flash_add_tex_c619",
+"ctype": "image/png"
+},
+{
+"key": "fx_gecko_web2_tex_a964",
+"path": "roblox-port/assets/fx/fx_gecko_web2_tex_a964.png",
+"kind": "image",
+"name": "fx_gecko_web2_tex_a964",
+"ctype": "image/png"
+},
+{
+"key": "fx_gecko_webs_alphrem_tex_3b9c",
+"path": "roblox-port/assets/fx/fx_gecko_webs_alphrem_tex_3b9c.png",
+"kind": "image",
+"name": "fx_gecko_webs_alphrem_tex_3b9c",
+"ctype": "image/png"
+},
+{
+"key": "fx_gecko_webspin_alphapremult_tex_4de2",
+"path": "roblox-port/assets/fx/fx_gecko_webspin_alphapremult_tex_4de2.png",
+"kind": "image",
+"name": "fx_gecko_webspin_alphapremult_tex_4de2",
+"ctype": "image/png"
+},
+{
+"key": "fx_hit_small2_tex_1145",
+"path": "roblox-port/assets/fx/fx_hit_small2_tex_1145.png",
+"kind": "image",
+"name": "fx_hit_small2_tex_1145",
+"ctype": "image/png"
+},
+{
+"key": "fx_hit_small3_tex_d570",
+"path": "roblox-port/assets/fx/fx_hit_small3_tex_d570.png",
+"kind": "image",
+"name": "fx_hit_small3_tex_d570",
+"ctype": "image/png"
+},
+{
+"key": "fx_hit_small_tex_3ab2",
+"path": "roblox-port/assets/fx/fx_hit_small_tex_3ab2.png",
+"kind": "image",
+"name": "fx_hit_small_tex_3ab2",
+"ctype": "image/png"
+},
+{
+"key": "fx_impact_cylinder_gecko_b2b7",
+"path": "roblox-port/assets/fx/fx_impact_cylinder_gecko_b2b7.png",
+"kind": "image",
+"name": "fx_impact_cylinder_gecko_b2b7",
+"ctype": "image/png"
+},
+{
+"key": "fx_laser_spher_yellow_alphprem_tex_7678",
+"path": "roblox-port/assets/fx/fx_laser_spher_yellow_alphprem_tex_7678.png",
+"kind": "image",
+"name": "fx_laser_spher_yellow_alphprem_tex_7678",
+"ctype": "image/png"
+},
+{
+"key": "fx_mist_alphprem_tex_e9fa",
+"path": "roblox-port/assets/fx/fx_mist_alphprem_tex_e9fa.png",
+"kind": "image",
+"name": "fx_mist_alphprem_tex_e9fa",
+"ctype": "image/png"
+},
+{
+"key": "fx_mm_beam_add_tex_c79e",
+"path": "roblox-port/assets/fx/fx_mm_beam_add_tex_c79e.png",
+"kind": "image",
+"name": "fx_mm_beam_add_tex_c79e",
+"ctype": "image/png"
+},
+{
+"key": "fx_mm_impact_alph_tex_54be",
+"path": "roblox-port/assets/fx/fx_mm_impact_alph_tex_54be.png",
+"kind": "image",
+"name": "fx_mm_impact_alph_tex_54be",
+"ctype": "image/png"
+},
+{
+"key": "fx_mote_green_additive_tex_4368",
+"path": "roblox-port/assets/fx/fx_mote_green_additive_tex_4368.png",
+"kind": "image",
+"name": "fx_mote_green_additive_tex_4368",
+"ctype": "image/png"
+},
+{
+"key": "fx_mote_orange_add_tex_eb0e",
+"path": "roblox-port/assets/fx/fx_mote_orange_add_tex_eb0e.png",
+"kind": "image",
+"name": "fx_mote_orange_add_tex_eb0e",
+"ctype": "image/png"
+},
+{
+"key": "fx_mote_redhot_additive_tex_a7ac",
+"path": "roblox-port/assets/fx/fx_mote_redhot_additive_tex_a7ac.png",
+"kind": "image",
+"name": "fx_mote_redhot_additive_tex_a7ac",
+"ctype": "image/png"
+},
+{
+"key": "fx_mote_white_alphprem_tex_59c0",
+"path": "roblox-port/assets/fx/fx_mote_white_alphprem_tex_59c0.png",
+"kind": "image",
+"name": "fx_mote_white_alphprem_tex_59c0",
+"ctype": "image/png"
+},
+{
+"key": "fx_mote_yellow_alpha_tex_6dc1",
+"path": "roblox-port/assets/fx/fx_mote_yellow_alpha_tex_6dc1.png",
+"kind": "image",
+"name": "fx_mote_yellow_alpha_tex_6dc1",
+"ctype": "image/png"
+},
+{
+"key": "fx_neutronring2speed_add_tex_4605",
+"path": "roblox-port/assets/fx/fx_neutronring2speed_add_tex_4605.png",
+"kind": "image",
+"name": "fx_neutronring2speed_add_tex_4605",
+"ctype": "image/png"
+},
+{
+"key": "fx_neutronring2strength_add_tex_a674",
+"path": "roblox-port/assets/fx/fx_neutronring2strength_add_tex_a674.png",
+"kind": "image",
+"name": "fx_neutronring2strength_add_tex_a674",
+"ctype": "image/png"
+},
+{
+"key": "fx_neutronring2tech_add_tex_d20d",
+"path": "roblox-port/assets/fx/fx_neutronring2tech_add_tex_d20d.png",
+"kind": "image",
+"name": "fx_neutronring2tech_add_tex_d20d",
+"ctype": "image/png"
+},
+{
+"key": "fx_neutronringspeed_add_tex_2a56",
+"path": "roblox-port/assets/fx/fx_neutronringspeed_add_tex_2a56.png",
+"kind": "image",
+"name": "fx_neutronringspeed_add_tex_2a56",
+"ctype": "image/png"
+},
+{
+"key": "fx_neutronringstrength_add_tex_9a79",
+"path": "roblox-port/assets/fx/fx_neutronringstrength_add_tex_9a79.png",
+"kind": "image",
+"name": "fx_neutronringstrength_add_tex_9a79",
+"ctype": "image/png"
+},
+{
+"key": "fx_neutronringtech_add_tex_99b9",
+"path": "roblox-port/assets/fx/fx_neutronringtech_add_tex_99b9.png",
+"kind": "image",
+"name": "fx_neutronringtech_add_tex_99b9",
+"ctype": "image/png"
+},
+{
+"key": "fx_pickup_defense_32e7",
+"path": "roblox-port/assets/fx/fx_pickup_defense_32e7.png",
+"kind": "image",
+"name": "fx_pickup_defense_32e7",
+"ctype": "image/png"
+},
+{
+"key": "fx_pickup_defense_glow_c369",
+"path": "roblox-port/assets/fx/fx_pickup_defense_glow_c369.png",
+"kind": "image",
+"name": "fx_pickup_defense_glow_c369",
+"ctype": "image/png"
+},
+{
+"key": "fx_pickup_speed_0a21",
+"path": "roblox-port/assets/fx/fx_pickup_speed_0a21.png",
+"kind": "image",
+"name": "fx_pickup_speed_0a21",
+"ctype": "image/png"
+},
+{
+"key": "fx_pickup_speed_glow_b5e9",
+"path": "roblox-port/assets/fx/fx_pickup_speed_glow_b5e9.png",
+"kind": "image",
+"name": "fx_pickup_speed_glow_b5e9",
+"ctype": "image/png"
+},
+{
+"key": "fx_pickup_strength_49d7",
+"path": "roblox-port/assets/fx/fx_pickup_strength_49d7.png",
+"kind": "image",
+"name": "fx_pickup_strength_49d7",
+"ctype": "image/png"
+},
+{
+"key": "fx_pickup_strength_glow_31f0",
+"path": "roblox-port/assets/fx/fx_pickup_strength_glow_31f0.png",
+"kind": "image",
+"name": "fx_pickup_strength_glow_31f0",
+"ctype": "image/png"
+},
+{
+"key": "fx_rings_additive_tex_87a8",
+"path": "roblox-port/assets/fx/fx_rings_additive_tex_87a8.png",
+"kind": "image",
+"name": "fx_rings_additive_tex_87a8",
+"ctype": "image/png"
+},
+{
+"key": "fx_rugido_impact_cylinder_6e5b",
+"path": "roblox-port/assets/fx/fx_rugido_impact_cylinder_6e5b.png",
+"kind": "image",
+"name": "fx_rugido_impact_cylinder_6e5b",
+"ctype": "image/png"
+},
+{
+"key": "fx_rugido_rawr_tex_3976",
+"path": "roblox-port/assets/fx/fx_rugido_rawr_tex_3976.png",
+"kind": "image",
+"name": "fx_rugido_rawr_tex_3976",
+"ctype": "image/png"
+},
+{
+"key": "fx_rugido_super1butt_tex_2bc0",
+"path": "roblox-port/assets/fx/fx_rugido_super1butt_tex_2bc0.png",
+"kind": "image",
+"name": "fx_rugido_super1butt_tex_2bc0",
+"ctype": "image/png"
+},
+{
+"key": "fx_skyvolt_01_Egg_f3f1",
+"path": "roblox-port/assets/fx/fx_skyvolt_01_Egg_f3f1.png",
+"kind": "image",
+"name": "fx_skyvolt_01_Egg_f3f1",
+"ctype": "image/png"
+},
+{
+"key": "fx_sonic_tex_5f42",
+"path": "roblox-port/assets/fx/fx_sonic_tex_5f42.png",
+"kind": "image",
+"name": "fx_sonic_tex_5f42",
+"ctype": "image/png"
+},
+{
+"key": "fx_spark_add_tex_1749",
+"path": "roblox-port/assets/fx/fx_spark_add_tex_1749.png",
+"kind": "image",
+"name": "fx_spark_add_tex_1749",
+"ctype": "image/png"
+},
+{
+"key": "fx_sparkles_add_a81d",
+"path": "roblox-port/assets/fx/fx_sparkles_add_a81d.png",
+"kind": "image",
+"name": "fx_sparkles_add_a81d",
+"ctype": "image/png"
+},
+{
+"key": "fx_sphere_add_tex_ad80",
+"path": "roblox-port/assets/fx/fx_sphere_add_tex_ad80.png",
+"kind": "image",
+"name": "fx_sphere_add_tex_ad80",
+"ctype": "image/png"
+},
+{
+"key": "fx_star_blue_add_tex_9866",
+"path": "roblox-port/assets/fx/fx_star_blue_add_tex_9866.png",
+"kind": "image",
+"name": "fx_star_blue_add_tex_9866",
+"ctype": "image/png"
+},
+{
+"key": "fx_star_green_alpha_tex_2afc",
+"path": "roblox-port/assets/fx/fx_star_green_alpha_tex_2afc.png",
+"kind": "image",
+"name": "fx_star_green_alpha_tex_2afc",
+"ctype": "image/png"
+},
+{
+"key": "fx_star_red_add_tex_ea1e",
+"path": "roblox-port/assets/fx/fx_star_red_add_tex_ea1e.png",
+"kind": "image",
+"name": "fx_star_red_add_tex_ea1e",
+"ctype": "image/png"
+},
+{
+"key": "fx_star_white_additive_tex_4097",
+"path": "roblox-port/assets/fx/fx_star_white_additive_tex_4097.png",
+"kind": "image",
+"name": "fx_star_white_additive_tex_4097",
+"ctype": "image/png"
+},
+{
+"key": "fx_storm_wind2_tex_37ef",
+"path": "roblox-port/assets/fx/fx_storm_wind2_tex_37ef.png",
+"kind": "image",
+"name": "fx_storm_wind2_tex_37ef",
+"ctype": "image/png"
+},
+{
+"key": "fx_storm_wind_tex_0bd4",
+"path": "roblox-port/assets/fx/fx_storm_wind_tex_0bd4.png",
+"kind": "image",
+"name": "fx_storm_wind_tex_0bd4",
+"ctype": "image/png"
+},
+{
+"key": "fx_stream_f1f3",
+"path": "roblox-port/assets/fx/fx_stream_f1f3.png",
+"kind": "image",
+"name": "fx_stream_f1f3",
+"ctype": "image/png"
+},
+{
+"key": "fx_strike_green_additive_tex_4abf",
+"path": "roblox-port/assets/fx/fx_strike_green_additive_tex_4abf.png",
+"kind": "image",
+"name": "fx_strike_green_additive_tex_4abf",
+"ctype": "image/png"
+},
+{
+"key": "fx_strike_red_additive_tex_aac5",
+"path": "roblox-port/assets/fx/fx_strike_red_additive_tex_aac5.png",
+"kind": "image",
+"name": "fx_strike_red_additive_tex_aac5",
+"ctype": "image/png"
+},
+{
+"key": "fx_supermove_hearts_add_tex_7d38",
+"path": "roblox-port/assets/fx/fx_supermove_hearts_add_tex_7d38.png",
+"kind": "image",
+"name": "fx_supermove_hearts_add_tex_7d38",
+"ctype": "image/png"
+},
+{
+"key": "fx_surprise_alphpremult_tex_af25",
+"path": "roblox-port/assets/fx/fx_surprise_alphpremult_tex_af25.png",
+"kind": "image",
+"name": "fx_surprise_alphpremult_tex_af25",
+"ctype": "image/png"
+},
+{
+"key": "fx_test_beam_add_tex_6c80",
+"path": "roblox-port/assets/fx/fx_test_beam_add_tex_6c80.png",
+"kind": "image",
+"name": "fx_test_beam_add_tex_6c80",
+"ctype": "image/png"
+},
+{
+"key": "fx_trail_additive_tex_7656",
+"path": "roblox-port/assets/fx/fx_trail_additive_tex_7656.png",
+"kind": "image",
+"name": "fx_trail_additive_tex_7656",
+"ctype": "image/png"
+},
+{
+"key": "fx_trail_long_additive_tex_2fd4",
+"path": "roblox-port/assets/fx/fx_trail_long_additive_tex_2fd4.png",
+"kind": "image",
+"name": "fx_trail_long_additive_tex_2fd4",
+"ctype": "image/png"
+},
+{
+"key": "fx_trail_longwavy_additive_tex_ad11",
+"path": "roblox-port/assets/fx/fx_trail_longwavy_additive_tex_ad11.png",
+"kind": "image",
+"name": "fx_trail_longwavy_additive_tex_ad11",
+"ctype": "image/png"
+},
+{
+"key": "sound_sprite",
+"path": "roblox-port/assets/audio/spso_sound_sprite.ogg",
+"kind": "audio",
+"name": "SPSO Sound Sprite",
+"ctype": "audio/ogg"
+},
+{
+"key": "gui_enemyselected_ring",
+"path": "roblox-port/assets/gui/gui_enemyselected_ring.png",
+"kind": "image",
+"name": "gui_enemyselected_ring",
+"ctype": "image/png"
+},
+{
+"key": "gui_enemyselected_arrows",
+"path": "roblox-port/assets/gui/gui_enemyselected_arrows.png",
+"kind": "image",
+"name": "gui_enemyselected_arrows",
+"ctype": "image/png"
+},
+{
+"key": "gui_selection_ring",
+"path": "roblox-port/assets/gui/gui_selection_ring.png",
+"kind": "image",
+"name": "gui_selection_ring",
+"ctype": "image/png"
+},
+{
+"key": "gui_reticule_outer_diff_tex",
+"path": "roblox-port/assets/gui/gui_reticule_outer_diff_tex.png",
+"kind": "image",
+"name": "gui_reticule_outer_diff_tex",
+"ctype": "image/png"
+},
+{
+"key": "gui_reticule_inner_diff_tex",
+"path": "roblox-port/assets/gui/gui_reticule_inner_diff_tex.png",
+"kind": "image",
+"name": "gui_reticule_inner_diff_tex",
+"ctype": "image/png"
+},
+{
+"key": "gui_targeting_diff_tex",
+"path": "roblox-port/assets/gui/gui_targeting_diff_tex.png",
+"kind": "image",
+"name": "gui_targeting_diff_tex",
+"ctype": "image/png"
+},
+{
+"key": "gui_ui_target_tex",
+"path": "roblox-port/assets/gui/gui_ui_target_tex.png",
+"kind": "image",
+"name": "gui_ui_target_tex",
+"ctype": "image/png"
+},
+{
+"key": "gui_move_marker",
+"path": "roblox-port/assets/gui/gui_move_marker.png",
+"kind": "image",
+"name": "gui_move_marker",
+"ctype": "image/png"
+},
+{
+"key": "gui_ring_sharp_additive_tex",
+"path": "roblox-port/assets/gui/gui_ring_sharp_additive_tex.png",
+"kind": "image",
+"name": "gui_ring_sharp_additive_tex",
+"ctype": "image/png"
+},
+{
+"key": "gui_Shadow",
+"path": "roblox-port/assets/gui/gui_Shadow.png",
+"kind": "image",
+"name": "gui_Shadow",
+"ctype": "image/png"
+},
+{
+"key": "gui_chubbyarrow_diff_tex",
+"path": "roblox-port/assets/gui/gui_chubbyarrow_diff_tex.png",
+"kind": "image",
+"name": "gui_chubbyarrow_diff_tex",
+"ctype": "image/png"
+},
+{
+"key": "gui_baseWindow",
+"path": "roblox-port/assets/gui/gui_baseWindow.png",
+"kind": "image",
+"name": "gui_baseWindow",
+"ctype": "image/png"
+},
+{
+"key": "gui_popup_icon_burst",
+"path": "roblox-port/assets/gui/gui_popup_icon_burst.png",
+"kind": "image",
+"name": "gui_popup_icon_burst",
+"ctype": "image/png"
+},
+{
+"key": "gui_invitation_frame_left",
+"path": "roblox-port/assets/gui/gui_invitation_frame_left.png",
+"kind": "image",
+"name": "gui_invitation_frame_left",
+"ctype": "image/png"
+},
+{
+"key": "gui_herobg",
+"path": "roblox-port/assets/gui/gui_herobg.png",
+"kind": "image",
+"name": "gui_herobg",
+"ctype": "image/png"
+},
+{
+"key": "gui_loading_bar_frame",
+"path": "roblox-port/assets/gui/gui_loading_bar_frame.png",
+"kind": "image",
+"name": "gui_loading_bar_frame",
+"ctype": "image/png"
+},
+{
+"key": "gui_loading_bar_fill",
+"path": "roblox-port/assets/gui/gui_loading_bar_fill.png",
+"kind": "image",
+"name": "gui_loading_bar_fill",
+"ctype": "image/png"
+},
+{
+"key": "gui_loading_bar_rightside",
+"path": "roblox-port/assets/gui/gui_loading_bar_rightside.png",
+"kind": "image",
+"name": "gui_loading_bar_rightside",
+"ctype": "image/png"
+},
+{
+"key": "gui_loading_star",
+"path": "roblox-port/assets/gui/gui_loading_star.png",
+"kind": "image",
+"name": "gui_loading_star",
+"ctype": "image/png"
+},
+{
+"key": "gui_loading_tipbox_leftside",
+"path": "roblox-port/assets/gui/gui_loading_tipbox_leftside.png",
+"kind": "image",
+"name": "gui_loading_tipbox_leftside",
+"ctype": "image/png"
+},
+{
+"key": "gui_loading_tipbox_rightside",
+"path": "roblox-port/assets/gui/gui_loading_tipbox_rightside.png",
+"kind": "image",
+"name": "gui_loading_tipbox_rightside",
+"ctype": "image/png"
+},
+{
+"key": "gui_preloading_blue_backdrop",
+"path": "roblox-port/assets/gui/gui_preloading_blue_backdrop.png",
+"kind": "image",
+"name": "gui_preloading_blue_backdrop",
+"ctype": "image/png"
+},
+{
+"key": "gui_mloading_background_01",
+"path": "roblox-port/assets/gui/gui_mloading_background_01.png",
+"kind": "image",
+"name": "gui_mloading_background_01",
+"ctype": "image/png"
+},
+{
+"key": "gui_background_1_login_screen",
+"path": "roblox-port/assets/gui/gui_background_1_login_screen.png",
+"kind": "image",
+"name": "gui_background_1_login_screen",
+"ctype": "image/png"
+},
+{
+"key": "gui_background_2_login_screen",
+"path": "roblox-port/assets/gui/gui_background_2_login_screen.png",
+"kind": "image",
+"name": "gui_background_2_login_screen",
+"ctype": "image/png"
+},
+{
+"key": "gui_login_background_panel",
+"path": "roblox-port/assets/gui/gui_login_background_panel.png",
+"kind": "image",
+"name": "gui_login_background_panel",
+"ctype": "image/png"
+},
+{
+"key": "gui_light_rays_top_layer",
+"path": "roblox-port/assets/gui/gui_light_rays_top_layer.png",
+"kind": "image",
+"name": "gui_light_rays_top_layer",
+"ctype": "image/png"
+},
+{
+"key": "gui_mcentral_content_panel_bg",
+"path": "roblox-port/assets/gui/gui_mcentral_content_panel_bg.png",
+"kind": "image",
+"name": "gui_mcentral_content_panel_bg",
+"ctype": "image/png"
+},
+{
+"key": "gui_mcentral_content_panel_speechbubble",
+"path": "roblox-port/assets/gui/gui_mcentral_content_panel_speechbubble.png",
+"kind": "image",
+"name": "gui_mcentral_content_panel_speechbubble",
+"ctype": "image/png"
+},
+{
+"key": "gui_loading_background_0",
+"path": "roblox-port/assets/gui/gui_loading_background_0.png",
+"kind": "image",
+"name": "gui_loading_background_0",
+"ctype": "image/png"
+},
+{
+"key": "gui_loading_background_1",
+"path": "roblox-port/assets/gui/gui_loading_background_1.png",
+"kind": "image",
+"name": "gui_loading_background_1",
+"ctype": "image/png"
+},
+{
+"key": "gui_loading_background_2",
+"path": "roblox-port/assets/gui/gui_loading_background_2.png",
+"kind": "image",
+"name": "gui_loading_background_2",
+"ctype": "image/png"
+},
+{
+"key": "gui_loading_background_4",
+"path": "roblox-port/assets/gui/gui_loading_background_4.png",
+"kind": "image",
+"name": "gui_loading_background_4",
+"ctype": "image/png"
+},
+{
+"key": "gui_loading_background_5",
+"path": "roblox-port/assets/gui/gui_loading_background_5.png",
+"kind": "image",
+"name": "gui_loading_background_5",
+"ctype": "image/png"
+},
+{
+"key": "gui_loading_background_6",
+"path": "roblox-port/assets/gui/gui_loading_background_6.png",
+"kind": "image",
+"name": "gui_loading_background_6",
+"ctype": "image/png"
+},
+{
+"key": "gui_animal_icon",
+"path": "roblox-port/assets/gui/gui_animal_icon.png",
+"kind": "image",
+"name": "gui_animal_icon",
+"ctype": "image/png"
+},
+{
+"key": "gui_elemental_icon",
+"path": "roblox-port/assets/gui/gui_elemental_icon.png",
+"kind": "image",
+"name": "gui_elemental_icon",
+"ctype": "image/png"
+},
+{
+"key": "gui_energy_icon",
+"path": "roblox-port/assets/gui/gui_energy_icon.png",
+"kind": "image",
+"name": "gui_energy_icon",
+"ctype": "image/png"
+},
+{
+"key": "gui_speed_icon",
+"path": "roblox-port/assets/gui/gui_speed_icon.png",
+"kind": "image",
+"name": "gui_speed_icon",
+"ctype": "image/png"
+},
+{
+"key": "gui_strength_icon",
+"path": "roblox-port/assets/gui/gui_strength_icon.png",
+"kind": "image",
+"name": "gui_strength_icon",
+"ctype": "image/png"
+},
+{
+"key": "gui_tech_icon",
+"path": "roblox-port/assets/gui/gui_tech_icon.png",
+"kind": "image",
+"name": "gui_tech_icon",
+"ctype": "image/png"
+},
+{
+"key": "skin_NightGecko_Rival_Body",
+"path": "roblox-port/assets/skins/skin_NightGecko_Rival_Body.png",
+"kind": "image",
+"name": "skin_NightGecko_Rival_Body",
+"ctype": "image/png"
+},
+{
+"key": "skin_NightGecko_Rival_Head",
+"path": "roblox-port/assets/skins/skin_NightGecko_Rival_Head.png",
+"kind": "image",
+"name": "skin_NightGecko_Rival_Head",
+"ctype": "image/png"
+},
+{
+"key": "skin_Magmaul_Rival_Body",
+"path": "roblox-port/assets/skins/skin_Magmaul_Rival_Body.png",
+"kind": "image",
+"name": "skin_Magmaul_Rival_Body",
+"ctype": "image/png"
+},
+{
+"key": "skin_Magmaul_Rival_Head",
+"path": "roblox-port/assets/skins/skin_Magmaul_Rival_Head.png",
+"kind": "image",
+"name": "skin_Magmaul_Rival_Head",
+"ctype": "image/png"
+},
+{
+"key": "model_Aurora",
+"path": "roblox-port/heroes/Aurora/Aurora.fbx",
+"kind": "model",
+"name": "Aurora",
+"ctype": "model/fbx"
+},
+{
+"key": "face_Aurora_1",
+"path": "roblox-port/heroes/Aurora/textures/Aurora_Face_1.png",
+"kind": "image",
+"name": "Aurora_Face_1",
+"ctype": "image/png"
+},
+{
+"key": "face_Aurora_2",
+"path": "roblox-port/heroes/Aurora/textures/Aurora_Face_2.png",
+"kind": "image",
+"name": "Aurora_Face_2",
+"ctype": "image/png"
+},
+{
+"key": "face_Aurora_3",
+"path": "roblox-port/heroes/Aurora/textures/Aurora_Face_3.png",
+"kind": "image",
+"name": "Aurora_Face_3",
+"ctype": "image/png"
+},
+{
+"key": "face_Aurora_4",
+"path": "roblox-port/heroes/Aurora/textures/Aurora_Face_4.png",
+"kind": "image",
+"name": "Aurora_Face_4",
+"ctype": "image/png"
+},
+{
+"key": "face_Aurora_5",
+"path": "roblox-port/heroes/Aurora/textures/Aurora_Face_5.png",
+"kind": "image",
+"name": "Aurora_Face_5",
+"ctype": "image/png"
+},
+{
+"key": "face_Aurora_6",
+"path": "roblox-port/heroes/Aurora/textures/Aurora_Face_6.png",
+"kind": "image",
+"name": "Aurora_Face_6",
+"ctype": "image/png"
+},
+{
+"key": "face_Aurora_7",
+"path": "roblox-port/heroes/Aurora/textures/Aurora_Face_7.png",
+"kind": "image",
+"name": "Aurora_Face_7",
+"ctype": "image/png"
+},
+{
+"key": "package_Aurora",
+"path": "roblox-port/studio/packages/Hero_Aurora.rbxmx",
+"kind": "package",
+"name": "SPSO Hero Data Aurora",
+"ctype": "model/x-rbxm"
+},
+{
+"key": "package_ElRugido",
+"path": "roblox-port/studio/packages/Hero_ElRugido.rbxmx",
+"kind": "package",
+"name": "SPSO Hero Data ElRugido",
+"ctype": "model/x-rbxm"
+},
+{
+"key": "model_Magmaul",
+"path": "roblox-port/heroes/Magmaul/Magmaul.fbx",
+"kind": "model",
+"name": "Magmaul",
+"ctype": "model/fbx"
+},
+{
+"key": "face_Magmaul_1",
+"path": "roblox-port/heroes/Magmaul/textures/Magmaul_Face_1.png",
+"kind": "image",
+"name": "Magmaul_Face_1",
+"ctype": "image/png"
+},
+{
+"key": "face_Magmaul_2",
+"path": "roblox-port/heroes/Magmaul/textures/Magmaul_Face_2.png",
+"kind": "image",
+"name": "Magmaul_Face_2",
+"ctype": "image/png"
+},
+{
+"key": "face_Magmaul_3",
+"path": "roblox-port/heroes/Magmaul/textures/Magmaul_Face_3.png",
+"kind": "image",
+"name": "Magmaul_Face_3",
+"ctype": "image/png"
+},
+{
+"key": "face_Magmaul_4",
+"path": "roblox-port/heroes/Magmaul/textures/Magmaul_Face_4.png",
+"kind": "image",
+"name": "Magmaul_Face_4",
+"ctype": "image/png"
+},
+{
+"key": "face_Magmaul_5",
+"path": "roblox-port/heroes/Magmaul/textures/Magmaul_Face_5.png",
+"kind": "image",
+"name": "Magmaul_Face_5",
+"ctype": "image/png"
+},
+{
+"key": "face_Magmaul_6",
+"path": "roblox-port/heroes/Magmaul/textures/Magmaul_Face_6.png",
+"kind": "image",
+"name": "Magmaul_Face_6",
+"ctype": "image/png"
+},
+{
+"key": "face_Magmaul_7",
+"path": "roblox-port/heroes/Magmaul/textures/Magmaul_Face_7.png",
+"kind": "image",
+"name": "Magmaul_Face_7",
+"ctype": "image/png"
+},
+{
+"key": "package_Magmaul",
+"path": "roblox-port/studio/packages/Hero_Magmaul.rbxmx",
+"kind": "package",
+"name": "SPSO Hero Data Magmaul",
+"ctype": "model/x-rbxm"
+},
+{
+"key": "model_NightGecko",
+"path": "roblox-port/heroes/NightGecko/NightGecko.fbx",
+"kind": "model",
+"name": "NightGecko",
+"ctype": "model/fbx"
+},
+{
+"key": "face_NightGecko_1",
+"path": "roblox-port/heroes/NightGecko/textures/NightGecko_Face_1.png",
+"kind": "image",
+"name": "NightGecko_Face_1",
+"ctype": "image/png"
+},
+{
+"key": "face_NightGecko_2",
+"path": "roblox-port/heroes/NightGecko/textures/NightGecko_Face_2.png",
+"kind": "image",
+"name": "NightGecko_Face_2",
+"ctype": "image/png"
+},
+{
+"key": "face_NightGecko_3",
+"path": "roblox-port/heroes/NightGecko/textures/NightGecko_Face_3.png",
+"kind": "image",
+"name": "NightGecko_Face_3",
+"ctype": "image/png"
+},
+{
+"key": "face_NightGecko_4",
+"path": "roblox-port/heroes/NightGecko/textures/NightGecko_Face_4.png",
+"kind": "image",
+"name": "NightGecko_Face_4",
+"ctype": "image/png"
+},
+{
+"key": "face_NightGecko_5",
+"path": "roblox-port/heroes/NightGecko/textures/NightGecko_Face_5.png",
+"kind": "image",
+"name": "NightGecko_Face_5",
+"ctype": "image/png"
+},
+{
+"key": "face_NightGecko_6",
+"path": "roblox-port/heroes/NightGecko/textures/NightGecko_Face_6.png",
+"kind": "image",
+"name": "NightGecko_Face_6",
+"ctype": "image/png"
+},
+{
+"key": "face_NightGecko_7",
+"path": "roblox-port/heroes/NightGecko/textures/NightGecko_Face_7.png",
+"kind": "image",
+"name": "NightGecko_Face_7",
+"ctype": "image/png"
+},
+{
+"key": "package_NightGecko",
+"path": "roblox-port/studio/packages/Hero_NightGecko.rbxmx",
+"kind": "package",
+"name": "SPSO Hero Data NightGecko",
+"ctype": "model/x-rbxm"
+},
+{
+"key": "model_Skyvolt",
+"path": "roblox-port/heroes/Skyvolt/Skyvolt.fbx",
+"kind": "model",
+"name": "Skyvolt",
+"ctype": "model/fbx"
+},
+{
+"key": "face_Skyvolt_1",
+"path": "roblox-port/heroes/Skyvolt/textures/Skyvolt_Face_1.png",
+"kind": "image",
+"name": "Skyvolt_Face_1",
+"ctype": "image/png"
+},
+{
+"key": "face_Skyvolt_2",
+"path": "roblox-port/heroes/Skyvolt/textures/Skyvolt_Face_2.png",
+"kind": "image",
+"name": "Skyvolt_Face_2",
+"ctype": "image/png"
+},
+{
+"key": "face_Skyvolt_3",
+"path": "roblox-port/heroes/Skyvolt/textures/Skyvolt_Face_3.png",
+"kind": "image",
+"name": "Skyvolt_Face_3",
+"ctype": "image/png"
+},
+{
+"key": "face_Skyvolt_4",
+"path": "roblox-port/heroes/Skyvolt/textures/Skyvolt_Face_4.png",
+"kind": "image",
+"name": "Skyvolt_Face_4",
+"ctype": "image/png"
+},
+{
+"key": "face_Skyvolt_5",
+"path": "roblox-port/heroes/Skyvolt/textures/Skyvolt_Face_5.png",
+"kind": "image",
+"name": "Skyvolt_Face_5",
+"ctype": "image/png"
+},
+{
+"key": "face_Skyvolt_6",
+"path": "roblox-port/heroes/Skyvolt/textures/Skyvolt_Face_6.png",
+"kind": "image",
+"name": "Skyvolt_Face_6",
+"ctype": "image/png"
+},
+{
+"key": "face_Skyvolt_7",
+"path": "roblox-port/heroes/Skyvolt/textures/Skyvolt_Face_7.png",
+"kind": "image",
+"name": "Skyvolt_Face_7",
+"ctype": "image/png"
+},
+{
+"key": "package_Skyvolt",
+"path": "roblox-port/studio/packages/Hero_Skyvolt.rbxmx",
+"kind": "package",
+"name": "SPSO Hero Data Skyvolt",
+"ctype": "model/x-rbxm"
+}
+]

@@ -58,6 +58,7 @@ function Fighter.new(model: Model, team: string, player: Player?)
 	f.action, f.actionKind = nil, nil
 	f.dead = false
 	f.nextThink, f.nextAttack, f.launchAt = 0, now() + 1.5, nil
+	f.actionStart, f.stunImmuneUntil, f.lastHitAt = 0, 0, 0
 	f.anim = ExactAnimator.new(pack, nil, { headless = true, wrapModes = heroCfg.wrapModes })
 	f.anim.Event:Connect(function(fn, data, clip) f:onEvent(fn, data, clip) end)
 	model:SetAttribute("SPSO_Hero", heroCfg.pack)
@@ -75,6 +76,7 @@ function Fighter:play(clip: string, fade: number, kind: string)
 	if anim:IsPlaying(clip) then anim:Stop(clip) end
 	anim:CrossFade(clip, fade)
 	self.action, self.actionKind = clip, kind
+	self.actionStart = now()
 	self.hitOpen, self.chainOpen, self.hitSet = false, false, {}
 	self.model:SetAttribute("SPSO_Action", string.format("%s|%.4f|%.3f|%d", clip, workspace:GetServerTimeNow(), fade, seq))
 	self.model:SetAttribute("SPSO_Lock", kind ~= "emote")
@@ -112,7 +114,14 @@ function Fighter:onEvent(fn: string, _data: string, clip: string)
 end
 
 function Fighter:tryAttack(kind: string)
-	if self.dead or self.actionKind == "recoil" or self.actionKind == "death" then return end
+	if self.dead or self.actionKind == "death" then return end
+	if self.actionKind == "recoil" then
+		-- heroes can fight out of a small/big recoil (not out of a launch)
+		local cancel = self.team == "Hero" and (self.action == "recoil_small" or self.action == "recoil_big")
+			and now() - self.actionStart >= Config.RecoilCancel
+		if not cancel then return end
+		self:clear()
+	end
 	local busy = self.actionKind == "attack"
 	if busy and not self.chainOpen then
 		self.buffered = kind
@@ -200,6 +209,11 @@ function Fighter:takeHit(attacker, data)
 		self:die(attacker, data)
 		return
 	end
+	self.lastHitAt = now()
+	if self.team == "Hero" then
+		if now() < self.stunImmuneUntil then return end -- damage only while recovering
+		self.stunImmuneUntil = now() + Config.HeroStunImmunity
+	end
 	self.buffered = nil
 	local reaction = data.reaction
 	if self.team == "Hero" and reaction == "launch" then reaction = "big" end
@@ -283,7 +297,11 @@ function Fighter:think()
 	else
 		self.hum:Move(Vector3.zero)
 		self.hrp.CFrame = CFrame.lookAt(self.hrp.Position, self.hrp.Position + dir)
-		if t >= self.nextAttack then
+		local swinging = 0
+		for _, o in fighters do
+			if o.team == "Enemy" and o.actionKind == "attack" then swinging += 1 end
+		end
+		if t >= self.nextAttack and swinging < Config.Enemy.maxAttackers and t - best.lastHitAt > Config.Enemy.waitAfterHeroHit then
 			local list = Config.Enemy.attacks
 			self:play(list[math.random(#list)], Config.FadeAttack, "attack")
 			local c = Config.Enemy.cooldown

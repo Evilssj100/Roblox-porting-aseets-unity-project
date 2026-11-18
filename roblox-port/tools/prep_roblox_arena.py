@@ -5,7 +5,9 @@
 * the baked lighting texture's UV set (active render UV) becomes the only UV set + one material per object, so Roblox's
   single-UV MeshParts show the original baked look
 * renames everything with RENAME (no original franchise names), splits glass faces to their own object
-* scales to studs (k per unit) and moves the floor to height 0 (Z up; FBX import makes it Y up)
+* scales to studs (k per unit) and moves the floor to height 0 (Z up; FBX import makes it Y up and maps
+  Blender +Y to Roblox +Z, so the back wall at +Y lands at +Z: rotate the model 180 degrees in Studio
+  if the game expects it at -Z)
 * collision mesh exported as its own object "<Map>_Collision" (Studio: invisible, precise collision)
 * writes <out>.blend (images packed), <out>.fbx / <out>.glb (upload-ready), <out>.json and a preview render
 
@@ -121,6 +123,8 @@ for o in objs:
     o.parent = None
     o.data = o.data.copy()
     o.data.transform(S @ mw)
+    if (S @ mw).determinant() < 0:  # mirrored objects (scale -1): keep faces pointing out
+        o.data.flip_normals()
     o.matrix_world = Matrix.Identity(4)
 
 # glass faces -> own object (Roblox: transparency)

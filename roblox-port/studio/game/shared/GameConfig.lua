@@ -15,8 +15,9 @@ Config.Heroes = {
 		headPart = "ElRugido_Head",
 		bodyPart = "ElRugido_Body",
 		-- the 8 FacialAnimation expressions (Normal, Happy, Surprised, Aggressive, Squint, Blink, Custom1, Custom2)
+		-- (tile 0 uses the model's own head texture, which is the same image)
 		faceTextures = {
-			"rbxassetid://116535459400422", "rbxassetid://87813758884419", "rbxassetid://129014191028706",
+			"rbxassetid://95009761023746", "rbxassetid://87813758884419", "rbxassetid://129014191028706",
 			"rbxassetid://80712657085550", "rbxassetid://125458260096839", "rbxassetid://121373604073448",
 			"rbxassetid://123655553866245", "rbxassetid://126536608314547",
 		},
@@ -62,15 +63,19 @@ Config.PowerPerHit = 8
 Config.SuperCost = 100
 Config.FadeAttack = 0.1
 Config.FadeRecoil = 0.05
+Config.HeroStunImmunity = 1.0 -- seconds after a hero recoil during which hits only deal damage
+Config.RecoilCancel = 0.25 -- a hero can attack out of a small/big recoil after this many seconds
 
 Config.Enemy = {
 	name = "Rival Luchador",
 	health = 260,
-	damageScale = 0.55,
+	damageScale = 0.32,
 	walkSpeed = 15,
 	attackRange = 8.5,
 	attacks = { "attack_L1", "attack_L2", "attack_R1" },
-	cooldown = { 1.4, 2.8 },
+	cooldown = { 2.0, 3.6 },
+	maxAttackers = 2, -- enemies swinging at the same time
+	waitAfterHeroHit = 0.7, -- don't pile onto a hero that was just hit
 	thinkRate = 0.12,
 	despawnAfter = 3.5,
 }
@@ -90,6 +95,6 @@ Config.RespawnTime = 4
 Config.Emotes = { "emote_taunt", "emote_cheer", "emote_laugh", "emote_dance" }
 
 -- camera: fixed angle like the original brawler camera, facing the arena's back wall (-Z)
-Config.Camera = { offset = Vector3.new(0, 30, 40), lookHeight = 3, fov = 50, zoomMin = 0.6, zoomMax = 1.5 }
+Config.Camera = { offset = Vector3.new(0, 21, 27), lookHeight = 3.5, fov = 55, zoomMin = 0.6, zoomMax = 1.6 }
 
 return Config

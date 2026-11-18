@@ -134,32 +134,57 @@ return function(): string
 		arena.Parent = workspace
 		table.insert(log, "placeholder arena built")
 	else
-		for _, p in arena:GetDescendants() do
-			if p:IsA("BasePart") then
-				p.Anchored = true
-				if string.find(p.Name, "Collision") then
-					p.Transparency = 1
-					p.CanCollide, p.CanQuery, p.CanTouch = true, true, false
-					if p:IsA("MeshPart") then
-						pcall(function() p.CollisionFidelity = Enum.CollisionFidelity.PreciseConvexDecomposition end)
-					end
-				elseif p.Name ~= "SafetyFloor" then
-					p.CanCollide, p.CanQuery, p.CanTouch = false, false, false
-					p.CastShadow = false
-					if string.find(p.Name, "Glass") then p.Transparency = 0.55 end
-				end
+		-- the FBX import puts the back wall (medallion) at +Z; the game expects it at -Z
+		local med = arena:FindFirstChild("OrbitalArena_Medallion", true)
+		if med and med.Position.Z > 0 then
+			for _, p in arena:GetChildren() do
+				if p:IsA("MeshPart") then p.CFrame = CFrame.Angles(0, math.pi, 0) * p.CFrame end
 			end
 		end
-		if not arena:FindFirstChild("SafetyFloor") then
-			local sf = Instance.new("Part")
-			sf.Name = "SafetyFloor"
-			sf.Shape = Enum.PartType.Cylinder
-			sf.Size = Vector3.new(2, 104, 104)
-			sf.CFrame = CFrame.new(0, -1.4, 0) * CFrame.Angles(0, 0, math.rad(90))
-			sf.Transparency = 1
-			sf.Anchored, sf.CanCollide = true, true
-			sf.Parent = arena
+		local door = arena:FindFirstChild("OrbitalArena_IrisDoor_Left", true)
+		if door then pcall(function() door.DoubleSided = true end) end -- mirrored in the source scene
+		for _, p in arena:GetDescendants() do
+			if p:IsA("BasePart") and p.Parent and p.Parent.Name ~= "Collision" then
+				p.Anchored = true
+				p.CanCollide, p.CanQuery, p.CanTouch = false, false, false
+				p.CastShadow = false
+				if string.find(p.Name, "_Collision") then p.Transparency = 1 end
+				if string.find(p.Name, "Glass") then p.Transparency = 0.55 end
+			end
 		end
+		-- collision from primitives: the original collision mesh is a flat floor inside a 12-sided wall
+		-- (a convex decomposition of it fills the bowl, so it is only kept as reference)
+		local col = arena:FindFirstChild("Collision")
+		if col then col:Destroy() end
+		col = Instance.new("Folder")
+		col.Name = "Collision"
+		local function box(name, cf, size)
+			local b = Instance.new("Part")
+			b.Name, b.CFrame, b.Size = name, cf, size
+			b.Transparency, b.Anchored, b.CanCollide, b.CanQuery, b.CanTouch = 1, true, true, true, false
+			b.TopSurface, b.BottomSurface = Enum.SurfaceType.Smooth, Enum.SurfaceType.Smooth
+			b.Parent = col
+		end
+		local floorY, wallH = 0, 85
+		local floorPart = Instance.new("Part")
+		floorPart.Name, floorPart.Shape = "Floor", Enum.PartType.Cylinder
+		floorPart.Size = Vector3.new(4, 104, 104)
+		floorPart.CFrame = CFrame.new(0, floorY - 2, 0) * CFrame.Angles(0, 0, math.rad(90))
+		floorPart.Transparency, floorPart.Anchored, floorPart.CanCollide, floorPart.CanQuery = 1, true, true, true
+		floorPart.Parent = col
+		local poly = { {49.5, -13.2}, {49.5, 13.3}, {36.3, 36.3}, {13.3, 49.5}, {-13.3, 49.5}, {-36.3, 36.3},
+			{-49.5, 13.3}, {-49.5, -13.2}, {-36.3, -36.2}, {-13.3, -49.5}, {13.3, -49.5}, {36.3, -36.2} }
+		for i, a in poly do
+			local b = poly[i % #poly + 1]
+			local pa, pb = Vector3.new(a[1], 0, a[2]), Vector3.new(b[1], 0, b[2])
+			local mid, len = (pa + pb) / 2, (pb - pa).Magnitude
+			local out = mid.Unit
+			local cf = CFrame.lookAt(mid + out * 2 + Vector3.new(0, floorY + wallH / 2, 0), mid + out * 3 + Vector3.new(0, floorY + wallH / 2, 0))
+			box("Wall" .. i, cf, Vector3.new(len + 4, wallH, 4))
+		end
+		col.Parent = arena
+		local sf = arena:FindFirstChild("SafetyFloor")
+		if sf then sf:Destroy() end
 		table.insert(log, "arena configured")
 	end
 	local spawns = arena:FindFirstChild("Spawns")

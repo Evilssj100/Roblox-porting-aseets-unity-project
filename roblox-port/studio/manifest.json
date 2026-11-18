@@ -26,7 +26,7 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "GameConfig",
    "class": "ModuleScript",
-   "sha": "771b6b8730645979"
+   "sha": "2948dad045e878f5"
   },
   {
    "path": "studio/game/shared/Net.lua",
@@ -40,7 +40,7 @@
    "parent": "ServerScriptService/SPSO",
    "name": "Brawler",
    "class": "Script",
-   "sha": "21d90eac33152d52"
+   "sha": "5490d8b1567275e8"
   },
   {
    "path": "studio/game/client/BrawlerClient.client.lua",

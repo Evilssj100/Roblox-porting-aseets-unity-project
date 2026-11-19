@@ -166,7 +166,6 @@ return function()
 					if table.find(z.geometry.collision, p.Name) then
 						p.Anchored, p.CanCollide, p.CanQuery, p.CanTouch = true, true, true, false
 						p.Transparency, p.CastShadow = 1, false
-						pcall(function() p.CollisionFidelity = Enum.CollisionFidelity.PreciseConvexDecomposition end)
 						if p:IsA("MeshPart") then p.TextureID = "" end
 						p.Parent = col
 					else
@@ -249,6 +248,16 @@ return function()
 		zf:SetAttribute("Signature", sig)
 		zf:SetAttribute("Offset", off)
 		zf.Parent = hubRoot
+		-- precise collision is computed in the DataModel (one chunk at a time keeps Studio responsive)
+		for _, p in col:GetChildren() do
+			if p:IsA("MeshPart") then
+				pcall(function() p.CollisionFidelity = Enum.CollisionFidelity.PreciseConvexDecomposition end)
+				task.wait()
+			end
+		end
+		for _, m in propsF:GetChildren() do -- unused originals parked far under the map
+			if m:IsA("Model") and m:GetPivot().Position.Y < off.Y - 200 then m:Destroy() end
+		end
 		table.insert(log, string.format("%s: %d parts, %d props, %d missing", zoneName, placed, #z.props, missing))
 	end
 	return table.concat(log, "\n")

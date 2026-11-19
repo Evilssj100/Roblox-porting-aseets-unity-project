@@ -165,21 +165,34 @@ local function walkCivilians()
 end
 
 local function startPigeons(zoneName: string, z, zf: Instance)
+	-- the pigeon rig imports without a root part: placed as a posed model (anchored), moved by its pivot
+	local src = ServerStorage.SPSO:FindFirstChild("Source")
+	local imp = src and src:FindFirstChild("Pigeon_Import")
+	local rig = imp and imp:FindFirstChild("Pigeon")
 	for _, pos in z.pigeons do
-		local cf = CFrame.new(v3(pos) + Vector3.new(0, 1.5, 0)) * CFrame.Angles(0, math.random() * math.pi * 2, 0)
-		local m = spawnModel("Pigeon", cf, zf)
+		local cf = CFrame.new(v3(pos) + Vector3.new(0, 0.2, 0)) * CFrame.Angles(0, math.random() * math.pi * 2, 0)
+		local m = spawnModel("Pigeon", cf + Vector3.new(0, 1.3, 0), zf)
 		if m then
 			m.HumanoidRootPart.Anchored = true
 			local hum = m:FindFirstChildOfClass("Humanoid")
 			if hum then hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None end
-			table.insert(pigeons, { model = m, home = cf, zone = zoneName, state = "idle", t = 0 })
+		elseif rig then
+			m = rig:Clone()
+			for _, d in m:GetDescendants() do
+				if d:IsA("Folder") and d.Name == "InitialPoses" then d:Destroy() end
+				if d:IsA("BasePart") then d.Anchored, d.CanCollide, d.CanQuery = true, false, false end
+			end
+			m:PivotTo(cf)
+			m.Parent = zf
 		end
+		if m then table.insert(pigeons, { model = m, home = m:GetPivot(), zone = zoneName, state = "idle", t = 0 }) end
 	end
 end
 local function stepPigeons(dt: number)
 	for _, pg in pigeons do
-		local hrp = pg.model:FindFirstChild("HumanoidRootPart")
-		if not hrp then continue end
+		if not pg.model.Parent then continue end
+		local pivot = pg.model:GetPivot()
+		local hrp = { Position = pivot.Position }
 		if pg.state == "idle" then
 			for _, h in heroesIn(pg.zone) do
 				if (h.hrp.Position - hrp.Position).Magnitude < H.pigeonScare then
@@ -193,16 +206,16 @@ local function stepPigeons(dt: number)
 		elseif pg.state == "fly" then
 			pg.t += dt
 			local p = hrp.Position + pg.vel * dt
-			hrp.CFrame = CFrame.lookAt(p, p + pg.vel * Vector3.new(1, 0, 1) + Vector3.new(0, 0.01, 0))
+			pg.model:PivotTo(CFrame.lookAt(p, p + pg.vel * Vector3.new(1, 0, 1) + Vector3.new(0, 0.01, 0)))
 			if pg.t > 3.5 then
 				pg.state, pg.t = "gone", 0
-				hrp.CFrame = pg.home + Vector3.new(0, -500, 0)
+				pg.model:PivotTo(pg.home + Vector3.new(0, -500, 0))
 			end
 		elseif pg.state == "gone" then
 			pg.t += dt
 			if pg.t > H.pigeonRespawn then
 				pg.state = "idle"
-				hrp.CFrame = pg.home
+				pg.model:PivotTo(pg.home)
 				pg.model:SetAttribute("SPSO_Action", string.format("none|%.4f|0.2|%d", workspace:GetServerTimeNow(), seq))
 			end
 		end

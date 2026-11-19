@@ -19,7 +19,7 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "Assets",
    "class": "ModuleScript",
-   "sha": "eeab57eff722f1ac"
+   "sha": "02c07c1914f894a0"
   },
   {
    "path": "studio/game/shared/CharacterAnimator.lua",
@@ -61,7 +61,7 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "HubData",
    "class": "ModuleScript",
-   "sha": "3b9f85870a504c3a"
+   "sha": "4bf8abd1d7bbd872"
   },
   {
    "path": "studio/game/shared/MissionData.lua",

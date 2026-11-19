@@ -19,9 +19,12 @@ RENAME = [
     ("daily_bugle", "daily_bulletin"), ("dailybugle", "dailybulletin"), ("bugle", "bulletin"),
     ("aunt_mays", "neighbors"), ("aunt_may", "neighbor"), ("aunt_mae", "neighbor"), ("auntmay", "neighbor"),
     ("auntmae", "neighbor"), ("parker", "post"),
+    ("baxter", "plaza"), ("asgard", "realm"), ("villainville", "villaintown"), ("latveria", "tyrantland"),
+    ("mr_fantastic", "stretchman"), ("fantastic", "amazing"), ("yancy", "maple"),
 ]
 BANNED = re.compile(r"hulk|falcon|marvel|spider|spidey|skrull|darkhawk|redwing|panther|iron_?man|doom|wolverine|"
-                    r"avenger|gazillion|\bthing\b|thing_|_thing|bugle|parker|aunt_?ma[ey]", re.I)
+                    r"avenger|gazillion|\bthing\b|thing_|_thing|bugle|parker|aunt_?ma[ey]|baxter|asgard|latveri|\bloki\b|fantastic|yancy|"
+                    r"\bthor\b|thor_|_thor", re.I)
 
 
 def clean(s: str) -> str:

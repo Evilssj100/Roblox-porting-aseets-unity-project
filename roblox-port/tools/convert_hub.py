@@ -24,6 +24,14 @@ ZONES = {
     "Bulletin": {"title": "Daily Bulletin", "order": 1, "offset": [6000, 0, 0], "ambience": "Amb_BaseLayer_SHC_Streets",
                    "signs": [{"text": "DAILY BULLETIN", "center": [169.8, 32.18, -59.88], "size": [27.0, 3.6], "normal": [0, 0, 1]},
                              {"text": "DAILY BULLETIN", "center": [169.84, 4.18, -60.53], "size": [9.9, 1.7], "normal": [0, 0, 1]}]},
+    # the plaza: the licensed tower sign and the comic shop sign were painted out in the geometry (port_zone --recolor)
+    "Plaza": {"title": "Hero Plaza", "order": 2, "offset": [12000, 0, 0], "ambience": "Amb_BaseLayer_SHC_Streets",
+              "signs": [{"text": "HERO PLAZA", "center": [-2.832, 4.727, 1.797], "size": [9.6, 2.3], "normal": [0, 0, 1]},
+                        {"text": "COMICS", "center": [28.52, 8.91, 51.78], "size": [6.6, 1.8], "normal": [0, 0, 1]}]},
+    "Realm": {"title": "Golden Realm", "order": 3, "offset": [18000, 0, 0], "signs": []},
+    # no scenario in the archive (the original used this zone as a card-game backdrop): spawns on the central square
+    "Villains": {"title": "Villain Town", "order": 4, "offset": [24000, 0, 0], "signs": [],
+                 "spawns": [[0, 31.2, -10], [8, 31.2, -14], [-8, 31.2, -14], [0, 31.2, -20]]},
 }
 CHARACTERS = ["CivilianMale1", "CivilianMale2", "CivilianMale3", "CivilianMale4", "CivilianFemale1", "CivilianFemale2",
               "CivilianFemale3", "CivilianFemale4", "HubPigeon", "Robber"]
@@ -40,13 +48,27 @@ def zone_cf(o, off):
     return [round(c[0] + off[0], 4), round(c[1] + off[1], 4), round(c[2] + off[2], 4)] + c[3:]
 
 
+def zname(n):
+    """object names from the zones: the shared clean() plus the zones' own licensed names"""
+    n = clean(n)
+    for a, b in ((r"Thor", "Hall"), (r"(?<![a-z])thor", "hall"), (r"Odins", "Kings"), (r"Odin", "King"),
+                 (r"(?<![a-z])odins", "kings"), (r"(?<![a-z])odin", "king"), (r"(?i)f4[_ ]?", "Plaza_")):
+        n = re.sub(a, b, n)
+    return n
+
+
+def merged_exists(hub_dir, Z):
+    return os.path.exists(os.path.join(hub_dir, f"{Z}_Props.json"))
+
+
 def main():
     root, hub_dir, zones_dir = sys.argv[1:4]
     zones, props = {}, {}
     for Z in sys.argv[4:]:
         zc = ZONES[Z]
         off = zc["offset"]
-        sc = json.load(open(os.path.join(hub_dir, f"{Z}_scenario.json")))
+        scp = os.path.join(hub_dir, f"{Z}_scenario.json")
+        sc = json.load(open(scp)) if os.path.exists(scp) else {"objects": []}
         objs = sc["objects"]
         by_path = {o["path"]: i for i, o in enumerate(objs)}
 
@@ -57,6 +79,7 @@ def main():
                         yield i, o, c["fields"]
         geo = json.load(open(os.path.join(zones_dir, f"{Z}.json")))
         z = {"title": zc["title"], "order": zc["order"], "offset": off, "ambience": zc.get("ambience"),
+             "hasProps": bool(merged_exists(hub_dir, Z)),
              "geometry": {"parts": {p["name"]: {k: v for k, v in p.items() if k in ("center", "kind", "color", "alpha", "selfillum")}
                                     for p in geo["parts"]},
                           "collision": [c["name"] for c in geo["collision"]],
@@ -64,6 +87,8 @@ def main():
                                      "size": b["size"]} for b in geo["boxes"]],
                           "files": [f["file"] for f in geo["files"]]}}
         z["spawns"] = [zone_cf(o, off) for i, o, f in mbs("SpawnPoint") if "PlayerStartPoints" in o["path"]]
+        if not z["spawns"] and zc.get("spawns"):  # Roblox zone-local points
+            z["spawns"] = [[p[0] + off[0], p[1] + off[1], p[2] + off[2], 1, 0, 0, 0, 1, 0, 0, 0, 1] for p in zc["spawns"]]
         for i, o, f in mbs("CameraLiteManager"):
             d = f.get("defaultCamera") or {}
             j = by_path.get(d.get("go"))
@@ -112,7 +137,7 @@ def main():
             j = by_path.get(ex)
             dock = next((k for k, x in enumerate(objs) if x["path"].startswith(o["path"] + "/") and
                          any(c.get("script") == "DockPoint" for c in x["components"])), i)
-            doors.append({"name": clean(o["name"]), "cf": zone_cf(objs[dock], off), "exit": clean(objs[j]["name"]) if j is not None else None})
+            doors.append({"name": zname(o["name"]), "cf": zone_cf(objs[dock], off), "exit": zname(objs[j]["name"]) if j is not None else None})
         z["doors"] = doors
         z["shops"] = [{"kind": s.replace("DoorManager", "").lower(), "pos": pos(o["pos"], off)}
                       for s in ("StoreDoorManager", "SnackDoorManager", "ArcadeDoorManager") for i, o, f in mbs(s)]
@@ -129,8 +154,9 @@ def main():
             s["cf"][0] += off[0]
             s["cf"][1] += off[1]
             s["cf"][2] += off[2]
-        pm = json.load(open(os.path.join(hub_dir, "props", f"{Z}_props.json")))
-        merged = json.load(open(os.path.join(hub_dir, f"{Z}_Props.json")))
+        pmp, mp = os.path.join(hub_dir, "props", f"{Z}_props.json"), os.path.join(hub_dir, f"{Z}_Props.json")
+        pm = json.load(open(pmp)) if os.path.exists(pmp) else {"instances": []}
+        merged = json.load(open(mp)) if os.path.exists(mp) else {}
         for name, m in merged.items():  # prop boxes: Unity local matrices -> Roblox local CFrame + size
             boxes = []
             for b in m.get("boxes", []):
@@ -143,7 +169,7 @@ def main():
         z["props"] = [{"model": p["prop"], "cf": [p["cf"][0] + off[0], p["cf"][1] + off[1], p["cf"][2] + off[2]] + p["cf"][3:],
                        "scale": p["scale"], "kind": next((s for s in ("PokeAndJiggle", "ParkBenchController") if s in p["scripts"]),
                                                          "door" if any("Door" in s for s in p["scripts"]) else "static"),
-                       "name": p["name"]} for p in pm["instances"] if p["prop"] in merged]
+                       "name": zname(p["name"])} for p in pm["instances"] if p["prop"] in merged]
         zones[Z] = z
         print(f"{Z} ({zc['title']}): {len(z['geometry']['parts'])} parts, {len(z['geometry']['collision'])} collision chunks, "
               f"{len(z['props'])} props, {len(z['spawns'])} spawns, {len(z['fractals'])} fractals, {len(z['tokens'])} tokens, "

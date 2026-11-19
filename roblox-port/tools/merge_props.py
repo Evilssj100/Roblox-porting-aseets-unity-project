@@ -2,7 +2,8 @@
 "<Model>__<n>" (so a setup script can split them back into per-model templates) and a JSON with every model's
 parts, collision triangles and boxes. Identical textures are embedded once.
 
-Usage: python merge_props.py <out_prefix> <model_dir> <Model1> [<Model2> ...]
+Usage: python merge_props.py <out_prefix> <model_dir> <Model1> [<Model2> ...] [--retexture NAME=png ...]
+  --retexture: images whose name contains NAME are replaced by that png (licensed artwork repainted, prop_covers.py)
 """
 import hashlib
 import json
@@ -11,9 +12,17 @@ import sys
 
 import bpy  # noqa: F401
 
-out_prefix, src = sys.argv[1:3]
-models = sys.argv[3:]
+args = sys.argv[1:]
+retex = {}
+while "--retexture" in args:
+    i = args.index("--retexture")
+    k, v = args[i + 1].split("=", 1)
+    retex[k] = v
+    del args[i:i + 2]
+out_prefix, src = args[0:2]
+models = args[2:]
 bpy.ops.wm.read_factory_settings(use_empty=True)
+replacements = {}
 info = {}
 by_hash = {}
 for m in models:
@@ -38,6 +47,15 @@ for m in models:
                 continue
             for n in mat.node_tree.nodes:
                 if n.type == "TEX_IMAGE" and n.image:
+                    for key, png in retex.items():
+                        if key in n.image.name:
+                            if png not in replacements:
+                                rep = bpy.data.images.load(png)
+                                rep.name = os.path.splitext(os.path.basename(png))[0]
+                                rep.pack()
+                                replacements[png] = rep
+                            n.image = replacements[png]
+                            break
                     im = n.image
                     try:
                         data = im.packed_file.data if im.packed_file else open(bpy.path.abspath(im.filepath), "rb").read()

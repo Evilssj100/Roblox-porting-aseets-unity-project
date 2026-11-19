@@ -82,7 +82,26 @@ def main():
     ap.add_argument("--remove", action="append", default=[],
                     help="object:x0,y0,z0,x1,y1,z1[:gold] - drop that object's triangles inside the box (Unity world), "
                          "optionally only gold-coloured ones (franchise lettering)")
+    ap.add_argument("--recolor", action="append", default=[],
+                    help="object:x0,y0,z0,x1,y1,z1:u,v[:up][:from=R,G,B,tol] - that object's textured triangles inside the box "
+                         "(Unity world) take the colour at (u, v) of their own texture (covers lettering and emblems drawn with "
+                         "palette swatches); up: only flat (upward or downward) faces; from=: only triangles whose current "
+                         "colour is within tol of R,G,B")
+    ap.add_argument("--skip-texture", default=None,
+                    help="regex: submeshes whose main texture has a matching name are left out (licensed statues and posters)")
+    ap.add_argument("--retexture", action="append", default=[],
+                    help="texture=png: use this image instead of the texture of that name (licensed artwork repainted)")
     a = ap.parse_args()
+    recolors = []
+    for r in a.recolor:
+        f = r.split(":")
+        rc = {"obj": f[0], "box": np.array([float(x) for x in f[1].split(",")]).reshape(2, 3),
+              "uv": [float(x) for x in f[2].split(",")], "up": "up" in f[3:], "from": None}
+        for x in f[3:]:
+            if x.startswith("from="):
+                rc["from"] = np.array([float(v) for v in x[5:].split(",")])
+        recolors.append(rc)
+    retex = dict(r.split("=", 1) for r in a.retexture)
     removes = []
     for r in a.remove:
         parts_ = r.split(":")
@@ -187,8 +206,13 @@ def main():
                     items["glow"].setdefault(key, []).append((P, T, None))
                 elif "_MainTex" in mat["tex"] and mesh["uv0"] is not None:
                     pid, sc, off = mat["tex"]["_MainTex"]
+                    if a.skip_texture and pid in b.objs and re.search(a.skip_texture, b.read(pid)["m_Name"]):
+                        stats.setdefault("skipped_textures", {})[gname] = b.read(pid)["m_Name"]
+                        stats["tris"] -= len(T)
+                        continue
                     if pid not in tex_info:
-                        img = tile.image(pid)
+                        src_name = b.read(pid)["m_Name"]
+                        img = Image.open(retex[src_name]).convert("RGBA") if src_name in retex else tile.image(pid)
                         if img is None:
                             continue
                         arr = np.asarray(img)
@@ -203,7 +227,32 @@ def main():
                         tex_info[pid] = {"file": fn, "alpha": alpha, "bytes": os.path.getsize(fn),
                                          "selfillum": "Self-Illum" in sh or "Illum" in sh}
                     uv = mesh["uv0"] * np.array(sc) + np.array(off)
-                    items["tex"].setdefault(pid, []).append((P, T, uv))
+                    Pk, Tk, uvk = P, T, uv
+                    for rc in recolors:
+                        if rc["obj"] != gname:
+                            continue
+                        cen = Pk[Tk].mean(1)
+                        inside = np.all((cen >= rc["box"][0]) & (cen <= rc["box"][1]), axis=1)
+                        if rc["up"]:
+                            n = np.cross(Pk[Tk[:, 1]] - Pk[Tk[:, 0]], Pk[Tk[:, 2]] - Pk[Tk[:, 0]])
+                            n /= np.linalg.norm(n, axis=1, keepdims=True) + 1e-12
+                            inside &= np.abs(n[:, 1]) > 0.8
+                        if rc["from"] is not None:
+                            im = np.asarray(tile.image(pid).convert("RGB"))
+                            H, W = im.shape[:2]
+                            uvc = uvk[Tk].mean(1) % 1.0
+                            px = (uvc[:, 0] * W).astype(int).clip(0, W - 1)
+                            py = ((1 - uvc[:, 1]) * H).astype(int).clip(0, H - 1)
+                            inside &= np.linalg.norm(im[py, px].astype(float) - rc["from"][:3], axis=1) < rc["from"][3]
+                        if inside.any():  # own vertices for the covered triangles, all at the cover colour
+                            sel = Tk[inside].reshape(-1)
+                            base = len(Pk)
+                            Pk = np.concatenate([Pk, Pk[sel]])
+                            uvk = np.concatenate([uvk, np.tile(rc["uv"], (len(sel), 1))])
+                            Tk = Tk.copy()
+                            Tk[inside] = base + np.arange(len(sel)).reshape(-1, 3)
+                            stats.setdefault("recolored", {})[gname] = stats.get("recolored", {}).get(gname, 0) + int(inside.sum())
+                    items["tex"].setdefault(pid, []).append((Pk, Tk, uvk))
                 elif (sh in VC_SHADERS or "_LightMap" in mat["tex"] or "_AOMap" in mat["tex"]) and \
                         (mesh["uv1"] is not None or mesh["uv0"] is not None):
                     bake_parts.append((T, mat))
@@ -366,7 +415,8 @@ def main():
     info = {"name": Z, "source": os.path.basename(a.bundle), "roots": a.roots.split(","), "studsPerUnit": K,
             "parts": parts, "collision": collision, "boxes": boxes,
             "stats": {**stats, "skipped": stats["skipped"][:50], "pages": len(atlas.pages), "textures": len(tex_info)}}
-    check(json.dumps([p["name"] for p in parts] + [c["name"] for c in collision]), f"{Z} names")
+    check(json.dumps([p["name"] for p in parts] + [c["name"] for c in collision] + [p["texture"] for p in parts if p["texture"]]),
+          f"{Z} names")
 
     # preview
     objs = [o for o in scene.objects if o.type == "MESH" and not o.get("spso_collision")]

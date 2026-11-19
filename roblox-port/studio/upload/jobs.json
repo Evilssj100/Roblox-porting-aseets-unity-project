@@ -1,23 +1,65 @@
 [
 {
-"key": "model_HubPigeon",
-"path": "roblox-port/heroes/HubPigeon/HubPigeon.fbx",
+"key": "hub_Bulletin_Props",
+"path": "roblox-port/maps/hub/Bulletin_Props.fbx",
 "kind": "model",
-"name": "HubPigeon",
+"name": "SPSO Hub Bulletin_Props",
 "ctype": "model/fbx"
 },
 {
-"key": "package_HubPigeon",
-"path": "roblox-port/studio/packages/Hero_HubPigeon.rbxmx",
-"kind": "package",
-"name": "SPSO Hero Data HubPigeon",
-"ctype": "model/x-rbxm"
+"key": "hub_Plaza_1",
+"path": "roblox-port/maps/hub/Plaza_1.fbx",
+"kind": "model",
+"name": "SPSO Hub Plaza_1",
+"ctype": "model/fbx"
 },
 {
-"key": "hub_Hub_Pickups",
-"path": "roblox-port/maps/hub/Hub_Pickups.fbx",
+"key": "hub_Plaza_2",
+"path": "roblox-port/maps/hub/Plaza_2.fbx",
 "kind": "model",
-"name": "SPSO Hub Hub_Pickups",
+"name": "SPSO Hub Plaza_2",
+"ctype": "model/fbx"
+},
+{
+"key": "hub_Plaza_Props",
+"path": "roblox-port/maps/hub/Plaza_Props.fbx",
+"kind": "model",
+"name": "SPSO Hub Plaza_Props",
+"ctype": "model/fbx"
+},
+{
+"key": "hub_Realm_1",
+"path": "roblox-port/maps/hub/Realm_1.fbx",
+"kind": "model",
+"name": "SPSO Hub Realm_1",
+"ctype": "model/fbx"
+},
+{
+"key": "hub_Realm_2",
+"path": "roblox-port/maps/hub/Realm_2.fbx",
+"kind": "model",
+"name": "SPSO Hub Realm_2",
+"ctype": "model/fbx"
+},
+{
+"key": "hub_Realm_Props",
+"path": "roblox-port/maps/hub/Realm_Props.fbx",
+"kind": "model",
+"name": "SPSO Hub Realm_Props",
+"ctype": "model/fbx"
+},
+{
+"key": "hub_Villains_1",
+"path": "roblox-port/maps/hub/Villains_1.fbx",
+"kind": "model",
+"name": "SPSO Hub Villains_1",
+"ctype": "model/fbx"
+},
+{
+"key": "hub_Villains_2",
+"path": "roblox-port/maps/hub/Villains_2.fbx",
+"kind": "model",
+"name": "SPSO Hub Villains_2",
 "ctype": "model/fbx"
 }
 ]

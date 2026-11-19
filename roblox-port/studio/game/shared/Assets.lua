@@ -251,6 +251,7 @@ A.Heroes = {
 	CivilianMale3 = { model = 108367509679115, package = 134312636584548, faces = { "", "rbxassetid://85109878191392", "rbxassetid://70606402964051", "rbxassetid://95078870985756", "rbxassetid://108079569140206", "rbxassetid://82624403752522", "rbxassetid://120558126772579", "rbxassetid://137841807791548" } },
 	CivilianMale4 = { model = 133524579346797, package = 104199832201914, faces = { "", "rbxassetid://97831567238138", "rbxassetid://123507333661036", "rbxassetid://97659898410314", "rbxassetid://70777347137062", "rbxassetid://125473869109449", "rbxassetid://100975729374105", "rbxassetid://96460475006328" } },
 	ElRugido = { model = nil, package = 133012638300152, faces = { "rbxassetid://95009761023746", "rbxassetid://87813758884419", "rbxassetid://129014191028706", "rbxassetid://80712657085550", "rbxassetid://125458260096839", "rbxassetid://121373604073448", "rbxassetid://123655553866245", "rbxassetid://126536608314547" } },
+	HubPigeon = { model = 115223074365638, package = 131273291359706, faces = { "", "", "", "", "", "", "", "" } },
 	InvaderGrenadier = { model = 99700760397580, package = 125223635919178, faces = { "", "rbxassetid://122265879781688", "rbxassetid://73406378008266", "rbxassetid://121336335459341", "rbxassetid://122830552716278", "rbxassetid://123787477862907", "rbxassetid://134872190148743", "rbxassetid://140633214125408" } },
 	InvaderGunner = { model = 125194775550400, package = 122658418522513, faces = { "", "rbxassetid://101305487540752", "rbxassetid://82585379726484", "rbxassetid://101578272321848", "rbxassetid://105538963182843", "rbxassetid://120631450655977", "rbxassetid://84650464091210", "rbxassetid://89740081191465" } },
 	InvaderMelee = { model = 91386098833274, package = 125384716801476, faces = { "", "rbxassetid://123393689855943", "rbxassetid://127668603626057", "rbxassetid://137620702735073", "rbxassetid://78039295524490", "rbxassetid://88649847726198", "rbxassetid://120775835098534", "rbxassetid://99589912814676" } },
@@ -268,6 +269,7 @@ A.Hub = {
 	["Bulletin_1"] = 78175478547167,
 	["Bulletin_2"] = 103025408137751,
 	["Bulletin_Props"] = 108624669451374,
+	["Hub_Pickups"] = 120615367646961,
 }
 A.package_code = 113546958541177
 A.model_map_OrbitalArena = 96857863111637

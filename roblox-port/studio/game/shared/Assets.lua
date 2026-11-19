@@ -72,6 +72,7 @@ A.Fx = {
 }
 A.Gui = {
 	["Shadow"] = "rbxassetid://75639798143044",
+	["ShadowAlpha"] = "rbxassetid://114273008655636",
 	["animal_icon"] = "rbxassetid://101172487165803",
 	["background_1_login_screen"] = "rbxassetid://100016525188789",
 	["background_2_login_screen"] = "rbxassetid://75315002771971",

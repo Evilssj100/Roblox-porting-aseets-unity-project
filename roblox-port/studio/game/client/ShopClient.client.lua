@@ -239,7 +239,8 @@ goldDisplayLabel.TextStrokeTransparency = 1
 img(storeWin, "hud_fractal_icon", UDim2.new(0, 26, 0, 30), UDim2.new(1, -300, 0, 18), 12)
 local fractalDisplayLabel = text(storeWin, "0", UDim2.new(0, 90, 0, 28), UDim2.new(1, -270, 0, 19), Color3.fromRGB(230, 200, 255), 12)
 fractalDisplayLabel.TextXAlignment = Enum.TextXAlignment.Left
-local buyGold = artButton(storeWin, "shop_button_buygold_shoppingpopup", UDim2.new(0, 120, 0, 60), UDim2.new(1, -176, 0, 2), 12)
+local buyGold = artButton(storeWin, "shop_button_buygold_shoppingpopup", UDim2.new(0, 160, 0, 62), UDim2.new(1, -205, 0, 4), 12)
+buyGold.ImageRectOffset, buyGold.ImageRectSize = Vector2.new(16, 86), Vector2.new(226, 86) -- the button inside its 256 canvas
 buyGold.Activated:Connect(function() say("Gold will be sold in the store soon!") end)
 
 local left = panel(storeWin, UDim2.new(0, 190, 1, -84), UDim2.new(0, 12, 0, 72), NAVY2, 11)

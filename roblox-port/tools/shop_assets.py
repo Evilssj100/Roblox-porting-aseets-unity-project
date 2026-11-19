@@ -59,8 +59,9 @@ def world_key(prefix, name):
     return prefix + n
 
 
-# potion icons kept as they are (generic objects); gold, ghost and invisibility are redrawn below
-POTIONS =["fart", "electricityball", "seasonal", "snow", "stinkbomb", "alien", "green", "void", "shadow",
+# potion icons kept as they are (generic objects); gold, ghost, invisibility, shadow, void, growth and shrink are
+# drawn below (the shadow, void, growth and shrink originals show licensed characters or their silhouettes)
+POTIONS = ["fart", "electricityball", "seasonal", "snow", "stinkbomb", "alien", "green",
            "damageboost", "speedboost", "armorboost", "xpboost", "healthboost", "rude", "dance", "1000xp", "5000xp",
            "fractal"]
 
@@ -132,7 +133,7 @@ def paw():
     return outline(im)
 
 
-def flask(liquid, glass=(210, 240, 255, 150), sparkle=True, dashed=False):
+def flask(liquid, glass=(210, 240, 255, 150), sparkle=True, dashed=False, extra=None):
     n = 256
     im = Image.new("RGBA", (n, n), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
@@ -147,8 +148,31 @@ def flask(liquid, glass=(210, 240, 255, 150), sparkle=True, dashed=False):
     if sparkle:
         for cx, cy, r in ((90, 140, 16), (170, 120, 12), (140, 190, 10)):
             d.polygon(star_pts(cx, cy, r, r * 0.35, n=4), fill=(255, 255, 255, 255))
+    if extra:
+        extra(d)
     d.ellipse([74, 104, 100, 150], fill=(255, 255, 255, 120))
     return outline(im)
+
+
+# symbols for the potions whose original icons showed licensed characters (drawn on the flask)
+def moon(d):
+    d.ellipse([92, 122, 164, 194], fill=(250, 246, 255, 255))
+    d.ellipse([110, 112, 182, 184], fill=(70, 40, 110, 255))
+
+
+def starfield(d):
+    for cx, cy, r in ((96, 150, 14), (150, 128, 10), (164, 182, 15), (118, 200, 9), (130, 166, 6)):
+        d.polygon(star_pts(cx, cy, r, r * 0.35, n=4), fill=(220, 200, 255, 255))
+    d.arc([70, 110, 186, 226], 200, 340, fill=(150, 90, 230, 255), width=6)
+
+
+def arrow(up):
+    tip, head, base = (104, 150, 206) if up else (214, 168, 112)
+
+    def draw(d):
+        d.polygon([(128, tip), (170, head), (146, head), (146, base), (110, base), (110, head), (86, head)],
+                  fill=(255, 255, 255, 255))
+    return draw
 
 
 def ghost():
@@ -202,8 +226,6 @@ def main():
         put(os.path.join(src, "hud_bundle", n + ".png"), "gui_hud_" + n)
     for n in POTIONS:
         put(os.path.join(src, "goodieseffects_bundle", f"goody_effects_{n}_shopping.png"), "gui_potion_" + n)
-    for n in ("growth", "shrink"):
-        put(os.path.join(src, "goodieseffects_bundle", f"goody_{n}_shopping.png"), "gui_potion_" + n)
     for n in WORLD:
         put(os.path.join(src, "gameworld_bundle", n + ".png"), world_key("gui_world_", n))
     for n in EN_WORLD:
@@ -214,6 +236,10 @@ def main():
              "gui_shop_title": scroll(), "gui_shop_medallion": medallion(), "gui_shop_sidekick": paw(),
              "gui_potion_gold": flask((236, 186, 40, 255)), "gui_potion_ghost": ghost(),
              "gui_potion_invisible": flask((200, 230, 255, 90), sparkle=False, dashed=True),
+             "gui_potion_shadow": flask((70, 40, 110, 255), sparkle=False, extra=moon),
+             "gui_potion_void": flask((20, 16, 30, 255), sparkle=False, extra=starfield),
+             "gui_potion_growth": flask((90, 200, 80, 255), sparkle=False, extra=arrow(True)),
+             "gui_potion_shrink": flask((80, 150, 230, 255), sparkle=False, extra=arrow(False)),
              **{f"gui_hero_{h}": hero_card(c) for h, c in HERO_COLORS.items()}}
     for k, im in drawn.items():
         im.save(os.path.join(out, k + ".png"))

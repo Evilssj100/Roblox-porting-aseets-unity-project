@@ -103,7 +103,7 @@
    "parent": "ServerScriptService/SPSO",
    "name": "Hub",
    "class": "Script",
-   "sha": "f67ed723b715fd5b"
+   "sha": "2fd6d691fa91e599"
   },
   {
    "path": "studio/game/client/BrawlerClient.client.lua",

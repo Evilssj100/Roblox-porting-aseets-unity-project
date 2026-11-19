@@ -170,14 +170,31 @@ local function startCivilians(zoneName: string, z, zf: Instance)
 			hum:SetStateEnabled(Enum.HumanoidStateType.Climbing, false)
 			pcall(function() m.HumanoidRootPart:SetNetworkOwner(nil) end)
 			table.insert(civilians, { model = m, hum = hum, path = path, node = start, dir = k == 1 and 1 or -1, wait = 0,
-				last = m.HumanoidRootPart.Position, stuck = 0 })
+				last = m.HumanoidRootPart.Position, stuck = 0, zone = zoneName })
 		end
 	end
 end
 local function walkCivilians(dt: number)
+	local occupied = {}
+	for _, p in Players:GetPlayers() do
+		local z = zoneOf(p)
+		if z then occupied[z] = true end
+	end
 	for _, c in civilians do
 		local hrp = c.model:FindFirstChild("HumanoidRootPart")
 		if not hrp or not c.model.Parent then continue end
+		-- nobody in the zone: the walkers wait in place (anchored, no physics) until a hero arrives
+		if not occupied[c.zone] then
+			if not c.parked then
+				c.parked = true
+				hrp.Anchored = true
+			end
+			continue
+		elseif c.parked then
+			c.parked = false
+			hrp.Anchored = false
+			c.last, c.stuck = hrp.Position, 0
+		end
 		if c.wait > now() then
 			c.last, c.stuck = hrp.Position, 0
 			continue

@@ -1,4 +1,4 @@
-<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4"><External>null</External><External>nil</External><Item class="Folder" referent="RBX000031"><Properties><string name="Name">SPSO_Package</string></Properties><Item class="StringValue" referent="RBX000023"><Properties><string name="Name">_version</string><string name="Value">hub7</string></Properties></Item><Item class="Folder" referent="RBX000024"><Properties><string name="Name">ReplicatedStorage/SPSO/Runtime</string></Properties><Item class="ModuleScript" referent="RBX000001"><Properties><string name="Name">ExactAnimator</string><ProtectedString name="Source"><![CDATA[--!native
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4"><External>null</External><External>nil</External><Item class="Folder" referent="RBX000031"><Properties><string name="Name">SPSO_Package</string></Properties><Item class="StringValue" referent="RBX000023"><Properties><string name="Name">_version</string><string name="Value">hub8</string></Properties></Item><Item class="Folder" referent="RBX000024"><Properties><string name="Name">ReplicatedStorage/SPSO/Runtime</string></Properties><Item class="ModuleScript" referent="RBX000001"><Properties><string name="Name">ExactAnimator</string><ProtectedString name="Source"><![CDATA[--!native
 -- SPSO ExactAnimator: plays a hero's ORIGINAL animation curves exactly the way Unity's legacy
 -- Animation component did: Hermite curves, quaternion components normalised, the full node chain,
 -- crossfades, wrap modes, animation events, facial expressions (FacialAnimation.cs) and root motion
@@ -35574,14 +35574,31 @@ local function startCivilians(zoneName: string, z, zf: Instance)
 			hum:SetStateEnabled(Enum.HumanoidStateType.Climbing, false)
 			pcall(function() m.HumanoidRootPart:SetNetworkOwner(nil) end)
 			table.insert(civilians, { model = m, hum = hum, path = path, node = start, dir = k == 1 and 1 or -1, wait = 0,
-				last = m.HumanoidRootPart.Position, stuck = 0 })
+				last = m.HumanoidRootPart.Position, stuck = 0, zone = zoneName })
 		end
 	end
 end
 local function walkCivilians(dt: number)
+	local occupied = {}
+	for _, p in Players:GetPlayers() do
+		local z = zoneOf(p)
+		if z then occupied[z] = true end
+	end
 	for _, c in civilians do
 		local hrp = c.model:FindFirstChild("HumanoidRootPart")
 		if not hrp or not c.model.Parent then continue end
+		-- nobody in the zone: the walkers wait in place (anchored, no physics) until a hero arrives
+		if not occupied[c.zone] then
+			if not c.parked then
+				c.parked = true
+				hrp.Anchored = true
+			end
+			continue
+		elseif c.parked then
+			c.parked = false
+			hrp.Anchored = false
+			c.last, c.stuck = hrp.Position, 0
+		end
 		if c.wait > now() then
 			c.last, c.stuck = hrp.Position, 0
 			continue

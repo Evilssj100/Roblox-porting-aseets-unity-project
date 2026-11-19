@@ -277,7 +277,7 @@ local hud = screen("SPSO_HUD", 1)
 hud.Enabled = false
 
 -- player frame: live portrait of your hero in the ring, life bar, power stars (P1, P2, P3, super)
-local frame = img(hud, "bh_playerframe", { Size = UDim2.fromOffset(392, 196), Position = UDim2.fromOffset(8, 4), ZIndex = 2 })
+local frame = img(hud, "bh_playerframe", { Size = UDim2.fromOffset(392, 196), Position = UDim2.fromOffset(8, 16), ZIndex = 2 })
 local portraitVp = Instance.new("ViewportFrame")
 portraitVp.Size, portraitVp.Position = UDim2.fromOffset(112, 112), UDim2.fromOffset(30, 40)
 portraitVp.BackgroundColor3 = Color3.fromRGB(30, 60, 110)
@@ -297,11 +297,14 @@ Instance.new("UICorner", lifeBg).CornerRadius = UDim.new(0, 8)
 local lifeDamage = img(lifeBg, "bh_life_damage", { Size = UDim2.fromScale(1, 1), ScaleType = Enum.ScaleType.Stretch, ZIndex = 3 })
 local lifeFill = img(lifeBg, "bh_life_fill", { Size = UDim2.fromScale(1, 1), ScaleType = Enum.ScaleType.Stretch, ZIndex = 4 })
 local hpText = text(lifeBg, "", { Size = UDim2.fromScale(1, 1), TextSize = 14, ZIndex = 5 })
-local starBox = img(frame, "bh_star_container_4", { Size = UDim2.fromOffset(176, 44), Position = UDim2.fromOffset(160, 100), ZIndex = 3 })
+local starBox = Instance.new("Frame")
+starBox.BackgroundTransparency = 1
+starBox.Size, starBox.Position = UDim2.fromOffset(176, 40), UDim2.fromOffset(160, 100)
+starBox.Parent = frame
 local stars = {}
 for i, cost in { 20, 40, 60, 100 } do
-	stars[i] = { cost = cost, img = img(starBox, "bh_star_active", { Size = UDim2.fromOffset(36, 36),
-		Position = UDim2.fromOffset(6 + (i - 1) * 42, 4), ZIndex = 4 }) }
+	stars[i] = { cost = cost, img = img(starBox, "bh_star_active", { Size = UDim2.fromOffset(i == 4 and 40 or 32, i == 4 and 40 or 32),
+		AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromOffset(20 + (i - 1) * 42, 20), ZIndex = 4 }) }
 end
 local pwBarBg = Instance.new("Frame")
 pwBarBg.Size, pwBarBg.Position = UDim2.fromOffset(176, 6), UDim2.fromOffset(160, 146)
@@ -403,8 +406,9 @@ local function setPortrait(hero)
 	rig.Parent = world
 	local ext = rig:GetExtentsSize()
 	local cam = Instance.new("Camera")
-	cam.FieldOfView = 24
-	cam.CFrame = CFrame.lookAt(Vector3.new(0, ext.Y * 0.82, -ext.Y * 1.25), Vector3.new(0, ext.Y * 0.8, 0))
+	cam.FieldOfView = 30
+	local headY = ext.Y * 0.84
+	cam.CFrame = CFrame.lookAt(Vector3.new(0, headY, -ext.Y * 0.95), Vector3.new(0, headY - ext.Y * 0.04, 0))
 	cam.Parent = portraitVp
 	portraitVp.CurrentCamera = cam
 	local ok, anim = pcall(ExactAnimator.new, HeroPack.get(hero), rig, { wrapModes = Config.WrapModes, skin = false })

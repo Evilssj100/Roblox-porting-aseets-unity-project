@@ -5,7 +5,7 @@
    "parent": "ReplicatedStorage/SPSO/Runtime",
    "name": "ExactAnimator",
    "class": "ModuleScript",
-   "sha": "deca6916909ceebb"
+   "sha": "8c569dbd726bdb0d"
   },
   {
    "path": "studio/runtime/HeroPack.lua",
@@ -82,7 +82,7 @@
    "parent": "StarterPlayer/StarterPlayerScripts",
    "name": "BrawlerClient",
    "class": "LocalScript",
-   "sha": "231c04ad544c3eac"
+   "sha": "adf7a1b47be0ae7e"
   },
   {
    "path": "studio/game/character/Animate.client.lua",

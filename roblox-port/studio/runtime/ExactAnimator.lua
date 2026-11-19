@@ -141,6 +141,31 @@ function ExactAnimator:_bindRig(model: Model)
 	self.rigBones, self.rigParent, self.boneCFInv = table.create(NB), table.create(NB, 0), table.create(NB)
 	self.C, self.A = table.create(12 * NB, 0), table.create(NB)
 	local depth = {}
+	-- the FBX importer can drop bones that carry no skin weights (props held in a palm): stand in a Bone at
+	-- the bind pose under the nearest existing ancestor so the chain still evaluates
+	for _, pb in pack.bones do
+		if not byName[pb.name] then
+			local n = pack.nodes[pb.node].parent
+			local parentBone
+			while n and n > 0 do
+				local pn = pack.nodes[n].name
+				if byName[pn] then parentBone = byName[pn] break end
+				n = pack.nodes[n].parent
+			end
+			local m = pb.binv
+			local rest = CFrame.new(m[4], m[8], m[12], m[1], m[2], m[3], m[5], m[6], m[7], m[9], m[10], m[11]):Inverse()
+			local bone = Instance.new("Bone")
+			bone.Name = pb.name
+			bone.Parent = parentBone or root
+			local acc, p = CFrame.identity, parentBone
+			while p and p:IsA("Bone") do
+				acc = p.CFrame * acc
+				p = p.Parent
+			end
+			bone.CFrame = acc:Inverse() * rest -- rest is in rig (root part) space
+			byName[pb.name] = bone
+		end
+	end
 	for b, pb in pack.bones do
 		local bone = byName[pb.name]
 		assert(bone, "rig has no bone " .. pb.name)

@@ -32,6 +32,16 @@ local function effectsFor(dataKey: string, data, fxHero: string)
 	end
 	for _, a in data.attacks or {} do add(a.anim, a.effect) end
 	for i = 1, 3 do add("power_emote_" .. i, "Power Emote " .. i) end
+	if dataKey ~= fxHero then -- enemy archetypes: their effects live in the shared character fx bundle
+		for _, a in data.attacks or {} do
+			if a.effect and FxPlayer.has("Shared", a.effect) then
+				map[a.anim] = map[a.anim] or {}
+				table.insert(map[a.anim], "Shared/" .. a.effect)
+			end
+		end
+		if FxPlayer.has("Shared", "death_effect_sequence") then map.recoil_death = { "Shared/death_effect_sequence" } end
+		if FxPlayer.has("Shared", "recoil_launch_sequence") then map.recoil_launch = { "Shared/recoil_launch_sequence" } end
+	end
 	local seqs = require(Game.FxData).Heroes[fxHero]
 	if seqs then
 		for name in seqs.sequences do
@@ -47,9 +57,9 @@ end
 function CharacterAnimator.new(model: Model, opts)
 	opts = opts or {}
 	local heroName = model:GetAttribute("SPSO_Hero") or Config.DefaultHero
-	local cfg = Config.Heroes[heroName] or Config.Heroes[Config.DefaultHero]
+	local cfg = Config.Models[heroName] or Config.Models[Config.DefaultHero]
 	local archetype = model:GetAttribute("SPSO_Archetype")
-	local data = archetype and GameData.Enemies[archetype] or cfg.data
+	local data = archetype and GameData.Enemies[archetype] or GameData.Heroes[heroName] or {}
 	local self = setmetatable({}, CharacterAnimator)
 	self.model, self.cfg, self.isLocal, self.hero = model, cfg, opts.isLocal == true, heroName
 	self.humanoid = model:FindFirstChildOfClass("Humanoid")
@@ -115,7 +125,8 @@ function CharacterAnimator:_onAction()
 	if names and late < 1 then
 		self.fx = {}
 		for _, n in names do
-			local h = FxPlayer.play(self.hero, n, self.model)
+			local src, seqName = string.match(n, "^(%w+)/(.+)$")
+			local h = FxPlayer.play(src or self.hero, seqName or n, self.model)
 			if h then table.insert(self.fx, h) end
 		end
 	end

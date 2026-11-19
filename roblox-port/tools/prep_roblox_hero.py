@@ -11,8 +11,9 @@
   <Hero>_anim.npz for building Roblox KeyframeSequences later
 
 Usage: python prep_roblox_hero.py <hero.blend> <face_atlas.png> <out_dir> <Hero> [body.png]
-The head part is the one whose texture image (or material) is named "head"; any other materials are
-joined into the body. Pass body.png when the .blend's body image is packed.
+The head part is the one whose texture image (or material) is named "head"; the largest other part is
+<Hero>_Body and any further materials (props, weapons) become <Hero>_Body2, ... with their own textures.
+Pass body.png when the .blend's body image is packed.
 """
 import json
 import os
@@ -92,14 +93,12 @@ for o in parts:
     (heads if is_head(o.material_slots[min(used)].material) else bodies).append(o)
 assert len(heads) == 1 and bodies, f"expected one head part and a body, got heads={[o.name for o in heads]}"
 head = heads[0]
-if len(bodies) > 1:  # extra non-face materials: keep them on one body mesh
-    bpy.ops.object.select_all(action="DESELECT")
-    for o in bodies:
-        o.select_set(True)
-    bpy.context.view_layer.objects.active = bodies[0]
-    bpy.ops.object.join()
+bodies.sort(key=lambda o: -len(o.data.vertices))  # extra materials (props, guns) stay separate parts
 body = bodies[0]
-parts = [body, head]
+extra = bodies[1:]
+for i, o in enumerate(extra):
+    o.name = o.data.name = f"{hero}_Body{i + 2}"
+parts = [body, head] + extra
 for o in parts:
     bpy.ops.object.select_all(action="DESELECT")
     o.select_set(True)

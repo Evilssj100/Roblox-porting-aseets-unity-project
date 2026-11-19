@@ -26,14 +26,14 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "CharacterAnimator",
    "class": "ModuleScript",
-   "sha": "af4d3a686de383bb"
+   "sha": "53aff8fabf8f4187"
   },
   {
    "path": "studio/game/shared/FxData.lua",
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "FxData",
    "class": "ModuleScript",
-   "sha": "b72f114e23c76238"
+   "sha": "d0dbc18852536d8b"
   },
   {
    "path": "studio/game/shared/FxPlayer.lua",
@@ -47,14 +47,14 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "GameConfig",
    "class": "ModuleScript",
-   "sha": "021670ee97b5aeb1"
+   "sha": "2ef39bdbe3ae33aa"
   },
   {
    "path": "studio/game/shared/GameData.lua",
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "GameData",
    "class": "ModuleScript",
-   "sha": "a6b4bb605361fad9"
+   "sha": "7edf7a4b4dc7a5a7"
   },
   {
    "path": "studio/game/shared/Net.lua",
@@ -68,21 +68,21 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "Sound",
    "class": "ModuleScript",
-   "sha": "e230f426b11216c8"
+   "sha": "4e72b16a73019b34"
   },
   {
    "path": "studio/game/server/Brawler.server.lua",
    "parent": "ServerScriptService/SPSO",
    "name": "Brawler",
    "class": "Script",
-   "sha": "1318ef8a0bb35fa7"
+   "sha": "8fb0d5f456dec088"
   },
   {
    "path": "studio/game/client/BrawlerClient.client.lua",
    "parent": "StarterPlayer/StarterPlayerScripts",
    "name": "BrawlerClient",
    "class": "LocalScript",
-   "sha": "0983f5e992d7a5ba"
+   "sha": "231c04ad544c3eac"
   },
   {
    "path": "studio/game/character/Animate.client.lua",
@@ -109,6 +109,26 @@
    "name": "ElRugido",
    "path": "heroes/ElRugido/runtime/ElRugido.spsohero.b64",
    "sha": "a9749758ef9aa52d"
+  },
+  {
+   "name": "InvaderGrenadier",
+   "path": "heroes/InvaderGrenadier/runtime/InvaderGrenadier.spsohero.b64",
+   "sha": "9d023a0d1b91f439"
+  },
+  {
+   "name": "InvaderGunner",
+   "path": "heroes/InvaderGunner/runtime/InvaderGunner.spsohero.b64",
+   "sha": "9397039bd4cc27bc"
+  },
+  {
+   "name": "InvaderMelee",
+   "path": "heroes/InvaderMelee/runtime/InvaderMelee.spsohero.b64",
+   "sha": "f2e81ef1c4c298b6"
+  },
+  {
+   "name": "InvaderWarlord",
+   "path": "heroes/InvaderWarlord/runtime/InvaderWarlord.spsohero.b64",
+   "sha": "252e32dbe9a2940f"
   },
   {
    "name": "Magmaul",

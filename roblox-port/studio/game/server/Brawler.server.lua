@@ -257,7 +257,7 @@ function Fighter:fireProjectile(i: number, imp)
 		g = imp.gravity or 0, expires = now() + life, hit = {}, atkRef = self.atk }
 	projectiles[p.id] = p
 	FxRemote:FireAllClients("proj", { id = p.id, from = from, vel = p.vel, life = life, g = p.g, kind = imp.visual or "orb",
-		hero = self.hero, team = self.team })
+		hero = self.arch and "Shared" or self.hero, team = self.team })
 end
 
 function Fighter:targetImpact(i: number, imp)
@@ -442,6 +442,7 @@ function Fighter:die(attacker, imp)
 			FxRemote:FireAllClients("score", { pos = self:chest() + Vector3.new(0, 3, 0), points = pts, mult = mult })
 		end
 		dropPickups(self.hrp.Position)
+		if self.ai and self.ai.boss then FxRemote:FireAllClients("bossKO", { pos = self:chest() }) end
 		if imp and (imp.recoil == 5 or imp.recoil == 4) then
 			self.hum:ChangeState(Enum.HumanoidStateType.Freefall)
 			local dir = attacker and flat(self.hrp.Position - attacker.hrp.Position) or Vector3.zero
@@ -487,7 +488,7 @@ function Fighter:takeHit(attacker, imp, src: Vector3?)
 	if limit > 0 and recoil > limit then recoil = limit end
 	FxRemote:FireAllClients("hit", {
 		pos = src or self:chest(), amount = math.floor(dmg + 0.5), heavy = recoil >= 2, team = self.team,
-		hero = attacker.hero, effect = imp.effect, victim = self.model,
+		hero = attacker.arch and "Shared" or attacker.hero, effect = imp.effect, victim = self.model,
 	})
 	if self.team == "Enemy" and attacker.hrp then
 		local dir = flat(attacker.hrp.Position - self.hrp.Position)
@@ -536,6 +537,18 @@ end
 function Fighter:onActionEnd()
 	local clip, kind = self.action, self.actionKind
 	if kind == "death" then return end
+	local tp = self.ai and self.ai.teleport
+	if tp and clip == tp[1] then -- the warlord reappears next to a hero and strikes
+		local t = self:nearestOpponent()
+		if t then
+			local dir = flat(self.hrp.Position - t.hrp.Position)
+			dir = dir.Magnitude > 0.1 and dir.Unit or Vector3.zAxis
+			local pos = t.hrp.Position + dir * 6
+			self.hrp.CFrame = CFrame.lookAt(pos, Vector3.new(t.hrp.Position.X, pos.Y, t.hrp.Position.Z))
+		end
+		self:play(tp[2], Config.FadeAttack, "attack", self.data.attacks[tp[2]] and tp[2] or nil)
+		return
+	end
 	if clip == "recoil_launch_land" then
 		self:play("recoil_getup", 0.1, "recoil")
 		return
@@ -557,8 +570,9 @@ end
 
 function Fighter:pickAttack(dist: number)
 	local keys = {}
+	local tp = self.ai.teleport
 	for k, a in self.data.attacks do
-		if k ~= "Super" and (dist <= a.range + 6 or self.ai.keepDistance > 0) then table.insert(keys, k) end
+		if k ~= "Super" and not (tp and k == tp[2]) and (dist <= a.range + 6 or self.ai.keepDistance > 0) then table.insert(keys, k) end
 	end
 	if self.ai.boss and now() >= self.nextSuper and self.data.attacks.Super then
 		self.nextSuper = now() + self.ai.superEvery
@@ -803,19 +817,24 @@ local skinCount = {}
 local function spawnEnemy(arch: string, i: number)
 	local spec = GameData.Enemies[arch]
 	local ai = Config.Enemies[arch]
-	local cfg = Config.Heroes[spec.model]
-	local template = ServerStorage.SPSO.Characters:FindFirstChild(cfg.template)
-	if not template then return end
+	local cfg = Config.Models[spec.model]
+	local template = cfg and ServerStorage.SPSO.Characters:FindFirstChild(cfg.template)
+	if not template then
+		warn("[SPSO] no template for enemy model " .. tostring(spec.model))
+		return
+	end
 	local e = template:Clone()
-	skinCount[arch] = (skinCount[arch] or 0) + 1
-	local skin = ai.skins[(skinCount[arch] - 1) % #ai.skins + 1]
 	e.Name = spec.displayName
-	e:SetAttribute("SPSO_Variant", skin)
-	local body = e:FindFirstChild(cfg.bodyPart, true)
-	local head = e:FindFirstChild(cfg.headPart, true)
-	local b, h = Assets.Skins[spec.model .. "_" .. skin .. "_Body"], Assets.Skins[spec.model .. "_" .. skin .. "_Head"]
-	if body and b and b ~= "" then body.TextureID = b end
-	if head and h and h ~= "" then head.TextureID = h end
+	if #ai.skins > 0 then -- optional costume recolours
+		skinCount[arch] = (skinCount[arch] or 0) + 1
+		local skin = ai.skins[(skinCount[arch] - 1) % #ai.skins + 1]
+		e:SetAttribute("SPSO_Variant", skin)
+		local body = e:FindFirstChild(cfg.bodyPart, true)
+		local head = e:FindFirstChild(cfg.headPart, true)
+		local b, h = Assets.Skins[spec.model .. "_" .. skin .. "_Body"], Assets.Skins[spec.model .. "_" .. skin .. "_Head"]
+		if body and b and b ~= "" then body.TextureID = b end
+		if head and h and h ~= "" then head.TextureID = h end
+	end
 	local hum = e:FindFirstChildOfClass("Humanoid")
 	hum.MaxHealth, hum.Health = spec.health, spec.health
 	hum.BreakJointsOnDeath = false
@@ -848,7 +867,7 @@ local function medals(playerCount: number)
 	playerCount = math.max(1, playerCount)
 	local num2, num3, combo = 0, 0, 0
 	for _, wave in Config.Waves do
-		for arch, n in wave do
+		for arch, n in wave.enemies do
 			local spec = GameData.Enemies[arch]
 			for _ = 1, n do
 				combo = math.min(combo + spec.health / (40 * playerCount), 2.99)
@@ -880,12 +899,12 @@ task.spawn(function()
 		local start = now()
 		for w, wave in Config.Waves do
 			SPSO:SetAttribute("Wave", w)
-			local boss = wave.Warlord ~= nil
-			banner(boss and "BOSS WAVE" or ("WAVE " .. w))
+			SPSO:SetAttribute("Music", wave.music)
+			banner(wave.boss and "BOSS FIGHT!" or ("WAVE " .. w))
 			task.wait(2.5)
 			local i = 0
-			for _, arch in { "Thug", "Blaster", "Warlord" } do
-				for _ = 1, wave[arch] or 0 do
+			for _, arch in { "Thug", "Blaster", "Grenadier", "Bazooka", "Warlord" } do
+				for _ = 1, wave.enemies[arch] or 0 do
 					i += 1
 					spawnEnemy(arch, i + w)
 					task.wait(0.35)

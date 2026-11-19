@@ -1,5 +1,5 @@
--- Plays the original game's sounds from the one uploaded sound sprite (tools/build_fx.py packs every hero
--- sound, UI sound and music track into one file; FxData.Sounds holds each clip's [start, length]).
+-- Plays the original game's sounds from the uploaded sound sprites (tools/build_fx.py packs every hero sound,
+-- UI sound and music track into a few files; FxData.Sounds holds each clip's [start, length, sprite]).
 --   Sound.play(key, { at = Instance | Vector3 | nil, volume, pitch, minDist, maxDist })  -> Sound?
 --   Sound.music(key)  loops a track (nil stops the music)
 local SoundService = game:GetService("SoundService")
@@ -15,10 +15,11 @@ Sound.Volume = { sfx = 0.8, ui = 0.6, music = 0.35 }
 
 local function make(key: string, opts)
 	local seg = SEGMENTS[key]
-	if not seg or Assets.SoundSprite == "" then return nil end
+	local sprite = seg and ((Assets.SoundSprites and Assets.SoundSprites[seg[3] or 1]) or Assets.SoundSprite)
+	if not seg or not sprite or sprite == "" then return nil end
 	local s = Instance.new("Sound")
 	s.Name = key
-	s.SoundId = Assets.SoundSprite
+	s.SoundId = sprite
 	s.PlaybackRegionsEnabled = true
 	s.PlaybackRegion = NumberRange.new(seg[1], seg[1] + seg[2])
 	s.PlaybackSpeed = opts.pitch or 1

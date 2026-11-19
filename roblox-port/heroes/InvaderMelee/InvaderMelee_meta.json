@@ -1,0 +1,226 @@
+{
+ "hero": "InvaderMelee",
+ "height_bu": 1.9910547118633986,
+ "bones": [
+  "Pelvis",
+  "LLeg1",
+  "LLeg2",
+  "LLegAnkle",
+  "LLegDigit11",
+  "Spine",
+  "Ribcage",
+  "Neck",
+  "Head",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm21",
+  "LArm22",
+  "LArmPalm",
+  "LArmDigit31",
+  "LArmDigit32",
+  "LArmDigit41",
+  "LArmDigit42",
+  "LArmDigit21",
+  "LArmDigit22",
+  "LArmDigit11",
+  "LArmDigit12",
+  "RArmCollarbone",
+  "RArm1",
+  "RArm21",
+  "RArm22",
+  "RArmPalm",
+  "RArmDigit31",
+  "RArmDigit32",
+  "Rpalm_gun",
+  "RArmDigit41",
+  "RArmDigit42",
+  "RArmDigit21",
+  "RArmDigit22",
+  "RArmDigit11",
+  "RArmDigit12",
+  "RLeg1",
+  "RLeg2",
+  "RLegAnkle",
+  "RLegDigit11"
+ ],
+ "parents": [
+  "",
+  "Pelvis",
+  "LLeg1",
+  "LLeg2",
+  "LLegAnkle",
+  "Pelvis",
+  "Spine",
+  "Ribcage",
+  "Neck",
+  "Ribcage",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm21",
+  "LArm22",
+  "LArmPalm",
+  "LArmDigit31",
+  "LArmPalm",
+  "LArmDigit41",
+  "LArmPalm",
+  "LArmDigit21",
+  "LArmPalm",
+  "LArmDigit11",
+  "Ribcage",
+  "RArmCollarbone",
+  "RArm1",
+  "RArm21",
+  "RArm22",
+  "RArmPalm",
+  "RArmDigit31",
+  "RArmPalm",
+  "RArmPalm",
+  "RArmDigit41",
+  "RArmPalm",
+  "RArmDigit21",
+  "RArmPalm",
+  "RArmDigit11",
+  "Pelvis",
+  "RLeg1",
+  "RLeg2",
+  "RLegAnkle"
+ ],
+ "fx_points": {
+  "fx_Lpalm": {
+   "bone": "LArmPalm",
+   "world": [
+    0.9690721035003662,
+    -0.0020135613158345222,
+    1.304000735282898
+   ],
+   "offset_in_bone": [
+    0.08461645990610123,
+    0.10486429929733276,
+    -0.0007275925017893314
+   ]
+  },
+  "fx_Rpalm": {
+   "bone": "RArmPalm",
+   "world": [
+    -0.9690722227096558,
+    -0.002014137338846922,
+    1.303998351097107
+   ],
+   "offset_in_bone": [
+    0.08461838215589523,
+    0.10486432909965515,
+    0.0007273424416780472
+   ]
+  }
+ },
+ "clips": [
+  {
+   "name": "Take 001",
+   "duration": 0.666667
+  },
+  {
+   "name": "attack_1",
+   "duration": 2.0
+  },
+  {
+   "name": "attack_2",
+   "duration": 2.0
+  },
+  {
+   "name": "block",
+   "duration": 1.333333
+  },
+  {
+   "name": "jump_fall",
+   "duration": 0.933333
+  },
+  {
+   "name": "jump_land",
+   "duration": 1.166667
+  },
+  {
+   "name": "movement_idle",
+   "duration": 2.0
+  },
+  {
+   "name": "movement_run",
+   "duration": 0.666667
+  },
+  {
+   "name": "recoil_back",
+   "duration": 1.0
+  },
+  {
+   "name": "recoil_big",
+   "duration": 1.166667
+  },
+  {
+   "name": "recoil_dance",
+   "duration": 1.9
+  },
+  {
+   "name": "recoil_death",
+   "duration": 1.5
+  },
+  {
+   "name": "recoil_getup",
+   "duration": 1.666667
+  },
+  {
+   "name": "recoil_ground",
+   "duration": 0.9
+  },
+  {
+   "name": "recoil_knockdown",
+   "duration": 1.1
+  },
+  {
+   "name": "recoil_launch",
+   "duration": 2.0
+  },
+  {
+   "name": "recoil_launch_land",
+   "duration": 2.0
+  },
+  {
+   "name": "recoil_small",
+   "duration": 1.0
+  },
+  {
+   "name": "recoil_stun",
+   "duration": 2.666667
+  },
+  {
+   "name": "sleep_idle",
+   "duration": 3.333333
+  },
+  {
+   "name": "sleep_wake_up",
+   "duration": 1.666667
+  },
+  {
+   "name": "spawn_in",
+   "duration": 2.966667
+  }
+ ],
+ "face_tiles": [
+  "InvaderMelee_Face_0.png",
+  "InvaderMelee_Face_1.png",
+  "InvaderMelee_Face_2.png",
+  "InvaderMelee_Face_3.png",
+  "InvaderMelee_Face_4.png",
+  "InvaderMelee_Face_5.png",
+  "InvaderMelee_Face_6.png",
+  "InvaderMelee_Face_7.png"
+ ],
+ "face_tile_names": [
+  "neutral_smile",
+  "grin",
+  "surprised",
+  "gritted",
+  "wink",
+  "smirk",
+  "shout",
+  "focused"
+ ]
+}

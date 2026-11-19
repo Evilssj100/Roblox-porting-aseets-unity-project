@@ -90,31 +90,18 @@ local function makeHealthBar(model: Model, boss: boolean)
 	local hrp = model:FindFirstChild("HumanoidRootPart")
 	local bb = Instance.new("BillboardGui")
 	bb.Name = "SPSO_Health"
-	bb.Size = boss and UDim2.fromOffset(170, 16) or UDim2.fromOffset(90, 10)
+	bb.Size = UDim2.fromOffset(96, 12)
 	local ext = model:GetExtentsSize()
 	bb.StudsOffset = Vector3.new(0, math.max(4, ext.Y - 2.2), 0)
 	bb.AlwaysOnTop = true
 	bb.Adornee = hrp
-	local bg = Instance.new("Frame")
-	bg.Size = UDim2.fromScale(1, 1)
-	bg.BackgroundColor3 = Color3.fromRGB(25, 20, 30)
-	bg.BorderSizePixel = 0
-	bg.Parent = bb
-	Instance.new("UICorner", bg).CornerRadius = UDim.new(0, 4)
-	local stroke = Instance.new("UIStroke", bg)
-	stroke.Color, stroke.Thickness = Color3.fromRGB(255, 220, 90), boss and 2 or 1
-	local fill = Instance.new("Frame")
-	fill.Size = UDim2.fromScale(1, 1)
-	fill.BackgroundColor3 = boss and Color3.fromRGB(255, 120, 40) or Color3.fromRGB(235, 70, 70)
-	fill.BorderSizePixel = 0
-	fill.Parent = bg
-	Instance.new("UICorner", fill).CornerRadius = UDim.new(0, 4)
-	if boss then
-		text(bb, string.upper(model.Name), { Size = UDim2.new(1, 0, 0, 20), Position = UDim2.fromOffset(0, -22),
-			Font = HEADING, TextSize = 20, TextColor3 = Color3.fromRGB(255, 230, 120) })
-	end
+	img(bb, "bh_enemy_health_bg", { Size = UDim2.fromScale(1, 1), ScaleType = Enum.ScaleType.Stretch })
+	local damage = img(bb, "bh_enemy_health_damage", { Size = UDim2.fromScale(1, 1), ScaleType = Enum.ScaleType.Stretch, ZIndex = 2 })
+	local fill = img(bb, "bh_enemy_health_full", { Size = UDim2.fromScale(1, 1), ScaleType = Enum.ScaleType.Stretch, ZIndex = 3 })
+	img(bb, "bh_enemy_health_gleam", { Size = UDim2.fromScale(1, 1), ScaleType = Enum.ScaleType.Stretch, ZIndex = 4 })
+	bb.Enabled = not boss -- the boss gets the big bar at the top of the screen
 	bb.Parent = playerGui
-	return { gui = bb, fill = fill }
+	return { gui = bb, fill = fill, damage = damage, shown = 1 }
 end
 
 local function attach(model: Instance)
@@ -285,48 +272,49 @@ UserInputService.InputBegan:Connect(function(input, gp)
 	if input.KeyCode == Enum.KeyCode.H and showSelect and not selecting then showSelect() end
 end)
 
--- HUD (original GUI art) -------------------------------------------------------------------------------------------------
+-- HUD (the original brawler HUD art) ---------------------------------------------------------------------
 local hud = screen("SPSO_HUD", 1)
 hud.Enabled = false
 
-local panel = img(hud, "baseWindow", { Size = UDim2.fromOffset(360, 100), Position = UDim2.fromOffset(96, 22),
-	ScaleType = Enum.ScaleType.Slice, SliceCenter = Rect.new(40, 20, 216, 44), ImageTransparency = 0.05 })
-local portrait = img(hud, "herobg", { Size = UDim2.fromOffset(104, 104), Position = UDim2.fromOffset(12, 18), ZIndex = 2 })
-local classIcon = img(portrait, "strength_icon", { Size = UDim2.fromScale(0.5, 0.5), Position = UDim2.fromScale(0.25, 0.25), ZIndex = 3 })
-local heroName = text(panel, "", { Font = HEADING, TextSize = 28, Size = UDim2.new(1, -40, 0, 30), Position = UDim2.fromOffset(30, 6),
-	TextXAlignment = Enum.TextXAlignment.Left, TextColor3 = Color3.fromRGB(255, 244, 200) })
-
-local function bar(parent, y, color, h)
-	local bg = Instance.new("Frame")
-	bg.Size, bg.Position = UDim2.new(1, -52, 0, h or 16), UDim2.fromOffset(30, y)
-	bg.BackgroundColor3 = Color3.fromRGB(16, 30, 60)
-	bg.BorderSizePixel = 0
-	bg.Parent = parent
-	Instance.new("UICorner", bg).CornerRadius = UDim.new(0, 7)
-	local st = Instance.new("UIStroke", bg)
-	st.Color, st.Thickness = Color3.fromRGB(255, 226, 120), 1.5
-	local fill = Instance.new("Frame")
-	fill.Size = UDim2.fromScale(1, 1)
-	fill.BackgroundColor3 = color
-	fill.BorderSizePixel = 0
-	fill.Parent = bg
-	Instance.new("UICorner", fill).CornerRadius = UDim.new(0, 7)
-	local grad = Instance.new("UIGradient", fill)
-	grad.Color = ColorSequence.new(Color3.new(1, 1, 1), Color3.fromRGB(190, 190, 190))
-	grad.Rotation = 90
-	return fill, bg
+-- player frame: live portrait of your hero in the ring, life bar, power stars (P1, P2, P3, super)
+local frame = img(hud, "bh_playerframe", { Size = UDim2.fromOffset(392, 196), Position = UDim2.fromOffset(8, 4), ZIndex = 2 })
+local portraitVp = Instance.new("ViewportFrame")
+portraitVp.Size, portraitVp.Position = UDim2.fromOffset(112, 112), UDim2.fromOffset(30, 40)
+portraitVp.BackgroundColor3 = Color3.fromRGB(30, 60, 110)
+portraitVp.Ambient, portraitVp.LightColor = Color3.fromRGB(180, 180, 190), Color3.new(1, 1, 1)
+portraitVp.ZIndex = 1
+portraitVp.Parent = frame
+Instance.new("UICorner", portraitVp).CornerRadius = UDim.new(1, 0)
+local heroName = text(frame, "", { Font = HEADING, TextSize = 26, Size = UDim2.fromOffset(220, 28), Position = UDim2.fromOffset(160, 40),
+	TextXAlignment = Enum.TextXAlignment.Left, TextColor3 = Color3.fromRGB(255, 244, 200), ZIndex = 4 })
+local lifeBg = Instance.new("Frame")
+lifeBg.Size, lifeBg.Position = UDim2.fromOffset(212, 22), UDim2.fromOffset(160, 72)
+lifeBg.BackgroundColor3 = Color3.fromRGB(20, 26, 50)
+lifeBg.ClipsDescendants = true
+lifeBg.ZIndex = 3
+lifeBg.Parent = frame
+Instance.new("UICorner", lifeBg).CornerRadius = UDim.new(0, 8)
+local lifeDamage = img(lifeBg, "bh_life_damage", { Size = UDim2.fromScale(1, 1), ScaleType = Enum.ScaleType.Stretch, ZIndex = 3 })
+local lifeFill = img(lifeBg, "bh_life_fill", { Size = UDim2.fromScale(1, 1), ScaleType = Enum.ScaleType.Stretch, ZIndex = 4 })
+local hpText = text(lifeBg, "", { Size = UDim2.fromScale(1, 1), TextSize = 14, ZIndex = 5 })
+local starBox = img(frame, "bh_star_container_4", { Size = UDim2.fromOffset(176, 44), Position = UDim2.fromOffset(160, 100), ZIndex = 3 })
+local stars = {}
+for i, cost in { 20, 40, 60, 100 } do
+	stars[i] = { cost = cost, img = img(starBox, "bh_star_active", { Size = UDim2.fromOffset(36, 36),
+		Position = UDim2.fromOffset(6 + (i - 1) * 42, 4), ZIndex = 4 }) }
 end
-local hpFill = bar(panel, 40, Color3.fromRGB(235, 70, 70))
-local hpText = text(hpFill.Parent, "", { Size = UDim2.fromScale(1, 1), TextSize = 13, Font = BODY, ZIndex = 3 })
-local pwFill, pwBg = bar(panel, 64, Color3.fromRGB(255, 200, 60), 18)
-for _, cost in { 20, 40, 60 } do
-	local tick = Instance.new("Frame")
-	tick.Size, tick.Position = UDim2.new(0, 2, 1, 0), UDim2.fromScale(cost / 100, 0)
-	tick.BackgroundColor3 = Color3.fromRGB(16, 30, 60)
-	tick.BorderSizePixel = 0
-	tick.ZIndex = 3
-	tick.Parent = pwBg
-end
+local pwBarBg = Instance.new("Frame")
+pwBarBg.Size, pwBarBg.Position = UDim2.fromOffset(176, 6), UDim2.fromOffset(160, 146)
+pwBarBg.BackgroundColor3 = Color3.fromRGB(20, 26, 50)
+pwBarBg.BorderSizePixel = 0
+pwBarBg.ZIndex = 3
+pwBarBg.Parent = frame
+local pwFill = Instance.new("Frame")
+pwFill.Size = UDim2.fromScale(0, 1)
+pwFill.BackgroundColor3 = Color3.fromRGB(255, 200, 60)
+pwFill.BorderSizePixel = 0
+pwFill.ZIndex = 4
+pwFill.Parent = pwBarBg
 
 -- power attack buttons (also tappable)
 local powerRow = Instance.new("Frame")
@@ -340,29 +328,56 @@ layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 local powerButtons = {}
 for _, spec in { { "R1", "1", 20 }, { "R2", "2", 40 }, { "R3", "3", 60 }, { "Super", "F", 100 } } do
 	local b = Instance.new("ImageButton")
-	b.Size = UDim2.fromOffset(spec[1] == "Super" and 96 or 66, 66)
+	b.Size = UDim2.fromOffset(spec[1] == "Super" and 86 or 66, 66)
 	b.BackgroundTransparency = 1
-	b.Image = G.herobg or ""
+	b.Image = G.bh_heroup_bubble or G.herobg or ""
 	b.Parent = powerRow
-	local ring = img(b, "ring_sharp_additive_tex", { Size = UDim2.fromScale(1, 1), ImageColor3 = Color3.fromRGB(255, 220, 90) })
-	text(b, spec[1] == "Super" and "SUPER" or ("P" .. spec[1]:sub(2)), { Size = UDim2.fromScale(1, 0.5), Position = UDim2.fromScale(0, 0.18),
-		Font = HEADING, TextSize = spec[1] == "Super" and 24 or 22 })
-	text(b, "[" .. spec[2] .. "] " .. spec[3], { Size = UDim2.fromScale(1, 0.3), Position = UDim2.fromScale(0, 0.62), TextSize = 12 })
+	local ring = img(b, "bh_heroup_bubble_flash", { Size = UDim2.fromScale(1, 1) })
+	text(b, spec[1] == "Super" and "SUPER" or ("P" .. spec[1]:sub(2)), { Size = UDim2.fromScale(1, 0.5), Position = UDim2.fromScale(0, 0.16),
+		Font = HEADING, TextSize = spec[1] == "Super" and 22 or 22 })
+	text(b, "[" .. spec[2] .. "] " .. spec[3], { Size = UDim2.fromScale(1, 0.3), Position = UDim2.fromScale(0, 0.6), TextSize = 12 })
 	b.Activated:Connect(function() attack(spec[1]) end)
 	powerButtons[spec[1]] = { button = b, ring = ring, cost = spec[3] }
 end
 
-local scoreBox = img(hud, "baseWindow", { Size = UDim2.fromOffset(250, 84), Position = UDim2.new(1, -266, 0, 22),
+-- score with the medal you are on track for
+local scoreBox = img(hud, "baseWindow", { Size = UDim2.fromOffset(270, 84), Position = UDim2.new(1, -286, 0, 22),
 	ScaleType = Enum.ScaleType.Slice, SliceCenter = Rect.new(40, 20, 216, 44) })
-local scoreText = text(scoreBox, "0", { Font = HEADING, TextSize = 34, Size = UDim2.new(1, -30, 0, 36), Position = UDim2.fromOffset(15, 6),
+local medalIcon = img(scoreBox, "bh_brawler_points_bronze", { Size = UDim2.fromOffset(60, 60), Position = UDim2.fromOffset(-22, 12), ZIndex = 3 })
+local scoreText = text(scoreBox, "0", { Font = HEADING, TextSize = 34, Size = UDim2.new(1, -40, 0, 36), Position = UDim2.fromOffset(30, 6),
 	TextColor3 = Color3.fromRGB(255, 240, 150) })
-local comboText = text(scoreBox, "", { TextSize = 16, Size = UDim2.new(1, -30, 0, 20), Position = UDim2.fromOffset(15, 46) })
+local comboText = text(scoreBox, "", { TextSize = 15, Size = UDim2.new(1, -40, 0, 20), Position = UDim2.fromOffset(30, 46) })
 local comboFill = Instance.new("Frame")
 comboFill.BorderSizePixel = 0
 comboFill.BackgroundColor3 = Color3.fromRGB(255, 120, 40)
-comboFill.Size, comboFill.Position = UDim2.new(0, 0, 0, 5), UDim2.fromOffset(20, 70)
+comboFill.Size, comboFill.Position = UDim2.new(0, 0, 0, 5), UDim2.fromOffset(36, 70)
 comboFill.Parent = scoreBox
 local waveLabel = text(hud, "", { Font = HEADING, TextSize = 30, Size = UDim2.fromOffset(500, 34), Position = UDim2.new(0.5, -250, 0, 16) })
+
+-- boss bar (original boss frame, life bar and name plate)
+local bossBar = Instance.new("Frame")
+bossBar.BackgroundTransparency = 1
+bossBar.Size, bossBar.Position = UDim2.fromOffset(560, 90), UDim2.new(0.5, -280, 0, 52)
+bossBar.Visible = false
+bossBar.Parent = hud
+img(bossBar, "bh_boss_lifebar_bg", { Size = UDim2.fromOffset(470, 30), Position = UDim2.fromOffset(80, 40), ScaleType = Enum.ScaleType.Stretch })
+local bossDamage = img(bossBar, "bh_boss_lifebar_damage", { Size = UDim2.fromOffset(450, 20), Position = UDim2.fromOffset(90, 45), ZIndex = 2 })
+local bossFill = img(bossBar, "bh_boss_lifebar_fill", { Size = UDim2.fromOffset(450, 20), Position = UDim2.fromOffset(90, 45), ZIndex = 3 })
+img(bossBar, "bh_boss_frame", { Size = UDim2.fromOffset(96, 96), Position = UDim2.fromOffset(0, 0), ZIndex = 4 })
+local bossName = text(bossBar, "", { Font = HEADING, TextSize = 26, Size = UDim2.fromOffset(400, 30), Position = UDim2.fromOffset(100, 8),
+	TextXAlignment = Enum.TextXAlignment.Left, TextColor3 = Color3.fromRGB(255, 220, 110), ZIndex = 5 })
+local bossShown = 1
+
+-- screen-edge damage glow and the GO arrow between waves
+local glows = {
+	img(hud, "bh_damage_glow_top", { Size = UDim2.new(1, 0, 0, 90), ScaleType = Enum.ScaleType.Stretch, ImageTransparency = 1, ImageColor3 = Color3.fromRGB(255, 40, 40) }),
+	img(hud, "bh_damage_glow_bottom", { Size = UDim2.new(1, 0, 0, 90), Position = UDim2.new(0, 0, 1, -90), ScaleType = Enum.ScaleType.Stretch, ImageTransparency = 1, ImageColor3 = Color3.fromRGB(255, 40, 40) }),
+	img(hud, "bh_damage_glow_left", { Size = UDim2.new(0, 90, 1, 0), ScaleType = Enum.ScaleType.Stretch, ImageTransparency = 1, ImageColor3 = Color3.fromRGB(255, 40, 40) }),
+	img(hud, "bh_damage_glow_right", { Size = UDim2.new(0, 90, 1, 0), Position = UDim2.new(1, -90, 0, 0), ScaleType = Enum.ScaleType.Stretch, ImageTransparency = 1, ImageColor3 = Color3.fromRGB(255, 40, 40) }),
+}
+local goArrow = img(hud, "bh_brawler_hud_indicator_go", { Size = UDim2.fromOffset(120, 120), AnchorPoint = Vector2.new(0.5, 0.5),
+	Position = UDim2.fromScale(0.5, 0.62), ImageTransparency = 1, ZIndex = 6 })
+
 local bannerBurst = img(hud, "popup_icon_burst", { Size = UDim2.fromOffset(420, 360), Position = UDim2.new(0.5, -210, 0.22, 0),
 	ImageTransparency = 1, ZIndex = 4 })
 local bannerLabel = text(hud, "", { Font = HEADING, TextSize = 96, Size = UDim2.fromOffset(900, 120), Position = UDim2.new(0.5, -450, 0.32, 0),
@@ -371,6 +386,33 @@ local hint = text(hud, "WASD move • Space jump • Left click combo • Right 
 	{ Size = UDim2.new(1, -32, 0, 20), Position = UDim2.new(0, 16, 1, -22), TextSize = 15, TextColor3 = Color3.fromRGB(210, 240, 245),
 		TextXAlignment = Enum.TextXAlignment.Left })
 hint.TextTransparency = 0.15
+
+local portraitHero, portraitAnim
+local function setPortrait(hero)
+	if portraitHero == hero then return end
+	portraitHero = hero
+	for _, c in portraitVp:GetChildren() do
+		if not c:IsA("UICorner") then c:Destroy() end
+	end
+	portraitAnim = nil
+	local src = SPSO:FindFirstChild("Previews") and SPSO.Previews:FindFirstChild(hero)
+	if not src then return end
+	local world = Instance.new("WorldModel")
+	world.Parent = portraitVp
+	local rig = src:Clone()
+	rig.Parent = world
+	local ext = rig:GetExtentsSize()
+	local cam = Instance.new("Camera")
+	cam.FieldOfView = 24
+	cam.CFrame = CFrame.lookAt(Vector3.new(0, ext.Y * 0.82, -ext.Y * 1.25), Vector3.new(0, ext.Y * 0.8, 0))
+	cam.Parent = portraitVp
+	portraitVp.CurrentCamera = cam
+	local ok, anim = pcall(ExactAnimator.new, HeroPack.get(hero), rig, { wrapModes = Config.WrapModes, skin = false })
+	if ok then
+		anim:Play("movement_idle")
+		portraitAnim = anim
+	end
+end
 
 local lastBanner = SPSO:GetAttribute("BannerSeq")
 local function showBanner(str)
@@ -395,48 +437,94 @@ SPSO:GetAttributeChangedSignal("BannerSeq"):Connect(function()
 end)
 
 local superReady = false
-local function updateHUD()
+local lastHealth, glowT, lastWaveLeft = nil, 0, nil
+local MEDALS = { "bronze", "silver", "gold", "adamantium" }
+local function updateHUD(dt)
 	local char = player.Character
 	local hum = char and char:FindFirstChildOfClass("Humanoid")
 	hud.Enabled = char ~= nil and not selecting
 	if not char then return end
 	local hero = char:GetAttribute("SPSO_Hero") or Config.DefaultHero
-	local info = Config.HeroInfo[hero] or {}
 	heroName.Text = string.upper((Config.Heroes[hero] or {}).displayName or hero)
-	classIcon.Image = G[(info.class or "strength") .. "_icon"] or ""
-	portrait.ImageColor3 = info.color or Color3.new(1, 1, 1)
+	setPortrait(hero)
+	if portraitAnim then portraitAnim:Step(dt) end
 	if hum then
-		hpFill.Size = UDim2.fromScale(math.clamp(hum.Health / math.max(1, hum.MaxHealth), 0, 1), 1)
+		local f = math.clamp(hum.Health / math.max(1, hum.MaxHealth), 0, 1)
+		lifeFill.Size = UDim2.fromScale(f, 1)
+		local cur = lifeDamage.Size.X.Scale
+		lifeDamage.Size = UDim2.fromScale(cur > f and math.max(f, cur - dt * 0.35) or f, 1)
 		hpText.Text = string.format("%d / %d", math.ceil(hum.Health), hum.MaxHealth)
+		if lastHealth and hum.Health < lastHealth - 0.5 then glowT = 0.6 end
+		lastHealth = hum.Health
 	end
+	glowT = math.max(0, glowT - dt)
+	for _, g in glows do g.ImageTransparency = 1 - glowT end
 	local power = player:GetAttribute("SPSO_Power") or 0
 	pwFill.Size = UDim2.fromScale(math.clamp(power / Config.SuperCost, 0, 1), 1)
+	for _, st in stars do
+		local on = power + 1e-6 >= st.cost
+		st.img.Image = on and (G.bh_star_active or "") or (G.bh_star_normal or "")
+		st.img.Rotation = on and math.sin(os.clock() * 3) * 8 or 0
+	end
 	for _, pb in powerButtons do
 		local ready = power + 1e-6 >= pb.cost
-		pb.button.ImageTransparency = ready and 0 or 0.5
-		pb.ring.ImageTransparency = ready and (0.2 + 0.25 * math.sin(os.clock() * 6)) or 0.85
+		pb.button.ImageTransparency = ready and 0 or 0.55
+		pb.ring.ImageTransparency = ready and (0.25 + 0.25 * math.sin(os.clock() * 6)) or 1
 	end
 	if power >= Config.SuperCost and not superReady then Sound.ui("achievement") end
 	superReady = power >= Config.SuperCost
 	local heat = player:GetAttribute("SPSO_Combo") or 0
 	local mult = math.floor(math.min(heat, GameData.Scoring.comboMax - 1)) + 1
-	comboText.Text = string.format("COMBO x%d   •   SURVIVAL x%.2g", mult, SPSO:GetAttribute("SurvivalBonus") or 2)
-	comboFill.Size = UDim2.new(0, 210 * math.clamp(heat / GameData.Scoring.comboMax, 0, 1), 0, 5)
-	scoreText.Text = tostring(SPSO:GetAttribute("TeamScore") or 0)
+	comboText.Text = string.format("COMBO x%d  •  SURVIVAL x%.2g", mult, SPSO:GetAttribute("SurvivalBonus") or 2)
+	comboFill.Size = UDim2.new(0, 200 * math.clamp(heat / GameData.Scoring.comboMax, 0, 1), 0, 5)
+	local score = SPSO:GetAttribute("TeamScore") or 0
+	scoreText.Text = tostring(score)
+	local medal = "bronze"
+	for _, m in { "silver", "gold", "adamantium" } do
+		local need = SPSO:GetAttribute("Medal" .. m:sub(1, 1):upper() .. m:sub(2))
+		if need and score >= need then medal = m end
+	end
+	medalIcon.Image = G["bh_brawler_points_" .. medal] or ""
 	local w = SPSO:GetAttribute("Wave")
-	waveLabel.Text = w and string.format("WAVE %d / %d  •  RIVALS LEFT %d", w, SPSO:GetAttribute("Waves") or 0, SPSO:GetAttribute("EnemiesLeft") or 0) or ""
+	local left = SPSO:GetAttribute("EnemiesLeft") or 0
+	waveLabel.Text = w and string.format("WAVE %d / %d  •  INVADERS LEFT %d", w, SPSO:GetAttribute("Waves") or 0, left) or ""
+	if lastWaveLeft and lastWaveLeft > 0 and left == 0 and SPSO:GetAttribute("State") == "playing" then
+		goArrow.ImageTransparency = 0
+		goArrow.Size = UDim2.fromOffset(160, 160)
+		TweenService:Create(goArrow, TweenInfo.new(0.4, Enum.EasingStyle.Back), { Size = UDim2.fromOffset(120, 120) }):Play()
+		task.delay(2, function() TweenService:Create(goArrow, TweenInfo.new(0.4), { ImageTransparency = 1 }):Play() end)
+		Sound.ui("HUD_Brawler_Char_Combo_Bonus")
+	end
+	lastWaveLeft = left
+	-- enemies: original health bars, the boss on the big bar
+	local boss
 	for model, d in decor do
 		local h = model:FindFirstChildOfClass("Humanoid")
 		local hrp = model:FindFirstChild("HumanoidRootPart")
 		if d.bar and h then
-			d.bar.fill.Size = UDim2.fromScale(math.clamp(h.Health / math.max(1, h.MaxHealth), 0, 1), 1)
-			d.bar.gui.Enabled = h.Health > 0
+			local f = math.clamp(h.Health / math.max(1, h.MaxHealth), 0, 1)
+			d.bar.fill.Size = UDim2.fromScale(f, 1)
+			d.bar.shown = math.max(f, (d.bar.shown or 1) - dt * 0.5)
+			d.bar.damage.Size = UDim2.fromScale(d.bar.shown, 1)
+			d.bar.gui.Enabled = h.Health > 0 and not model:GetAttribute("SPSO_Boss")
+			if model:GetAttribute("SPSO_Boss") and h.Health > 0 then boss = model end
 		end
 		if d.shadow and hrp then
 			local ray = workspace:Raycast(hrp.Position, Vector3.new(0, -14, 0), RaycastParams.new())
 			local y = ray and ray.Position.Y or (hrp.Position.Y - 3.3)
 			d.shadow.CFrame = CFrame.new(hrp.Position.X, y + 0.06, hrp.Position.Z)
 		end
+	end
+	bossBar.Visible = boss ~= nil
+	if boss then
+		local h = boss:FindFirstChildOfClass("Humanoid")
+		local f = math.clamp(h.Health / math.max(1, h.MaxHealth), 0, 1)
+		bossName.Text = string.upper(boss.Name)
+		bossFill.Size = UDim2.fromOffset(450 * f, 20)
+		bossShown = math.max(f, bossShown - dt * 0.3)
+		bossDamage.Size = UDim2.fromOffset(450 * bossShown, 20)
+	else
+		bossShown = 1
 	end
 	-- target ring and own ring
 	targetModel = nearestEnemy(22)
@@ -453,6 +541,11 @@ local function updateHUD()
 	local hrp = char:FindFirstChild("HumanoidRootPart")
 	if hrp then selfRing.CFrame = CFrame.new(hrp.Position.X, hrp.Position.Y - 3.27, hrp.Position.Z) end
 end
+
+-- music: the stage tracks the server names, menu music on the select screen
+SPSO:GetAttributeChangedSignal("Music"):Connect(function()
+	if not selecting and SPSO:GetAttribute("State") ~= "results" then Sound.music(SPSO:GetAttribute("Music")) end
+end)
 
 -- effects from the server ---------------------------------------------------------------------------------------------------
 local fxGui = screen("SPSO_FxText", 2)
@@ -544,6 +637,9 @@ FxRemote.OnClientEvent:Connect(function(kind, data)
 		Sound.ui("alert")
 		pwFill.BackgroundColor3 = Color3.fromRGB(255, 60, 60)
 		task.delay(0.25, function() pwFill.BackgroundColor3 = Color3.fromRGB(255, 200, 60) end)
+	elseif kind == "bossKO" then
+		Sound.play("FX_Brawler_Boss_Knockout", { channel = "ui" })
+		shake = math.max(shake, 1.2)
 	elseif kind == "push" then
 		pushVel, pushUntil = data.vel, os.clock() + math.max(0.1, data.time or 0.25)
 	elseif kind == "spawn" then
@@ -682,7 +778,7 @@ local function makeCard(hero: string)
 		SelectRemote:FireServer(hero)
 		selectGui.Enabled = false
 		selecting = false
-		Sound.music(Config.Music.battle)
+		Sound.music(SPSO:GetAttribute("Music") or Config.Music.loading)
 	end)
 	-- live preview: the hero's rig posed by its own exact animator
 	task.spawn(function()
@@ -717,19 +813,26 @@ showSelect = function()
 	selectGui.Enabled = true
 	hud.Enabled = false
 	Sound.ui("windowIn")
-	Sound.music(Config.Music.menu)
+	Sound.music(Config.Music.select)
 end
 
--- results -----------------------------------------------------------------------------------------------------------------------
+-- results: the original mission complete screen ----------------------------------------------------------------------
 local results = screen("SPSO_Results", 15)
 results.Enabled = false
-local resPanel = img(results, "login_background_panel", { Size = UDim2.fromOffset(520, 520), AnchorPoint = Vector2.new(0.5, 0.5),
-	Position = UDim2.fromScale(0.5, 0.5) })
-text(resPanel, "VICTORY!", { Font = HEADING, TextSize = 64, Size = UDim2.new(1, 0, 0, 70), Position = UDim2.fromScale(0, 0.08),
-	TextColor3 = Color3.fromRGB(255, 120, 40), TextStrokeTransparency = 0 })
-local medalText = text(resPanel, "", { Font = HEADING, TextSize = 48, Size = UDim2.new(1, 0, 0, 56), Position = UDim2.fromScale(0, 0.26) })
-local resText = text(resPanel, "", { TextSize = 24, Size = UDim2.new(0.8, 0, 0.42, 0), Position = UDim2.fromScale(0.1, 0.4),
-	TextWrapped = true, TextColor3 = Color3.fromRGB(80, 50, 10), TextStrokeTransparency = 1 })
+local dim = Instance.new("Frame")
+dim.Size, dim.BackgroundColor3, dim.BackgroundTransparency = UDim2.fromScale(1, 1), Color3.new(0, 0, 0), 0.45
+dim.Parent = results
+local rays1 = img(results, "bh_mc_rays2", { Size = UDim2.fromOffset(900, 900), AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(0.5, 0.42), ImageTransparency = 0.2 })
+local rays2 = img(results, "bh_stagecomplete_rays", { Size = UDim2.fromOffset(700, 700), AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(0.5, 0.42), ImageTransparency = 0.15 })
+img(results, "bh_backstar", { Size = UDim2.fromOffset(330, 330), AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(0.5, 0.4) })
+local sparkles = img(results, "bh_mc_sparkles", { Size = UDim2.fromOffset(360, 360), AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(0.5, 0.4) })
+local bigMedal = img(results, "bh_brawler_points_gold", { Size = UDim2.fromOffset(190, 190), AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(0.5, 0.4) })
+text(results, "MISSION COMPLETE!", { Font = HEADING, TextSize = 72, Size = UDim2.new(1, 0, 0, 80), Position = UDim2.fromScale(0, 0.08),
+	TextColor3 = Color3.fromRGB(255, 220, 80), TextStrokeTransparency = 0 })
+local medalText = text(results, "", { Font = HEADING, TextSize = 44, Size = UDim2.new(1, 0, 0, 50), Position = UDim2.fromScale(0, 0.58) })
+local resPanel = img(results, "bh_background", { Size = UDim2.fromOffset(520, 170), AnchorPoint = Vector2.new(0.5, 0), Position = UDim2.fromScale(0.5, 0.66) })
+local resText = text(resPanel, "", { TextSize = 22, Size = UDim2.new(0.86, 0, 0.8, 0), Position = UDim2.fromScale(0.07, 0.1),
+	TextWrapped = true, TextColor3 = Color3.fromRGB(40, 60, 10), TextStrokeTransparency = 1 })
 local MEDAL_COLORS = { Bronze = Color3.fromRGB(205, 127, 50), Silver = Color3.fromRGB(200, 210, 220), Gold = Color3.fromRGB(255, 205, 40),
 	Adamantium = Color3.fromRGB(120, 230, 255) }
 SPSO:GetAttributeChangedSignal("State"):Connect(function()
@@ -738,15 +841,28 @@ SPSO:GetAttributeChangedSignal("State"):Connect(function()
 		local medal = SPSO:GetAttribute("Medal") or "Bronze"
 		medalText.Text = string.upper(medal) .. " MEDAL"
 		medalText.TextColor3 = MEDAL_COLORS[medal] or Color3.new(1, 1, 1)
-		resText.Text = string.format("Team score %d\nKnockouts %d   •   Time %d:%02d\n\nSilver %d  •  Gold %d  •  Adamantium %d",
+		bigMedal.Image = G["bh_brawler_points_" .. string.lower(medal)] or ""
+		resText.Text = string.format("Team score %d\nKnockouts %d  •  Time %d:%02d\nSilver %d  •  Gold %d  •  Adamantium %d",
 			SPSO:GetAttribute("TeamScore") or 0, SPSO:GetAttribute("KOs") or 0, (SPSO:GetAttribute("RunTime") or 0) // 60,
 			(SPSO:GetAttribute("RunTime") or 0) % 60, SPSO:GetAttribute("MedalSilver") or 0, SPSO:GetAttribute("MedalGold") or 0,
 			SPSO:GetAttribute("MedalAdamantium") or 0)
 		results.Enabled = true
-		Sound.ui(medal == "Bronze" and "levelUp" or "win")
+		bigMedal.Size = UDim2.fromOffset(40, 40)
+		TweenService:Create(bigMedal, TweenInfo.new(0.6, Enum.EasingStyle.Back), { Size = UDim2.fromOffset(190, 190) }):Play()
+		Sound.music(Config.Music.complete)
+		Sound.play("FX_Brawler_game_Mission_Complete_Fireworks", { channel = "ui" })
+		Sound.play("FX_Brawler_Cheer", { channel = "ui" })
+		task.delay(5.5, function() if results.Enabled then Sound.music(Config.Music.completeLoop) end end)
 		task.delay(Config.ResultsTime - 1, function() results.Enabled = false end)
 	elseif s == "playing" then
 		results.Enabled = false
+	end
+end)
+RunService.RenderStepped:Connect(function(dt)
+	if results.Enabled then
+		rays1.Rotation += dt * 8
+		rays2.Rotation -= dt * 12
+		sparkles.Rotation += dt * 20
 	end
 end)
 
@@ -796,11 +912,11 @@ RunService.PreRender:Connect(function(dt)
 	end
 	updateLocal()
 	updateCamera(dt)
-	updateHUD()
+	updateHUD(dt)
 end)
 
 player.CharacterAdded:Connect(function()
 	selecting = false
 	selectGui.Enabled = false
-	if loadingDone then Sound.music(Config.Music.battle) end
+	if loadingDone then Sound.music(SPSO:GetAttribute("Music") or Config.Music.loading) end
 end)

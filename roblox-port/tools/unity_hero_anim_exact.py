@@ -65,13 +65,14 @@ def main(bundle, out, fps=None):
     walk(root_tr, None, "")
     path_idx = {n["path"]: i for i, n in enumerate(nodes)}
 
-    smr = None
+    from unity_mesh_compat import pick_skinned_renderer
+    cands = []
     for n in nodes:
         for t, p in components(n["go"]):
             if t == "SkinnedMeshRenderer":
-                s = p.read()
-                if s.m_Mesh and s.m_Mesh.read().m_Name.lower().endswith("lod0"):
-                    smr, mesh_node = s, nodes.index(n)
+                cands.append((p.read(), nodes.index(n)))
+    smr = pick_skinned_renderer([c[0] for c in cands])
+    mesh_node = next(i for s, i in cands if s is smr)
     bones = [by_pid[b.m_PathID] for b in smr.m_Bones]
     bone_names = [nodes[b]["name"] for b in bones]
     mesh = smr.m_Mesh.read()

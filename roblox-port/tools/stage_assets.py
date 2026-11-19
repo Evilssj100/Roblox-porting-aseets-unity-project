@@ -88,8 +88,18 @@ def main():
     for t in man["textures"]:
         shutil.copy2(os.path.join(fx, t["file"]), os.path.join(A, "fx", t["key"] + ".png"))
         job(t["key"], f"assets/fx/{t['key']}.png", "image", t["key"])
-    shutil.copy2(os.path.join(fx, man["sprite"]["file"]), os.path.join(A, "audio", "spso_sound_sprite.ogg"))
-    job("sound_sprite", "assets/audio/spso_sound_sprite.ogg", "audio", "SPSO Sound Sprite")
+    for i, sp in enumerate(man["sprites"], 1):
+        rel = f"assets/audio/spso_sound_sprite_v2_{i}.ogg"
+        shutil.copy2(os.path.join(fx, sp["file"]), os.path.join(port, rel))
+        job(f"sound_sprite_v2_{i}", rel, "audio", f"SPSO Sounds {i}")
+    hud = os.path.join(fx, "..", "..", "archive", "gui_brawler")
+    if os.path.isdir(hud):  # the original brawler HUD art (archive brawler_bundle), minus character art
+        for fn in sorted(os.listdir(hud)):
+            if not fn.endswith(".png") or "indicator_defeat" in fn:
+                continue
+            k = "gui_bh_" + clean(os.path.splitext(fn)[0]).replace("mgame_brawler_hud_", "").replace(" ", "_")
+            shutil.copy2(os.path.join(hud, fn), os.path.join(A, "gui", k + ".png"))
+            job(k, f"assets/gui/{k}.png", "image", k)
     for g in GUI:
         k = gui_key(g)
         im = Image.open(os.path.join(unity, g)).convert("RGBA")

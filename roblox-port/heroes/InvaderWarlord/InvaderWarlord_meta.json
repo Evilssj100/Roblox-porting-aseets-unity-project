@@ -1,0 +1,230 @@
+{
+ "hero": "InvaderWarlord",
+ "height_bu": 3.384792592842132,
+ "bones": [
+  "Pelvis",
+  "LLeg1",
+  "LLeg2",
+  "LLegAnkle",
+  "LLegDigit11",
+  "Spine",
+  "Ribcage",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm21",
+  "LArm22",
+  "LArmPalm",
+  "LArmDigit31",
+  "LArmDigit32",
+  "LArmDigit41",
+  "LArmDigit42",
+  "LArmDigit21",
+  "LArmDigit22",
+  "LArmDigit11",
+  "LArmDigit12",
+  "Neck",
+  "Head",
+  "LHeadEar",
+  "RHeadEar",
+  "RArmCollarbone",
+  "RarmStretch5",
+  "RarmStretch7",
+  "RArmPalm",
+  "RArmmiddle1",
+  "RArmmiddle2",
+  "RArmpinky1",
+  "RArmpinky2",
+  "RArmindex1",
+  "RArmindex2",
+  "RArmthumb1",
+  "RArmthumb2",
+  "RarmStretch6",
+  "RarmStretch4",
+  "RarmStretch3",
+  "RarmStretch2",
+  "RLeg1",
+  "RLeg2",
+  "RLegAnkle",
+  "RLegDigit11"
+ ],
+ "parents": [
+  "",
+  "Pelvis",
+  "LLeg1",
+  "LLeg2",
+  "LLegAnkle",
+  "Pelvis",
+  "Spine",
+  "Ribcage",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm21",
+  "LArm22",
+  "LArmPalm",
+  "LArmDigit31",
+  "LArmPalm",
+  "LArmDigit41",
+  "LArmPalm",
+  "LArmDigit21",
+  "LArmPalm",
+  "LArmDigit11",
+  "Ribcage",
+  "Neck",
+  "Head",
+  "Head",
+  "Ribcage",
+  "RArmCollarbone",
+  "RArmCollarbone",
+  "RarmStretch7",
+  "RArmPalm",
+  "RArmmiddle1",
+  "RArmPalm",
+  "RArmpinky1",
+  "RArmPalm",
+  "RArmindex1",
+  "RArmPalm",
+  "RArmthumb1",
+  "RArmCollarbone",
+  "RArmCollarbone",
+  "RArmCollarbone",
+  "RArmCollarbone",
+  "Pelvis",
+  "RLeg1",
+  "RLeg2",
+  "RLegAnkle"
+ ],
+ "fx_points": {
+  "fx_Lpalm": {
+   "bone": "LArmPalm",
+   "world": [
+    1.656817078590393,
+    -0.03293415904045105,
+    2.1948790550231934
+   ],
+   "offset_in_bone": [
+    0.13018028438091278,
+    0.18856017291545868,
+    -0.001270245760679245
+   ]
+  },
+  "fx_Rpalm": {
+   "bone": "RArmPalm",
+   "world": [
+    -1.6314778327941895,
+    -0.007273515686392784,
+    2.2104973793029785
+   ],
+   "offset_in_bone": [
+    2.076849341392517e-07,
+    0.16460229456424713,
+    -0.12757650017738342
+   ]
+  }
+ },
+ "clips": [
+  {
+   "name": "Take 001",
+   "duration": 1.666667
+  },
+  {
+   "name": "attack_dancing_flames",
+   "duration": 4.2
+  },
+  {
+   "name": "attack_earth_rend",
+   "duration": 2.4
+  },
+  {
+   "name": "attack_flame_blast",
+   "duration": 3.6
+  },
+  {
+   "name": "attack_stretchy_crush",
+   "duration": 2.666667
+  },
+  {
+   "name": "attack_teleport_end",
+   "duration": 2.0
+  },
+  {
+   "name": "attack_teleport_start",
+   "duration": 2.166667
+  },
+  {
+   "name": "block",
+   "duration": 2.666667
+  },
+  {
+   "name": "intro",
+   "duration": 13.333334
+  },
+  {
+   "name": "movement_idle",
+   "duration": 1.666667
+  },
+  {
+   "name": "movement_run",
+   "duration": 1.0
+  },
+  {
+   "name": "recoil_back",
+   "duration": 1.0
+  },
+  {
+   "name": "recoil_big",
+   "duration": 1.0
+  },
+  {
+   "name": "recoil_death",
+   "duration": 1.666667
+  },
+  {
+   "name": "recoil_getup",
+   "duration": 1.9
+  },
+  {
+   "name": "recoil_ground",
+   "duration": 0.9
+  },
+  {
+   "name": "recoil_knockdown",
+   "duration": 1.5
+  },
+  {
+   "name": "recoil_launch",
+   "duration": 2.0
+  },
+  {
+   "name": "recoil_launch_land",
+   "duration": 2.166667
+  },
+  {
+   "name": "recoil_small",
+   "duration": 1.0
+  },
+  {
+   "name": "recoil_stun",
+   "duration": 2.333333
+  }
+ ],
+ "face_tiles": [
+  "InvaderWarlord_Face_0.png",
+  "InvaderWarlord_Face_1.png",
+  "InvaderWarlord_Face_2.png",
+  "InvaderWarlord_Face_3.png",
+  "InvaderWarlord_Face_4.png",
+  "InvaderWarlord_Face_5.png",
+  "InvaderWarlord_Face_6.png",
+  "InvaderWarlord_Face_7.png"
+ ],
+ "face_tile_names": [
+  "neutral_smile",
+  "grin",
+  "surprised",
+  "gritted",
+  "wink",
+  "smirk",
+  "shout",
+  "focused"
+ ]
+}

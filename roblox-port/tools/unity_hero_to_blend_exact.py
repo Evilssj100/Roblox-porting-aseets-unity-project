@@ -46,17 +46,12 @@ for o in objs:
         a = o.read()
         if anim is None or len(a.m_Animations) > len(anim.m_Animations):
             anim = a
-smr = None
-for o in objs:
-    if o.type.name == "SkinnedMeshRenderer":
-        s = o.read()
-        if s.m_Mesh and s.m_Mesh.read().m_Name.lower().endswith("lod0"):
-            smr = s
+from unity_mesh_compat import mesh_handler, pick_skinned_renderer  # noqa: E402
+smr = pick_skinned_renderer([o.read() for o in objs if o.type.name == "SkinnedMeshRenderer"])
 mesh = smr.m_Mesh.read()
 smr_bones = [b.read().m_GameObject.read().m_Name for b in smr.m_Bones]
 assert smr_bones == bones, "bone order mismatch between mesh and exact data"
-h = MeshHandler(mesh)
-h.process()
+h = mesh_handler(mesh)
 V = np.asarray(h.m_Vertices, float).reshape(-1, 3).copy()
 N = np.asarray(h.m_Normals, float).reshape(-1, 3).copy()
 UV = np.asarray(h.m_UV0, float).reshape(-1, 2)

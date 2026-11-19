@@ -34,6 +34,7 @@ for name, pre in groups.items():
             lines.append(f'\t["{k[len(pre):]}"] = "{rid(k)}",')
     lines.append("}")
 heroes = sorted({k.split("_", 1)[1].rsplit("_", 1)[0] for k in assets if k.startswith("face_")} |
+                {k.split("_", 1)[1] for k in assets if k.startswith("model_") and not k.startswith("model_map_")} |
                 {k.split("_", 1)[1] for k in assets if k.startswith(("model_", "package_")) and not k.startswith(("model_map_", "package_code"))})
 lines.append("A.Heroes = {")
 for h in heroes:
@@ -42,7 +43,9 @@ for h in heroes:
     pkg = assets.get(f"package_{h}", "")
     lines.append(f'\t{h} = {{ model = {model or "nil"}, package = {pkg or "nil"}, faces = {{ {faces} }} }},')
 lines.append("}")
-lines.append(f'A.SoundSprite = "{rid("sound_sprite")}"')
+sprites = sorted((k for k in assets if k.startswith("sound_sprite_v2_")), key=lambda k: int(k.rsplit("_", 1)[1]))
+lines.append("A.SoundSprites = { " + ", ".join(f'"{rid(k)}"' for k in sprites) + " }")
+lines.append(f'A.SoundSprite = "{rid(sprites[0]) if sprites else rid("sound_sprite")}"')
 for k in ("package_code", "model_map_OrbitalArena"):
     lines.append(f"A.{k} = {assets.get(k, 'nil')}")
 lines.append("return A")

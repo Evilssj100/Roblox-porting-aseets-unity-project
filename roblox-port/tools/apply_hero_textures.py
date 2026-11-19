@@ -17,24 +17,38 @@ scene = bpy.context.scene
 arm = next(o for o in bpy.data.objects if o.type == "ARMATURE")
 mesh = next(o for o in bpy.data.objects if o.type == "MESH" and any(m.type == "ARMATURE" for m in o.modifiers))
 
-new_body = bpy.data.images.load(os.path.abspath(body_png))
-new_head = bpy.data.images.load(os.path.abspath(head_png))
-new_body.name, new_head.name = f"{hero}_Body", f"{hero}_HeadAtlas"
+KEEP = body_png == "-"  # original look: keep the bundle's own images, only rename
+new_body = None if KEEP else bpy.data.images.load(os.path.abspath(body_png))
+new_head = None if KEEP else bpy.data.images.load(os.path.abspath(head_png))
+if not KEEP:
+    new_body.name, new_head.name = f"{hero}_Body", f"{hero}_HeadAtlas"
+n_body = 0
 for m in mesh.data.materials:
     tex = next((n for n in m.node_tree.nodes if n.type == "TEX_IMAGE" and n.image), None) if m and m.node_tree else None
     if tex is None:
         continue
     is_head = "head" in tex.image.name.lower()
-    tex.image = new_head if is_head else new_body
-    m.name = f"{hero}_Head" if is_head else f"{hero}_Body"
+    if not KEEP:
+        tex.image = new_head if is_head else new_body
+    if is_head:
+        m.name = f"{hero}_Head"
+    else:
+        n_body += 1
+        m.name = f"{hero}_Body" if n_body == 1 else f"{hero}_Body{n_body}"
+    if KEEP:
+        tex.image.name = m.name + "_tex"
 for im in list(bpy.data.images):
     if im.users == 0:
         bpy.data.images.remove(im)
-for im in (new_body, new_head):
-    im.pack()
+for im in ((new_body, new_head) if not KEEP else [i for i in bpy.data.images if i.users]):
+    if im.source == "FILE" and not im.packed_file:
+        im.pack()
 mesh.name = mesh.data.name = hero
 arm.name = f"{hero}_Rig"
 bpy.ops.wm.save_as_mainfile(filepath=out_blend, compress=True)
+if preview == "-":
+    print("saved", out_blend)
+    raise SystemExit(0)
 
 # ---- preview
 scene.render.engine = "BLENDER_WORKBENCH"

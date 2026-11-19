@@ -24,6 +24,33 @@ TOOLS = os.path.dirname(os.path.abspath(__file__))
 # new hero -> source bundle at the repo root (ElRugido was built by hand with repaint/build_el_rugido.py)
 HEROES = {"Skyvolt": "Falcon_01-darkhawk", "Aurora": "Ms_Marvel_01-classic",
           "Magmaul": "Thing_01-classic", "NightGecko": "spiderman-secretwars"}
+# characters ported with their ORIGINAL look (no repaint yet): port name -> character bundle in the SHSO
+# archive (github.com/SHSUnderground/shso-archive-structured, Assets/Characters/<name>.asset)
+ORIGINALS = {"InvaderGunner": "skrull_01", "InvaderGrenadier": "skrull_02", "InvaderMelee": "skrull_04",
+             "InvaderWarlord": "super_skrull_boss_01"}
+
+
+def archive_bundle(name, a):
+    """materialise one character bundle from the archive clone (blobs are fetched on demand)"""
+    out = os.path.join(a.archive_out, "Characters", name + ".asset")
+    if not os.path.exists(out):
+        os.makedirs(os.path.dirname(out), exist_ok=True)
+        with open(out, "wb") as f:
+            subprocess.run(["git", "-C", a.archive, "cat-file", "-p", f"HEAD:Assets/Characters/{name}.asset"], stdout=f, check=True)
+    return out
+
+
+def head_atlas(bundle, dest):
+    """the original 4x2 face-expression atlas of a character bundle, as PNG"""
+    import UnityPy
+    env = UnityPy.load(bundle)
+    best = None
+    for o in env.objects:
+        if o.type.name == "Texture2D":
+            d = o.read()
+            if "head" in d.m_Name.lower() and (best is None or d.m_Width > best.m_Width):
+                best = d
+    best.image.convert("RGB").save(dest)
 
 
 def mtime(p):
@@ -39,24 +66,29 @@ def fresh(outs, ins):
 def port(hero, a):
     W, O = os.path.join(a.work, hero), os.path.join(a.work, "out", hero)
     D = os.path.join(a.repo, "roblox-port", "heroes", hero)
-    bundle = os.path.join(a.repo, HEROES[hero] + ".unity3d")
+    original = hero in ORIGINALS
+    bundle = archive_bundle(ORIGINALS[hero], a) if original else os.path.join(a.repo, HEROES[hero] + ".unity3d")
     py = [sys.executable]
     T = lambda s: os.path.join(TOOLS, s)  # noqa: E731
     anim, exact = os.path.join(W, "anim"), os.path.join(W, f"{hero}_exact.blend")
     body, atlas = os.path.join(O, f"{hero}_Body.png"), os.path.join(O, f"{hero}_HeadAtlas.png")
     mesh = os.path.join(W, "roblox", "mesh.bin")
+    os.makedirs(O, exist_ok=True)
+    if original and not os.path.exists(atlas):
+        head_atlas(bundle, atlas)
+    look = ([py + [T("apply_hero_textures.py"), exact, hero, "-", "-", os.path.join(O, f"{hero}.blend"), "-"]] if original else
+            [py + [T("repurpose_heroes.py"), a.work, os.path.join(a.work, "out"), hero],
+             py + [T("apply_hero_textures.py"), exact, hero, body, atlas, os.path.join(O, f"{hero}.blend"),
+                   os.path.join(O, f"{hero}_preview.png")]])
     steps = [
         ("base", [anim + ".npz", exact], [bundle],
          [py + [T("unity_hero_anim_exact.py"), bundle, anim],
           py + [T("unity_hero_to_blend_exact.py"), bundle, anim, exact],
-          py + [T("uv_bake_maps.py"), exact, os.path.join(W, "maps")]], {}),
-        ("look", [os.path.join(O, f"{hero}.blend"), body, atlas], [exact],
-         [py + [T("repurpose_heroes.py"), a.work, os.path.join(a.work, "out"), hero],
-          py + [T("apply_hero_textures.py"), exact, hero, body, atlas, os.path.join(O, f"{hero}.blend"),
-                os.path.join(O, f"{hero}_preview.png")]], {}),
+          ] + ([] if original else [py + [T("uv_bake_maps.py"), exact, os.path.join(W, "maps")]]), {}),
+        ("look", [os.path.join(O, f"{hero}.blend")] + ([] if original else [body, atlas]), [exact], look, {}),
         ("prep", [os.path.join(D, f"{hero}.blend"), os.path.join(D, "textures", f"{hero}_Face_7.png")],
-         [os.path.join(O, f"{hero}.blend"), atlas, body, T("prep_roblox_hero.py")],
-         [py + [T("prep_roblox_hero.py"), os.path.join(O, f"{hero}.blend"), atlas, D, hero, body]], {}),
+         [os.path.join(O, f"{hero}.blend"), atlas, T("prep_roblox_hero.py")],
+         [py + [T("prep_roblox_hero.py"), os.path.join(O, f"{hero}.blend"), atlas, D, hero] + ([] if original else [body])], {}),
         ("mesh", [mesh], [os.path.join(D, f"{hero}.blend")],
          [py + [T("export_roblox_skin_data.py"), os.path.join(D, f"{hero}.blend"), anim,
                 os.path.join(D, "textures"), os.path.dirname(mesh), str(a.studs)]], {"MESH_ONLY": "1"}),
@@ -97,8 +129,10 @@ def main():
     ap.add_argument("--studs", type=float, default=2.56)
     ap.add_argument("--jobs", type=int, default=2)
     ap.add_argument("--force", action="store_true")
+    ap.add_argument("--archive", default="/home/claude/shsunderground/shso-archive-structured")
+    ap.add_argument("--archive-out", default="/home/claude/spso-port/archive")
     a = ap.parse_args()
-    heroes = a.heroes or list(HEROES)
+    heroes = a.heroes or list(HEROES) + list(ORIGINALS)
     with ThreadPoolExecutor(a.jobs) as ex:
         for hero, done, info in ex.map(lambda h: port(h, a), heroes):
             chk = (info or {}).get("checkVsExact", {})

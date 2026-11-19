@@ -45,7 +45,7 @@ return function(): string
 	local legacy = workspace:FindFirstChild("ElRugido_Import")
 	if legacy then legacy.Parent = source end
 	local heroesFolder = folder(ReplicatedStorage.SPSO, "Heroes")
-	for _, hero in GameData.HeroOrder do
+	for _, hero in GameData.Models do
 		local a = Assets.Heroes[hero] or {}
 		if not source:FindFirstChild(hero .. "_Import") and a.model then
 			local m = InsertService:LoadAsset(a.model)
@@ -114,7 +114,7 @@ return function(): string
 		local old = chars:FindFirstChild(n)
 		if old then old:Destroy() end
 	end
-	for _, hero in GameData.HeroOrder do
+	for _, hero in GameData.Models do
 		local import = source:FindFirstChild(hero .. "_Import")
 		local rigSrc = import and import:FindFirstChild(hero)
 		if rigSrc and rigSrc:FindFirstChild("RootPart") then

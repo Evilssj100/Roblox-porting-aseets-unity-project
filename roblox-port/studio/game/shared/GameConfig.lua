@@ -38,36 +38,52 @@ local function faces(name)
 	return a.faces -- tile 0 may be "": the model's own head texture is that tile
 end
 
+-- every character model (playable heroes and the enemies' own models): pack, template, parts, faces
+Config.Models = {}
+for _, name in GameData.Models do
+	local d = GameData.Heroes[name]
+	local speed = d and d.speed or 10
+	if not d then
+		for _, e in GameData.Enemies do
+			if e.model == name then speed = e.speed end
+		end
+	end
+	Config.Models[name] = {
+		name = name, pack = name, template = "Hero_" .. name, headPart = name .. "_Head", bodyPart = name .. "_Body",
+		faceTextures = faces(name), wrapModes = Config.WrapModes, runAnimSpeed = math.max(4, speed),
+	}
+end
 Config.Heroes = {}
 for _, name in GameData.HeroOrder do
 	local d = GameData.Heroes[name]
-	Config.Heroes[name] = {
-		name = name, displayName = d.displayName, pack = name, template = "Hero_" .. name,
-		headPart = name .. "_Head", bodyPart = name .. "_Body", faceTextures = faces(name),
-		wrapModes = Config.WrapModes, walkSpeed = d.speed, runAnimSpeed = d.speed, jumpPower = d.jump,
-		health = d.health, data = d,
-	}
+	local m = Config.Models[name]
+	Config.Heroes[name] = setmetatable({
+		displayName = d.displayName, walkSpeed = d.speed, jumpPower = d.jump, health = d.health, data = d,
+	}, { __index = m })
 end
 
 -- enemy archetypes: the original enemy data (GameData.Enemies) plus the port's AI tuning
 Config.Enemies = {
-	Thug = { damageScale = 1, keepDistance = 0, cooldown = { 1.6, 3.0 }, think = 0.12,
-		skins = { "Azul", "Verde", "Morado", "Negro" } },
-	Blaster = { damageScale = 1, keepDistance = 18, cooldown = { 2.2, 3.6 }, think = 0.15, skins = { "Rival" } },
-	Warlord = { damageScale = 0.6, keepDistance = 0, cooldown = { 1.2, 2.2 }, think = 0.1, skins = { "Rival" },
-		boss = true, superEvery = 14 },
+	Thug = { damageScale = 1, keepDistance = 0, cooldown = { 1.6, 3.0 }, think = 0.12, skins = {} },
+	Blaster = { damageScale = 1, keepDistance = 18, cooldown = { 2.2, 3.6 }, think = 0.15, skins = {} },
+	Bazooka = { damageScale = 1, keepDistance = 22, cooldown = { 3.2, 4.6 }, think = 0.15, skins = {} },
+	Grenadier = { damageScale = 1, keepDistance = 16, cooldown = { 2.6, 4.0 }, think = 0.15, skins = {} },
+	Warlord = { damageScale = 1, keepDistance = 0, cooldown = { 1.4, 2.4 }, think = 0.1, skins = {}, boss = true,
+		teleport = { "attack_teleport_start", "attack_teleport_end" } },
 }
 Config.MaxAttackers = 2 -- enemies swinging at the same time
 Config.WaitAfterHeroHit = 0.6 -- don't pile onto a hero that was just hit
 Config.DespawnAfter = 3.5
 
 -- the run: waves of the original brawler enemies, the warlord last
+-- the run, after the original invasion missions on the alien ship: brawlers and gunners first, then heavy
+-- weapons, then the warlord in his arena (each wave also names the original stage music)
 Config.Waves = {
-	{ Thug = 3 },
-	{ Thug = 3, Blaster = 1 },
-	{ Thug = 4, Blaster = 2 },
-	{ Thug = 3, Blaster = 3 },
-	{ Warlord = 1, Thug = 2, Blaster = 1 },
+	{ enemies = { Thug = 3 }, music = "Level_Music_thug_Spaceship_Stage1" },
+	{ enemies = { Thug = 3, Blaster = 2 }, music = "Level_Music_thug_Spaceship_Stage1" },
+	{ enemies = { Thug = 2, Blaster = 2, Grenadier = 2 }, music = "Level_Music_thug_Spaceship_Stage2" },
+	{ enemies = { Thug = 3, Bazooka = 2, Grenadier = 1 }, music = "Level_Music_thug_Spaceship_Stage2" },
+	{ enemies = { Warlord = 1, Thug = 2 }, music = "Level_Music_thug_Spaceship_BossArena", boss = true },
 }
 Config.WaveBreak = 3
 Config.RespawnTime = 4
@@ -90,7 +106,8 @@ Config.PowerEmotes = { "power_emote_1", "power_emote_2", "power_emote_3" }
 -- camera: fixed angle like the original brawler camera, facing the arena's back wall (-Z)
 Config.Camera = { offset = Vector3.new(0, 21, 27), lookHeight = 3.5, fov = 55, zoomMin = 0.6, zoomMax = 1.6, maxCameraZ = 47 }
 
-Config.Music = { menu = "Music_game_LoadingPage", battle = "Music_game_MainTheme" }
+Config.Music = { menu = "Music_game_LoadingPage", select = "Music_game_MainTheme", loading = "Music_game_Mission_Loading",
+	complete = "Music_game_Mission_Complete", completeLoop = "Music_game_Mission_Complete_Loop_1" }
 Config.Tips = {
 	"Chain five left clicks for your full combo: the last hit launches.",
 	"Hitting and getting hit both fill your power meter.",

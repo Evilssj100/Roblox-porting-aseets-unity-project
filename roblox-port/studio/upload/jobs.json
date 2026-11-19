@@ -1,1 +1,1059 @@
-[]
+[
+{
+"key": "fx_chunkA_alph_tex_ac57",
+"path": "roblox-port/assets/fx/fx_chunkA_alph_tex_ac57.png",
+"kind": "image",
+"name": "fx_chunkA_alph_tex_ac57",
+"ctype": "image/png"
+},
+{
+"key": "fx_dust_alphprem_tex_f6a3",
+"path": "roblox-port/assets/fx/fx_dust_alphprem_tex_f6a3.png",
+"kind": "image",
+"name": "fx_dust_alphprem_tex_f6a3",
+"ctype": "image/png"
+},
+{
+"key": "fx_fire_plume_red_alt_4f07",
+"path": "roblox-port/assets/fx/fx_fire_plume_red_alt_4f07.png",
+"kind": "image",
+"name": "fx_fire_plume_red_alt_4f07",
+"ctype": "image/png"
+},
+{
+"key": "fx_fire_plume_red_alt_opp_c192",
+"path": "roblox-port/assets/fx/fx_fire_plume_red_alt_opp_c192.png",
+"kind": "image",
+"name": "fx_fire_plume_red_alt_opp_c192",
+"ctype": "image/png"
+},
+{
+"key": "fx_lightningforked_tex_2dc8",
+"path": "roblox-port/assets/fx/fx_lightningforked_tex_2dc8.png",
+"kind": "image",
+"name": "fx_lightningforked_tex_2dc8",
+"ctype": "image/png"
+},
+{
+"key": "fx_mote_blue_additive_tex_2a1e",
+"path": "roblox-port/assets/fx/fx_mote_blue_additive_tex_2a1e.png",
+"kind": "image",
+"name": "fx_mote_blue_additive_tex_2a1e",
+"ctype": "image/png"
+},
+{
+"key": "fx_mote_purple_additive_tex_a19e",
+"path": "roblox-port/assets/fx/fx_mote_purple_additive_tex_a19e.png",
+"kind": "image",
+"name": "fx_mote_purple_additive_tex_a19e",
+"ctype": "image/png"
+},
+{
+"key": "fx_red_spot_2d5c",
+"path": "roblox-port/assets/fx/fx_red_spot_2d5c.png",
+"kind": "image",
+"name": "fx_red_spot_2d5c",
+"ctype": "image/png"
+},
+{
+"key": "fx_smokering_alphprem_tex_dc1d",
+"path": "roblox-port/assets/fx/fx_smokering_alphprem_tex_dc1d.png",
+"kind": "image",
+"name": "fx_smokering_alphprem_tex_dc1d",
+"ctype": "image/png"
+},
+{
+"key": "fx_space_fire_c901",
+"path": "roblox-port/assets/fx/fx_space_fire_c901.png",
+"kind": "image",
+"name": "fx_space_fire_c901",
+"ctype": "image/png"
+},
+{
+"key": "fx_strike_blue_add_tex_b39f",
+"path": "roblox-port/assets/fx/fx_strike_blue_add_tex_b39f.png",
+"kind": "image",
+"name": "fx_strike_blue_add_tex_b39f",
+"ctype": "image/png"
+},
+{
+"key": "fx_thug_01_bazooka_85e0",
+"path": "roblox-port/assets/fx/fx_thug_01_bazooka_85e0.png",
+"kind": "image",
+"name": "fx_thug_01_bazooka_85e0",
+"ctype": "image/png"
+},
+{
+"key": "fx_thug_01_gun_a32d",
+"path": "roblox-port/assets/fx/fx_thug_01_gun_a32d.png",
+"kind": "image",
+"name": "fx_thug_01_gun_a32d",
+"ctype": "image/png"
+},
+{
+"key": "fx_thug_Baton_96c7",
+"path": "roblox-port/assets/fx/fx_thug_Baton_96c7.png",
+"kind": "image",
+"name": "fx_thug_Baton_96c7",
+"ctype": "image/png"
+},
+{
+"key": "fx_thug_bazookaimpact_alphprem_tex_8289",
+"path": "roblox-port/assets/fx/fx_thug_bazookaimpact_alphprem_tex_8289.png",
+"kind": "image",
+"name": "fx_thug_bazookaimpact_alphprem_tex_8289",
+"ctype": "image/png"
+},
+{
+"key": "fx_thug_grenade_alphprem_tex_4f4e",
+"path": "roblox-port/assets/fx/fx_thug_grenade_alphprem_tex_4f4e.png",
+"kind": "image",
+"name": "fx_thug_grenade_alphprem_tex_4f4e",
+"ctype": "image/png"
+},
+{
+"key": "fx_thug_rifleimpact_add_tex_5be0",
+"path": "roblox-port/assets/fx/fx_thug_rifleimpact_add_tex_5be0.png",
+"kind": "image",
+"name": "fx_thug_rifleimpact_add_tex_5be0",
+"ctype": "image/png"
+},
+{
+"key": "fx_thugmelle_add_tex_2e7c",
+"path": "roblox-port/assets/fx/fx_thugmelle_add_tex_2e7c.png",
+"kind": "image",
+"name": "fx_thugmelle_add_tex_2e7c",
+"ctype": "image/png"
+},
+{
+"key": "sound_sprite_v2_1",
+"path": "roblox-port/assets/audio/spso_sound_sprite_v2_1.ogg",
+"kind": "audio",
+"name": "SPSO Sounds 1",
+"ctype": "audio/ogg"
+},
+{
+"key": "sound_sprite_v2_2",
+"path": "roblox-port/assets/audio/spso_sound_sprite_v2_2.ogg",
+"kind": "audio",
+"name": "SPSO Sounds 2",
+"ctype": "audio/ogg"
+},
+{
+"key": "sound_sprite_v2_3",
+"path": "roblox-port/assets/audio/spso_sound_sprite_v2_3.ogg",
+"kind": "audio",
+"name": "SPSO Sounds 3",
+"ctype": "audio/ogg"
+},
+{
+"key": "gui_bh_background",
+"path": "roblox-port/assets/gui/gui_bh_background.png",
+"kind": "image",
+"name": "gui_bh_background",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_backstar",
+"path": "roblox-port/assets/gui/gui_bh_backstar.png",
+"kind": "image",
+"name": "gui_bh_backstar",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_brawler_hud_indicator_go",
+"path": "roblox-port/assets/gui/gui_bh_brawler_hud_indicator_go.png",
+"kind": "image",
+"name": "gui_bh_brawler_hud_indicator_go",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_brawler_hud_indicator_use",
+"path": "roblox-port/assets/gui/gui_bh_brawler_hud_indicator_use.png",
+"kind": "image",
+"name": "gui_bh_brawler_hud_indicator_use",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_brawler_points_adamantium",
+"path": "roblox-port/assets/gui/gui_bh_brawler_points_adamantium.png",
+"kind": "image",
+"name": "gui_bh_brawler_points_adamantium",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_brawler_points_bronze",
+"path": "roblox-port/assets/gui/gui_bh_brawler_points_bronze.png",
+"kind": "image",
+"name": "gui_bh_brawler_points_bronze",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_brawler_points_gold",
+"path": "roblox-port/assets/gui/gui_bh_brawler_points_gold.png",
+"kind": "image",
+"name": "gui_bh_brawler_points_gold",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_brawler_points_silver",
+"path": "roblox-port/assets/gui/gui_bh_brawler_points_silver.png",
+"kind": "image",
+"name": "gui_bh_brawler_points_silver",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_buff_armor",
+"path": "roblox-port/assets/gui/gui_bh_buff_armor.png",
+"kind": "image",
+"name": "gui_bh_buff_armor",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_buff_armor_passive",
+"path": "roblox-port/assets/gui/gui_bh_buff_armor_passive.png",
+"kind": "image",
+"name": "gui_bh_buff_armor_passive",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_buff_damage",
+"path": "roblox-port/assets/gui/gui_bh_buff_damage.png",
+"kind": "image",
+"name": "gui_bh_buff_damage",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_buff_damage_passive",
+"path": "roblox-port/assets/gui/gui_bh_buff_damage_passive.png",
+"kind": "image",
+"name": "gui_bh_buff_damage_passive",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_buff_elemental",
+"path": "roblox-port/assets/gui/gui_bh_buff_elemental.png",
+"kind": "image",
+"name": "gui_bh_buff_elemental",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_buff_energy",
+"path": "roblox-port/assets/gui/gui_bh_buff_energy.png",
+"kind": "image",
+"name": "gui_bh_buff_energy",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_buff_regen",
+"path": "roblox-port/assets/gui/gui_bh_buff_regen.png",
+"kind": "image",
+"name": "gui_bh_buff_regen",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_buff_speed",
+"path": "roblox-port/assets/gui/gui_bh_buff_speed.png",
+"kind": "image",
+"name": "gui_bh_buff_speed",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_buff_speed_passive",
+"path": "roblox-port/assets/gui/gui_bh_buff_speed_passive.png",
+"kind": "image",
+"name": "gui_bh_buff_speed_passive",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_enemy_health_bg",
+"path": "roblox-port/assets/gui/gui_bh_enemy_health_bg.png",
+"kind": "image",
+"name": "gui_bh_enemy_health_bg",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_enemy_health_damage",
+"path": "roblox-port/assets/gui/gui_bh_enemy_health_damage.png",
+"kind": "image",
+"name": "gui_bh_enemy_health_damage",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_enemy_health_full",
+"path": "roblox-port/assets/gui/gui_bh_enemy_health_full.png",
+"kind": "image",
+"name": "gui_bh_enemy_health_full",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_enemy_health_gleam",
+"path": "roblox-port/assets/gui/gui_bh_enemy_health_gleam.png",
+"kind": "image",
+"name": "gui_bh_enemy_health_gleam",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_frontstar",
+"path": "roblox-port/assets/gui/gui_bh_frontstar.png",
+"kind": "image",
+"name": "gui_bh_frontstar",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_bar_adamantium",
+"path": "roblox-port/assets/gui/gui_bh_mc_bar_adamantium.png",
+"kind": "image",
+"name": "gui_bh_mc_bar_adamantium",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_bar_bg",
+"path": "roblox-port/assets/gui/gui_bh_mc_bar_bg.png",
+"kind": "image",
+"name": "gui_bh_mc_bar_bg",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_bar_bronze",
+"path": "roblox-port/assets/gui/gui_bh_mc_bar_bronze.png",
+"kind": "image",
+"name": "gui_bh_mc_bar_bronze",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_bar_gold",
+"path": "roblox-port/assets/gui/gui_bh_mc_bar_gold.png",
+"kind": "image",
+"name": "gui_bh_mc_bar_gold",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_bar_mask",
+"path": "roblox-port/assets/gui/gui_bh_mc_bar_mask.png",
+"kind": "image",
+"name": "gui_bh_mc_bar_mask",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_bar_shine",
+"path": "roblox-port/assets/gui/gui_bh_mc_bar_shine.png",
+"kind": "image",
+"name": "gui_bh_mc_bar_shine",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_bar_silver",
+"path": "roblox-port/assets/gui/gui_bh_mc_bar_silver.png",
+"kind": "image",
+"name": "gui_bh_mc_bar_silver",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_coins",
+"path": "roblox-port/assets/gui/gui_bh_mc_coins.png",
+"kind": "image",
+"name": "gui_bh_mc_coins",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_dot_adamantium",
+"path": "roblox-port/assets/gui/gui_bh_mc_dot_adamantium.png",
+"kind": "image",
+"name": "gui_bh_mc_dot_adamantium",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_dot_bronze",
+"path": "roblox-port/assets/gui/gui_bh_mc_dot_bronze.png",
+"kind": "image",
+"name": "gui_bh_mc_dot_bronze",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_dot_gold",
+"path": "roblox-port/assets/gui/gui_bh_mc_dot_gold.png",
+"kind": "image",
+"name": "gui_bh_mc_dot_gold",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_dot_silver",
+"path": "roblox-port/assets/gui/gui_bh_mc_dot_silver.png",
+"kind": "image",
+"name": "gui_bh_mc_dot_silver",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_name_bubble",
+"path": "roblox-port/assets/gui/gui_bh_mc_name_bubble.png",
+"kind": "image",
+"name": "gui_bh_mc_name_bubble",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_ownable",
+"path": "roblox-port/assets/gui/gui_bh_mc_ownable.png",
+"kind": "image",
+"name": "gui_bh_mc_ownable",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_rays1",
+"path": "roblox-port/assets/gui/gui_bh_mc_rays1.png",
+"kind": "image",
+"name": "gui_bh_mc_rays1",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_rays2",
+"path": "roblox-port/assets/gui/gui_bh_mc_rays2.png",
+"kind": "image",
+"name": "gui_bh_mc_rays2",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_sparkles",
+"path": "roblox-port/assets/gui/gui_bh_mc_sparkles.png",
+"kind": "image",
+"name": "gui_bh_mc_sparkles",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mc_tickets",
+"path": "roblox-port/assets/gui/gui_bh_mc_tickets.png",
+"kind": "image",
+"name": "gui_bh_mc_tickets",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mission_hud_teamup_background",
+"path": "roblox-port/assets/gui/gui_bh_mission_hud_teamup_background.png",
+"kind": "image",
+"name": "gui_bh_mission_hud_teamup_background",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mission_hud_teamup_background_rays",
+"path": "roblox-port/assets/gui/gui_bh_mission_hud_teamup_background_rays.png",
+"kind": "image",
+"name": "gui_bh_mission_hud_teamup_background_rays",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mission_hud_teamup_portrait_frame",
+"path": "roblox-port/assets/gui/gui_bh_mission_hud_teamup_portrait_frame.png",
+"kind": "image",
+"name": "gui_bh_mission_hud_teamup_portrait_frame",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mission_hud_teamup_small_highlight",
+"path": "roblox-port/assets/gui/gui_bh_mission_hud_teamup_small_highlight.png",
+"kind": "image",
+"name": "gui_bh_mission_hud_teamup_small_highlight",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mission_hud_teamup_text_panel_left",
+"path": "roblox-port/assets/gui/gui_bh_mission_hud_teamup_text_panel_left.png",
+"kind": "image",
+"name": "gui_bh_mission_hud_teamup_text_panel_left",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mission_hud_teamup_text_panel_middle",
+"path": "roblox-port/assets/gui/gui_bh_mission_hud_teamup_text_panel_middle.png",
+"kind": "image",
+"name": "gui_bh_mission_hud_teamup_text_panel_middle",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mission_hud_teamup_text_panel_middle_coverup",
+"path": "roblox-port/assets/gui/gui_bh_mission_hud_teamup_text_panel_middle_coverup.png",
+"kind": "image",
+"name": "gui_bh_mission_hud_teamup_text_panel_middle_coveru",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_mission_hud_teamup_text_panel_right",
+"path": "roblox-port/assets/gui/gui_bh_mission_hud_teamup_text_panel_right.png",
+"kind": "image",
+"name": "gui_bh_mission_hud_teamup_text_panel_right",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_boss_frame",
+"path": "roblox-port/assets/gui/gui_bh_boss_frame.png",
+"kind": "image",
+"name": "gui_bh_boss_frame",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_boss_lifebar_bg",
+"path": "roblox-port/assets/gui/gui_bh_boss_lifebar_bg.png",
+"kind": "image",
+"name": "gui_bh_boss_lifebar_bg",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_boss_lifebar_bg_hlf",
+"path": "roblox-port/assets/gui/gui_bh_boss_lifebar_bg_hlf.png",
+"kind": "image",
+"name": "gui_bh_boss_lifebar_bg_hlf",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_boss_lifebar_damage",
+"path": "roblox-port/assets/gui/gui_bh_boss_lifebar_damage.png",
+"kind": "image",
+"name": "gui_bh_boss_lifebar_damage",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_boss_lifebar_damage_hlf",
+"path": "roblox-port/assets/gui/gui_bh_boss_lifebar_damage_hlf.png",
+"kind": "image",
+"name": "gui_bh_boss_lifebar_damage_hlf",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_boss_lifebar_fill",
+"path": "roblox-port/assets/gui/gui_bh_boss_lifebar_fill.png",
+"kind": "image",
+"name": "gui_bh_boss_lifebar_fill",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_boss_lifebar_fill_hlf",
+"path": "roblox-port/assets/gui/gui_bh_boss_lifebar_fill_hlf.png",
+"kind": "image",
+"name": "gui_bh_boss_lifebar_fill_hlf",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_boss_name_left",
+"path": "roblox-port/assets/gui/gui_bh_boss_name_left.png",
+"kind": "image",
+"name": "gui_bh_boss_name_left",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_boss_name_right",
+"path": "roblox-port/assets/gui/gui_bh_boss_name_right.png",
+"kind": "image",
+"name": "gui_bh_boss_name_right",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_boss_name_stretch",
+"path": "roblox-port/assets/gui/gui_bh_boss_name_stretch.png",
+"kind": "image",
+"name": "gui_bh_boss_name_stretch",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_damage_glow_bottom",
+"path": "roblox-port/assets/gui/gui_bh_damage_glow_bottom.png",
+"kind": "image",
+"name": "gui_bh_damage_glow_bottom",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_damage_glow_left",
+"path": "roblox-port/assets/gui/gui_bh_damage_glow_left.png",
+"kind": "image",
+"name": "gui_bh_damage_glow_left",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_damage_glow_right",
+"path": "roblox-port/assets/gui/gui_bh_damage_glow_right.png",
+"kind": "image",
+"name": "gui_bh_damage_glow_right",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_damage_glow_top",
+"path": "roblox-port/assets/gui/gui_bh_damage_glow_top.png",
+"kind": "image",
+"name": "gui_bh_damage_glow_top",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_hero_up_container",
+"path": "roblox-port/assets/gui/gui_bh_hero_up_container.png",
+"kind": "image",
+"name": "gui_bh_hero_up_container",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_heroup_bubble",
+"path": "roblox-port/assets/gui/gui_bh_heroup_bubble.png",
+"kind": "image",
+"name": "gui_bh_heroup_bubble",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_heroup_bubble_flash",
+"path": "roblox-port/assets/gui/gui_bh_heroup_bubble_flash.png",
+"kind": "image",
+"name": "gui_bh_heroup_bubble_flash",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_life_damage",
+"path": "roblox-port/assets/gui/gui_bh_life_damage.png",
+"kind": "image",
+"name": "gui_bh_life_damage",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_life_fill",
+"path": "roblox-port/assets/gui/gui_bh_life_fill.png",
+"kind": "image",
+"name": "gui_bh_life_fill",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_network_disconnect_1",
+"path": "roblox-port/assets/gui/gui_bh_network_disconnect_1.png",
+"kind": "image",
+"name": "gui_bh_network_disconnect_1",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_network_disconnect_2",
+"path": "roblox-port/assets/gui/gui_bh_network_disconnect_2.png",
+"kind": "image",
+"name": "gui_bh_network_disconnect_2",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_playerframe",
+"path": "roblox-port/assets/gui/gui_bh_playerframe.png",
+"kind": "image",
+"name": "gui_bh_playerframe",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_star_active",
+"path": "roblox-port/assets/gui/gui_bh_star_active.png",
+"kind": "image",
+"name": "gui_bh_star_active",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_star_container_1",
+"path": "roblox-port/assets/gui/gui_bh_star_container_1.png",
+"kind": "image",
+"name": "gui_bh_star_container_1",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_star_container_2",
+"path": "roblox-port/assets/gui/gui_bh_star_container_2.png",
+"kind": "image",
+"name": "gui_bh_star_container_2",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_star_container_3",
+"path": "roblox-port/assets/gui/gui_bh_star_container_3.png",
+"kind": "image",
+"name": "gui_bh_star_container_3",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_star_container_4",
+"path": "roblox-port/assets/gui/gui_bh_star_container_4.png",
+"kind": "image",
+"name": "gui_bh_star_container_4",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_star_container_5",
+"path": "roblox-port/assets/gui/gui_bh_star_container_5.png",
+"kind": "image",
+"name": "gui_bh_star_container_5",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_star_normal",
+"path": "roblox-port/assets/gui/gui_bh_star_normal.png",
+"kind": "image",
+"name": "gui_bh_star_normal",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_raysBottom",
+"path": "roblox-port/assets/gui/gui_bh_raysBottom.png",
+"kind": "image",
+"name": "gui_bh_raysBottom",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_raysTop",
+"path": "roblox-port/assets/gui/gui_bh_raysTop.png",
+"kind": "image",
+"name": "gui_bh_raysTop",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_score_bar_adamantium",
+"path": "roblox-port/assets/gui/gui_bh_score_bar_adamantium.png",
+"kind": "image",
+"name": "gui_bh_score_bar_adamantium",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_score_bar_bg",
+"path": "roblox-port/assets/gui/gui_bh_score_bar_bg.png",
+"kind": "image",
+"name": "gui_bh_score_bar_bg",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_score_bar_bronze",
+"path": "roblox-port/assets/gui/gui_bh_score_bar_bronze.png",
+"kind": "image",
+"name": "gui_bh_score_bar_bronze",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_score_bar_gold",
+"path": "roblox-port/assets/gui/gui_bh_score_bar_gold.png",
+"kind": "image",
+"name": "gui_bh_score_bar_gold",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_score_bar_mask",
+"path": "roblox-port/assets/gui/gui_bh_score_bar_mask.png",
+"kind": "image",
+"name": "gui_bh_score_bar_mask",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_score_bar_silver",
+"path": "roblox-port/assets/gui/gui_bh_score_bar_silver.png",
+"kind": "image",
+"name": "gui_bh_score_bar_silver",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_score_dot_adamantium",
+"path": "roblox-port/assets/gui/gui_bh_score_dot_adamantium.png",
+"kind": "image",
+"name": "gui_bh_score_dot_adamantium",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_score_dot_bronze",
+"path": "roblox-port/assets/gui/gui_bh_score_dot_bronze.png",
+"kind": "image",
+"name": "gui_bh_score_dot_bronze",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_score_dot_gold",
+"path": "roblox-port/assets/gui/gui_bh_score_dot_gold.png",
+"kind": "image",
+"name": "gui_bh_score_dot_gold",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_score_dot_silver",
+"path": "roblox-port/assets/gui/gui_bh_score_dot_silver.png",
+"kind": "image",
+"name": "gui_bh_score_dot_silver",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_score_medal_glow",
+"path": "roblox-port/assets/gui/gui_bh_score_medal_glow.png",
+"kind": "image",
+"name": "gui_bh_score_medal_glow",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_score_medal_rays",
+"path": "roblox-port/assets/gui/gui_bh_score_medal_rays.png",
+"kind": "image",
+"name": "gui_bh_score_medal_rays",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_score_medal_shine",
+"path": "roblox-port/assets/gui/gui_bh_score_medal_shine.png",
+"kind": "image",
+"name": "gui_bh_score_medal_shine",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_score_medal_sparkles",
+"path": "roblox-port/assets/gui/gui_bh_score_medal_sparkles.png",
+"kind": "image",
+"name": "gui_bh_score_medal_sparkles",
+"ctype": "image/png"
+},
+{
+"key": "gui_bh_stagecomplete_rays",
+"path": "roblox-port/assets/gui/gui_bh_stagecomplete_rays.png",
+"kind": "image",
+"name": "gui_bh_stagecomplete_rays",
+"ctype": "image/png"
+},
+{
+"key": "model_InvaderGrenadier",
+"path": "roblox-port/heroes/InvaderGrenadier/InvaderGrenadier.fbx",
+"kind": "model",
+"name": "InvaderGrenadier",
+"ctype": "model/fbx"
+},
+{
+"key": "face_InvaderGrenadier_1",
+"path": "roblox-port/heroes/InvaderGrenadier/textures/InvaderGrenadier_Face_1.png",
+"kind": "image",
+"name": "InvaderGrenadier_Face_1",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderGrenadier_2",
+"path": "roblox-port/heroes/InvaderGrenadier/textures/InvaderGrenadier_Face_2.png",
+"kind": "image",
+"name": "InvaderGrenadier_Face_2",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderGrenadier_3",
+"path": "roblox-port/heroes/InvaderGrenadier/textures/InvaderGrenadier_Face_3.png",
+"kind": "image",
+"name": "InvaderGrenadier_Face_3",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderGrenadier_4",
+"path": "roblox-port/heroes/InvaderGrenadier/textures/InvaderGrenadier_Face_4.png",
+"kind": "image",
+"name": "InvaderGrenadier_Face_4",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderGrenadier_5",
+"path": "roblox-port/heroes/InvaderGrenadier/textures/InvaderGrenadier_Face_5.png",
+"kind": "image",
+"name": "InvaderGrenadier_Face_5",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderGrenadier_6",
+"path": "roblox-port/heroes/InvaderGrenadier/textures/InvaderGrenadier_Face_6.png",
+"kind": "image",
+"name": "InvaderGrenadier_Face_6",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderGrenadier_7",
+"path": "roblox-port/heroes/InvaderGrenadier/textures/InvaderGrenadier_Face_7.png",
+"kind": "image",
+"name": "InvaderGrenadier_Face_7",
+"ctype": "image/png"
+},
+{
+"key": "package_InvaderGrenadier",
+"path": "roblox-port/studio/packages/Hero_InvaderGrenadier.rbxmx",
+"kind": "package",
+"name": "SPSO Hero Data InvaderGrenadier",
+"ctype": "model/x-rbxm"
+},
+{
+"key": "model_InvaderGunner",
+"path": "roblox-port/heroes/InvaderGunner/InvaderGunner.fbx",
+"kind": "model",
+"name": "InvaderGunner",
+"ctype": "model/fbx"
+},
+{
+"key": "face_InvaderGunner_1",
+"path": "roblox-port/heroes/InvaderGunner/textures/InvaderGunner_Face_1.png",
+"kind": "image",
+"name": "InvaderGunner_Face_1",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderGunner_2",
+"path": "roblox-port/heroes/InvaderGunner/textures/InvaderGunner_Face_2.png",
+"kind": "image",
+"name": "InvaderGunner_Face_2",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderGunner_3",
+"path": "roblox-port/heroes/InvaderGunner/textures/InvaderGunner_Face_3.png",
+"kind": "image",
+"name": "InvaderGunner_Face_3",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderGunner_4",
+"path": "roblox-port/heroes/InvaderGunner/textures/InvaderGunner_Face_4.png",
+"kind": "image",
+"name": "InvaderGunner_Face_4",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderGunner_5",
+"path": "roblox-port/heroes/InvaderGunner/textures/InvaderGunner_Face_5.png",
+"kind": "image",
+"name": "InvaderGunner_Face_5",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderGunner_6",
+"path": "roblox-port/heroes/InvaderGunner/textures/InvaderGunner_Face_6.png",
+"kind": "image",
+"name": "InvaderGunner_Face_6",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderGunner_7",
+"path": "roblox-port/heroes/InvaderGunner/textures/InvaderGunner_Face_7.png",
+"kind": "image",
+"name": "InvaderGunner_Face_7",
+"ctype": "image/png"
+},
+{
+"key": "package_InvaderGunner",
+"path": "roblox-port/studio/packages/Hero_InvaderGunner.rbxmx",
+"kind": "package",
+"name": "SPSO Hero Data InvaderGunner",
+"ctype": "model/x-rbxm"
+},
+{
+"key": "model_InvaderMelee",
+"path": "roblox-port/heroes/InvaderMelee/InvaderMelee.fbx",
+"kind": "model",
+"name": "InvaderMelee",
+"ctype": "model/fbx"
+},
+{
+"key": "face_InvaderMelee_1",
+"path": "roblox-port/heroes/InvaderMelee/textures/InvaderMelee_Face_1.png",
+"kind": "image",
+"name": "InvaderMelee_Face_1",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderMelee_2",
+"path": "roblox-port/heroes/InvaderMelee/textures/InvaderMelee_Face_2.png",
+"kind": "image",
+"name": "InvaderMelee_Face_2",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderMelee_3",
+"path": "roblox-port/heroes/InvaderMelee/textures/InvaderMelee_Face_3.png",
+"kind": "image",
+"name": "InvaderMelee_Face_3",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderMelee_4",
+"path": "roblox-port/heroes/InvaderMelee/textures/InvaderMelee_Face_4.png",
+"kind": "image",
+"name": "InvaderMelee_Face_4",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderMelee_5",
+"path": "roblox-port/heroes/InvaderMelee/textures/InvaderMelee_Face_5.png",
+"kind": "image",
+"name": "InvaderMelee_Face_5",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderMelee_6",
+"path": "roblox-port/heroes/InvaderMelee/textures/InvaderMelee_Face_6.png",
+"kind": "image",
+"name": "InvaderMelee_Face_6",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderMelee_7",
+"path": "roblox-port/heroes/InvaderMelee/textures/InvaderMelee_Face_7.png",
+"kind": "image",
+"name": "InvaderMelee_Face_7",
+"ctype": "image/png"
+},
+{
+"key": "package_InvaderMelee",
+"path": "roblox-port/studio/packages/Hero_InvaderMelee.rbxmx",
+"kind": "package",
+"name": "SPSO Hero Data InvaderMelee",
+"ctype": "model/x-rbxm"
+},
+{
+"key": "model_InvaderWarlord",
+"path": "roblox-port/heroes/InvaderWarlord/InvaderWarlord.fbx",
+"kind": "model",
+"name": "InvaderWarlord",
+"ctype": "model/fbx"
+},
+{
+"key": "face_InvaderWarlord_1",
+"path": "roblox-port/heroes/InvaderWarlord/textures/InvaderWarlord_Face_1.png",
+"kind": "image",
+"name": "InvaderWarlord_Face_1",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderWarlord_2",
+"path": "roblox-port/heroes/InvaderWarlord/textures/InvaderWarlord_Face_2.png",
+"kind": "image",
+"name": "InvaderWarlord_Face_2",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderWarlord_3",
+"path": "roblox-port/heroes/InvaderWarlord/textures/InvaderWarlord_Face_3.png",
+"kind": "image",
+"name": "InvaderWarlord_Face_3",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderWarlord_4",
+"path": "roblox-port/heroes/InvaderWarlord/textures/InvaderWarlord_Face_4.png",
+"kind": "image",
+"name": "InvaderWarlord_Face_4",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderWarlord_5",
+"path": "roblox-port/heroes/InvaderWarlord/textures/InvaderWarlord_Face_5.png",
+"kind": "image",
+"name": "InvaderWarlord_Face_5",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderWarlord_6",
+"path": "roblox-port/heroes/InvaderWarlord/textures/InvaderWarlord_Face_6.png",
+"kind": "image",
+"name": "InvaderWarlord_Face_6",
+"ctype": "image/png"
+},
+{
+"key": "face_InvaderWarlord_7",
+"path": "roblox-port/heroes/InvaderWarlord/textures/InvaderWarlord_Face_7.png",
+"kind": "image",
+"name": "InvaderWarlord_Face_7",
+"ctype": "image/png"
+},
+{
+"key": "package_InvaderWarlord",
+"path": "roblox-port/studio/packages/Hero_InvaderWarlord.rbxmx",
+"kind": "package",
+"name": "SPSO Hero Data InvaderWarlord",
+"ctype": "model/x-rbxm"
+}
+]

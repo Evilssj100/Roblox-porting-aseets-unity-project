@@ -31,13 +31,12 @@ HEROES = [  # port hero, original data file, display name
 ]
 SLOTS = {"attack_L1": "L1", "attack_L2": "L2", "attack_L3": "L3", "attack_L4": "L4", "attack_L5": "L5",
          "attack_R1": "R1", "attack_R2": "R2", "attack_R3": "R3", "attack_super": "Super"}
-ENEMIES = {  # archetype -> original enemy file, port model, how its attacks map onto the model's clips
-    "Thug": {"xml": "skrull_melee", "model": "ElRugido", "displayName": "Rival Luchador", "skins": "variants",
-             "clips": {"attack_1": "attack_L1", "attack_2": "attack_L2"}},
-    "Blaster": {"xml": "skrull_rifle", "model": "NightGecko", "displayName": "Night Raider", "skins": "rival",
-                "clips": {"attack_rifle": "attack_L4"}, "projectileOnly": True},
-    "Warlord": {"xml": "super_skrull_boss", "model": "Magmaul", "displayName": "The Warlord", "skins": "rival",
-                "heroAttacks": ["L1", "L2", "L3", "L4", "R1", "R3", "Super"]},
+ENEMIES = {  # archetype -> original enemy file and the port model of its character bundle (original rig + clips)
+    "Thug": {"xml": "skrull_melee", "model": "InvaderMelee", "displayName": "Invader Brawler"},
+    "Blaster": {"xml": "skrull_rifle", "model": "InvaderGunner", "displayName": "Invader Gunner"},
+    "Bazooka": {"xml": "skrull_bazooka", "model": "InvaderGunner", "displayName": "Invader Bazooka"},
+    "Grenadier": {"xml": "skrull_grenade", "model": "InvaderGrenadier", "displayName": "Invader Grenadier"},
+    "Warlord": {"xml": "super_skrull_boss", "model": "InvaderWarlord", "displayName": "Invader Warlord"},
 }
 RANKS = ["fodder", "regular", "lieutenant", "miniboss", "boss", "megaboss"]
 
@@ -212,34 +211,17 @@ def main():
             a["duration"] = durations[hero].get(a["anim"], 0)
         out["Heroes"][hero] = h
     for name, spec in ENEMIES.items():
-        root = load(spec["xml"])
         model = spec["model"]
-        ev, _ = clip_events(port_dir, model)
-        e = character(root, {})
-        e.update({"displayName": spec["displayName"], "model": model, "skins": spec["skins"]})
-        if "heroAttacks" in spec:  # the boss fights with the model hero's own moves
-            src_atk = out["Heroes"][model]["attacks"]
-            e["attacks"] = {k: src_atk[k] for k in spec["heroAttacks"] if k in src_atk}
-            e["colliders"] = out["Heroes"][model]["colliders"]
-        else:
-            atk = {}
-            for k, a in e["attacks"].items():
-                clip = spec["clips"].get(a["anim"])
-                if not clip:
-                    continue
-                a = dict(a, anim=clip, duration=durations[model].get(clip, 0))
-                cev = ev.get(clip, {})
-                a["events"] = {"collision": cev.get("OnCollisionEnableAnimTag", 0), "projectile": cev.get("OnProjectileFireAnimTag", 0)}
-                if spec.get("projectileOnly"):
-                    a["impacts"] = [i for i in a["impacts"] if i["type"] == 1][:1]
-                    a["repeatFire"] = True  # every fire event of the model's clip shoots this impact
-                for i in a["impacts"]:  # the model's own colliders (bone names differ from the original enemy)
-                    if i["collider"] not in out["Heroes"][model]["colliders"]:
-                        i["collider"] = "RightHandCollider"
-                atk[k] = a
-            e["attacks"] = atk
-            e["colliders"] = out["Heroes"][model]["colliders"]
+        ev, durations[model] = clip_events(port_dir, model)
+        e = character(load(spec["xml"]), ev)
+        for a in e["attacks"].values():
+            a["duration"] = durations[model].get(a["anim"], 0)
+        missing = [k for k, a in e["attacks"].items() if a["anim"] not in durations[model]]
+        for k in missing:  # moves whose clip the bundle does not have
+            del e["attacks"][k]
+        e.update({"displayName": spec["displayName"], "model": model})
         out["Enemies"][name] = e
+    out["Models"] = [h for h, _, _ in HEROES] + sorted({s_["model"] for s_ in ENEMIES.values()})
     sc = load("brawler_scoring")
     out["Scoring"] = {
         "koValues": [int(num(sc, f"enemy_bonus/{r}")) for r in RANKS],

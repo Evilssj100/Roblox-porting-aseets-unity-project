@@ -121,13 +121,14 @@ class Hero:
                 walk(c, i, (path + "/" if path else "") + c.m_GameObject.read().m_Name)
 
         walk(root_tr, None, "")
-        smr = mesh_node = None
+        from unity_mesh_compat import pick_skinned_renderer
+        cands = []
         for i, n in enumerate(nodes):
             for t, p in components(n["go"]):
                 if t == "SkinnedMeshRenderer":
-                    s = p.read()
-                    if s.m_Mesh and s.m_Mesh.read().m_Name.lower().endswith("lod0"):
-                        smr, mesh_node = s, i
+                    cands.append((p.read(), i))
+        smr = pick_skinned_renderer([c[0] for c in cands])
+        mesh_node = next(i for s_, i in cands if s_ is smr)
         self.skin_nodes = [by_pid[b.m_PathID] for b in smr.m_Bones]
         mesh = smr.m_Mesh.read()
         # bind pose world (right-handed), as in unity_hero_anim_exact.py

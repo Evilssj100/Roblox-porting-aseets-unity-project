@@ -1,4 +1,4 @@
-<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4"><External>null</External><External>nil</External><Item class="Folder" referent="RBX000034"><Properties><string name="Name">SPSO_Package</string></Properties><Item class="StringValue" referent="RBX000026"><Properties><string name="Name">_version</string><string name="Value">store-hub-1</string></Properties></Item><Item class="Folder" referent="RBX000027"><Properties><string name="Name">ReplicatedStorage/SPSO/Runtime</string></Properties><Item class="ModuleScript" referent="RBX000001"><Properties><string name="Name">ExactAnimator</string><ProtectedString name="Source"><![CDATA[--!native
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4"><External>null</External><External>nil</External><Item class="Folder" referent="RBX000034"><Properties><string name="Name">SPSO_Package</string></Properties><Item class="StringValue" referent="RBX000026"><Properties><string name="Name">_version</string><string name="Value">store-hub-2</string></Properties></Item><Item class="Folder" referent="RBX000027"><Properties><string name="Name">ReplicatedStorage/SPSO/Runtime</string></Properties><Item class="ModuleScript" referent="RBX000001"><Properties><string name="Name">ExactAnimator</string><ProtectedString name="Source"><![CDATA[--!native
 -- SPSO ExactAnimator: plays a hero's ORIGINAL animation curves exactly the way Unity's legacy
 -- Animation component did: Hermite curves, quaternion components normalised, the full node chain,
 -- crossfades, wrap modes, animation events, facial expressions (FacialAnimation.cs) and root motion
@@ -1241,17 +1241,17 @@ A.Gui = {
 	["potion_ghost"] = "rbxassetid://138111749289866",
 	["potion_gold"] = "rbxassetid://128241177841155",
 	["potion_green"] = "rbxassetid://125263338374809",
-	["potion_growth"] = "rbxassetid://88875127893698",
+	["potion_growth"] = "rbxassetid://99049317534915",
 	["potion_healthboost"] = "rbxassetid://85900336364225",
 	["potion_invisible"] = "rbxassetid://137510492987058",
 	["potion_rude"] = "rbxassetid://135672236002583",
 	["potion_seasonal"] = "rbxassetid://104044194112437",
-	["potion_shadow"] = "rbxassetid://85520797343565",
-	["potion_shrink"] = "rbxassetid://85164598237413",
+	["potion_shadow"] = "rbxassetid://121931524713733",
+	["potion_shrink"] = "rbxassetid://85728209144906",
 	["potion_snow"] = "rbxassetid://72940468522832",
 	["potion_speedboost"] = "rbxassetid://105478887955493",
 	["potion_stinkbomb"] = "rbxassetid://97838223754988",
-	["potion_void"] = "rbxassetid://120069546537366",
+	["potion_void"] = "rbxassetid://99197436069660",
 	["potion_xpboost"] = "rbxassetid://112894110004130",
 	["preloading_blue_backdrop"] = "rbxassetid://74508896227067",
 	["reticule_inner_diff_tex"] = "rbxassetid://70655892363665",
@@ -42307,7 +42307,8 @@ goldDisplayLabel.TextStrokeTransparency = 1
 img(storeWin, "hud_fractal_icon", UDim2.new(0, 26, 0, 30), UDim2.new(1, -300, 0, 18), 12)
 local fractalDisplayLabel = text(storeWin, "0", UDim2.new(0, 90, 0, 28), UDim2.new(1, -270, 0, 19), Color3.fromRGB(230, 200, 255), 12)
 fractalDisplayLabel.TextXAlignment = Enum.TextXAlignment.Left
-local buyGold = artButton(storeWin, "shop_button_buygold_shoppingpopup", UDim2.new(0, 120, 0, 60), UDim2.new(1, -176, 0, 2), 12)
+local buyGold = artButton(storeWin, "shop_button_buygold_shoppingpopup", UDim2.new(0, 160, 0, 62), UDim2.new(1, -205, 0, 4), 12)
+buyGold.ImageRectOffset, buyGold.ImageRectSize = Vector2.new(16, 86), Vector2.new(226, 86) -- the button inside its 256 canvas
 buyGold.Activated:Connect(function() say("Gold will be sold in the store soon!") end)
 
 local left = panel(storeWin, UDim2.new(0, 190, 1, -84), UDim2.new(0, 12, 0, 72), NAVY2, 11)

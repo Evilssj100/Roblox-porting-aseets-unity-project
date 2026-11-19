@@ -19,7 +19,7 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "Assets",
    "class": "ModuleScript",
-   "sha": "d3e39539a1394665"
+   "sha": "bef840674f258876"
   },
   {
    "path": "studio/game/shared/CharacterAnimator.lua",
@@ -138,7 +138,7 @@
    "parent": "StarterPlayer/StarterPlayerScripts",
    "name": "ShopClient",
    "class": "LocalScript",
-   "sha": "a6b339674b26772f"
+   "sha": "ed4eb1e71c671c36"
   },
   {
    "path": "studio/game/character/Animate.client.lua",

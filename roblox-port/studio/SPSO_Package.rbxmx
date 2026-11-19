@@ -1,4 +1,4 @@
-<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4"><External>null</External><External>nil</External><Item class="Folder" referent="RBX000025"><Properties><string name="Name">SPSO_Package</string></Properties><Item class="StringValue" referent="RBX000017"><Properties><string name="Name">_version</string><string name="Value">game-v5b</string></Properties></Item><Item class="Folder" referent="RBX000018"><Properties><string name="Name">ReplicatedStorage/SPSO/Runtime</string></Properties><Item class="ModuleScript" referent="RBX000001"><Properties><string name="Name">ExactAnimator</string><ProtectedString name="Source"><![CDATA[--!native
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4"><External>null</External><External>nil</External><Item class="Folder" referent="RBX000025"><Properties><string name="Name">SPSO_Package</string></Properties><Item class="StringValue" referent="RBX000017"><Properties><string name="Name">_version</string><string name="Value">game-v6</string></Properties></Item><Item class="Folder" referent="RBX000018"><Properties><string name="Name">ReplicatedStorage/SPSO/Runtime</string></Properties><Item class="ModuleScript" referent="RBX000001"><Properties><string name="Name">ExactAnimator</string><ProtectedString name="Source"><![CDATA[--!native
 -- SPSO ExactAnimator: plays a hero's ORIGINAL animation curves exactly the way Unity's legacy
 -- Animation component did: Hermite curves, quaternion components normalised, the full node chain,
 -- crossfades, wrap modes, animation events, facial expressions (FacialAnimation.cs) and root motion
@@ -935,16 +935,20 @@ A.Fx = {
 	["aura_alphprem_tex_afab"] = "rbxassetid://122167432766628",
 	["blast_add_tex_a3c6"] = "rbxassetid://100886741752408",
 	["blobs_tex_206d"] = "rbxassetid://136079046286602",
+	["chunkA_alph_tex_ac57"] = "rbxassetid://95584468339567",
 	["chunkA_tex_1f91"] = "rbxassetid://134105983189045",
 	["chunkB_tex_b5b0"] = "rbxassetid://113628061785579",
 	["cloud_addprem_tex_8954"] = "rbxassetid://87011251380333",
 	["cracks_alpha_tex_aee5"] = "rbxassetid://115877589101128",
 	["dot_yellow_add_tex_dad4"] = "rbxassetid://102898263611197",
 	["dust_alpha_tex_250e"] = "rbxassetid://100691570591472",
+	["dust_alphprem_tex_f6a3"] = "rbxassetid://135975309538918",
 	["explosion_alphpremsoft_tex_9807"] = "rbxassetid://110080117032617",
 	["explosionsmoke_alphprem_tex_736a"] = "rbxassetid://86847428781143",
 	["falc_feather_alpha_19d1"] = "rbxassetid://100322017072640",
 	["feathershard_add_tex_c4af"] = "rbxassetid://94468522737637",
+	["fire_plume_red_alt_4f07"] = "rbxassetid://129948344281847",
+	["fire_plume_red_alt_opp_c192"] = "rbxassetid://80741692669310",
 	["gecko_camera_diff_tex_a62a"] = "rbxassetid://94508414794990",
 	["gecko_flash_add_tex_c619"] = "rbxassetid://76621240847915",
 	["gecko_web2_tex_a964"] = "rbxassetid://130995865352842",
@@ -955,11 +959,14 @@ A.Fx = {
 	["hit_small_tex_3ab2"] = "rbxassetid://133671391490270",
 	["impact_cylinder_gecko_b2b7"] = "rbxassetid://109914782208189",
 	["laser_spher_yellow_alphprem_tex_7678"] = "rbxassetid://118658952674230",
+	["lightningforked_tex_2dc8"] = "rbxassetid://135391680634028",
 	["mist_alphprem_tex_e9fa"] = "rbxassetid://90650450294626",
 	["mm_beam_add_tex_c79e"] = "rbxassetid://138273014744576",
 	["mm_impact_alph_tex_54be"] = "rbxassetid://102541978649025",
+	["mote_blue_additive_tex_2a1e"] = "rbxassetid://93652717652893",
 	["mote_green_additive_tex_4368"] = "rbxassetid://106440532302952",
 	["mote_orange_add_tex_eb0e"] = "rbxassetid://96002509581439",
+	["mote_purple_additive_tex_a19e"] = "rbxassetid://84733575971519",
 	["mote_redhot_additive_tex_a7ac"] = "rbxassetid://78352479716330",
 	["mote_white_alphprem_tex_59c0"] = "rbxassetid://121160653814610",
 	["mote_yellow_alpha_tex_6dc1"] = "rbxassetid://84511485959507",
@@ -975,12 +982,15 @@ A.Fx = {
 	["pickup_speed_glow_b5e9"] = "rbxassetid://92948018836738",
 	["pickup_strength_49d7"] = "rbxassetid://126074225209613",
 	["pickup_strength_glow_31f0"] = "rbxassetid://135818861258379",
+	["red_spot_2d5c"] = "rbxassetid://129453926626968",
 	["rings_additive_tex_87a8"] = "rbxassetid://92013820369562",
 	["rugido_impact_cylinder_6e5b"] = "rbxassetid://70542698832832",
 	["rugido_rawr_tex_3976"] = "rbxassetid://108818876526646",
 	["rugido_super1butt_tex_2bc0"] = "rbxassetid://131664316754083",
 	["skyvolt_01_Egg_f3f1"] = "rbxassetid://125455877299179",
+	["smokering_alphprem_tex_dc1d"] = "rbxassetid://107009376149536",
 	["sonic_tex_5f42"] = "rbxassetid://126127418927805",
+	["space_fire_c901"] = "rbxassetid://109315957766110",
 	["spark_add_tex_1749"] = "rbxassetid://72082278404959",
 	["sparkles_add_a81d"] = "rbxassetid://80089484296459",
 	["sphere_add_tex_ad80"] = "rbxassetid://96687440968563",
@@ -991,11 +1001,19 @@ A.Fx = {
 	["storm_wind2_tex_37ef"] = "rbxassetid://126555124984543",
 	["storm_wind_tex_0bd4"] = "rbxassetid://122637239459391",
 	["stream_f1f3"] = "rbxassetid://137534056928203",
+	["strike_blue_add_tex_b39f"] = "rbxassetid://103443496835017",
 	["strike_green_additive_tex_4abf"] = "rbxassetid://122974290138772",
 	["strike_red_additive_tex_aac5"] = "rbxassetid://75735338070666",
 	["supermove_hearts_add_tex_7d38"] = "rbxassetid://72659237133432",
 	["surprise_alphpremult_tex_af25"] = "rbxassetid://134217543337451",
 	["test_beam_add_tex_6c80"] = "rbxassetid://92581968266345",
+	["thug_01_bazooka_85e0"] = "rbxassetid://80458026863768",
+	["thug_01_gun_a32d"] = "rbxassetid://111666530989330",
+	["thug_Baton_96c7"] = "rbxassetid://127603157000941",
+	["thug_bazookaimpact_alphprem_tex_8289"] = "rbxassetid://79702856355820",
+	["thug_grenade_alphprem_tex_4f4e"] = "rbxassetid://105246385339221",
+	["thug_rifleimpact_add_tex_5be0"] = "rbxassetid://138604642482125",
+	["thugmelle_add_tex_2e7c"] = "rbxassetid://138621115441380",
 	["trail_additive_tex_7656"] = "rbxassetid://94660195012712",
 	["trail_long_additive_tex_2fd4"] = "rbxassetid://110736128583061",
 	["trail_longwavy_additive_tex_ad11"] = "rbxassetid://73188758162844",
@@ -1007,6 +1025,100 @@ A.Gui = {
 	["background_1_login_screen"] = "rbxassetid://100016525188789",
 	["background_2_login_screen"] = "rbxassetid://75315002771971",
 	["baseWindow"] = "rbxassetid://114842382427027",
+	["bh_background"] = "rbxassetid://114970084607579",
+	["bh_backstar"] = "rbxassetid://70709332294814",
+	["bh_boss_frame"] = "rbxassetid://90754416058142",
+	["bh_boss_lifebar_bg"] = "rbxassetid://137265507734059",
+	["bh_boss_lifebar_bg_hlf"] = "rbxassetid://99004462218975",
+	["bh_boss_lifebar_damage"] = "rbxassetid://132520800748539",
+	["bh_boss_lifebar_damage_hlf"] = "rbxassetid://99045821368295",
+	["bh_boss_lifebar_fill"] = "rbxassetid://83531468191032",
+	["bh_boss_lifebar_fill_hlf"] = "rbxassetid://80964184159261",
+	["bh_boss_name_left"] = "rbxassetid://92036675943221",
+	["bh_boss_name_right"] = "rbxassetid://110642632275777",
+	["bh_boss_name_stretch"] = "rbxassetid://134470812053331",
+	["bh_brawler_hud_indicator_go"] = "rbxassetid://107084229980976",
+	["bh_brawler_hud_indicator_use"] = "rbxassetid://91184727184022",
+	["bh_brawler_points_adamantium"] = "rbxassetid://78208353154924",
+	["bh_brawler_points_bronze"] = "rbxassetid://110016720755533",
+	["bh_brawler_points_gold"] = "rbxassetid://123106354248043",
+	["bh_brawler_points_silver"] = "rbxassetid://85856084160235",
+	["bh_buff_armor"] = "rbxassetid://133182114377035",
+	["bh_buff_armor_passive"] = "rbxassetid://137991599245574",
+	["bh_buff_damage"] = "rbxassetid://105366540854342",
+	["bh_buff_damage_passive"] = "rbxassetid://91344857149396",
+	["bh_buff_elemental"] = "rbxassetid://93508992866994",
+	["bh_buff_energy"] = "rbxassetid://73937511015851",
+	["bh_buff_regen"] = "rbxassetid://101424608093239",
+	["bh_buff_speed"] = "rbxassetid://91206753632626",
+	["bh_buff_speed_passive"] = "rbxassetid://122649934447744",
+	["bh_damage_glow_bottom"] = "rbxassetid://95968983880474",
+	["bh_damage_glow_left"] = "rbxassetid://117197989781413",
+	["bh_damage_glow_right"] = "rbxassetid://120266775229243",
+	["bh_damage_glow_top"] = "rbxassetid://139340970209017",
+	["bh_enemy_health_bg"] = "rbxassetid://132200727610862",
+	["bh_enemy_health_damage"] = "rbxassetid://82726480126441",
+	["bh_enemy_health_full"] = "rbxassetid://112228205547864",
+	["bh_enemy_health_gleam"] = "rbxassetid://119794269513530",
+	["bh_frontstar"] = "rbxassetid://114505467108159",
+	["bh_hero_up_container"] = "rbxassetid://97904918588613",
+	["bh_heroup_bubble"] = "rbxassetid://102856045324234",
+	["bh_heroup_bubble_flash"] = "rbxassetid://81337893639439",
+	["bh_life_damage"] = "rbxassetid://137079525893359",
+	["bh_life_fill"] = "rbxassetid://136922182271498",
+	["bh_mc_bar_adamantium"] = "rbxassetid://115251058443011",
+	["bh_mc_bar_bg"] = "rbxassetid://79710009877704",
+	["bh_mc_bar_bronze"] = "rbxassetid://109937391054854",
+	["bh_mc_bar_gold"] = "rbxassetid://73620060368870",
+	["bh_mc_bar_mask"] = "rbxassetid://123206127784790",
+	["bh_mc_bar_shine"] = "rbxassetid://70983960518470",
+	["bh_mc_bar_silver"] = "rbxassetid://90891446086495",
+	["bh_mc_coins"] = "rbxassetid://91713750773860",
+	["bh_mc_dot_adamantium"] = "rbxassetid://78041689015437",
+	["bh_mc_dot_bronze"] = "rbxassetid://94580163304317",
+	["bh_mc_dot_gold"] = "rbxassetid://130194440086860",
+	["bh_mc_dot_silver"] = "rbxassetid://74112850755616",
+	["bh_mc_name_bubble"] = "rbxassetid://105282833618980",
+	["bh_mc_ownable"] = "rbxassetid://85913794421783",
+	["bh_mc_rays1"] = "rbxassetid://97014945604810",
+	["bh_mc_rays2"] = "rbxassetid://89788393347001",
+	["bh_mc_sparkles"] = "rbxassetid://109479161414049",
+	["bh_mc_tickets"] = "rbxassetid://112799623109891",
+	["bh_mission_hud_teamup_background"] = "rbxassetid://99352069832313",
+	["bh_mission_hud_teamup_background_rays"] = "rbxassetid://87191227768455",
+	["bh_mission_hud_teamup_portrait_frame"] = "rbxassetid://89109082240218",
+	["bh_mission_hud_teamup_small_highlight"] = "rbxassetid://108486123784497",
+	["bh_mission_hud_teamup_text_panel_left"] = "rbxassetid://78219206130078",
+	["bh_mission_hud_teamup_text_panel_middle"] = "rbxassetid://133350208151153",
+	["bh_mission_hud_teamup_text_panel_middle_coverup"] = "rbxassetid://94740335085362",
+	["bh_mission_hud_teamup_text_panel_right"] = "rbxassetid://131247414312153",
+	["bh_network_disconnect_1"] = "rbxassetid://90397785542027",
+	["bh_network_disconnect_2"] = "rbxassetid://95095058822953",
+	["bh_playerframe"] = "rbxassetid://71043039667228",
+	["bh_raysBottom"] = "rbxassetid://94553233946218",
+	["bh_raysTop"] = "rbxassetid://71435661109654",
+	["bh_score_bar_adamantium"] = "rbxassetid://121190350703485",
+	["bh_score_bar_bg"] = "rbxassetid://89292082028732",
+	["bh_score_bar_bronze"] = "rbxassetid://119096245531525",
+	["bh_score_bar_gold"] = "rbxassetid://78791070017950",
+	["bh_score_bar_mask"] = "rbxassetid://133061494036640",
+	["bh_score_bar_silver"] = "rbxassetid://108115474990251",
+	["bh_score_dot_adamantium"] = "rbxassetid://120097179239674",
+	["bh_score_dot_bronze"] = "rbxassetid://118203136753558",
+	["bh_score_dot_gold"] = "rbxassetid://83702378457910",
+	["bh_score_dot_silver"] = "rbxassetid://109890955375038",
+	["bh_score_medal_glow"] = "rbxassetid://73103664235072",
+	["bh_score_medal_rays"] = "rbxassetid://120902247587872",
+	["bh_score_medal_shine"] = "rbxassetid://74506561371392",
+	["bh_score_medal_sparkles"] = "rbxassetid://96732092773681",
+	["bh_stagecomplete_rays"] = "rbxassetid://133486003060070",
+	["bh_star_active"] = "rbxassetid://79267317750978",
+	["bh_star_container_1"] = "rbxassetid://110890038450611",
+	["bh_star_container_2"] = "rbxassetid://122563592521157",
+	["bh_star_container_3"] = "rbxassetid://131099022064134",
+	["bh_star_container_4"] = "rbxassetid://135370248387968",
+	["bh_star_container_5"] = "rbxassetid://93502902686251",
+	["bh_star_normal"] = "rbxassetid://97008547516597",
 	["chubbyarrow_diff_tex"] = "rbxassetid://114050690849115",
 	["elemental_icon"] = "rbxassetid://134737185290739",
 	["enemyselected_arrows"] = "rbxassetid://112212738705815",
@@ -1061,11 +1173,16 @@ A.Skins = {
 A.Heroes = {
 	Aurora = { model = 101999774177971, package = 89189136738630, faces = { "", "rbxassetid://104780818177858", "rbxassetid://105716631085952", "rbxassetid://126715674277625", "rbxassetid://87282611287554", "rbxassetid://101687338354384", "rbxassetid://81365336114700", "rbxassetid://73131766328960" } },
 	ElRugido = { model = nil, package = 133012638300152, faces = { "rbxassetid://95009761023746", "rbxassetid://87813758884419", "rbxassetid://129014191028706", "rbxassetid://80712657085550", "rbxassetid://125458260096839", "rbxassetid://121373604073448", "rbxassetid://123655553866245", "rbxassetid://126536608314547" } },
+	InvaderGrenadier = { model = 99700760397580, package = 125223635919178, faces = { "", "rbxassetid://122265879781688", "rbxassetid://73406378008266", "rbxassetid://121336335459341", "rbxassetid://122830552716278", "rbxassetid://123787477862907", "rbxassetid://134872190148743", "rbxassetid://140633214125408" } },
+	InvaderGunner = { model = 125194775550400, package = 122658418522513, faces = { "", "rbxassetid://101305487540752", "rbxassetid://82585379726484", "rbxassetid://101578272321848", "rbxassetid://105538963182843", "rbxassetid://120631450655977", "rbxassetid://84650464091210", "rbxassetid://89740081191465" } },
+	InvaderMelee = { model = 91386098833274, package = 125384716801476, faces = { "", "rbxassetid://123393689855943", "rbxassetid://127668603626057", "rbxassetid://137620702735073", "rbxassetid://78039295524490", "rbxassetid://88649847726198", "rbxassetid://120775835098534", "rbxassetid://99589912814676" } },
+	InvaderWarlord = { model = 108251490058281, package = 103767138360255, faces = { "", "rbxassetid://72453534264873", "rbxassetid://101640089449752", "rbxassetid://122723674484440", "rbxassetid://89223648390829", "rbxassetid://105456763143987", "rbxassetid://78752687176209", "rbxassetid://104189672141562" } },
 	Magmaul = { model = 74561640607127, package = 114639259953995, faces = { "", "rbxassetid://109188787594225", "rbxassetid://103730521202971", "rbxassetid://116294699657020", "rbxassetid://126418184433227", "rbxassetid://81291715436218", "rbxassetid://98172990923062", "rbxassetid://123937144247149" } },
 	NightGecko = { model = 138907797664397, package = 139926809616284, faces = { "", "rbxassetid://123481108879426", "rbxassetid://105357032467841", "rbxassetid://99653271167127", "rbxassetid://114642216926471", "rbxassetid://107219662401620", "rbxassetid://102138658126823", "rbxassetid://88378855305141" } },
 	Skyvolt = { model = 72788621441505, package = 70923579538688, faces = { "", "rbxassetid://136393826936989", "rbxassetid://110262631905945", "rbxassetid://71575042085951", "rbxassetid://140182766444327", "rbxassetid://88399174208290", "rbxassetid://108506896116576", "rbxassetid://85137913624473" } },
 }
-A.SoundSprite = "rbxassetid://73983880540101"
+A.SoundSprites = { "rbxassetid://109669089365026", "rbxassetid://118869727900463", "rbxassetid://74755063125018" }
+A.SoundSprite = "rbxassetid://109669089365026"
 A.package_code = 113546958541177
 A.model_map_OrbitalArena = 96857863111637
 return A
@@ -1103,6 +1220,16 @@ local function effectsFor(dataKey: string, data, fxHero: string)
 	end
 	for _, a in data.attacks or {} do add(a.anim, a.effect) end
 	for i = 1, 3 do add("power_emote_" .. i, "Power Emote " .. i) end
+	if dataKey ~= fxHero then -- enemy archetypes: their effects live in the shared character fx bundle
+		for _, a in data.attacks or {} do
+			if a.effect and FxPlayer.has("Shared", a.effect) then
+				map[a.anim] = map[a.anim] or {}
+				table.insert(map[a.anim], "Shared/" .. a.effect)
+			end
+		end
+		if FxPlayer.has("Shared", "death_effect_sequence") then map.recoil_death = { "Shared/death_effect_sequence" } end
+		if FxPlayer.has("Shared", "recoil_launch_sequence") then map.recoil_launch = { "Shared/recoil_launch_sequence" } end
+	end
 	local seqs = require(Game.FxData).Heroes[fxHero]
 	if seqs then
 		for name in seqs.sequences do
@@ -1118,9 +1245,9 @@ end
 function CharacterAnimator.new(model: Model, opts)
 	opts = opts or {}
 	local heroName = model:GetAttribute("SPSO_Hero") or Config.DefaultHero
-	local cfg = Config.Heroes[heroName] or Config.Heroes[Config.DefaultHero]
+	local cfg = Config.Models[heroName] or Config.Models[Config.DefaultHero]
 	local archetype = model:GetAttribute("SPSO_Archetype")
-	local data = archetype and GameData.Enemies[archetype] or cfg.data
+	local data = archetype and GameData.Enemies[archetype] or GameData.Heroes[heroName] or {}
 	local self = setmetatable({}, CharacterAnimator)
 	self.model, self.cfg, self.isLocal, self.hero = model, cfg, opts.isLocal == true, heroName
 	self.humanoid = model:FindFirstChildOfClass("Humanoid")
@@ -1186,7 +1313,8 @@ function CharacterAnimator:_onAction()
 	if names and late < 1 then
 		self.fx = {}
 		for _, n in names do
-			local h = FxPlayer.play(self.hero, n, self.model)
+			local src, seqName = string.match(n, "^(%w+)/(.+)$")
+			local h = FxPlayer.play(src or self.hero, seqName or n, self.model)
 			if h then table.insert(self.fx, h) end
 		end
 	end
@@ -6917,6 +7045,561 @@ return {
 				},
 			},
 		},
+		InvaderWarlord = {
+			prefabs = {
+				p100 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{0.8588, 0.4588, 0.4588, 0}, {1, 0.6, 0.4157, 0.8392}, {1, 0.9333, 0.6039, 1}, {0.9961, 0.6627, 0.5137, 0.7373}, {0.8549, 0.4588, 0.4588, 0}},
+					damping = 1,
+					ellipsoid = {2.56, 0.512, 2.56},
+					emission = {5, 5},
+					emit = true,
+					energy = {1, 1},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 5.12, 0},
+					oneShot = true,
+					pos = {0, 0.128, 0},
+					rndAngularVel = 30,
+					rndForce = {0, 0, 0},
+					rndRotation = true,
+					rndVel = {1.28, 0.512, 1.28},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {0.256, 1.28},
+					sizeGrow = 0,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_mote_yellow_alpha_tex_6dc1",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 0},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+				p108 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{0.8588, 0.4588, 0.4588, 0}, {1, 0.6, 0.4157, 0.8392}, {1, 0.9333, 0.6039, 1}, {0.9961, 0.6627, 0.5137, 0.7373}, {0.8549, 0.4588, 0.4588, 0}},
+					damping = 1,
+					ellipsoid = {2.56, 0.512, 2.56},
+					emission = {5, 5},
+					emit = true,
+					energy = {1, 1},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 6,
+					localVel = {0, 10.24, 0},
+					oneShot = true,
+					pos = {0, 0.128, 0},
+					rndAngularVel = 30,
+					rndForce = {0, 0, 0},
+					rndRotation = true,
+					rndVel = {1.28, 0.512, 1.28},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {0.256, 0.768},
+					sizeGrow = 0,
+					stretch = 3,
+					tangentVel = {0, 0, 0},
+					tex = "fx_mote_yellow_alpha_tex_6dc1",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 0},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+				p112 = {{
+					angularVel = 200,
+					blend = "alpha",
+					colors = {{1, 1, 1, 1}, {1, 1, 1, 0.898}, {1, 1, 1, 0.7098}, {1, 1, 1, 0.2431}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {0.768, 0.768, 0.768},
+					emission = {40, 40},
+					emit = true,
+					energy = {1.3, 1.3},
+					force = {0, -11.7697, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 0, 0},
+					rndAngularVel = -200,
+					rndForce = {0, 0, 0},
+					rndRotation = true,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {0.128, 0.768},
+					sizeGrow = 1,
+					stretch = 0,
+					tangentVel = {12.8, 0, -12.8},
+					tex = "fx_chunkA_alph_tex_ac57",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 12.8, 0},
+				}},
+				p115 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{0.9843, 0, 0, 0}, {0.9882, 0.498, 0, 0.4824}, {0.9843, 0.8902, 0, 1}, {0.9843, 0.498, 0, 0.4902}, {0.9804, 0, 0, 0}},
+					damping = 1,
+					ellipsoid = {1.28, 0, 1.28},
+					emission = {3, 3},
+					emit = true,
+					energy = {0.5, 1},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 2.56, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {2.56, 10.24},
+					sizeGrow = -0.4076,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_space_fire_c901",
+					tint = {1, 1, 1, 1},
+					uvTiles = {4, 2, 1.5},
+					velocityScale = 0,
+					worldSpace = false,
+					worldVel = {0, 0, 0},
+				}},
+				p118 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 0.3843, 0.0235, 1}, {1, 0.3176, 0, 1}, {1, 0.3176, 0, 1}, {1, 0.2784, 0.0157, 0.6}, {1, 0.2157, 0, 0}},
+					damping = 1,
+					ellipsoid = {1.28, 0.512, 1.28},
+					emission = {10, 10},
+					emit = true,
+					energy = {0.2, 0.8},
+					force = {0, -8.4611, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 0, 0},
+					rndAngularVel = 0,
+					rndForce = {2.56, 2.56, 2.56},
+					rndRotation = true,
+					rndVel = {2.56, 2.56, 2.56},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {0.256, 0.512},
+					sizeGrow = -0.69,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_chunkA_tex_1f91",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 5.12, 0},
+				}},
+				p127 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 0.6941}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {0, 0, 0},
+					emission = {2, 2},
+					emit = true,
+					energy = {5, 5},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 0, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = true,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {12.8, 17.92},
+					sizeGrow = 0,
+					stretch = 4,
+					tangentVel = {0, 0, 0},
+					tex = "fx_cracks_alpha_tex_aee5",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = false,
+					worldVel = {0, 0, 0},
+				}},
+				p132 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 0, 0, 0}, {0.4157, 0.0588, 0.0588, 0.5059}, {0.1098, 0.1098, 0.1098, 0.7333}, {0.1608, 0.1608, 0.1608, 0.3294}, {0.2706, 0.2706, 0.2706, 0}},
+					damping = 1,
+					ellipsoid = {0.768, 0.256, 0.768},
+					emission = {2, 5},
+					emit = true,
+					energy = {0.5, 1},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 1,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 0, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {5.12, 7.68},
+					sizeGrow = 1.7824,
+					stretch = 2,
+					tangentVel = {0, 0, 0},
+					tex = "fx_dust_alpha_tex_250e",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = false,
+					worldVel = {0, 6.9438, 0},
+				}},
+				p138 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{0.8353, 0.4902, 0.0902, 0}, {0.8314, 0.4902, 0.0902, 0.3882}, {0.8275, 0.4902, 0.0902, 0.7098}, {0.8235, 0.4902, 0.0902, 0.2431}, {0.8196, 0.4902, 0.0902, 0}},
+					damping = 1,
+					ellipsoid = {0.768, 0.768, 0.768},
+					emission = {5, 6},
+					emit = true,
+					energy = {1.3, 1.3},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 0, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = true,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {2.56, 5.12},
+					sizeGrow = 1,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_dust_alpha_tex_250e",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 1.28, 0},
+				}},
+				p77 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 1, 1, 0}, {1, 1, 1, 0.749}, {1, 1, 1, 0.4039}, {1, 1, 1, 0.0863}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {0.768, 0.768, 0.768},
+					emission = {10, 20},
+					emit = true,
+					energy = {0.4, 0.8},
+					force = {0, 1.9968, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = false,
+					pos = {0, 0, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {1.28, 3.84},
+					sizeGrow = 0,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_fire_plume_red_alt_4f07",
+					tint = {1, 1, 0.8383, 1},
+					uvTiles = {4, 3, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0.512, 0},
+				}},
+				p78 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 0, 0, 0}, {1, 1, 1, 0.749}, {1, 0.5412, 0, 0.4039}, {1, 0.3098, 0, 0.0863}, {0.9961, 0, 0, 0}},
+					damping = 1,
+					ellipsoid = {0.512, 0.512, 0.512},
+					emission = {3, 5},
+					emit = true,
+					energy = {0.4, 1},
+					force = {0, 1.9968, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = false,
+					pos = {-0.512, 0, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {1.28, 2.048},
+					sizeGrow = -0.45,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_fire_plume_red_alt_4f07",
+					tint = {1, 1, 0.8383, 1},
+					uvTiles = {4, 3, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0.512, 0},
+				}, {
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{0.9961, 0.3882, 0, 0}, {1, 1, 1, 0.749}, {1, 0.6275, 0, 0.4039}, {1, 0.3882, 0, 0.0863}, {1, 0, 0, 0}},
+					damping = 1,
+					ellipsoid = {0.512, 0.512, 0.512},
+					emission = {3, 5},
+					emit = true,
+					energy = {0.4, 1},
+					force = {0, 1.9968, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = false,
+					pos = {-0.512, 0, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {0.768, 1.536},
+					sizeGrow = 0,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_fire_plume_red_alt_opp_c192",
+					tint = {1, 1, 1, 1},
+					uvTiles = {4, 3, 1},
+					velocityScale = 0,
+					worldSpace = false,
+					worldVel = {0, 0.512, 0},
+				}},
+				p81 = {{
+					blend = "alpha",
+					colors = {{0.9765, 0.0078, 0.8784, 1}, {0.8824, 0.1647, 0.8706, 1}, {0.9216, 0.3647, 0.9608, 0.7686}, {0.9255, 0.5176, 1, 0.4549}, {0.9922, 0.851, 0.9922, 0.1098}},
+					kind = "trail",
+					pos = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					tex = "fx_trail_additive_tex_7656",
+					time = 0.6,
+					tint = {1, 1, 1, 1},
+					width = {5.12, 5.12},
+				}},
+				p88 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{0.9843, 0, 0, 0}, {0.9882, 0.498, 0, 0.4824}, {0.9843, 0.8902, 0, 1}, {0.9843, 0.498, 0, 0.4902}, {0.9804, 0, 0, 0}},
+					damping = 1,
+					ellipsoid = {1.28, 0, 1.28},
+					emission = {3, 3},
+					emit = true,
+					energy = {1, 1.5},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 0.128, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = true,
+					rndVel = {1.28, 0, 1.28},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {5.12, 7.68},
+					sizeGrow = 0.09,
+					stretch = 4,
+					tangentVel = {0, 0, 0},
+					tex = "fx_red_spot_2d5c",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 0},
+					velocityScale = 0,
+					worldSpace = false,
+					worldVel = {0, 0, 0},
+				}},
+				p95 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{0.3373, 0.3216, 0.2863, 0}, {0.702, 0.698, 0.5647, 0.7961}, {0.6863, 0.6392, 0.5569, 0.3176}, {0.5882, 0.5725, 0.5529, 0.0627}, {0.9176, 0.9176, 0.9176, 0}},
+					damping = 1,
+					ellipsoid = {1.28, 0, 1.28},
+					emission = {20, 20},
+					emit = true,
+					energy = {0.8, 1.2},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 1,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 0.8427, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = true,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {2.56, 5.12},
+					sizeGrow = 2,
+					stretch = 0,
+					tangentVel = {2.56, 0, -2.56},
+					tex = "fx_dust_alphprem_tex_f6a3",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+			},
+			sequences = {
+				["intro sequence warlord"] = {
+					fadeParticles = false,
+					lifetime = 11.102,
+					loop = false,
+					particles = {{
+						detached = false,
+						fade = 0,
+						life = 1,
+						node = "Ribcage",
+						prefab = "p81",
+						t = 0,
+					}, {
+						detached = true,
+						fade = 0,
+						life = 0,
+						node = "",
+						prefab = "p95",
+						t = 1,
+					}, {
+						detached = false,
+						fade = 0,
+						life = 0,
+						node = "LArmPalm",
+						prefab = "p118",
+						t = 4.8,
+					}, {
+						detached = false,
+						fade = 0,
+						life = 0,
+						node = "fx_Lpalm",
+						prefab = "p138",
+						t = 4.7,
+					}, {
+						detached = true,
+						fade = 0,
+						life = 0,
+						node = "",
+						prefab = "p127",
+						t = 0.9,
+					}, {
+						detached = true,
+						fade = 0,
+						life = 0,
+						node = "",
+						prefab = "p112",
+						t = 0.9,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "fx_Rpalm",
+						prefab = "p78",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "RarmStretch7",
+						prefab = "p78",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "fx_Rpalm",
+						prefab = "p77",
+						t = 6,
+					}},
+					sounds = {{
+						chance = 1,
+						clips = {"Char_Boss_warlord_IntroMovie"},
+						life = -1,
+						loop = false,
+						maxDist = 307.2,
+						minDist = 2.56,
+						pitch = 1,
+						t = 0.3,
+						volume = 1,
+					}},
+				},
+				warlord_flame_blast_trap_deathsequence = {
+					fadeParticles = false,
+					lifetime = 1.5,
+					loop = false,
+					particles = {{
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p115",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p108",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p100",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p88",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p132",
+						t = 0,
+					}},
+					sounds = {},
+				},
+			},
+		},
 		NightGecko = {
 			prefabs = {
 				p284 = {{
@@ -10414,6 +11097,1312 @@ return {
 				},
 			},
 		},
+		Shared = {
+			prefabs = {
+				p134 = {{
+					angularVel = 0,
+					blend = "premul",
+					colors = {{1, 1, 1, 0.6745}, {0.4784, 0.4784, 0.4784, 0.149}, {0.6353, 0.6353, 0.6353, 0.0549}, {1, 1, 1, 0.051}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {2.56, 0.512, 2.56},
+					emission = {1, 3},
+					emit = true,
+					energy = {0.2, 1.3},
+					force = {0, 0.194, 0},
+					kind = "emitter",
+					lengthScale = 1,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 2.56, -2.56},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {5.12, 10.24},
+					sizeGrow = 0.52,
+					stretch = 2,
+					tangentVel = {0, 0, 0},
+					tex = "fx_explosionsmoke_alphprem_tex_736a",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 1.649, 0},
+				}},
+				p135 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{0.9569, 0.0157, 0.0157, 1}, {0.9412, 0.2667, 0.051, 0.4627}, {0.902, 0.902, 0.0549, 0.1961}, {1, 1, 1, 0.051}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {0, 0, 0},
+					emission = {5, 5},
+					emit = true,
+					energy = {0.2, 0.3},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 1,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 2.56, -2.56},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {5.12, 10.24},
+					sizeGrow = 29.742,
+					stretch = 2,
+					tangentVel = {0, 0, 0},
+					tex = "fx_sphere_add_tex_ad80",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+				p136 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{0.298, 0.298, 0.298, 0.7922}, {0.6039, 0.6039, 0.6039, 0.2588}, {0.7922, 0.7922, 0.7922, 0.0784}, {1, 1, 1, 0.0431}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {1.536, 0.128, 1.536},
+					emission = {1, 3},
+					emit = true,
+					energy = {0.1, 0.8},
+					force = {0, 0.6099, 0},
+					kind = "emitter",
+					lengthScale = 1,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 2.56, -2.56},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {7.68, 12.8},
+					sizeGrow = 0.58,
+					stretch = 2,
+					tangentVel = {0, 0, 0},
+					tex = "fx_explosion_alphpremsoft_tex_9807",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 1.4592, 0},
+				}},
+				p139 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 0.7922}, {1, 1, 1, 0.0392}},
+					damping = 1,
+					ellipsoid = {0.256, 0.256, 0.256},
+					emission = {2, 2},
+					emit = true,
+					energy = {0.07, 1},
+					force = {0, -43.0611, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {2.304, 25.3143, -3.84},
+					oneShot = true,
+					pos = {0, 2.56, -0.256},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {3.9168, 3.2256, 3.7632},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {0.128, 0.768},
+					sizeGrow = 0,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_chunkA_tex_1f91",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+				p140 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 0.7922}, {1, 1, 1, 0.0392}},
+					damping = 1,
+					ellipsoid = {0.256, 0.256, 0.256},
+					emission = {2, 2},
+					emit = true,
+					energy = {0.07, 1},
+					force = {0, -43.0611, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {-0.9715, 25.3143, 2.6502},
+					oneShot = true,
+					pos = {0, 2.56, -0.256},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {3.9168, 3.2256, 3.7632},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {0.128, 0.768},
+					sizeGrow = 0,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_chunkB_tex_b5b0",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+				p141 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{0.298, 0.298, 0.298, 1}, {0.3373, 0.3373, 0.3373, 1}, {0.4157, 0.4157, 0.4157, 0.7922}, {0.7843, 0.7843, 0.7843, 0.3373}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {1.28, 2.56, 1.28},
+					emission = {3, 3},
+					emit = true,
+					energy = {2, 2},
+					force = {0, 0.6099, 0},
+					kind = "emitter",
+					lengthScale = 1,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 1.28, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {2.56, 3.84},
+					sizeGrow = 0.8246,
+					stretch = 2,
+					tangentVel = {0, 0, 0},
+					tex = "fx_dust_alpha_tex_250e",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+				p142 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{0.4314, 0.4314, 0.4314, 0.7529}, {0.3373, 0.3373, 0.3373, 0.251}, {0.4902, 0.4902, 0.4902, 0.1059}, {0.4392, 0.4392, 0.4392, 0.0784}, {0.6, 0.6, 0.6, 0}},
+					damping = 1,
+					ellipsoid = {1.28, 1.28, 1.28},
+					emission = {3, 3},
+					emit = true,
+					energy = {1, 1},
+					force = {0, 0.8764, 0},
+					kind = "emitter",
+					lengthScale = 1,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 2.56, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {1.28, 3.84},
+					sizeGrow = 0.3622,
+					stretch = 2,
+					tangentVel = {0, 0, 0},
+					tex = "fx_cloud_addprem_tex_8954",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+				p143 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{0.1412, 0.0549, 0.2627, 0.0392}, {0.1137, 0.2627, 0.149, 0.7059}, {0.3608, 0.2118, 0.4235, 1}, {0.0902, 0.3137, 0.1373, 0.7059}, {0.2, 0.298, 0.1765, 0.0392}},
+					damping = 1,
+					ellipsoid = {2.2746, 0.3328, 2.8288},
+					emission = {20, 30},
+					emit = true,
+					energy = {0.1, 1.13},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = false,
+					pos = {0, 0, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {2.56, 8.7042},
+					sizeGrow = -0.2749,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_mote_white_alphprem_tex_59c0",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 3.2342, 0},
+				}},
+				p147 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 1, 1, 1}, {0.9922, 0.6784, 1, 0.2118}, {1, 0.3294, 0.9569, 0.1373}, {0.9451, 0.102, 1, 0.051}, {1, 0, 0.8431, 0}},
+					damping = 1,
+					ellipsoid = {0, 3.84, 0},
+					emission = {20, 20},
+					emit = true,
+					energy = {1, 1},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 1.28, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {2.56, 3.84},
+					sizeGrow = 0.24,
+					stretch = 4,
+					tangentVel = {0, 0, 0},
+					tex = "fx_thug_grenade_alphprem_tex_4f4e",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+				p148 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{0.8196, 0.2392, 1, 0}, {0.9765, 0.2392, 1, 0.7059}, {0.9843, 0.4235, 1, 1}, {0.949, 0.6039, 1, 0.7059}, {0.8902, 0.6627, 1, 0}},
+					damping = 1,
+					ellipsoid = {0.512, 0, 0.512},
+					emission = {5, 5},
+					emit = true,
+					energy = {0.5, 1},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0.4158, 0},
+					oneShot = true,
+					pos = {0, 0.768, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {2.56, 5.12},
+					sizeGrow = 3.1112,
+					stretch = 4,
+					tangentVel = {0, 0, 0},
+					tex = "fx_smokering_alphprem_tex_dc1d",
+					tint = {1, 1, 1, 1},
+					uvTiles = {4, 3, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+				p149 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 1, 1, 1}, {1, 1, 1, 0.9608}, {1, 1, 1, 0.7412}, {1, 1, 1, 0.3961}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {0.512, 2.56, 0.512},
+					emission = {20, 20},
+					emit = true,
+					energy = {1, 1},
+					force = {0, -2.5819, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 1.28, 0},
+					rndAngularVel = 0,
+					rndForce = {7.68, 7.68, 7.68},
+					rndRotation = false,
+					rndVel = {5.12, 5.12, 5.12},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {1.28, 2.56},
+					sizeGrow = -0.78,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_mote_purple_additive_tex_a19e",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 6.1167, 0},
+				}},
+				p171 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 1, 1, 1}, {1, 1, 1, 0.7059}, {1, 1, 1, 0.5216}, {1, 1, 1, 0.2627}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {0, 0, 0},
+					emission = {10, 10},
+					emit = true,
+					energy = {0.2, 0.3},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = false,
+					pos = {0, 0, -0.896},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {5.12, 5.12},
+					sizeGrow = 16.6283,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_mote_purple_additive_tex_a19e",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+				p186 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 0.8353}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {0.512, 0.512, 0.512},
+					emission = {20, 20},
+					emit = true,
+					energy = {0.4, 0.7},
+					force = {0, -17.5013, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 0, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {5.12, 2.56, 5.12},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {0.256, 1.28},
+					sizeGrow = -0.9073,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_mote_blue_additive_tex_2a1e",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 8.1467, 0},
+				}},
+				p187 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 1, 1, 0}, {1, 1, 1, 0.1098}, {1, 1, 1, 0.2235}, {1, 1, 1, 0.1059}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {0.384, 0, 0},
+					emission = {10, 10},
+					emit = true,
+					energy = {1, 1},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = false,
+					pos = {-2.2423, 0, 0.0213},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {1.28, 2.56},
+					sizeGrow = 6.9859,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_mote_blue_additive_tex_2a1e",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = false,
+					worldVel = {0, 0, 0},
+				}, {
+					blend = "alpha",
+					kind = "mesh",
+					pos = {-0.8223, -0.017, 0.0044},
+					rot = {-0.5, 0.5, -0.5, 0.5},
+					scale = 1,
+					shape = "box",
+					size = {0.5463, 0.9355, 2.8589},
+					tex = "fx_thug_Baton_96c7",
+					tint = {1, 1, 1, 1},
+				}, {
+					blend = "alpha",
+					kind = "mesh",
+					pos = {-0.8223, -0.017, 0.0044},
+					rot = {-0.5, 0.5, -0.5, 0.5},
+					scale = 1.2933,
+					shape = "box",
+					size = {0.8165, 1.2531, 2.9896},
+					tex = "fx_thugmelle_add_tex_2e7c",
+					tint = {1, 1, 1, 1},
+				}},
+				p188 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 0.7765}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {0, 3.84, 0},
+					emission = {50, 50},
+					emit = true,
+					energy = {0.79, 1},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 2.56, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {25.6, 0, 25.6},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {0.512, 7.68},
+					sizeGrow = -0.96,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_thug_bazookaimpact_alphprem_tex_8289",
+					tint = {1, 1, 1, 1},
+					uvTiles = {2, 2, 10},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+				p189 = {{
+					blend = "alpha",
+					kind = "mesh",
+					pos = {-0.8448, 0.1715, 1.472},
+					rot = {-0.5321, 0.3799, -0.5418, 0.5282},
+					scale = 1,
+					shape = "box",
+					size = {1.4027, 8.6812, 1.8897},
+					tex = "fx_thug_01_bazooka_85e0",
+					tint = {1, 1, 1, 1},
+				}},
+				p192 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 1, 1, 0.549}, {1, 1, 1, 0.4392}, {1, 1, 1, 0.3294}, {1, 1, 1, 0.2039}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {0, 3.84, 0},
+					emission = {50, 50},
+					emit = true,
+					energy = {0.79, 1},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 0, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {25.6, 0, 25.6},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {0.512, 7.68},
+					sizeGrow = -0.96,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_mote_purple_additive_tex_a19e",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+				p193 = {{
+					blend = "alpha",
+					kind = "mesh",
+					pos = {-0.5965, 0.0486, 0.6093},
+					rot = {-0.5035, 0.3953, -0.5622, 0.5235},
+					scale = 1,
+					shape = "box",
+					size = {1.2812, 4.4284, 2.2125},
+					tex = "fx_thug_01_gun_a32d",
+					tint = {1, 1, 1, 1},
+				}},
+				p198 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 1, 1, 0.0392}, {1, 1, 1, 0.4549}, {1, 1, 1, 0.651}, {1, 1, 1, 0.4745}, {1, 1, 1, 0.0392}},
+					damping = 1,
+					ellipsoid = {0.256, 0.256, 0.256},
+					emission = {2, 5},
+					emit = true,
+					energy = {0.5, 1},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 1.9518, 0},
+					oneShot = true,
+					pos = {0, 0, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {0.512, 1.28},
+					sizeGrow = 5.911,
+					stretch = 0,
+					tangentVel = {0.3258, 0, -0.0676},
+					tex = "fx_dust_alpha_tex_250e",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+				p200 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 0, 0.7569, 1}, {1, 0.4784, 0.9608, 1}, {0.9922, 0.6824, 0.9686, 1}, {1, 1, 1, 0.7059}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {0.512, 0, 0.512},
+					emission = {5, 5},
+					emit = true,
+					energy = {0.5, 1},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0.4158, 0},
+					oneShot = true,
+					pos = {0, 0.256, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {2.56, 5.12},
+					sizeGrow = 3.1112,
+					stretch = 4,
+					tangentVel = {0, 0, 0},
+					tex = "fx_smokering_alphprem_tex_dc1d",
+					tint = {1, 1, 1, 1},
+					uvTiles = {4, 3, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+				p203 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 1, 1, 0.4902}, {1, 1, 1, 0.3647}, {1, 1, 1, 0.2275}, {1, 1, 1, 0.0941}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {1.28, 2.56, 1.28},
+					emission = {50, 50},
+					emit = true,
+					energy = {0.79, 1},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 2.6961, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {2.56, 0, 2.56},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {0.512, 5.12},
+					sizeGrow = 5.9542,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_mote_purple_additive_tex_a19e",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+				p207 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 0.8745}, {1, 1, 1, 0.7412}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {0.768, 0.768, 0.768},
+					emission = {1, 2},
+					emit = true,
+					energy = {0.1, 0.3},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 0, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {1.536, 2.56},
+					sizeGrow = 117.3184,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_strike_blue_add_tex_b39f",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+				p209 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 0.7765}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {0.512, 0.512, 1.1776},
+					emission = {30, 30},
+					emit = true,
+					energy = {0.79, 1.4284},
+					force = {0, -21.0708, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 0, 0},
+					rndAngularVel = 0,
+					rndForce = {12.8, 12.8, 12.8},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {0.512, 2.56},
+					sizeGrow = -0.6705,
+					stretch = 0,
+					tangentVel = {2.56, 0, -2.56},
+					tex = "fx_mote_green_additive_tex_4368",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 1, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 16.9621, 0},
+				}},
+				p212 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 0, 0.7569, 1}, {1, 0.4784, 0.9608, 1}, {0.9922, 0.6824, 0.9686, 0.8157}, {1, 1, 1, 0.2392}, {1, 1, 1, 0}},
+					damping = 1,
+					ellipsoid = {0.256, 0, 0.256},
+					emission = {2, 2},
+					emit = true,
+					energy = {0.5, 0.5},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2,
+					localVel = {0, 0.4158, 0},
+					oneShot = true,
+					pos = {0, 2.7189, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {2.56, 0, 2.56},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {5.12, 5.12},
+					sizeGrow = 0.6,
+					stretch = 0,
+					tangentVel = {0, 0, 0},
+					tex = "fx_thug_rifleimpact_add_tex_5be0",
+					tint = {1, 1, 1, 1},
+					uvTiles = {4, 3, 1},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+				p215 = {{
+					blend = "alpha",
+					colors = {{0, 0.4392, 1, 0.5725}, {0, 0.4549, 1, 0.4902}, {0, 0.4078, 1, 0.3725}, {0, 0.4078, 1, 0.2039}, {0, 0.4549, 1, 0}},
+					kind = "trail",
+					pos = {-0.5632, -1.28, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					tex = "fx_trail_additive_tex_7656",
+					time = 0.5,
+					tint = {1, 1, 1, 1},
+					width = {1.28, 1.28},
+				}},
+				p225 = {{
+					angularVel = 0,
+					blend = "alpha",
+					colors = {{1, 1, 1, 1}, {1, 1, 1, 1}, {0.0078, 0.1765, 0.902, 0.1882}, {0.1373, 0, 0.698, 0.0784}, {0.2588, 0, 0.3882, 0}},
+					damping = 1,
+					ellipsoid = {0.256, 0.256, 0.256},
+					emission = {20, 20},
+					emit = true,
+					energy = {0.05, 0.2},
+					force = {0, 0, 0},
+					kind = "emitter",
+					lengthScale = 2.5912,
+					localVel = {0, 0, 0},
+					oneShot = true,
+					pos = {0, 1.024, 0},
+					rndAngularVel = 0,
+					rndForce = {0, 0, 0},
+					rndRotation = false,
+					rndVel = {0, 0, 0},
+					rot = {0, 0, 0, 1},
+					scale = 1,
+					size = {1.28, 1.28},
+					sizeGrow = 0,
+					stretch = 3,
+					tangentVel = {2.56, 2.56, -2.56},
+					tex = "fx_lightningforked_tex_2dc8",
+					tint = {1, 1, 1, 1},
+					uvTiles = {1, 4, 2},
+					velocityScale = 0,
+					worldSpace = true,
+					worldVel = {0, 0, 0},
+				}},
+			},
+			sequences = {
+				BoomEffect_missile = {
+					fadeParticles = false,
+					lifetime = -1,
+					loop = false,
+					particles = {{
+						detached = false,
+						fade = 0,
+						life = 2,
+						node = "",
+						prefab = "p141",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = 1,
+						node = "",
+						prefab = "p139",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = 1,
+						node = "",
+						prefab = "p140",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = 1,
+						node = "",
+						prefab = "p142",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = 0.8,
+						node = "",
+						prefab = "p136",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = 1.3,
+						node = "",
+						prefab = "p134",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = 1.3,
+						node = "",
+						prefab = "p135",
+						t = 0,
+					}},
+					sounds = {{
+						chance = 1,
+						clips = {"FX_Explosion_steelman_Missile"},
+						life = -1,
+						loop = false,
+						maxDist = 307.2,
+						minDist = 2.56,
+						pitch = 1,
+						t = 0,
+						volume = 1,
+					}},
+				},
+				death_effect_sequence = {
+					fadeParticles = false,
+					lifetime = 6,
+					loop = false,
+					particles = {{
+						detached = false,
+						fade = 1,
+						life = 6,
+						node = "",
+						prefab = "p143",
+						t = 0,
+					}},
+					sounds = {{
+						chance = 1,
+						clips = {"VFX_Enem_thug_Death_1"},
+						life = -1,
+						loop = false,
+						maxDist = 307.2,
+						minDist = 2.56,
+						pitch = 1,
+						t = 0,
+						volume = 1,
+					}},
+				},
+				recoil_launch_sequence = {
+					fadeParticles = false,
+					lifetime = -1,
+					loop = false,
+					particles = {},
+					sounds = {{
+						chance = 1,
+						clips = {"VFX_Enem_thug_Hurt_1", "VFX_Enem_thug_Hurt_2", "VFX_Enem_thug_Hurt_3"},
+						life = -1,
+						loop = false,
+						maxDist = 307.2,
+						minDist = 2.56,
+						pitch = 1,
+						t = 0,
+						volume = 1,
+					}},
+				},
+				["thug melee jab sequence"] = {
+					fadeParticles = false,
+					lifetime = 2,
+					loop = false,
+					particles = {{
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "fx_Rpalm",
+						prefab = "p215",
+						t = 0,
+					}},
+					sounds = {{
+						chance = 1,
+						clips = {"FX_Whoosh_Small_Attack_1", "FX_Whoosh_Small_Attack_2", "FX_Whoosh_Small_Attack_3", "FX_Whoosh_Small_Attack_4", "FX_Whoosh_Small_Attack_5", "FX_Whoosh_Small_Attack_6"},
+						life = -1,
+						loop = false,
+						maxDist = 307.2,
+						minDist = 2.56,
+						pitch = 1,
+						t = 0.3,
+						volume = 1,
+					}, {
+						chance = 0.5,
+						clips = {"VFX_Enem_thug_Attack_1", "VFX_Enem_thug_Attack_2", "VFX_Enem_thug_Attack_3"},
+						life = -1,
+						loop = false,
+						maxDist = 307.2,
+						minDist = 2.56,
+						pitch = 1,
+						t = 0.2,
+						volume = 1,
+					}},
+				},
+				["thug melee sequence"] = {
+					fadeParticles = false,
+					lifetime = 2,
+					loop = false,
+					particles = {{
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "fx_Rpalm",
+						prefab = "p215",
+						t = 0,
+					}},
+					sounds = {{
+						chance = 1,
+						clips = {"FX_Whoosh_Small_Attack_1", "FX_Whoosh_Small_Attack_2", "FX_Whoosh_Small_Attack_3", "FX_Whoosh_Small_Attack_4", "FX_Whoosh_Small_Attack_5", "FX_Whoosh_Small_Attack_6"},
+						life = -1,
+						loop = false,
+						maxDist = 307.2,
+						minDist = 2.56,
+						pitch = 1,
+						t = 0.5,
+						volume = 1,
+					}, {
+						chance = 0.5,
+						clips = {"VFX_Enem_thug_Attack_1", "VFX_Enem_thug_Attack_2", "VFX_Enem_thug_Attack_3"},
+						life = -1,
+						loop = false,
+						maxDist = 307.2,
+						minDist = 2.56,
+						pitch = 1,
+						t = 0.4,
+						volume = 1,
+					}},
+				},
+				["thug meleehit impact sequence"] = {
+					fadeParticles = false,
+					lifetime = 2,
+					loop = false,
+					particles = {{
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p207",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p186",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p198",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p225",
+						t = 0,
+					}},
+					sounds = {},
+				},
+				["thug meleejab impact sequence"] = {
+					fadeParticles = false,
+					lifetime = 2,
+					loop = false,
+					particles = {{
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p186",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p225",
+						t = 0,
+					}},
+					sounds = {},
+				},
+				["thug_bazooka destruction sequence"] = {
+					fadeParticles = false,
+					lifetime = 1.43,
+					loop = false,
+					particles = {{
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p188",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p200",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p209",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p188",
+						t = 0,
+					}},
+					sounds = {},
+				},
+				["thug_bazooka fire sequence"] = {
+					fadeParticles = false,
+					lifetime = -1,
+					loop = false,
+					particles = {},
+					sounds = {{
+						chance = 1,
+						clips = {"Char_Enemies_thug_Bazooka_1", "Char_Enemies_thug_Bazooka_2", "Char_Enemies_thug_Bazooka_3"},
+						life = -1,
+						loop = false,
+						maxDist = 307.2,
+						minDist = 2.56,
+						pitch = 1,
+						t = 1.2,
+						volume = 1,
+					}, {
+						chance = 1,
+						clips = {"Char_Enemies_thug_BazookaWindup_1", "Char_Enemies_thug_BazookaWindup_2", "Char_Enemies_thug_BazookaWindup_3", "Char_Enemies_thug_BazookaWindup_4"},
+						life = -1,
+						loop = false,
+						maxDist = 307.2,
+						minDist = 2.56,
+						pitch = 1,
+						t = 0,
+						volume = 1,
+					}, {
+						chance = 0.5,
+						clips = {"VFX_Enem_thug_Attack_1", "VFX_Enem_thug_Attack_2", "VFX_Enem_thug_Attack_3"},
+						life = -1,
+						loop = false,
+						maxDist = 307.2,
+						minDist = 2.56,
+						pitch = 1,
+						t = 1.2,
+						volume = 1,
+					}},
+				},
+				["thug_bazooka impact sound sequence"] = {
+					fadeParticles = false,
+					lifetime = -1,
+					loop = false,
+					particles = {},
+					sounds = {{
+						chance = 1,
+						clips = {"FX_Impact_thug_Bazooka_1", "FX_Impact_thug_Bazooka_2", "FX_Impact_thug_Bazooka_3", "FX_Impact_thug_Bazooka_4"},
+						life = -1,
+						loop = false,
+						maxDist = 307.2,
+						minDist = 2.56,
+						pitch = 1,
+						t = 0,
+						volume = 1,
+					}},
+				},
+				thug_bazooka_sequence = {
+					fadeParticles = false,
+					lifetime = -1,
+					loop = false,
+					particles = {{
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "Rpalm_gun",
+						prefab = "p189",
+						t = 0,
+					}},
+					sounds = {},
+				},
+				["thug_grenade_explosion sequence"] = {
+					fadeParticles = false,
+					lifetime = 3,
+					loop = false,
+					particles = {{
+						detached = false,
+						fade = 0,
+						life = 1,
+						node = "",
+						prefab = "p139",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = 1,
+						node = "",
+						prefab = "p140",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p147",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p149",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p148",
+						t = 0,
+					}},
+					sounds = {{
+						chance = 1,
+						clips = {"FX_Impact_thug_Grenade_1", "FX_Impact_thug_Grenade_2", "FX_Impact_thug_Grenade_3", "FX_Impact_thug_Grenade_4"},
+						life = -1,
+						loop = false,
+						maxDist = 307.2,
+						minDist = 2.56,
+						pitch = 1,
+						t = 0,
+						volume = 1,
+					}},
+				},
+				["thug_grenade_fly sequence"] = {
+					fadeParticles = false,
+					lifetime = -1,
+					loop = false,
+					particles = {},
+					sounds = {{
+						chance = 1,
+						clips = {"Char_Enemies_thug_GrenadeFly_1", "Char_Enemies_thug_GrenadeFly_2", "Char_Enemies_thug_GrenadeFly_3", "Char_Enemies_thug_GrenadeFly_4"},
+						life = -1,
+						loop = false,
+						maxDist = 307.2,
+						minDist = 2.56,
+						pitch = 1,
+						t = 1,
+						volume = 1,
+					}, {
+						chance = 0.5,
+						clips = {"VFX_Enem_thug_Attack_1", "VFX_Enem_thug_Attack_2", "VFX_Enem_thug_Attack_3"},
+						life = -1,
+						loop = false,
+						maxDist = 307.2,
+						minDist = 2.56,
+						pitch = 1,
+						t = 0.8,
+						volume = 1,
+					}},
+				},
+				thug_melee_baton = {
+					fadeParticles = false,
+					lifetime = -1,
+					loop = false,
+					particles = {{
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "Rpalm_gun",
+						prefab = "p187",
+						t = 0,
+					}},
+					sounds = {},
+				},
+				thug_rifle_chargeup_sequence = {
+					fadeParticles = false,
+					lifetime = 2.3,
+					loop = false,
+					particles = {{
+						detached = false,
+						fade = 0,
+						life = 0.4,
+						node = "fx_Rpalm",
+						prefab = "p171",
+						t = 0,
+					}},
+					sounds = {{
+						chance = 1,
+						clips = {"Char_Enemies_thug_RifleFire_1", "Char_Enemies_thug_RifleFire_2"},
+						life = -1,
+						loop = false,
+						maxDist = 307.2,
+						minDist = 2.56,
+						pitch = 1,
+						t = 0.2,
+						volume = 1,
+					}},
+				},
+				["thug_rifle_destruction sequence"] = {
+					fadeParticles = false,
+					lifetime = 1,
+					loop = false,
+					particles = {{
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p192",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p212",
+						t = 0,
+					}, {
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "",
+						prefab = "p203",
+						t = 0,
+					}},
+					sounds = {},
+				},
+				["thug_rifle_impact sound sequence"] = {
+					fadeParticles = false,
+					lifetime = -1,
+					loop = false,
+					particles = {},
+					sounds = {{
+						chance = 1,
+						clips = {"FX_Impact_thug_Rifle_1", "FX_Impact_thug_Rifle_2", "FX_Impact_thug_Rifle_3"},
+						life = -1,
+						loop = false,
+						maxDist = 307.2,
+						minDist = 2.56,
+						pitch = 1,
+						t = 0,
+						volume = 1,
+					}},
+				},
+				thug_rifle_sequence = {
+					fadeParticles = false,
+					lifetime = -1,
+					loop = false,
+					particles = {{
+						detached = false,
+						fade = 0,
+						life = -1,
+						node = "Rpalm_gun",
+						prefab = "p193",
+						t = 0,
+					}},
+					sounds = {},
+				},
+			},
+		},
 		Skyvolt = {
 			prefabs = {
 				p248 = {{
@@ -12514,179 +14503,233 @@ return {
 		},
 	},
 	Sounds = {
-		Char_Hero_aurora_Attack_L1 = {0, 1.0333},
-		Char_Hero_aurora_Attack_L2 = {1.1833, 0.9936},
-		Char_Hero_aurora_Attack_L3 = {2.3269, 1.6923},
-		Char_Hero_aurora_Attack_L4 = {4.1692, 1.3507},
-		Char_Hero_aurora_Attack_L5 = {5.6698, 2.4194},
-		Char_Hero_aurora_Attack_R1 = {8.2392, 2.2945},
-		Char_Hero_aurora_Attack_R2 = {10.6837, 2.4045},
-		Char_Hero_aurora_Attack_R3 = {13.2383, 4.0174},
-		Char_Hero_aurora_Pose = {17.4056, 0.5582},
-		Char_Hero_aurora_PowerEmote1 = {18.1138, 2.4994},
-		Char_Hero_aurora_PowerEmote2 = {20.7632, 2.4767},
-		Char_Hero_aurora_PowerEmote3 = {23.3899, 3.9066},
-		Char_Hero_geckoUltimate_Special_Attack = {27.4465, 2.2333},
-		Char_Hero_gecko_Attack_L3_1 = {29.8299, 0.9052},
-		Char_Hero_gecko_Attack_L3_2 = {30.8851, 0.6729},
-		Char_Hero_gecko_Attack_L4 = {31.708, 0.9266},
-		Char_Hero_gecko_Attack_R1 = {32.7846, 1.5795},
-		Char_Hero_gecko_PowerEmote1 = {34.5141, 1.0662},
-		Char_Hero_gecko_PowerEmote2 = {35.7303, 8.0333},
-		Char_Hero_gecko_PowerEmote3 = {43.9136, 5.8203},
-		Char_Hero_rugido_Attack_L1 = {49.8839, 0.9369},
-		Char_Hero_rugido_Attack_L2 = {50.9709, 1.7955},
-		Char_Hero_rugido_Attack_L3 = {52.9163, 2.0053},
-		Char_Hero_rugido_Attack_L4 = {55.0716, 1.8933},
-		Char_Hero_rugido_Attack_L5 = {57.115, 1.3675},
-		Char_Hero_rugido_Attack_R1 = {58.6324, 2.4343},
-		Char_Hero_rugido_Attack_R3 = {61.2168, 3.7908},
-		Char_Hero_rugido_PowerEmote1 = {65.1576, 2.9594},
-		Char_Hero_rugido_PowerEmote2 = {68.2669, 4.0308},
-		Char_Hero_rugido_PowerEmote3 = {72.4477, 1.9791},
-		Char_Hero_rugido_Special_Attack1 = {74.5768, 2.8745},
-		Char_Hero_rugido_Special_Attack2 = {77.6013, 3},
-		Char_Hero_skyvolt_Attack_L1 = {80.7513, 1.1615},
-		Char_Hero_skyvolt_Attack_L2 = {82.0628, 0.8951},
-		Char_Hero_skyvolt_Attack_L3 = {83.1079, 1.0926},
-		Char_Hero_skyvolt_Attack_L4 = {84.3505, 0.7166},
-		Char_Hero_skyvolt_Attack_L5 = {85.2172, 1.3181},
-		Char_Hero_skyvolt_Attack_R1 = {86.6853, 2.7351},
-		Char_Hero_skyvolt_Attack_R3 = {89.5704, 2.9889},
-		Char_Hero_skyvolt_PowerEmote1 = {92.7093, 2.2808},
-		Char_Hero_skyvolt_PowerEmote2 = {95.1401, 13.6298},
-		Char_Hero_skyvolt_PowerEmote3 = {108.9199, 5.8729},
-		Char_Hero_skyvolt_Special_Attack = {114.9428, 3.5449},
-		FX_Explosion_Medium_1 = {118.6377, 1.2854},
-		FX_Explosion_Medium_2 = {120.073, 1.1683},
-		FX_Explosion_Medium_3 = {121.3913, 1.1817},
-		FX_Explosion_Small_1 = {122.723, 0.7063},
-		FX_Explosion_Small_2 = {123.5793, 0.7897},
-		FX_Explosion_Small_3 = {124.519, 0.7259},
-		FX_Explosion_steelman_Missile = {125.3949, 2.0708},
-		FX_Impact_gecko_Attack_L4_1 = {127.6157, 1.1563},
-		FX_Impact_gecko_Attack_L4_2 = {128.9219, 0.6813},
-		FX_Impact_gecko_Attack_R2 = {129.7532, 1.7625},
-		FX_Impact_gecko_Hit_1 = {131.6657, 0.3518},
-		FX_Impact_gecko_Hit_2 = {132.1675, 0.3763},
-		FX_Impact_gecko_Hit_3 = {132.6937, 0.4719},
-		FX_Impact_gecko_WebHit_1 = {133.3156, 1.3745},
-		FX_Impact_gecko_WebHit_2 = {134.8401, 1.4792},
-		FX_Impact_gecko_WebHit_3 = {136.4693, 1.8922},
-		FX_Impact_gecko_Web_Destroy = {138.5115, 0.534},
-		FX_Impact_tyrant_DefenseShield = {200.2613, 1.8193},
-		FX_Pickups_Star_Collect10 = {202.2306, 1.182},
-		FX_Slam_Ground_Impact_1 = {139.1955, 1.1232},
-		FX_Slam_Ground_Impact_2 = {140.4687, 1.0845},
-		FX_Slam_Ground_Impact_3 = {141.7033, 1.0327},
-		FX_Whoosh_Large_Attack_1 = {142.886, 0.9625},
-		FX_Whoosh_Large_Attack_2 = {143.9985, 0.9542},
-		FX_Whoosh_Large_Attack_3 = {145.1028, 1.0794},
-		FX_Whoosh_Large_Attack_4 = {146.3322, 1.0382},
-		FX_Whoosh_Large_Attack_5 = {147.5203, 1.0141},
-		FX_Whoosh_Large_Attack_6 = {148.6844, 1.2466},
-		FX_Whoosh_Medium_Attack_1 = {150.081, 0.6256},
-		FX_Whoosh_Medium_Attack_2 = {150.8567, 0.7769},
-		FX_Whoosh_Medium_Attack_3 = {151.7836, 0.603},
-		FX_Whoosh_Medium_Attack_4 = {152.5366, 0.6394},
-		FX_Whoosh_Medium_Attack_5 = {153.326, 0.5844},
-		FX_Whoosh_Medium_Attack_6 = {154.0604, 0.8019},
-		FX_Whoosh_Sharp_Attack_1 = {155.0122, 0.2105},
-		FX_Whoosh_Sharp_Attack_2 = {155.3728, 0.251},
-		FX_Whoosh_Sharp_Attack_3 = {155.7738, 0.2385},
-		FX_Whoosh_Sharp_Attack_4 = {156.1622, 0.247},
-		FX_Whoosh_Sharp_Attack_5 = {156.5593, 0.2707},
-		FX_Whoosh_Sharp_Attack_6 = {156.98, 0.2234},
-		FX_Whoosh_Small_Attack_1 = {157.3534, 0.3615},
-		FX_Whoosh_Small_Attack_2 = {157.8649, 0.2794},
-		FX_Whoosh_Small_Attack_3 = {158.2943, 0.3821},
-		FX_Whoosh_Small_Attack_4 = {158.8264, 0.2841},
-		FX_Whoosh_Small_Attack_5 = {159.2605, 0.4417},
-		FX_Whoosh_Small_Attack_6 = {159.8522, 0.3202},
-		FX_Whoosh_Twirl_Attack_1 = {160.3224, 0.4989},
-		FX_Whoosh_Twirl_Attack_2 = {160.9713, 0.5345},
-		FX_Whoosh_Twirl_Attack_3 = {161.6559, 0.5724},
-		Fx_Spawn_Char_SpawnIn_1 = {203.5627, 1.9077},
-		HUD_UI_Achievement = {205.6203, 2.6205},
-		HUD_UI_BoosterPack_Open = {208.3908, 9.8333},
-		HUD_UI_BoosterPack_Open_Rare = {218.3741, 4.0333},
-		HUD_UI_BoosterPack_Open_SuperRare = {222.5574, 4.6},
-		HUD_UI_Button_Press_Large = {227.3074, 0.0781},
-		HUD_UI_Button_Press_Small = {227.5355, 0.5878},
-		HUD_UI_Button_Purchase = {228.2733, 1.3143},
-		HUD_UI_Button_Release_Large = {229.7376, 0.1308},
-		HUD_UI_Button_Release_Small = {230.0184, 0.4476},
-		HUD_UI_Button_Rollover_Bouncy = {230.616, 0.8235},
-		HUD_UI_Button_Rollover_Large_1 = {231.5895, 0.4702},
-		HUD_UI_Button_Rollover_Large_2 = {232.2097, 0.4876},
-		HUD_UI_Button_Rollover_Large_3 = {232.8473, 0.4386},
-		HUD_UI_Button_Rollover_Large_4 = {233.436, 0.3445},
-		HUD_UI_Button_Rollover_Small_1 = {233.9305, 0.4663},
-		HUD_UI_Button_Rollover_Small_2 = {234.5468, 0.4501},
-		HUD_UI_Button_Rollover_Small_3 = {235.1468, 0.4296},
-		HUD_UI_Button_Rollover_Small_4 = {235.7264, 0.4662},
-		HUD_UI_CameraWhoosh = {236.3426, 1.548},
-		HUD_UI_EarnAchievement = {238.0406, 0.3865},
-		HUD_UI_EarnCoins = {238.5771, 0.2222},
-		HUD_UI_EarnTickets = {238.9493, 0.5098},
-		HUD_UI_EarnXP = {239.6091, 0.4036},
-		HUD_UI_GlobalWindowIn = {240.1627, 1.5848},
-		HUD_UI_GlobalWindowOut = {241.8975, 1.6544},
-		HUD_UI_HQ_PaintApplied = {243.7019, 2.7694},
-		HUD_UI_LevelUp = {246.6213, 2.3996},
-		HUD_UI_Panel_Up = {249.171, 0.8998},
-		HUD_UI_Popup_Alert = {250.2207, 0.1298},
-		HUD_UI_Popup_Invitation = {250.5005, 0.3555},
-		HUD_UI_PrizeWheel_ButtonPress = {251.0061, 2.9363},
-		HUD_UI_PrizeWheel_FlipAll = {254.0923, 1.2679},
-		HUD_UI_PrizeWheel_FlipSingle = {255.5103, 0.6673},
-		HUD_UI_PrizeWheel_Loop = {256.3276, 2.4044},
-		HUD_UI_PrizeWheel_Lose = {258.882, 1.4523},
-		HUD_UI_PrizeWheel_PegClick = {260.4843, 0.1827},
-		HUD_UI_PrizeWheel_Start = {260.817, 4.3874},
-		HUD_UI_PrizeWheel_Win = {265.3545, 3.6616},
-		HUD_UI_SelectZone_Rollover = {269.166, 0.5308},
-		HUD_UI_Shop_SliderTick = {269.8468, 0.0987},
-		HUD_UI_Shop_Tab = {270.0956, 0.6845},
-		Music_game_LoadingPage = {270.93, 37.7134},
-		Music_game_MainTheme = {308.7935, 36.5802},
-		VFX_Hero_LargeMale_Death_1 = {162.3783, 1.3876},
-		VFX_Hero_LargeMale_Death_2 = {163.9159, 1.4142},
-		VFX_Hero_LargeMale_Death_3 = {165.4801, 1.5775},
-		VFX_Hero_LargeMale_Hurt_1 = {167.2076, 0.542},
-		VFX_Hero_LargeMale_Hurt_2 = {167.8997, 0.5535},
-		VFX_Hero_LargeMale_Hurt_3 = {168.6032, 0.4448},
-		VFX_Hero_LargeMale_Hurt_4 = {169.198, 0.5515},
-		VFX_Hero_LargeMale_Hurt_5 = {169.8994, 0.3759},
-		VFX_Hero_LargeMale_Hurt_6 = {170.4253, 0.5283},
-		VFX_Hero_Male_Attack_1 = {171.1036, 1.091},
-		VFX_Hero_Male_Attack_10 = {172.3445, 0.7024},
-		VFX_Hero_Male_Attack_2 = {173.1969, 1.1871},
-		VFX_Hero_Male_Attack_3 = {174.5341, 0.8417},
-		VFX_Hero_Male_Attack_4 = {175.5258, 0.7182},
-		VFX_Hero_Male_Attack_5 = {176.394, 0.8561},
-		VFX_Hero_Male_Attack_6 = {177.4, 0.9462},
-		VFX_Hero_Male_Attack_7 = {178.4962, 0.9958},
-		VFX_Hero_Male_Attack_8 = {179.6421, 0.8405},
-		VFX_Hero_Male_Attack_9 = {180.6325, 1.0725},
-		VFX_Hero_Male_Death_1 = {181.855, 1.1305},
-		VFX_Hero_Male_Death_2 = {183.1355, 1.2209},
-		VFX_Hero_Male_Death_3 = {184.5064, 1.2401},
-		VFX_Hero_Male_Death_4 = {185.8965, 1.341},
-		VFX_Hero_Male_Death_5 = {187.3874, 1.8647},
-		VFX_Hero_Male_Hurt_1 = {189.4021, 0.9304},
-		VFX_Hero_Male_Hurt_10 = {190.4825, 0.8693},
-		VFX_Hero_Male_Hurt_11 = {191.5018, 0.8348},
-		VFX_Hero_Male_Hurt_2 = {192.4866, 0.8649},
-		VFX_Hero_Male_Hurt_3 = {193.5016, 0.9288},
-		VFX_Hero_Male_Hurt_4 = {194.5804, 0.6792},
-		VFX_Hero_Male_Hurt_5 = {195.4096, 0.7256},
-		VFX_Hero_Male_Hurt_6 = {196.2852, 0.7358},
-		VFX_Hero_Male_Hurt_7 = {197.171, 0.9114},
-		VFX_Hero_Male_Hurt_8 = {198.2324, 0.8359},
-		VFX_Hero_Male_Hurt_9 = {199.2183, 0.8931},
+		Amb_BaseLayer_Sewer = {259.2001, 13.2323, 1},
+		Char_Boss_warlord_IntroMovie = {0, 10.4739, 1},
+		Char_Enemies_thug_BazookaWindup_1 = {10.6239, 1.3229, 1},
+		Char_Enemies_thug_BazookaWindup_2 = {12.0968, 1.3911, 1},
+		Char_Enemies_thug_BazookaWindup_3 = {13.6379, 1.4364, 1},
+		Char_Enemies_thug_BazookaWindup_4 = {15.2243, 1.4229, 1},
+		Char_Enemies_thug_Bazooka_1 = {16.7972, 1.5313, 1},
+		Char_Enemies_thug_Bazooka_2 = {18.4785, 1.5926, 1},
+		Char_Enemies_thug_Bazooka_3 = {20.2211, 1.4115, 1},
+		Char_Enemies_thug_GrenadeFly_1 = {21.7827, 1.3563, 1},
+		Char_Enemies_thug_GrenadeFly_2 = {23.2889, 1.7781, 1},
+		Char_Enemies_thug_GrenadeFly_3 = {25.2171, 1.5401, 1},
+		Char_Enemies_thug_GrenadeFly_4 = {26.9072, 1.7417, 1},
+		Char_Enemies_thug_RifleFire_1 = {28.7988, 1.3484, 1},
+		Char_Enemies_thug_RifleFire_2 = {30.2973, 1.3484, 1},
+		Char_Hero_aurora_Attack_L1 = {31.7957, 1.0333, 1},
+		Char_Hero_aurora_Attack_L2 = {32.979, 0.9936, 1},
+		Char_Hero_aurora_Attack_L3 = {34.1226, 1.6923, 1},
+		Char_Hero_aurora_Attack_L4 = {35.9649, 1.3507, 1},
+		Char_Hero_aurora_Attack_L5 = {37.4656, 2.4194, 1},
+		Char_Hero_aurora_Attack_R1 = {40.0349, 2.2945, 1},
+		Char_Hero_aurora_Attack_R2 = {42.4795, 2.4045, 1},
+		Char_Hero_aurora_Attack_R3 = {45.034, 4.0174, 1},
+		Char_Hero_aurora_Pose = {49.2014, 0.5582, 1},
+		Char_Hero_aurora_PowerEmote1 = {49.9095, 2.4994, 1},
+		Char_Hero_aurora_PowerEmote2 = {52.5589, 2.4767, 1},
+		Char_Hero_aurora_PowerEmote3 = {55.1856, 3.9066, 1},
+		Char_Hero_geckoUltimate_Special_Attack = {59.2422, 2.2333, 1},
+		Char_Hero_gecko_Attack_L3_1 = {61.6256, 0.9052, 1},
+		Char_Hero_gecko_Attack_L3_2 = {62.6808, 0.6729, 1},
+		Char_Hero_gecko_Attack_L4 = {63.5037, 0.9266, 1},
+		Char_Hero_gecko_Attack_R1 = {64.5803, 1.5795, 1},
+		Char_Hero_gecko_PowerEmote1 = {66.3098, 1.0662, 1},
+		Char_Hero_gecko_PowerEmote2 = {67.526, 8.0333, 1},
+		Char_Hero_gecko_PowerEmote3 = {75.7093, 5.8203, 1},
+		Char_Hero_rugido_Attack_L1 = {81.6796, 0.9369, 1},
+		Char_Hero_rugido_Attack_L2 = {82.7666, 1.7955, 1},
+		Char_Hero_rugido_Attack_L3 = {84.7121, 2.0053, 1},
+		Char_Hero_rugido_Attack_L4 = {86.8673, 1.8933, 1},
+		Char_Hero_rugido_Attack_L5 = {88.9107, 1.3675, 1},
+		Char_Hero_rugido_Attack_R1 = {90.4282, 2.4343, 1},
+		Char_Hero_rugido_Attack_R3 = {93.0125, 3.7908, 1},
+		Char_Hero_rugido_PowerEmote1 = {96.9533, 2.9594, 1},
+		Char_Hero_rugido_PowerEmote2 = {100.0627, 4.0308, 1},
+		Char_Hero_rugido_PowerEmote3 = {104.2434, 1.9791, 1},
+		Char_Hero_rugido_Special_Attack1 = {106.3725, 2.8745, 1},
+		Char_Hero_rugido_Special_Attack2 = {109.397, 3, 1},
+		Char_Hero_skyvolt_Attack_L1 = {112.547, 1.1615, 1},
+		Char_Hero_skyvolt_Attack_L2 = {113.8585, 0.8951, 1},
+		Char_Hero_skyvolt_Attack_L3 = {114.9036, 1.0926, 1},
+		Char_Hero_skyvolt_Attack_L4 = {116.1463, 0.7166, 1},
+		Char_Hero_skyvolt_Attack_L5 = {117.0129, 1.3181, 1},
+		Char_Hero_skyvolt_Attack_R1 = {118.481, 2.7351, 1},
+		Char_Hero_skyvolt_Attack_R3 = {121.3661, 2.9889, 1},
+		Char_Hero_skyvolt_PowerEmote1 = {124.505, 2.2808, 1},
+		Char_Hero_skyvolt_PowerEmote2 = {126.9358, 13.6298, 1},
+		Char_Hero_skyvolt_PowerEmote3 = {140.7156, 5.8729, 1},
+		Char_Hero_skyvolt_Special_Attack = {146.7385, 3.5449, 1},
+		FX_Brawler_Boss_Knockout = {272.5824, 5.6047, 1},
+		FX_Brawler_Cheer = {278.3371, 6.5536, 1},
+		FX_Brawler_Cheer_Loop = {285.0407, 9.32, 1},
+		FX_Brawler_game_Mission_Complete_Fireworks = {294.5107, 8.2605, 1},
+		FX_Explosion_Medium_1 = {150.4334, 1.2854, 1},
+		FX_Explosion_Medium_2 = {151.8687, 1.1683, 1},
+		FX_Explosion_Medium_3 = {153.1871, 1.1817, 1},
+		FX_Explosion_Small_1 = {154.5187, 0.7063, 1},
+		FX_Explosion_Small_2 = {155.375, 0.7897, 1},
+		FX_Explosion_Small_3 = {156.3147, 0.7259, 1},
+		FX_Explosion_steelman_Missile = {157.1906, 2.0708, 1},
+		FX_Impact_Barrel_1 = {302.9212, 1.25, 1},
+		FX_Impact_Barrel_2 = {304.3212, 1.6383, 1},
+		FX_Impact_Barrel_3 = {306.1095, 1.3686, 1},
+		FX_Impact_Barrel_4 = {307.6281, 1.1703, 1},
+		FX_Impact_Barrel_5 = {308.9484, 1.5, 1},
+		FX_Impact_Health_Crate = {310.5984, 0.5571, 1},
+		FX_Impact_gecko_Attack_L4_1 = {159.4114, 1.1563, 1},
+		FX_Impact_gecko_Attack_L4_2 = {160.7176, 0.6813, 1},
+		FX_Impact_gecko_Attack_R2 = {161.5489, 1.7625, 1},
+		FX_Impact_gecko_Hit_1 = {163.4614, 0.3518, 1},
+		FX_Impact_gecko_Hit_2 = {163.9632, 0.3763, 1},
+		FX_Impact_gecko_Hit_3 = {164.4895, 0.4719, 1},
+		FX_Impact_gecko_WebHit_1 = {165.1113, 1.3745, 1},
+		FX_Impact_gecko_WebHit_2 = {166.6358, 1.4792, 1},
+		FX_Impact_gecko_WebHit_3 = {168.265, 1.8922, 1},
+		FX_Impact_gecko_Web_Destroy = {170.3072, 0.534, 1},
+		FX_Impact_thug_Bazooka_1 = {170.9912, 2.1046, 1},
+		FX_Impact_thug_Bazooka_2 = {173.2459, 1.9453, 1},
+		FX_Impact_thug_Bazooka_3 = {175.3411, 1.9286, 1},
+		FX_Impact_thug_Bazooka_4 = {177.4198, 1.9286, 1},
+		FX_Impact_thug_Grenade_1 = {179.4984, 1.3573, 1},
+		FX_Impact_thug_Grenade_2 = {181.0057, 0.9891, 1},
+		FX_Impact_thug_Grenade_3 = {182.1448, 1.4141, 1},
+		FX_Impact_thug_Grenade_4 = {183.7088, 2.1328, 1},
+		FX_Impact_thug_Rifle_1 = {185.9916, 1.4297, 1},
+		FX_Impact_thug_Rifle_2 = {187.5713, 1.4297, 1},
+		FX_Impact_thug_Rifle_3 = {189.151, 1.4297, 1},
+		FX_Impact_tyrant_DefenseShield = {311.3055, 1.8193, 1},
+		FX_Pickups_Star_Collect10 = {313.2748, 1.182, 1},
+		FX_Slam_Ground_Impact_1 = {190.7307, 1.1232, 1},
+		FX_Slam_Ground_Impact_2 = {192.0039, 1.0845, 1},
+		FX_Slam_Ground_Impact_3 = {193.2385, 1.0327, 1},
+		FX_Whoosh_Large_Attack_1 = {194.4212, 0.9625, 1},
+		FX_Whoosh_Large_Attack_2 = {195.5337, 0.9542, 1},
+		FX_Whoosh_Large_Attack_3 = {196.638, 1.0794, 1},
+		FX_Whoosh_Large_Attack_4 = {197.8674, 1.0382, 1},
+		FX_Whoosh_Large_Attack_5 = {199.0555, 1.0141, 1},
+		FX_Whoosh_Large_Attack_6 = {200.2196, 1.2466, 1},
+		FX_Whoosh_Medium_Attack_1 = {201.6162, 0.6256, 1},
+		FX_Whoosh_Medium_Attack_2 = {202.3919, 0.7769, 1},
+		FX_Whoosh_Medium_Attack_3 = {203.3188, 0.603, 1},
+		FX_Whoosh_Medium_Attack_4 = {204.0718, 0.6394, 1},
+		FX_Whoosh_Medium_Attack_5 = {204.8612, 0.5844, 1},
+		FX_Whoosh_Medium_Attack_6 = {205.5956, 0.8019, 1},
+		FX_Whoosh_Sharp_Attack_1 = {206.5474, 0.2105, 1},
+		FX_Whoosh_Sharp_Attack_2 = {206.908, 0.251, 1},
+		FX_Whoosh_Sharp_Attack_3 = {207.309, 0.2385, 1},
+		FX_Whoosh_Sharp_Attack_4 = {207.6974, 0.247, 1},
+		FX_Whoosh_Sharp_Attack_5 = {208.0944, 0.2707, 1},
+		FX_Whoosh_Sharp_Attack_6 = {208.5151, 0.2234, 1},
+		FX_Whoosh_Small_Attack_1 = {208.8886, 0.3615, 1},
+		FX_Whoosh_Small_Attack_2 = {209.4001, 0.2794, 1},
+		FX_Whoosh_Small_Attack_3 = {209.8295, 0.3821, 1},
+		FX_Whoosh_Small_Attack_4 = {210.3616, 0.2841, 1},
+		FX_Whoosh_Small_Attack_5 = {210.7957, 0.4417, 1},
+		FX_Whoosh_Small_Attack_6 = {211.3874, 0.3202, 1},
+		FX_Whoosh_Twirl_Attack_1 = {211.8576, 0.4989, 1},
+		FX_Whoosh_Twirl_Attack_2 = {212.5065, 0.5345, 1},
+		FX_Whoosh_Twirl_Attack_3 = {213.1911, 0.5724, 1},
+		Fx_Spawn_Char_SpawnIn_1 = {314.6068, 1.9077, 1},
+		HUD_Brawler_Char_Combo_Bonus = {316.6645, 1.4786, 1},
+		HUD_UI_Achievement = {318.2931, 2.6205, 1},
+		HUD_UI_BoosterPack_Open = {321.0635, 9.8333, 1},
+		HUD_UI_BoosterPack_Open_Rare = {331.0469, 4.0333, 1},
+		HUD_UI_BoosterPack_Open_SuperRare = {335.2302, 4.6, 1},
+		HUD_UI_Button_Press_Large = {339.9802, 0.0781, 1},
+		HUD_UI_Button_Press_Small = {340.2083, 0.5878, 1},
+		HUD_UI_Button_Purchase = {340.9461, 1.3143, 1},
+		HUD_UI_Button_Release_Large = {342.4103, 0.1308, 1},
+		HUD_UI_Button_Release_Small = {342.6911, 0.4476, 1},
+		HUD_UI_Button_Rollover_Bouncy = {343.2888, 0.8235, 1},
+		HUD_UI_Button_Rollover_Large_1 = {344.2623, 0.4702, 1},
+		HUD_UI_Button_Rollover_Large_2 = {344.8825, 0.4876, 1},
+		HUD_UI_Button_Rollover_Large_3 = {345.5201, 0.4386, 1},
+		HUD_UI_Button_Rollover_Large_4 = {346.1088, 0.3445, 1},
+		HUD_UI_Button_Rollover_Small_1 = {346.6032, 0.4663, 1},
+		HUD_UI_Button_Rollover_Small_2 = {347.2195, 0.4501, 1},
+		HUD_UI_Button_Rollover_Small_3 = {347.8196, 0.4296, 1},
+		HUD_UI_Button_Rollover_Small_4 = {348.3992, 0.4662, 1},
+		HUD_UI_CameraWhoosh = {349.0154, 1.548, 1},
+		HUD_UI_EarnAchievement = {350.7134, 0.3865, 1},
+		HUD_UI_EarnCoins = {351.2499, 0.2222, 1},
+		HUD_UI_EarnTickets = {351.6221, 0.5098, 1},
+		HUD_UI_EarnXP = {352.2818, 0.4036, 1},
+		HUD_UI_GlobalWindowIn = {352.8355, 1.5848, 1},
+		HUD_UI_GlobalWindowOut = {354.5702, 1.6544, 1},
+		HUD_UI_HQ_PaintApplied = {356.3746, 2.7694, 1},
+		HUD_UI_LevelUp = {359.2941, 2.3996, 1},
+		HUD_UI_Panel_Up = {361.8437, 0.8998, 1},
+		HUD_UI_Popup_Alert = {362.8935, 0.1298, 1},
+		HUD_UI_Popup_Invitation = {363.1733, 0.3555, 1},
+		HUD_UI_PrizeWheel_ButtonPress = {363.6788, 2.9363, 1},
+		HUD_UI_PrizeWheel_FlipAll = {366.7651, 1.2679, 1},
+		HUD_UI_PrizeWheel_FlipSingle = {368.183, 0.6673, 1},
+		HUD_UI_PrizeWheel_Loop = {369.0004, 2.4044, 1},
+		HUD_UI_PrizeWheel_Lose = {371.5547, 1.4523, 1},
+		HUD_UI_PrizeWheel_PegClick = {373.1571, 0.1827, 1},
+		HUD_UI_PrizeWheel_Start = {373.4898, 4.3874, 1},
+		HUD_UI_PrizeWheel_Win = {378.0272, 3.6616, 1},
+		HUD_UI_SelectZone_Rollover = {381.8388, 0.5308, 1},
+		HUD_UI_Shop_SliderTick = {382.5196, 0.0987, 1},
+		HUD_UI_Shop_Tab = {382.7683, 0.6845, 1},
+		Level_Music_VV_Sewers_BossArena = {0, 104.6199, 2},
+		Level_Music_thug_Spaceship_BossArena = {104.7699, 145.4799, 2},
+		Level_Music_thug_Spaceship_Stage1 = {250.3997, 122.6801, 2},
+		Level_Music_thug_Spaceship_Stage2 = {0, 133.3295, 3},
+		Music_game_LoadingPage = {133.4795, 37.7134, 3},
+		Music_game_MainTheme = {171.3429, 36.5802, 3},
+		Music_game_Mission_Complete = {208.0732, 5.6186, 3},
+		Music_game_Mission_Complete_Loop_1 = {213.8418, 39.7268, 3},
+		Music_game_Mission_Complete_Loop_2 = {253.7186, 39.7398, 3},
+		Music_game_Mission_Complete_Loop_3 = {293.6085, 33.0933, 3},
+		Music_game_Mission_Loading = {326.8517, 29.7169, 3},
+		VFX_Enem_thug_Attack_1 = {213.9135, 0.8153, 1},
+		VFX_Enem_thug_Attack_2 = {214.8788, 0.9008, 1},
+		VFX_Enem_thug_Attack_3 = {215.9296, 0.9312, 1},
+		VFX_Enem_thug_Death_1 = {217.0108, 1.0571, 1},
+		VFX_Enem_thug_Hurt_1 = {218.2179, 1.2327, 1},
+		VFX_Enem_thug_Hurt_2 = {219.6006, 0.6417, 1},
+		VFX_Enem_thug_Hurt_3 = {220.3923, 0.7748, 1},
+		VFX_Hero_LargeMale_Death_1 = {221.3171, 1.3876, 1},
+		VFX_Hero_LargeMale_Death_2 = {222.8547, 1.4142, 1},
+		VFX_Hero_LargeMale_Death_3 = {224.4189, 1.5775, 1},
+		VFX_Hero_LargeMale_Hurt_1 = {226.1464, 0.542, 1},
+		VFX_Hero_LargeMale_Hurt_2 = {226.8385, 0.5535, 1},
+		VFX_Hero_LargeMale_Hurt_3 = {227.5419, 0.4448, 1},
+		VFX_Hero_LargeMale_Hurt_4 = {228.1367, 0.5515, 1},
+		VFX_Hero_LargeMale_Hurt_5 = {228.8382, 0.3759, 1},
+		VFX_Hero_LargeMale_Hurt_6 = {229.3641, 0.5283, 1},
+		VFX_Hero_Male_Attack_1 = {230.0423, 1.091, 1},
+		VFX_Hero_Male_Attack_10 = {231.2833, 0.7024, 1},
+		VFX_Hero_Male_Attack_2 = {232.1357, 1.1871, 1},
+		VFX_Hero_Male_Attack_3 = {233.4728, 0.8417, 1},
+		VFX_Hero_Male_Attack_4 = {234.4646, 0.7182, 1},
+		VFX_Hero_Male_Attack_5 = {235.3327, 0.8561, 1},
+		VFX_Hero_Male_Attack_6 = {236.3388, 0.9462, 1},
+		VFX_Hero_Male_Attack_7 = {237.435, 0.9958, 1},
+		VFX_Hero_Male_Attack_8 = {238.5808, 0.8405, 1},
+		VFX_Hero_Male_Attack_9 = {239.5713, 1.0725, 1},
+		VFX_Hero_Male_Death_1 = {240.7938, 1.1305, 1},
+		VFX_Hero_Male_Death_2 = {242.0743, 1.2209, 1},
+		VFX_Hero_Male_Death_3 = {243.4451, 1.2401, 1},
+		VFX_Hero_Male_Death_4 = {244.8352, 1.341, 1},
+		VFX_Hero_Male_Death_5 = {246.3262, 1.8647, 1},
+		VFX_Hero_Male_Hurt_1 = {248.3409, 0.9304, 1},
+		VFX_Hero_Male_Hurt_10 = {249.4213, 0.8693, 1},
+		VFX_Hero_Male_Hurt_11 = {250.4406, 0.8348, 1},
+		VFX_Hero_Male_Hurt_2 = {251.4254, 0.8649, 1},
+		VFX_Hero_Male_Hurt_3 = {252.4404, 0.9288, 1},
+		VFX_Hero_Male_Hurt_4 = {253.5192, 0.6792, 1},
+		VFX_Hero_Male_Hurt_5 = {254.3483, 0.7256, 1},
+		VFX_Hero_Male_Hurt_6 = {255.224, 0.7358, 1},
+		VFX_Hero_Male_Hurt_7 = {256.1098, 0.9114, 1},
+		VFX_Hero_Male_Hurt_8 = {257.1711, 0.8359, 1},
+		VFX_Hero_Male_Hurt_9 = {258.1571, 0.8931, 1},
+		fist_punch = {383.6028, 0.2684, 1},
 	},
-	SpriteLength = 345.5237,
+	SpriteLengths = {384.021, 373.23, 356.719},
 }
 ]]></ProtectedString></Properties></Item><Item class="ModuleScript" referent="RBX000006"><Properties><string name="Name">FxPlayer</string><ProtectedString name="Source"><![CDATA[-- Plays the original effect sequences (FxData, generated by tools/build_fx.py from the hero bundles) on a
 -- fighter or at a point in the world, client side:
@@ -13174,36 +15217,52 @@ local function faces(name)
 	return a.faces -- tile 0 may be "": the model's own head texture is that tile
 end
 
+-- every character model (playable heroes and the enemies' own models): pack, template, parts, faces
+Config.Models = {}
+for _, name in GameData.Models do
+	local d = GameData.Heroes[name]
+	local speed = d and d.speed or 10
+	if not d then
+		for _, e in GameData.Enemies do
+			if e.model == name then speed = e.speed end
+		end
+	end
+	Config.Models[name] = {
+		name = name, pack = name, template = "Hero_" .. name, headPart = name .. "_Head", bodyPart = name .. "_Body",
+		faceTextures = faces(name), wrapModes = Config.WrapModes, runAnimSpeed = math.max(4, speed),
+	}
+end
 Config.Heroes = {}
 for _, name in GameData.HeroOrder do
 	local d = GameData.Heroes[name]
-	Config.Heroes[name] = {
-		name = name, displayName = d.displayName, pack = name, template = "Hero_" .. name,
-		headPart = name .. "_Head", bodyPart = name .. "_Body", faceTextures = faces(name),
-		wrapModes = Config.WrapModes, walkSpeed = d.speed, runAnimSpeed = d.speed, jumpPower = d.jump,
-		health = d.health, data = d,
-	}
+	local m = Config.Models[name]
+	Config.Heroes[name] = setmetatable({
+		displayName = d.displayName, walkSpeed = d.speed, jumpPower = d.jump, health = d.health, data = d,
+	}, { __index = m })
 end
 
 -- enemy archetypes: the original enemy data (GameData.Enemies) plus the port's AI tuning
 Config.Enemies = {
-	Thug = { damageScale = 1, keepDistance = 0, cooldown = { 1.6, 3.0 }, think = 0.12,
-		skins = { "Azul", "Verde", "Morado", "Negro" } },
-	Blaster = { damageScale = 1, keepDistance = 18, cooldown = { 2.2, 3.6 }, think = 0.15, skins = { "Rival" } },
-	Warlord = { damageScale = 0.6, keepDistance = 0, cooldown = { 1.2, 2.2 }, think = 0.1, skins = { "Rival" },
-		boss = true, superEvery = 14 },
+	Thug = { damageScale = 1, keepDistance = 0, cooldown = { 1.6, 3.0 }, think = 0.12, skins = {} },
+	Blaster = { damageScale = 1, keepDistance = 18, cooldown = { 2.2, 3.6 }, think = 0.15, skins = {} },
+	Bazooka = { damageScale = 1, keepDistance = 22, cooldown = { 3.2, 4.6 }, think = 0.15, skins = {} },
+	Grenadier = { damageScale = 1, keepDistance = 16, cooldown = { 2.6, 4.0 }, think = 0.15, skins = {} },
+	Warlord = { damageScale = 1, keepDistance = 0, cooldown = { 1.4, 2.4 }, think = 0.1, skins = {}, boss = true,
+		teleport = { "attack_teleport_start", "attack_teleport_end" } },
 }
 Config.MaxAttackers = 2 -- enemies swinging at the same time
 Config.WaitAfterHeroHit = 0.6 -- don't pile onto a hero that was just hit
 Config.DespawnAfter = 3.5
 
 -- the run: waves of the original brawler enemies, the warlord last
+-- the run, after the original invasion missions on the alien ship: brawlers and gunners first, then heavy
+-- weapons, then the warlord in his arena (each wave also names the original stage music)
 Config.Waves = {
-	{ Thug = 3 },
-	{ Thug = 3, Blaster = 1 },
-	{ Thug = 4, Blaster = 2 },
-	{ Thug = 3, Blaster = 3 },
-	{ Warlord = 1, Thug = 2, Blaster = 1 },
+	{ enemies = { Thug = 3 }, music = "Level_Music_thug_Spaceship_Stage1" },
+	{ enemies = { Thug = 3, Blaster = 2 }, music = "Level_Music_thug_Spaceship_Stage1" },
+	{ enemies = { Thug = 2, Blaster = 2, Grenadier = 2 }, music = "Level_Music_thug_Spaceship_Stage2" },
+	{ enemies = { Thug = 3, Bazooka = 2, Grenadier = 1 }, music = "Level_Music_thug_Spaceship_Stage2" },
+	{ enemies = { Warlord = 1, Thug = 2 }, music = "Level_Music_thug_Spaceship_BossArena", boss = true },
 }
 Config.WaveBreak = 3
 Config.RespawnTime = 4
@@ -13226,7 +15285,8 @@ Config.PowerEmotes = { "power_emote_1", "power_emote_2", "power_emote_3" }
 -- camera: fixed angle like the original brawler camera, facing the arena's back wall (-Z)
 Config.Camera = { offset = Vector3.new(0, 21, 27), lookHeight = 3.5, fov = 55, zoomMin = 0.6, zoomMax = 1.6, maxCameraZ = 47 }
 
-Config.Music = { menu = "Music_game_LoadingPage", battle = "Music_game_MainTheme" }
+Config.Music = { menu = "Music_game_LoadingPage", select = "Music_game_MainTheme", loading = "Music_game_Mission_Loading",
+	complete = "Music_game_Mission_Complete", completeLoop = "Music_game_Mission_Complete_Loop_1" }
 Config.Tips = {
 	"Chain five left clicks for your full combo: the last hit launches.",
 	"Hitting and getting hit both fill your power meter.",
@@ -13242,21 +15302,102 @@ return Config
 -- change the converter (or GameConfig for port tuning) and run it again.
 return {
 	Enemies = {
+		Bazooka = {
+			attacks = {
+				attack_bazooka = {
+					anim = "attack_bazooka",
+					chainEnd = 0,
+					chainStart = 0,
+					collisionOff = -1,
+					collisionOn = -1,
+					cost = 0,
+					desired = 17.92,
+					duration = 2.8333,
+					effect = "thug_bazooka fire sequence",
+					events = {
+						collision = 0,
+						projectile = 1,
+					},
+					faceTarget = true,
+					forward = 0,
+					impacts = {{
+						aimed = true,
+						angle = 45,
+						ballistic = false,
+						collider = "LeftHandCollider",
+						damage = 15,
+						destroyOnImpact = true,
+						effect = "thug_bazooka impact sound sequence",
+						explode = 6.4,
+						fire = 1.3,
+						fromCollider = true,
+						gravity = 4.48,
+						hitsFriends = false,
+						knockTime = 1,
+						launch = 0,
+						life = 5,
+						maxHits = 0,
+						maxTargets = 1,
+						pushTime = 0.25,
+						pushback = 5.12,
+						radius = 1.28,
+						recoil = 2,
+						recoilTime = 0.25,
+						speed = 23.04,
+						start = 0,
+						stop = 0,
+						type = 1,
+						visual = "bolt",
+					}},
+					moveSpeed = 3.84,
+					range = 25.6,
+					targetless = false,
+					trackTarget = true,
+				},
+			},
+			centerY = 2.432,
+			colliders = {
+				LeftHandCollider = {
+					node = "fx_Rpalm",
+					offset = {0, 0, 0},
+					scale = 1,
+				},
+			},
+			displayName = "Invader Bazooka",
+			gravity = 51.2,
+			health = 60,
+			height = 5.12,
+			jump = 25.6,
+			launchResist = 0,
+			model = "InvaderGunner",
+			power = 0,
+			powerDealt = 0.5,
+			powerReceived = 0.5,
+			pushbackResist = 0,
+			radius = 2.56,
+			rank = 1,
+			recoilLimit = 0,
+			recoilResist = 0,
+			rotateSpeed = 500,
+			runAnimSpeed = 1,
+			speed = 5.12,
+			terminal = 51.2,
+		},
 		Blaster = {
 			attacks = {
 				attack_rifle = {
-					anim = "attack_L4",
+					anim = "attack_rifle",
 					chainEnd = 0,
 					chainStart = 0,
 					collisionOff = -1,
 					collisionOn = -1,
 					cost = 0,
 					desired = 0,
-					duration = 1.1333,
+					duration = 0.8667,
 					effect = "thug_rifle_chargeup_sequence",
 					events = {
 						collision = 0,
-						projectile = 3,
+						projectile = 1,
 					},
 					faceTarget = true,
 					forward = 0,
@@ -13288,74 +15429,48 @@ return {
 						stop = 0,
 						type = 1,
 						visual = "bolt",
+					}, {
+						angle = 45,
+						collider = "LeftHandCollider",
+						damage = 10,
+						effect = "thug_rifle destruction pieces",
+						fire = 0,
+						fromCollider = true,
+						hitsFriends = false,
+						knockTime = 1,
+						launch = 0,
+						maxHits = 0,
+						maxTargets = 1,
+						pushTime = 0,
+						pushback = 0,
+						radius = 3.84,
+						recoil = 1,
+						recoilTime = 0.5,
+						start = 1.3,
+						stop = 1.4,
+						type = 0,
 					}},
 					moveSpeed = 3.84,
 					range = 25.6,
-					repeatFire = true,
 					targetless = false,
 					trackTarget = true,
 				},
 			},
 			centerY = 2.432,
 			colliders = {
-				AOECollider = {
-					node = "RLegDigit11",
-					offset = {0, 0, 0},
-					scale = 1,
-				},
-				LeftFootCollider = {
-					node = "LLegDigit11",
-					offset = {0, -2.56, 0},
-					scale = 1,
-				},
 				LeftHandCollider = {
-					node = "fx_Lpalm",
-					offset = {0, 0, 0},
-					scale = 1,
-				},
-				LeftWebShooterCollider = {
-					node = "fx_Lpalm",
-					offset = {0, 0, 0},
-					scale = 1,
-				},
-				PointBlankWeb = {
-					node = "fx_Lpalm",
-					offset = {0, 1.28, -6.4},
-					scale = 0.5,
-				},
-				RightFootCollider = {
-					node = "RLegDigit11",
-					offset = {-2.56, 0, 0},
-					scale = 1,
-				},
-				RightHandCollider = {
 					node = "fx_Rpalm",
 					offset = {0, 0, 0},
 					scale = 1,
-				},
-				RightWebShooterCollider = {
-					node = "fx_Rpalm",
-					offset = {0, 0, 0},
-					scale = 1,
-				},
-				WebRightHandCollider = {
-					node = "fx_Rpalm",
-					offset = {0, 0, 0},
-					scale = 1,
-				},
-				WebSwing = {
-					node = "RLegDigit11",
-					offset = {1.28, 0, 0},
-					scale = 0.75,
 				},
 			},
-			displayName = "Night Raider",
+			displayName = "Invader Gunner",
 			gravity = 51.2,
 			health = 60,
 			height = 5.12,
 			jump = 25.6,
 			launchResist = 0,
-			model = "NightGecko",
+			model = "InvaderGunner",
 			power = 0,
 			powerDealt = 0.5,
 			powerReceived = 0.5,
@@ -13366,21 +15481,101 @@ return {
 			recoilResist = 0,
 			rotateSpeed = 500,
 			runAnimSpeed = 1,
-			skins = "rival",
 			speed = 5.12,
+			terminal = 51.2,
+		},
+		Grenadier = {
+			attacks = {
+				attack_1 = {
+					anim = "attack_1",
+					chainEnd = 0,
+					chainStart = 0,
+					collisionOff = -1,
+					collisionOn = -1,
+					cost = 0,
+					desired = 0,
+					duration = 2.1333,
+					effect = "thug_grenade_fly sequence",
+					events = {
+						collision = 0,
+						projectile = 1,
+					},
+					faceTarget = true,
+					forward = 0,
+					impacts = {{
+						aimed = true,
+						angle = 45,
+						ballistic = false,
+						collider = "RightHandCollider",
+						damage = 5,
+						destroyOnImpact = true,
+						effect = "thug_grenade_explosion sequence",
+						explode = 6.4,
+						fire = 1.1833,
+						fromCollider = true,
+						gravity = 6.4,
+						hitsFriends = false,
+						knockTime = 1,
+						launch = 12.8,
+						life = 3,
+						maxHits = 0,
+						maxTargets = 1,
+						pushTime = 0.4,
+						pushback = 7.68,
+						radius = 1.28,
+						recoil = 2,
+						recoilTime = 1,
+						speed = 38.4,
+						start = 0,
+						stop = 0,
+						type = 1,
+						visual = "orb",
+					}},
+					moveSpeed = 3.84,
+					range = 15.36,
+					targetless = false,
+					trackTarget = true,
+				},
+			},
+			centerY = 2.432,
+			colliders = {
+				RightHandCollider = {
+					node = "fx_Rpalm",
+					offset = {0, 0, 0},
+					scale = 1,
+				},
+			},
+			displayName = "Invader Grenadier",
+			gravity = 51.2,
+			health = 60,
+			height = 5.12,
+			jump = 25.6,
+			launchResist = 0,
+			model = "InvaderGrenadier",
+			power = 0,
+			powerDealt = 0.5,
+			powerReceived = 0.5,
+			pushbackResist = 0,
+			radius = 2.56,
+			rank = 1,
+			recoilLimit = 0,
+			recoilResist = 0,
+			rotateSpeed = 500,
+			runAnimSpeed = 1,
+			speed = 12.8,
 			terminal = 51.2,
 		},
 		Thug = {
 			attacks = {
 				attack_1 = {
-					anim = "attack_L1",
+					anim = "attack_1",
 					chainEnd = 0,
 					chainStart = 0,
 					collisionOff = -1,
 					collisionOn = -1,
 					cost = 0,
 					desired = 2.56,
-					duration = 1.3333,
+					duration = 2,
 					effect = "thug melee sequence",
 					events = {
 						collision = 1,
@@ -13390,7 +15585,7 @@ return {
 					forward = 0,
 					impacts = {{
 						angle = 45,
-						collider = "RightHandCollider",
+						collider = "fx_RpalmCollider",
 						damage = 12,
 						effect = "thug meleehit impact sequence",
 						fire = 0,
@@ -13415,14 +15610,14 @@ return {
 					trackTarget = true,
 				},
 				attack_2 = {
-					anim = "attack_L2",
+					anim = "attack_2",
 					chainEnd = 0,
 					chainStart = 0,
 					collisionOff = -1,
 					collisionOn = -1,
 					cost = 0,
 					desired = 2.56,
-					duration = 1.6,
+					duration = 2,
 					effect = "thug melee jab sequence",
 					events = {
 						collision = 1,
@@ -13432,7 +15627,7 @@ return {
 					forward = 0,
 					impacts = {{
 						angle = 45,
-						collider = "RightHandCollider",
+						collider = "fx_RpalmCollider",
 						damage = 6,
 						effect = "thug meleejab impact sequence",
 						fire = 0,
@@ -13459,39 +15654,24 @@ return {
 			},
 			centerY = 2.432,
 			colliders = {
-				AOECollider = {
-					node = "fx_Rpalm",
-					offset = {0, 0, 0},
-					scale = 1,
-				},
-				AOECollider2 = {
-					node = "fx_Rpalm",
-					offset = {0, 0, 0},
-					scale = 1,
-				},
-				AOEDirCollider = {
-					node = "fx_Rpalm",
-					offset = {0, 0, 0},
-					scale = 1,
-				},
 				LeftHandCollider = {
-					node = "fx_Lpalm",
+					node = "fx_Rpalm",
 					offset = {-2.56, 0, 0},
 					scale = 1,
 				},
-				RightHandCollider = {
+				fx_RpalmCollider = {
 					node = "fx_Rpalm",
-					offset = {-2.56, 0, 0},
+					offset = {0, 0, 0},
 					scale = 1,
 				},
 			},
-			displayName = "Rival Luchador",
+			displayName = "Invader Brawler",
 			gravity = 51.2,
 			health = 70,
 			height = 2.56,
 			jump = 25.6,
 			launchResist = 0,
-			model = "ElRugido",
+			model = "InvaderMelee",
 			power = 0,
 			powerDealt = 0.5,
 			powerReceived = 0.5,
@@ -13502,24 +15682,219 @@ return {
 			recoilResist = 0,
 			rotateSpeed = 500,
 			runAnimSpeed = 1,
-			skins = "variants",
 			speed = 10.24,
 			terminal = 51.2,
 		},
 		Warlord = {
 			attacks = {
-				L1 = {
-					anim = "attack_L1",
+				attack_dancing_flames = {
+					anim = "attack_dancing_flames",
 					chainEnd = 0,
 					chainStart = 0,
 					collisionOff = -1,
 					collisionOn = -1,
 					cost = 0,
-					desired = 1.28,
-					duration = 2.1667,
-					effect = "L1 sequence",
+					desired = 51.2,
+					duration = 4.2,
+					effect = "firewall sequence",
 					events = {
-						collision = 1,
+						collision = 0,
+						projectile = 1,
+					},
+					faceTarget = false,
+					forward = 0,
+					impacts = {{
+						angle = 45,
+						collider = "RightHandCollider",
+						damage = 0,
+						fire = 2.8,
+						fromCollider = true,
+						hitsFriends = false,
+						knockTime = 1,
+						launch = 0,
+						maxHits = 0,
+						maxTargets = 1,
+						pushTime = 0,
+						pushback = 5.12,
+						radius = 1.28,
+						recoil = 0,
+						recoilTime = 1,
+						start = 0,
+						stop = 0,
+						type = 3,
+					}},
+					moveSpeed = 3.84,
+					range = 51.2,
+					targetless = false,
+					trackTarget = false,
+				},
+				attack_earth_rend = {
+					anim = "attack_earth_rend",
+					chainEnd = 0,
+					chainStart = 0,
+					collisionOff = -1,
+					collisionOn = -1,
+					cost = 0,
+					desired = 12.8,
+					duration = 2.4,
+					effect = "earth rend sequence",
+					events = {
+						collision = 0,
+						projectile = 1,
+					},
+					faceTarget = true,
+					forward = 0,
+					impacts = {{
+						aimed = false,
+						angle = 45,
+						ballistic = false,
+						collider = "RightHandCollider",
+						damage = 40,
+						destroyOnImpact = false,
+						explode = 0,
+						fire = 1.7,
+						fromCollider = true,
+						gravity = 0,
+						hitsFriends = false,
+						knockTime = 1,
+						launch = 33.28,
+						life = 2,
+						maxHits = 0,
+						maxTargets = 1,
+						pushTime = 0.5,
+						pushback = 1.28,
+						radius = 1.28,
+						recoil = 2,
+						recoilTime = 1,
+						speed = 25.6,
+						start = 0,
+						stop = 0,
+						type = 1,
+						visual = "bolt",
+					}},
+					moveSpeed = 3.84,
+					range = 25.6,
+					targetless = false,
+					trackTarget = false,
+				},
+				attack_flame_blast = {
+					anim = "attack_flame_blast",
+					chainEnd = 0,
+					chainStart = 0,
+					collisionOff = -1,
+					collisionOn = -1,
+					cost = 0,
+					desired = 51.2,
+					duration = 3.6,
+					effect = "flame blast fire sequence",
+					events = {
+						collision = 0,
+						projectile = 3,
+					},
+					faceTarget = true,
+					forward = 0,
+					impacts = {{
+						aimed = true,
+						angle = 45,
+						ballistic = false,
+						collider = "RightHandCollider",
+						damage = 15,
+						destroyOnImpact = true,
+						effect = "flame blast impact sequence",
+						explode = 0,
+						fire = 0,
+						fromCollider = true,
+						gravity = 2.56,
+						hitsFriends = false,
+						knockTime = 1,
+						launch = 0,
+						life = 5,
+						maxHits = 0,
+						maxTargets = 1,
+						pushTime = 0,
+						pushback = 0,
+						radius = 1.28,
+						recoil = 0,
+						recoilTime = 1,
+						speed = 30.72,
+						start = 0,
+						stop = 0,
+						type = 1,
+						visual = "bolt",
+					}, {
+						aimed = true,
+						angle = 45,
+						ballistic = false,
+						collider = "RightHandCollider",
+						damage = 15,
+						destroyOnImpact = true,
+						effect = "flame blast impact sequence",
+						explode = 0,
+						fire = 0,
+						fromCollider = true,
+						gravity = 2.56,
+						hitsFriends = false,
+						knockTime = 1,
+						launch = 0,
+						life = 5,
+						maxHits = 0,
+						maxTargets = 1,
+						pushTime = 0,
+						pushback = 0,
+						radius = 1.28,
+						recoil = 0,
+						recoilTime = 1,
+						speed = 30.72,
+						start = 0,
+						stop = 0,
+						type = 1,
+						visual = "bolt",
+					}, {
+						aimed = true,
+						angle = 45,
+						ballistic = false,
+						collider = "RightHandCollider",
+						damage = 15,
+						destroyOnImpact = true,
+						effect = "flame blast impact sequence",
+						explode = 0,
+						fire = 0,
+						fromCollider = true,
+						gravity = 2.56,
+						hitsFriends = false,
+						knockTime = 1,
+						launch = 0,
+						life = 5,
+						maxHits = 0,
+						maxTargets = 1,
+						pushTime = 0,
+						pushback = 0,
+						radius = 1.28,
+						recoil = 0,
+						recoilTime = 1,
+						speed = 30.72,
+						start = 0,
+						stop = 0,
+						type = 1,
+						visual = "bolt",
+					}},
+					moveSpeed = 3.84,
+					range = 51.2,
+					targetless = false,
+					trackTarget = true,
+				},
+				attack_stretchy_crush = {
+					anim = "attack_stretchy_crush",
+					chainEnd = 0,
+					chainStart = 0,
+					collisionOff = -1,
+					collisionOn = -1,
+					cost = 0,
+					desired = 7.68,
+					duration = 2.6667,
+					effect = "stretchy crush sequence",
+					events = {
+						collision = 2,
 						projectile = 0,
 					},
 					faceTarget = true,
@@ -13527,141 +15902,37 @@ return {
 					impacts = {{
 						angle = 45,
 						collider = "RightHandCollider",
-						damage = 13.1,
-						fire = 0,
-						fromCollider = false,
-						hitsFriends = false,
-						knockTime = 1,
-						launch = 0,
-						maxHits = 1,
-						maxTargets = 1,
-						pushTime = 0.5,
-						pushback = 5.12,
-						radius = 1.28,
-						recoil = 2,
-						recoilTime = 1,
-						start = 0,
-						stop = 0,
-						type = 0,
-					}},
-					moveSpeed = 3.84,
-					range = 1.28,
-					targetless = false,
-					trackTarget = false,
-				},
-				L2 = {
-					anim = "attack_L2",
-					chainEnd = 0,
-					chainStart = 0,
-					collisionOff = -1,
-					collisionOn = -1,
-					cost = 0,
-					desired = 1.28,
-					duration = 1.6667,
-					effect = "L2 sequence",
-					events = {
-						collision = 1,
-						projectile = 0,
-					},
-					faceTarget = true,
-					forward = 0,
-					impacts = {{
-						angle = 45,
-						collider = "LeftHandCollider",
-						damage = 14.4,
-						fire = 0,
-						fromCollider = false,
-						hitsFriends = false,
-						knockTime = 1,
-						launch = 0,
-						maxHits = 1,
-						maxTargets = 1,
-						pushTime = 0.5,
-						pushback = 5.12,
-						radius = 1.28,
-						recoil = 2,
-						recoilTime = 1,
-						start = 0,
-						stop = 0,
-						type = 0,
-					}},
-					moveSpeed = 3.84,
-					range = 3.84,
-					targetless = false,
-					trackTarget = false,
-				},
-				L3 = {
-					anim = "attack_L3",
-					chainEnd = 0,
-					chainStart = 0,
-					collisionOff = -1,
-					collisionOn = -1,
-					cost = 0,
-					desired = 1.28,
-					duration = 2.5,
-					effect = "L3 persistent sequence",
-					events = {
-						collision = 1,
-						projectile = 0,
-					},
-					faceTarget = true,
-					forward = 0,
-					impacts = {{
-						angle = 90,
-						collider = "RightHandAOECollider",
-						damage = 22.5,
+						damage = 25,
 						fire = 0,
 						fromCollider = true,
 						hitsFriends = false,
 						knockTime = 1,
-						launch = 12.8,
-						maxHits = 1,
+						launch = 0,
+						maxHits = 0,
 						maxTargets = 1,
-						pushTime = 0.5,
-						pushback = 5.12,
+						pushTime = 0,
+						pushback = 0,
+						radius = 1.92,
+						recoil = 4,
+						recoilTime = 1,
+						start = 0,
+						stop = 0,
+						type = 0,
+					}, {
+						angle = 45,
+						collider = "RightHandCollider2",
+						damage = 26.6667,
+						fire = 0,
+						fromCollider = true,
+						hitsFriends = false,
+						knockTime = 1,
+						launch = 19.2,
+						maxHits = 0,
+						maxTargets = 1,
+						pushTime = 0.75,
+						pushback = 10.24,
 						radius = 3.84,
-						recoil = 2,
-						recoilTime = 1,
-						start = 0,
-						stop = 0,
-						type = 0,
-					}},
-					moveSpeed = 3.84,
-					range = 5.12,
-					targetless = false,
-					trackTarget = false,
-				},
-				L4 = {
-					anim = "attack_L4",
-					chainEnd = 0,
-					chainStart = 0,
-					collisionOff = -1,
-					collisionOn = -1,
-					cost = 0,
-					desired = 1.28,
-					duration = 3.1667,
-					effect = "L4_audio_sequence",
-					events = {
-						collision = 1,
-						projectile = 0,
-					},
-					faceTarget = true,
-					forward = 0,
-					impacts = {{
-						angle = 45,
-						collider = "LeftHandCollider",
-						damage = 47.5,
-						fire = 0,
-						fromCollider = true,
-						hitsFriends = false,
-						knockTime = 1,
-						launch = 0,
-						maxHits = 1,
-						maxTargets = 1,
-						pushTime = 0.25,
-						pushback = 7.68,
-						radius = 1.28,
-						recoil = 7,
+						recoil = 5,
 						recoilTime = 1,
 						start = 0,
 						stop = 0,
@@ -13672,16 +15943,16 @@ return {
 					targetless = false,
 					trackTarget = false,
 				},
-				R1 = {
-					anim = "attack_R1",
+				attack_teleport_end = {
+					anim = "attack_teleport_end",
 					chainEnd = 0,
 					chainStart = 0,
 					collisionOff = -1,
 					collisionOn = -1,
-					cost = 20,
-					desired = 1.28,
-					duration = 2.8333,
-					effect = "R1 sequence",
+					cost = 0,
+					desired = 7.68,
+					duration = 2,
+					effect = "teleport end sequence",
 					events = {
 						collision = 1,
 						projectile = 0,
@@ -13689,128 +15960,58 @@ return {
 					faceTarget = true,
 					forward = 0,
 					impacts = {{
-						angle = 180,
-						collider = "RightHandAOECollider",
-						damage = 30,
+						angle = 45,
+						collider = "AOECollider",
+						damage = 40,
+						effect = "invisible teleport target sequence",
 						fire = 0,
 						fromCollider = true,
 						hitsFriends = false,
 						knockTime = 1,
-						launch = 19.2,
-						maxHits = 1,
+						launch = 15.36,
+						maxHits = 0,
 						maxTargets = 1,
-						pushTime = 0.3,
-						pushback = 10.24,
+						pushTime = 0.5,
+						pushback = 25.6,
 						radius = 3.84,
-						recoil = 5,
-						recoilTime = 3,
-						start = 0,
-						stop = 0,
+						recoil = 4,
+						recoilTime = 0.5,
+						start = 1,
+						stop = 1.25,
 						type = 0,
 					}},
-					moveSpeed = 7.68,
-					range = 12.8,
+					moveSpeed = 3.84,
+					range = 51.2,
 					targetless = false,
 					trackTarget = false,
 				},
-				R3 = {
-					anim = "attack_R3",
+				attack_teleport_start = {
+					anim = "attack_teleport_start",
 					chainEnd = 0,
 					chainStart = 0,
 					collisionOff = -1,
 					collisionOn = -1,
-					cost = 60,
+					cost = 0,
 					desired = 1.28,
-					duration = 3.9,
-					effect = "R3 sequence",
+					duration = 2.1667,
+					effect = "invisible teleport sequence",
 					events = {
-						collision = 1,
+						collision = 0,
 						projectile = 0,
 					},
-					faceTarget = true,
+					faceTarget = false,
 					forward = 0,
-					impacts = {{
-						angle = 360,
-						collider = "RightHandAOECollider",
-						damage = 78.3333,
-						fire = 0,
-						fromCollider = true,
-						hitsFriends = false,
-						knockTime = 1,
-						launch = 25.6,
-						maxHits = 1,
-						maxTargets = 3,
-						pushTime = 0.25,
-						pushback = 5.12,
-						radius = 6.4,
-						recoil = 5,
-						recoilTime = 3,
-						start = 1.4167,
-						stop = 1.7,
-						type = 0,
-					}},
+					impacts = {},
 					moveSpeed = 3.84,
-					range = 2.56,
+					range = 38.4,
 					targetless = false,
-					trackTarget = true,
-				},
-				Super = {
-					anim = "attack_super",
-					chainEnd = 0,
-					chainStart = 0,
-					collisionOff = -1,
-					collisionOn = -1,
-					cost = 100,
-					desired = 1.28,
-					duration = 3,
-					effect = "Super Move",
-					events = {
-						collision = 1,
-						projectile = 0,
-					},
-					faceTarget = true,
-					forward = 0,
-					impacts = {{
-						angle = 360,
-						collider = "RightHandAOECollider",
-						damage = 84,
-						effect = "super move impact sequence",
-						fire = 0,
-						fromCollider = true,
-						hitsFriends = false,
-						knockTime = 1,
-						launch = 20.48,
-						maxHits = 1,
-						maxTargets = 1,
-						pushTime = 0.25,
-						pushback = 5.12,
-						radius = 5.12,
-						recoil = 5,
-						recoilTime = 3,
-						start = 0,
-						stop = 0,
-						type = 0,
-					}},
-					moveSpeed = 3.84,
-					range = 102.4,
-					targetless = false,
-					trackTarget = true,
+					trackTarget = false,
 				},
 			},
 			centerY = 4.096,
 			colliders = {
-				LeftHandCollider = {
-					node = "fx_Lpalm",
-					offset = {0, 0, 0},
-					scale = 1,
-				},
-				RightFootCollider = {
-					node = "RLegDigit11",
-					offset = {0, 0, 0},
-					scale = 1,
-				},
-				RightHandAOECollider = {
-					node = "fx_Rpalm",
+				AOECollider = {
+					node = "export_node",
 					offset = {0, 0, 0},
 					scale = 1,
 				},
@@ -13819,14 +16020,19 @@ return {
 					offset = {0, 0, 0},
 					scale = 1,
 				},
+				RightHandCollider2 = {
+					node = "fx_Rpalm",
+					offset = {0, 0, 0},
+					scale = 1,
+				},
 			},
-			displayName = "The Warlord",
+			displayName = "Invader Warlord",
 			gravity = 51.2,
 			health = 600,
 			height = 7.68,
 			jump = 25.6,
 			launchResist = 0,
-			model = "Magmaul",
+			model = "InvaderWarlord",
 			power = 0,
 			powerDealt = 0.5,
 			powerReceived = 0.5,
@@ -13837,7 +16043,6 @@ return {
 			recoilResist = 0,
 			rotateSpeed = 500,
 			runAnimSpeed = 1,
-			skins = "rival",
 			speed = 10.24,
 			terminal = 51.2,
 		},
@@ -16555,6 +18760,7 @@ return {
 			terminal = 51.2,
 		},
 	},
+	Models = {"ElRugido", "Skyvolt", "Aurora", "Magmaul", "NightGecko", "InvaderGrenadier", "InvaderGunner", "InvaderMelee", "InvaderWarlord"},
 	Scoring = {
 		comboGainPerDamage = 0.025,
 		comboLossPerDamage = 0.0125,
@@ -16612,8 +18818,8 @@ function Net.event(name: string): RemoteEvent
 end
 
 return Net
-]]></ProtectedString></Properties></Item><Item class="ModuleScript" referent="RBX000010"><Properties><string name="Name">Sound</string><ProtectedString name="Source"><![CDATA[-- Plays the original game's sounds from the one uploaded sound sprite (tools/build_fx.py packs every hero
--- sound, UI sound and music track into one file; FxData.Sounds holds each clip's [start, length]).
+]]></ProtectedString></Properties></Item><Item class="ModuleScript" referent="RBX000010"><Properties><string name="Name">Sound</string><ProtectedString name="Source"><![CDATA[-- Plays the original game's sounds from the uploaded sound sprites (tools/build_fx.py packs every hero sound,
+-- UI sound and music track into a few files; FxData.Sounds holds each clip's [start, length, sprite]).
 --   Sound.play(key, { at = Instance | Vector3 | nil, volume, pitch, minDist, maxDist })  -> Sound?
 --   Sound.music(key)  loops a track (nil stops the music)
 local SoundService = game:GetService("SoundService")
@@ -16629,10 +18835,11 @@ Sound.Volume = { sfx = 0.8, ui = 0.6, music = 0.35 }
 
 local function make(key: string, opts)
 	local seg = SEGMENTS[key]
-	if not seg or Assets.SoundSprite == "" then return nil end
+	local sprite = seg and ((Assets.SoundSprites and Assets.SoundSprites[seg[3] or 1]) or Assets.SoundSprite)
+	if not seg or not sprite or sprite == "" then return nil end
 	local s = Instance.new("Sound")
 	s.Name = key
-	s.SoundId = Assets.SoundSprite
+	s.SoundId = sprite
 	s.PlaybackRegionsEnabled = true
 	s.PlaybackRegion = NumberRange.new(seg[1], seg[1] + seg[2])
 	s.PlaybackSpeed = opts.pitch or 1
@@ -16959,7 +19166,7 @@ function Fighter:fireProjectile(i: number, imp)
 		g = imp.gravity or 0, expires = now() + life, hit = {}, atkRef = self.atk }
 	projectiles[p.id] = p
 	FxRemote:FireAllClients("proj", { id = p.id, from = from, vel = p.vel, life = life, g = p.g, kind = imp.visual or "orb",
-		hero = self.hero, team = self.team })
+		hero = self.arch and "Shared" or self.hero, team = self.team })
 end
 
 function Fighter:targetImpact(i: number, imp)
@@ -17144,6 +19351,7 @@ function Fighter:die(attacker, imp)
 			FxRemote:FireAllClients("score", { pos = self:chest() + Vector3.new(0, 3, 0), points = pts, mult = mult })
 		end
 		dropPickups(self.hrp.Position)
+		if self.ai and self.ai.boss then FxRemote:FireAllClients("bossKO", { pos = self:chest() }) end
 		if imp and (imp.recoil == 5 or imp.recoil == 4) then
 			self.hum:ChangeState(Enum.HumanoidStateType.Freefall)
 			local dir = attacker and flat(self.hrp.Position - attacker.hrp.Position) or Vector3.zero
@@ -17189,7 +19397,7 @@ function Fighter:takeHit(attacker, imp, src: Vector3?)
 	if limit > 0 and recoil > limit then recoil = limit end
 	FxRemote:FireAllClients("hit", {
 		pos = src or self:chest(), amount = math.floor(dmg + 0.5), heavy = recoil >= 2, team = self.team,
-		hero = attacker.hero, effect = imp.effect, victim = self.model,
+		hero = attacker.arch and "Shared" or attacker.hero, effect = imp.effect, victim = self.model,
 	})
 	if self.team == "Enemy" and attacker.hrp then
 		local dir = flat(attacker.hrp.Position - self.hrp.Position)
@@ -17238,6 +19446,18 @@ end
 function Fighter:onActionEnd()
 	local clip, kind = self.action, self.actionKind
 	if kind == "death" then return end
+	local tp = self.ai and self.ai.teleport
+	if tp and clip == tp[1] then -- the warlord reappears next to a hero and strikes
+		local t = self:nearestOpponent()
+		if t then
+			local dir = flat(self.hrp.Position - t.hrp.Position)
+			dir = dir.Magnitude > 0.1 and dir.Unit or Vector3.zAxis
+			local pos = t.hrp.Position + dir * 6
+			self.hrp.CFrame = CFrame.lookAt(pos, Vector3.new(t.hrp.Position.X, pos.Y, t.hrp.Position.Z))
+		end
+		self:play(tp[2], Config.FadeAttack, "attack", self.data.attacks[tp[2]] and tp[2] or nil)
+		return
+	end
 	if clip == "recoil_launch_land" then
 		self:play("recoil_getup", 0.1, "recoil")
 		return
@@ -17259,8 +19479,9 @@ end
 
 function Fighter:pickAttack(dist: number)
 	local keys = {}
+	local tp = self.ai.teleport
 	for k, a in self.data.attacks do
-		if k ~= "Super" and (dist <= a.range + 6 or self.ai.keepDistance > 0) then table.insert(keys, k) end
+		if k ~= "Super" and not (tp and k == tp[2]) and (dist <= a.range + 6 or self.ai.keepDistance > 0) then table.insert(keys, k) end
 	end
 	if self.ai.boss and now() >= self.nextSuper and self.data.attacks.Super then
 		self.nextSuper = now() + self.ai.superEvery
@@ -17505,19 +19726,24 @@ local skinCount = {}
 local function spawnEnemy(arch: string, i: number)
 	local spec = GameData.Enemies[arch]
 	local ai = Config.Enemies[arch]
-	local cfg = Config.Heroes[spec.model]
-	local template = ServerStorage.SPSO.Characters:FindFirstChild(cfg.template)
-	if not template then return end
+	local cfg = Config.Models[spec.model]
+	local template = cfg and ServerStorage.SPSO.Characters:FindFirstChild(cfg.template)
+	if not template then
+		warn("[SPSO] no template for enemy model " .. tostring(spec.model))
+		return
+	end
 	local e = template:Clone()
-	skinCount[arch] = (skinCount[arch] or 0) + 1
-	local skin = ai.skins[(skinCount[arch] - 1) % #ai.skins + 1]
 	e.Name = spec.displayName
-	e:SetAttribute("SPSO_Variant", skin)
-	local body = e:FindFirstChild(cfg.bodyPart, true)
-	local head = e:FindFirstChild(cfg.headPart, true)
-	local b, h = Assets.Skins[spec.model .. "_" .. skin .. "_Body"], Assets.Skins[spec.model .. "_" .. skin .. "_Head"]
-	if body and b and b ~= "" then body.TextureID = b end
-	if head and h and h ~= "" then head.TextureID = h end
+	if #ai.skins > 0 then -- optional costume recolours
+		skinCount[arch] = (skinCount[arch] or 0) + 1
+		local skin = ai.skins[(skinCount[arch] - 1) % #ai.skins + 1]
+		e:SetAttribute("SPSO_Variant", skin)
+		local body = e:FindFirstChild(cfg.bodyPart, true)
+		local head = e:FindFirstChild(cfg.headPart, true)
+		local b, h = Assets.Skins[spec.model .. "_" .. skin .. "_Body"], Assets.Skins[spec.model .. "_" .. skin .. "_Head"]
+		if body and b and b ~= "" then body.TextureID = b end
+		if head and h and h ~= "" then head.TextureID = h end
+	end
 	local hum = e:FindFirstChildOfClass("Humanoid")
 	hum.MaxHealth, hum.Health = spec.health, spec.health
 	hum.BreakJointsOnDeath = false
@@ -17550,7 +19776,7 @@ local function medals(playerCount: number)
 	playerCount = math.max(1, playerCount)
 	local num2, num3, combo = 0, 0, 0
 	for _, wave in Config.Waves do
-		for arch, n in wave do
+		for arch, n in wave.enemies do
 			local spec = GameData.Enemies[arch]
 			for _ = 1, n do
 				combo = math.min(combo + spec.health / (40 * playerCount), 2.99)
@@ -17582,12 +19808,12 @@ task.spawn(function()
 		local start = now()
 		for w, wave in Config.Waves do
 			SPSO:SetAttribute("Wave", w)
-			local boss = wave.Warlord ~= nil
-			banner(boss and "BOSS WAVE" or ("WAVE " .. w))
+			SPSO:SetAttribute("Music", wave.music)
+			banner(wave.boss and "BOSS FIGHT!" or ("WAVE " .. w))
 			task.wait(2.5)
 			local i = 0
-			for _, arch in { "Thug", "Blaster", "Warlord" } do
-				for _ = 1, wave[arch] or 0 do
+			for _, arch in { "Thug", "Blaster", "Grenadier", "Bazooka", "Warlord" } do
+				for _ = 1, wave.enemies[arch] or 0 do
 					i += 1
 					spawnEnemy(arch, i + w)
 					task.wait(0.35)
@@ -17708,31 +19934,18 @@ local function makeHealthBar(model: Model, boss: boolean)
 	local hrp = model:FindFirstChild("HumanoidRootPart")
 	local bb = Instance.new("BillboardGui")
 	bb.Name = "SPSO_Health"
-	bb.Size = boss and UDim2.fromOffset(170, 16) or UDim2.fromOffset(90, 10)
+	bb.Size = UDim2.fromOffset(96, 12)
 	local ext = model:GetExtentsSize()
 	bb.StudsOffset = Vector3.new(0, math.max(4, ext.Y - 2.2), 0)
 	bb.AlwaysOnTop = true
 	bb.Adornee = hrp
-	local bg = Instance.new("Frame")
-	bg.Size = UDim2.fromScale(1, 1)
-	bg.BackgroundColor3 = Color3.fromRGB(25, 20, 30)
-	bg.BorderSizePixel = 0
-	bg.Parent = bb
-	Instance.new("UICorner", bg).CornerRadius = UDim.new(0, 4)
-	local stroke = Instance.new("UIStroke", bg)
-	stroke.Color, stroke.Thickness = Color3.fromRGB(255, 220, 90), boss and 2 or 1
-	local fill = Instance.new("Frame")
-	fill.Size = UDim2.fromScale(1, 1)
-	fill.BackgroundColor3 = boss and Color3.fromRGB(255, 120, 40) or Color3.fromRGB(235, 70, 70)
-	fill.BorderSizePixel = 0
-	fill.Parent = bg
-	Instance.new("UICorner", fill).CornerRadius = UDim.new(0, 4)
-	if boss then
-		text(bb, string.upper(model.Name), { Size = UDim2.new(1, 0, 0, 20), Position = UDim2.fromOffset(0, -22),
-			Font = HEADING, TextSize = 20, TextColor3 = Color3.fromRGB(255, 230, 120) })
-	end
+	img(bb, "bh_enemy_health_bg", { Size = UDim2.fromScale(1, 1), ScaleType = Enum.ScaleType.Stretch })
+	local damage = img(bb, "bh_enemy_health_damage", { Size = UDim2.fromScale(1, 1), ScaleType = Enum.ScaleType.Stretch, ZIndex = 2 })
+	local fill = img(bb, "bh_enemy_health_full", { Size = UDim2.fromScale(1, 1), ScaleType = Enum.ScaleType.Stretch, ZIndex = 3 })
+	img(bb, "bh_enemy_health_gleam", { Size = UDim2.fromScale(1, 1), ScaleType = Enum.ScaleType.Stretch, ZIndex = 4 })
+	bb.Enabled = not boss -- the boss gets the big bar at the top of the screen
 	bb.Parent = playerGui
-	return { gui = bb, fill = fill }
+	return { gui = bb, fill = fill, damage = damage, shown = 1 }
 end
 
 local function attach(model: Instance)
@@ -17903,48 +20116,49 @@ UserInputService.InputBegan:Connect(function(input, gp)
 	if input.KeyCode == Enum.KeyCode.H and showSelect and not selecting then showSelect() end
 end)
 
--- HUD (original GUI art) -------------------------------------------------------------------------------------------------
+-- HUD (the original brawler HUD art) ---------------------------------------------------------------------
 local hud = screen("SPSO_HUD", 1)
 hud.Enabled = false
 
-local panel = img(hud, "baseWindow", { Size = UDim2.fromOffset(360, 100), Position = UDim2.fromOffset(96, 22),
-	ScaleType = Enum.ScaleType.Slice, SliceCenter = Rect.new(40, 20, 216, 44), ImageTransparency = 0.05 })
-local portrait = img(hud, "herobg", { Size = UDim2.fromOffset(104, 104), Position = UDim2.fromOffset(12, 18), ZIndex = 2 })
-local classIcon = img(portrait, "strength_icon", { Size = UDim2.fromScale(0.5, 0.5), Position = UDim2.fromScale(0.25, 0.25), ZIndex = 3 })
-local heroName = text(panel, "", { Font = HEADING, TextSize = 28, Size = UDim2.new(1, -40, 0, 30), Position = UDim2.fromOffset(30, 6),
-	TextXAlignment = Enum.TextXAlignment.Left, TextColor3 = Color3.fromRGB(255, 244, 200) })
-
-local function bar(parent, y, color, h)
-	local bg = Instance.new("Frame")
-	bg.Size, bg.Position = UDim2.new(1, -52, 0, h or 16), UDim2.fromOffset(30, y)
-	bg.BackgroundColor3 = Color3.fromRGB(16, 30, 60)
-	bg.BorderSizePixel = 0
-	bg.Parent = parent
-	Instance.new("UICorner", bg).CornerRadius = UDim.new(0, 7)
-	local st = Instance.new("UIStroke", bg)
-	st.Color, st.Thickness = Color3.fromRGB(255, 226, 120), 1.5
-	local fill = Instance.new("Frame")
-	fill.Size = UDim2.fromScale(1, 1)
-	fill.BackgroundColor3 = color
-	fill.BorderSizePixel = 0
-	fill.Parent = bg
-	Instance.new("UICorner", fill).CornerRadius = UDim.new(0, 7)
-	local grad = Instance.new("UIGradient", fill)
-	grad.Color = ColorSequence.new(Color3.new(1, 1, 1), Color3.fromRGB(190, 190, 190))
-	grad.Rotation = 90
-	return fill, bg
+-- player frame: live portrait of your hero in the ring, life bar, power stars (P1, P2, P3, super)
+local frame = img(hud, "bh_playerframe", { Size = UDim2.fromOffset(392, 196), Position = UDim2.fromOffset(8, 4), ZIndex = 2 })
+local portraitVp = Instance.new("ViewportFrame")
+portraitVp.Size, portraitVp.Position = UDim2.fromOffset(112, 112), UDim2.fromOffset(30, 40)
+portraitVp.BackgroundColor3 = Color3.fromRGB(30, 60, 110)
+portraitVp.Ambient, portraitVp.LightColor = Color3.fromRGB(180, 180, 190), Color3.new(1, 1, 1)
+portraitVp.ZIndex = 1
+portraitVp.Parent = frame
+Instance.new("UICorner", portraitVp).CornerRadius = UDim.new(1, 0)
+local heroName = text(frame, "", { Font = HEADING, TextSize = 26, Size = UDim2.fromOffset(220, 28), Position = UDim2.fromOffset(160, 40),
+	TextXAlignment = Enum.TextXAlignment.Left, TextColor3 = Color3.fromRGB(255, 244, 200), ZIndex = 4 })
+local lifeBg = Instance.new("Frame")
+lifeBg.Size, lifeBg.Position = UDim2.fromOffset(212, 22), UDim2.fromOffset(160, 72)
+lifeBg.BackgroundColor3 = Color3.fromRGB(20, 26, 50)
+lifeBg.ClipsDescendants = true
+lifeBg.ZIndex = 3
+lifeBg.Parent = frame
+Instance.new("UICorner", lifeBg).CornerRadius = UDim.new(0, 8)
+local lifeDamage = img(lifeBg, "bh_life_damage", { Size = UDim2.fromScale(1, 1), ScaleType = Enum.ScaleType.Stretch, ZIndex = 3 })
+local lifeFill = img(lifeBg, "bh_life_fill", { Size = UDim2.fromScale(1, 1), ScaleType = Enum.ScaleType.Stretch, ZIndex = 4 })
+local hpText = text(lifeBg, "", { Size = UDim2.fromScale(1, 1), TextSize = 14, ZIndex = 5 })
+local starBox = img(frame, "bh_star_container_4", { Size = UDim2.fromOffset(176, 44), Position = UDim2.fromOffset(160, 100), ZIndex = 3 })
+local stars = {}
+for i, cost in { 20, 40, 60, 100 } do
+	stars[i] = { cost = cost, img = img(starBox, "bh_star_active", { Size = UDim2.fromOffset(36, 36),
+		Position = UDim2.fromOffset(6 + (i - 1) * 42, 4), ZIndex = 4 }) }
 end
-local hpFill = bar(panel, 40, Color3.fromRGB(235, 70, 70))
-local hpText = text(hpFill.Parent, "", { Size = UDim2.fromScale(1, 1), TextSize = 13, Font = BODY, ZIndex = 3 })
-local pwFill, pwBg = bar(panel, 64, Color3.fromRGB(255, 200, 60), 18)
-for _, cost in { 20, 40, 60 } do
-	local tick = Instance.new("Frame")
-	tick.Size, tick.Position = UDim2.new(0, 2, 1, 0), UDim2.fromScale(cost / 100, 0)
-	tick.BackgroundColor3 = Color3.fromRGB(16, 30, 60)
-	tick.BorderSizePixel = 0
-	tick.ZIndex = 3
-	tick.Parent = pwBg
-end
+local pwBarBg = Instance.new("Frame")
+pwBarBg.Size, pwBarBg.Position = UDim2.fromOffset(176, 6), UDim2.fromOffset(160, 146)
+pwBarBg.BackgroundColor3 = Color3.fromRGB(20, 26, 50)
+pwBarBg.BorderSizePixel = 0
+pwBarBg.ZIndex = 3
+pwBarBg.Parent = frame
+local pwFill = Instance.new("Frame")
+pwFill.Size = UDim2.fromScale(0, 1)
+pwFill.BackgroundColor3 = Color3.fromRGB(255, 200, 60)
+pwFill.BorderSizePixel = 0
+pwFill.ZIndex = 4
+pwFill.Parent = pwBarBg
 
 -- power attack buttons (also tappable)
 local powerRow = Instance.new("Frame")
@@ -17958,29 +20172,56 @@ layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 local powerButtons = {}
 for _, spec in { { "R1", "1", 20 }, { "R2", "2", 40 }, { "R3", "3", 60 }, { "Super", "F", 100 } } do
 	local b = Instance.new("ImageButton")
-	b.Size = UDim2.fromOffset(spec[1] == "Super" and 96 or 66, 66)
+	b.Size = UDim2.fromOffset(spec[1] == "Super" and 86 or 66, 66)
 	b.BackgroundTransparency = 1
-	b.Image = G.herobg or ""
+	b.Image = G.bh_heroup_bubble or G.herobg or ""
 	b.Parent = powerRow
-	local ring = img(b, "ring_sharp_additive_tex", { Size = UDim2.fromScale(1, 1), ImageColor3 = Color3.fromRGB(255, 220, 90) })
-	text(b, spec[1] == "Super" and "SUPER" or ("P" .. spec[1]:sub(2)), { Size = UDim2.fromScale(1, 0.5), Position = UDim2.fromScale(0, 0.18),
-		Font = HEADING, TextSize = spec[1] == "Super" and 24 or 22 })
-	text(b, "[" .. spec[2] .. "] " .. spec[3], { Size = UDim2.fromScale(1, 0.3), Position = UDim2.fromScale(0, 0.62), TextSize = 12 })
+	local ring = img(b, "bh_heroup_bubble_flash", { Size = UDim2.fromScale(1, 1) })
+	text(b, spec[1] == "Super" and "SUPER" or ("P" .. spec[1]:sub(2)), { Size = UDim2.fromScale(1, 0.5), Position = UDim2.fromScale(0, 0.16),
+		Font = HEADING, TextSize = spec[1] == "Super" and 22 or 22 })
+	text(b, "[" .. spec[2] .. "] " .. spec[3], { Size = UDim2.fromScale(1, 0.3), Position = UDim2.fromScale(0, 0.6), TextSize = 12 })
 	b.Activated:Connect(function() attack(spec[1]) end)
 	powerButtons[spec[1]] = { button = b, ring = ring, cost = spec[3] }
 end
 
-local scoreBox = img(hud, "baseWindow", { Size = UDim2.fromOffset(250, 84), Position = UDim2.new(1, -266, 0, 22),
+-- score with the medal you are on track for
+local scoreBox = img(hud, "baseWindow", { Size = UDim2.fromOffset(270, 84), Position = UDim2.new(1, -286, 0, 22),
 	ScaleType = Enum.ScaleType.Slice, SliceCenter = Rect.new(40, 20, 216, 44) })
-local scoreText = text(scoreBox, "0", { Font = HEADING, TextSize = 34, Size = UDim2.new(1, -30, 0, 36), Position = UDim2.fromOffset(15, 6),
+local medalIcon = img(scoreBox, "bh_brawler_points_bronze", { Size = UDim2.fromOffset(60, 60), Position = UDim2.fromOffset(-22, 12), ZIndex = 3 })
+local scoreText = text(scoreBox, "0", { Font = HEADING, TextSize = 34, Size = UDim2.new(1, -40, 0, 36), Position = UDim2.fromOffset(30, 6),
 	TextColor3 = Color3.fromRGB(255, 240, 150) })
-local comboText = text(scoreBox, "", { TextSize = 16, Size = UDim2.new(1, -30, 0, 20), Position = UDim2.fromOffset(15, 46) })
+local comboText = text(scoreBox, "", { TextSize = 15, Size = UDim2.new(1, -40, 0, 20), Position = UDim2.fromOffset(30, 46) })
 local comboFill = Instance.new("Frame")
 comboFill.BorderSizePixel = 0
 comboFill.BackgroundColor3 = Color3.fromRGB(255, 120, 40)
-comboFill.Size, comboFill.Position = UDim2.new(0, 0, 0, 5), UDim2.fromOffset(20, 70)
+comboFill.Size, comboFill.Position = UDim2.new(0, 0, 0, 5), UDim2.fromOffset(36, 70)
 comboFill.Parent = scoreBox
 local waveLabel = text(hud, "", { Font = HEADING, TextSize = 30, Size = UDim2.fromOffset(500, 34), Position = UDim2.new(0.5, -250, 0, 16) })
+
+-- boss bar (original boss frame, life bar and name plate)
+local bossBar = Instance.new("Frame")
+bossBar.BackgroundTransparency = 1
+bossBar.Size, bossBar.Position = UDim2.fromOffset(560, 90), UDim2.new(0.5, -280, 0, 52)
+bossBar.Visible = false
+bossBar.Parent = hud
+img(bossBar, "bh_boss_lifebar_bg", { Size = UDim2.fromOffset(470, 30), Position = UDim2.fromOffset(80, 40), ScaleType = Enum.ScaleType.Stretch })
+local bossDamage = img(bossBar, "bh_boss_lifebar_damage", { Size = UDim2.fromOffset(450, 20), Position = UDim2.fromOffset(90, 45), ZIndex = 2 })
+local bossFill = img(bossBar, "bh_boss_lifebar_fill", { Size = UDim2.fromOffset(450, 20), Position = UDim2.fromOffset(90, 45), ZIndex = 3 })
+img(bossBar, "bh_boss_frame", { Size = UDim2.fromOffset(96, 96), Position = UDim2.fromOffset(0, 0), ZIndex = 4 })
+local bossName = text(bossBar, "", { Font = HEADING, TextSize = 26, Size = UDim2.fromOffset(400, 30), Position = UDim2.fromOffset(100, 8),
+	TextXAlignment = Enum.TextXAlignment.Left, TextColor3 = Color3.fromRGB(255, 220, 110), ZIndex = 5 })
+local bossShown = 1
+
+-- screen-edge damage glow and the GO arrow between waves
+local glows = {
+	img(hud, "bh_damage_glow_top", { Size = UDim2.new(1, 0, 0, 90), ScaleType = Enum.ScaleType.Stretch, ImageTransparency = 1, ImageColor3 = Color3.fromRGB(255, 40, 40) }),
+	img(hud, "bh_damage_glow_bottom", { Size = UDim2.new(1, 0, 0, 90), Position = UDim2.new(0, 0, 1, -90), ScaleType = Enum.ScaleType.Stretch, ImageTransparency = 1, ImageColor3 = Color3.fromRGB(255, 40, 40) }),
+	img(hud, "bh_damage_glow_left", { Size = UDim2.new(0, 90, 1, 0), ScaleType = Enum.ScaleType.Stretch, ImageTransparency = 1, ImageColor3 = Color3.fromRGB(255, 40, 40) }),
+	img(hud, "bh_damage_glow_right", { Size = UDim2.new(0, 90, 1, 0), Position = UDim2.new(1, -90, 0, 0), ScaleType = Enum.ScaleType.Stretch, ImageTransparency = 1, ImageColor3 = Color3.fromRGB(255, 40, 40) }),
+}
+local goArrow = img(hud, "bh_brawler_hud_indicator_go", { Size = UDim2.fromOffset(120, 120), AnchorPoint = Vector2.new(0.5, 0.5),
+	Position = UDim2.fromScale(0.5, 0.62), ImageTransparency = 1, ZIndex = 6 })
+
 local bannerBurst = img(hud, "popup_icon_burst", { Size = UDim2.fromOffset(420, 360), Position = UDim2.new(0.5, -210, 0.22, 0),
 	ImageTransparency = 1, ZIndex = 4 })
 local bannerLabel = text(hud, "", { Font = HEADING, TextSize = 96, Size = UDim2.fromOffset(900, 120), Position = UDim2.new(0.5, -450, 0.32, 0),
@@ -17989,6 +20230,33 @@ local hint = text(hud, "WASD move • Space jump • Left click combo • Right 
 	{ Size = UDim2.new(1, -32, 0, 20), Position = UDim2.new(0, 16, 1, -22), TextSize = 15, TextColor3 = Color3.fromRGB(210, 240, 245),
 		TextXAlignment = Enum.TextXAlignment.Left })
 hint.TextTransparency = 0.15
+
+local portraitHero, portraitAnim
+local function setPortrait(hero)
+	if portraitHero == hero then return end
+	portraitHero = hero
+	for _, c in portraitVp:GetChildren() do
+		if not c:IsA("UICorner") then c:Destroy() end
+	end
+	portraitAnim = nil
+	local src = SPSO:FindFirstChild("Previews") and SPSO.Previews:FindFirstChild(hero)
+	if not src then return end
+	local world = Instance.new("WorldModel")
+	world.Parent = portraitVp
+	local rig = src:Clone()
+	rig.Parent = world
+	local ext = rig:GetExtentsSize()
+	local cam = Instance.new("Camera")
+	cam.FieldOfView = 24
+	cam.CFrame = CFrame.lookAt(Vector3.new(0, ext.Y * 0.82, -ext.Y * 1.25), Vector3.new(0, ext.Y * 0.8, 0))
+	cam.Parent = portraitVp
+	portraitVp.CurrentCamera = cam
+	local ok, anim = pcall(ExactAnimator.new, HeroPack.get(hero), rig, { wrapModes = Config.WrapModes, skin = false })
+	if ok then
+		anim:Play("movement_idle")
+		portraitAnim = anim
+	end
+end
 
 local lastBanner = SPSO:GetAttribute("BannerSeq")
 local function showBanner(str)
@@ -18013,48 +20281,94 @@ SPSO:GetAttributeChangedSignal("BannerSeq"):Connect(function()
 end)
 
 local superReady = false
-local function updateHUD()
+local lastHealth, glowT, lastWaveLeft = nil, 0, nil
+local MEDALS = { "bronze", "silver", "gold", "adamantium" }
+local function updateHUD(dt)
 	local char = player.Character
 	local hum = char and char:FindFirstChildOfClass("Humanoid")
 	hud.Enabled = char ~= nil and not selecting
 	if not char then return end
 	local hero = char:GetAttribute("SPSO_Hero") or Config.DefaultHero
-	local info = Config.HeroInfo[hero] or {}
 	heroName.Text = string.upper((Config.Heroes[hero] or {}).displayName or hero)
-	classIcon.Image = G[(info.class or "strength") .. "_icon"] or ""
-	portrait.ImageColor3 = info.color or Color3.new(1, 1, 1)
+	setPortrait(hero)
+	if portraitAnim then portraitAnim:Step(dt) end
 	if hum then
-		hpFill.Size = UDim2.fromScale(math.clamp(hum.Health / math.max(1, hum.MaxHealth), 0, 1), 1)
+		local f = math.clamp(hum.Health / math.max(1, hum.MaxHealth), 0, 1)
+		lifeFill.Size = UDim2.fromScale(f, 1)
+		local cur = lifeDamage.Size.X.Scale
+		lifeDamage.Size = UDim2.fromScale(cur > f and math.max(f, cur - dt * 0.35) or f, 1)
 		hpText.Text = string.format("%d / %d", math.ceil(hum.Health), hum.MaxHealth)
+		if lastHealth and hum.Health < lastHealth - 0.5 then glowT = 0.6 end
+		lastHealth = hum.Health
 	end
+	glowT = math.max(0, glowT - dt)
+	for _, g in glows do g.ImageTransparency = 1 - glowT end
 	local power = player:GetAttribute("SPSO_Power") or 0
 	pwFill.Size = UDim2.fromScale(math.clamp(power / Config.SuperCost, 0, 1), 1)
+	for _, st in stars do
+		local on = power + 1e-6 >= st.cost
+		st.img.Image = on and (G.bh_star_active or "") or (G.bh_star_normal or "")
+		st.img.Rotation = on and math.sin(os.clock() * 3) * 8 or 0
+	end
 	for _, pb in powerButtons do
 		local ready = power + 1e-6 >= pb.cost
-		pb.button.ImageTransparency = ready and 0 or 0.5
-		pb.ring.ImageTransparency = ready and (0.2 + 0.25 * math.sin(os.clock() * 6)) or 0.85
+		pb.button.ImageTransparency = ready and 0 or 0.55
+		pb.ring.ImageTransparency = ready and (0.25 + 0.25 * math.sin(os.clock() * 6)) or 1
 	end
 	if power >= Config.SuperCost and not superReady then Sound.ui("achievement") end
 	superReady = power >= Config.SuperCost
 	local heat = player:GetAttribute("SPSO_Combo") or 0
 	local mult = math.floor(math.min(heat, GameData.Scoring.comboMax - 1)) + 1
-	comboText.Text = string.format("COMBO x%d   •   SURVIVAL x%.2g", mult, SPSO:GetAttribute("SurvivalBonus") or 2)
-	comboFill.Size = UDim2.new(0, 210 * math.clamp(heat / GameData.Scoring.comboMax, 0, 1), 0, 5)
-	scoreText.Text = tostring(SPSO:GetAttribute("TeamScore") or 0)
+	comboText.Text = string.format("COMBO x%d  •  SURVIVAL x%.2g", mult, SPSO:GetAttribute("SurvivalBonus") or 2)
+	comboFill.Size = UDim2.new(0, 200 * math.clamp(heat / GameData.Scoring.comboMax, 0, 1), 0, 5)
+	local score = SPSO:GetAttribute("TeamScore") or 0
+	scoreText.Text = tostring(score)
+	local medal = "bronze"
+	for _, m in { "silver", "gold", "adamantium" } do
+		local need = SPSO:GetAttribute("Medal" .. m:sub(1, 1):upper() .. m:sub(2))
+		if need and score >= need then medal = m end
+	end
+	medalIcon.Image = G["bh_brawler_points_" .. medal] or ""
 	local w = SPSO:GetAttribute("Wave")
-	waveLabel.Text = w and string.format("WAVE %d / %d  •  RIVALS LEFT %d", w, SPSO:GetAttribute("Waves") or 0, SPSO:GetAttribute("EnemiesLeft") or 0) or ""
+	local left = SPSO:GetAttribute("EnemiesLeft") or 0
+	waveLabel.Text = w and string.format("WAVE %d / %d  •  INVADERS LEFT %d", w, SPSO:GetAttribute("Waves") or 0, left) or ""
+	if lastWaveLeft and lastWaveLeft > 0 and left == 0 and SPSO:GetAttribute("State") == "playing" then
+		goArrow.ImageTransparency = 0
+		goArrow.Size = UDim2.fromOffset(160, 160)
+		TweenService:Create(goArrow, TweenInfo.new(0.4, Enum.EasingStyle.Back), { Size = UDim2.fromOffset(120, 120) }):Play()
+		task.delay(2, function() TweenService:Create(goArrow, TweenInfo.new(0.4), { ImageTransparency = 1 }):Play() end)
+		Sound.ui("HUD_Brawler_Char_Combo_Bonus")
+	end
+	lastWaveLeft = left
+	-- enemies: original health bars, the boss on the big bar
+	local boss
 	for model, d in decor do
 		local h = model:FindFirstChildOfClass("Humanoid")
 		local hrp = model:FindFirstChild("HumanoidRootPart")
 		if d.bar and h then
-			d.bar.fill.Size = UDim2.fromScale(math.clamp(h.Health / math.max(1, h.MaxHealth), 0, 1), 1)
-			d.bar.gui.Enabled = h.Health > 0
+			local f = math.clamp(h.Health / math.max(1, h.MaxHealth), 0, 1)
+			d.bar.fill.Size = UDim2.fromScale(f, 1)
+			d.bar.shown = math.max(f, (d.bar.shown or 1) - dt * 0.5)
+			d.bar.damage.Size = UDim2.fromScale(d.bar.shown, 1)
+			d.bar.gui.Enabled = h.Health > 0 and not model:GetAttribute("SPSO_Boss")
+			if model:GetAttribute("SPSO_Boss") and h.Health > 0 then boss = model end
 		end
 		if d.shadow and hrp then
 			local ray = workspace:Raycast(hrp.Position, Vector3.new(0, -14, 0), RaycastParams.new())
 			local y = ray and ray.Position.Y or (hrp.Position.Y - 3.3)
 			d.shadow.CFrame = CFrame.new(hrp.Position.X, y + 0.06, hrp.Position.Z)
 		end
+	end
+	bossBar.Visible = boss ~= nil
+	if boss then
+		local h = boss:FindFirstChildOfClass("Humanoid")
+		local f = math.clamp(h.Health / math.max(1, h.MaxHealth), 0, 1)
+		bossName.Text = string.upper(boss.Name)
+		bossFill.Size = UDim2.fromOffset(450 * f, 20)
+		bossShown = math.max(f, bossShown - dt * 0.3)
+		bossDamage.Size = UDim2.fromOffset(450 * bossShown, 20)
+	else
+		bossShown = 1
 	end
 	-- target ring and own ring
 	targetModel = nearestEnemy(22)
@@ -18071,6 +20385,11 @@ local function updateHUD()
 	local hrp = char:FindFirstChild("HumanoidRootPart")
 	if hrp then selfRing.CFrame = CFrame.new(hrp.Position.X, hrp.Position.Y - 3.27, hrp.Position.Z) end
 end
+
+-- music: the stage tracks the server names, menu music on the select screen
+SPSO:GetAttributeChangedSignal("Music"):Connect(function()
+	if not selecting and SPSO:GetAttribute("State") ~= "results" then Sound.music(SPSO:GetAttribute("Music")) end
+end)
 
 -- effects from the server ---------------------------------------------------------------------------------------------------
 local fxGui = screen("SPSO_FxText", 2)
@@ -18162,6 +20481,9 @@ FxRemote.OnClientEvent:Connect(function(kind, data)
 		Sound.ui("alert")
 		pwFill.BackgroundColor3 = Color3.fromRGB(255, 60, 60)
 		task.delay(0.25, function() pwFill.BackgroundColor3 = Color3.fromRGB(255, 200, 60) end)
+	elseif kind == "bossKO" then
+		Sound.play("FX_Brawler_Boss_Knockout", { channel = "ui" })
+		shake = math.max(shake, 1.2)
 	elseif kind == "push" then
 		pushVel, pushUntil = data.vel, os.clock() + math.max(0.1, data.time or 0.25)
 	elseif kind == "spawn" then
@@ -18300,7 +20622,7 @@ local function makeCard(hero: string)
 		SelectRemote:FireServer(hero)
 		selectGui.Enabled = false
 		selecting = false
-		Sound.music(Config.Music.battle)
+		Sound.music(SPSO:GetAttribute("Music") or Config.Music.loading)
 	end)
 	-- live preview: the hero's rig posed by its own exact animator
 	task.spawn(function()
@@ -18335,19 +20657,26 @@ showSelect = function()
 	selectGui.Enabled = true
 	hud.Enabled = false
 	Sound.ui("windowIn")
-	Sound.music(Config.Music.menu)
+	Sound.music(Config.Music.select)
 end
 
--- results -----------------------------------------------------------------------------------------------------------------------
+-- results: the original mission complete screen ----------------------------------------------------------------------
 local results = screen("SPSO_Results", 15)
 results.Enabled = false
-local resPanel = img(results, "login_background_panel", { Size = UDim2.fromOffset(520, 520), AnchorPoint = Vector2.new(0.5, 0.5),
-	Position = UDim2.fromScale(0.5, 0.5) })
-text(resPanel, "VICTORY!", { Font = HEADING, TextSize = 64, Size = UDim2.new(1, 0, 0, 70), Position = UDim2.fromScale(0, 0.08),
-	TextColor3 = Color3.fromRGB(255, 120, 40), TextStrokeTransparency = 0 })
-local medalText = text(resPanel, "", { Font = HEADING, TextSize = 48, Size = UDim2.new(1, 0, 0, 56), Position = UDim2.fromScale(0, 0.26) })
-local resText = text(resPanel, "", { TextSize = 24, Size = UDim2.new(0.8, 0, 0.42, 0), Position = UDim2.fromScale(0.1, 0.4),
-	TextWrapped = true, TextColor3 = Color3.fromRGB(80, 50, 10), TextStrokeTransparency = 1 })
+local dim = Instance.new("Frame")
+dim.Size, dim.BackgroundColor3, dim.BackgroundTransparency = UDim2.fromScale(1, 1), Color3.new(0, 0, 0), 0.45
+dim.Parent = results
+local rays1 = img(results, "bh_mc_rays2", { Size = UDim2.fromOffset(900, 900), AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(0.5, 0.42), ImageTransparency = 0.2 })
+local rays2 = img(results, "bh_stagecomplete_rays", { Size = UDim2.fromOffset(700, 700), AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(0.5, 0.42), ImageTransparency = 0.15 })
+img(results, "bh_backstar", { Size = UDim2.fromOffset(330, 330), AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(0.5, 0.4) })
+local sparkles = img(results, "bh_mc_sparkles", { Size = UDim2.fromOffset(360, 360), AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(0.5, 0.4) })
+local bigMedal = img(results, "bh_brawler_points_gold", { Size = UDim2.fromOffset(190, 190), AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(0.5, 0.4) })
+text(results, "MISSION COMPLETE!", { Font = HEADING, TextSize = 72, Size = UDim2.new(1, 0, 0, 80), Position = UDim2.fromScale(0, 0.08),
+	TextColor3 = Color3.fromRGB(255, 220, 80), TextStrokeTransparency = 0 })
+local medalText = text(results, "", { Font = HEADING, TextSize = 44, Size = UDim2.new(1, 0, 0, 50), Position = UDim2.fromScale(0, 0.58) })
+local resPanel = img(results, "bh_background", { Size = UDim2.fromOffset(520, 170), AnchorPoint = Vector2.new(0.5, 0), Position = UDim2.fromScale(0.5, 0.66) })
+local resText = text(resPanel, "", { TextSize = 22, Size = UDim2.new(0.86, 0, 0.8, 0), Position = UDim2.fromScale(0.07, 0.1),
+	TextWrapped = true, TextColor3 = Color3.fromRGB(40, 60, 10), TextStrokeTransparency = 1 })
 local MEDAL_COLORS = { Bronze = Color3.fromRGB(205, 127, 50), Silver = Color3.fromRGB(200, 210, 220), Gold = Color3.fromRGB(255, 205, 40),
 	Adamantium = Color3.fromRGB(120, 230, 255) }
 SPSO:GetAttributeChangedSignal("State"):Connect(function()
@@ -18356,15 +20685,28 @@ SPSO:GetAttributeChangedSignal("State"):Connect(function()
 		local medal = SPSO:GetAttribute("Medal") or "Bronze"
 		medalText.Text = string.upper(medal) .. " MEDAL"
 		medalText.TextColor3 = MEDAL_COLORS[medal] or Color3.new(1, 1, 1)
-		resText.Text = string.format("Team score %d\nKnockouts %d   •   Time %d:%02d\n\nSilver %d  •  Gold %d  •  Adamantium %d",
+		bigMedal.Image = G["bh_brawler_points_" .. string.lower(medal)] or ""
+		resText.Text = string.format("Team score %d\nKnockouts %d  •  Time %d:%02d\nSilver %d  •  Gold %d  •  Adamantium %d",
 			SPSO:GetAttribute("TeamScore") or 0, SPSO:GetAttribute("KOs") or 0, (SPSO:GetAttribute("RunTime") or 0) // 60,
 			(SPSO:GetAttribute("RunTime") or 0) % 60, SPSO:GetAttribute("MedalSilver") or 0, SPSO:GetAttribute("MedalGold") or 0,
 			SPSO:GetAttribute("MedalAdamantium") or 0)
 		results.Enabled = true
-		Sound.ui(medal == "Bronze" and "levelUp" or "win")
+		bigMedal.Size = UDim2.fromOffset(40, 40)
+		TweenService:Create(bigMedal, TweenInfo.new(0.6, Enum.EasingStyle.Back), { Size = UDim2.fromOffset(190, 190) }):Play()
+		Sound.music(Config.Music.complete)
+		Sound.play("FX_Brawler_game_Mission_Complete_Fireworks", { channel = "ui" })
+		Sound.play("FX_Brawler_Cheer", { channel = "ui" })
+		task.delay(5.5, function() if results.Enabled then Sound.music(Config.Music.completeLoop) end end)
 		task.delay(Config.ResultsTime - 1, function() results.Enabled = false end)
 	elseif s == "playing" then
 		results.Enabled = false
+	end
+end)
+RunService.RenderStepped:Connect(function(dt)
+	if results.Enabled then
+		rays1.Rotation += dt * 8
+		rays2.Rotation -= dt * 12
+		sparkles.Rotation += dt * 20
 	end
 end)
 
@@ -18414,13 +20756,13 @@ RunService.PreRender:Connect(function(dt)
 	end
 	updateLocal()
 	updateCamera(dt)
-	updateHUD()
+	updateHUD(dt)
 end)
 
 player.CharacterAdded:Connect(function()
 	selecting = false
 	selectGui.Enabled = false
-	if loadingDone then Sound.music(Config.Music.battle) end
+	if loadingDone then Sound.music(SPSO:GetAttribute("Music") or Config.Music.loading) end
 end)
 ]]></ProtectedString></Properties></Item></Item><Item class="Folder" referent="RBX000022"><Properties><string name="Name">StarterPlayer/StarterCharacterScripts</string></Properties><Item class="LocalScript" referent="RBX000013"><Properties><string name="Name">Animate</string><ProtectedString name="Source"><![CDATA[-- Replaces Roblox's default Animate script: SPSO characters are animated by the exact animation
 -- runtime (ReplicatedStorage.SPSO.Runtime.ExactAnimator) from StarterPlayerScripts.BrawlerClient.
@@ -18472,7 +20814,7 @@ return function(): string
 	local legacy = workspace:FindFirstChild("ElRugido_Import")
 	if legacy then legacy.Parent = source end
 	local heroesFolder = folder(ReplicatedStorage.SPSO, "Heroes")
-	for _, hero in GameData.HeroOrder do
+	for _, hero in GameData.Models do
 		local a = Assets.Heroes[hero] or {}
 		if not source:FindFirstChild(hero .. "_Import") and a.model then
 			local m = InsertService:LoadAsset(a.model)
@@ -18541,7 +20883,7 @@ return function(): string
 		local old = chars:FindFirstChild(n)
 		if old then old:Destroy() end
 	end
-	for _, hero in GameData.HeroOrder do
+	for _, hero in GameData.Models do
 		local import = source:FindFirstChild(hero .. "_Import")
 		local rigSrc = import and import:FindFirstChild(hero)
 		if rigSrc and rigSrc:FindFirstChild("RootPart") then

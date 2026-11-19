@@ -19,7 +19,7 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "Assets",
    "class": "ModuleScript",
-   "sha": "2a2ddbf00859a031"
+   "sha": "214cc8cfee30dc2e"
   },
   {
    "path": "studio/game/shared/CharacterAnimator.lua",

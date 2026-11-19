@@ -117,9 +117,39 @@ return function(): string
 		local old = chars:FindFirstChild(n)
 		if old then old:Destroy() end
 	end
+	-- a single skinned mesh imports with its bones inside the MeshPart (several meshes get a RootPart holding the
+	-- bones): give it the same layout, a RootPart at the rig origin with the bones and a Motor6D to the mesh
+	local function ensureRootPart(rigSrc: Model)
+		if rigSrc:FindFirstChild("RootPart") then return end
+		local mesh = rigSrc:FindFirstChildWhichIsA("MeshPart")
+		if not mesh then return end
+		local tops = {}
+		for _, b in mesh:GetChildren() do
+			if b:IsA("Bone") then table.insert(tops, b) end
+		end
+		if #tops == 0 then return end
+		local root = Instance.new("Part")
+		root.Name = "RootPart"
+		root.Size, root.Transparency = Vector3.new(2, 2, 1), 1
+		root.Anchored, root.CanCollide = true, false
+		root.CFrame = CFrame.identity -- the importer puts the armature origin at the model origin
+		root.Parent = rigSrc
+		for _, b in tops do
+			local w = b.WorldCFrame
+			b.Parent = root
+			b.WorldCFrame = w
+		end
+		local m6 = Instance.new("Motor6D")
+		m6.Name = mesh.Name .. "Motor6D"
+		m6.Part0, m6.Part1 = root, mesh
+		m6.C0 = root.CFrame:ToObjectSpace(mesh.CFrame)
+		m6.Parent = mesh
+		table.insert(log, "root part added for " .. rigSrc.Name)
+	end
 	for _, hero in allModels do
 		local import = source:FindFirstChild(hero .. "_Import")
 		local rigSrc = import and import:FindFirstChild(hero)
+		if rigSrc then ensureRootPart(rigSrc) end
 		if rigSrc and rigSrc:FindFirstChild("RootPart") then
 			local old = chars:FindFirstChild("Hero_" .. hero)
 			if old then old:Destroy() end

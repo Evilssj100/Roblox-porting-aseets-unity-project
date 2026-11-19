@@ -62,6 +62,8 @@ for _, name in (Config.HubData and Config.HubData.Characters) or {} do
 	Config.Models[name] = {
 		name = name, pack = name, template = "Hero_" .. name, headPart = name .. "_Head", bodyPart = name .. "_Body",
 		faceTextures = faces(name), wrapModes = Config.WrapModes, runAnimSpeed = 12,
+		-- the pigeon hides its folded/spread wings with zero-scale bones: exact CPU skinning (a tiny mesh)
+		exactSkin = name == "HubPigeon",
 	}
 end
 

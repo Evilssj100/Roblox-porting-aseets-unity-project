@@ -115,13 +115,25 @@ local function attach(model: Instance)
 			return
 		end
 		local t0 = os.clock()
-		while #root:GetDescendants() < 30 and os.clock() - t0 < 10 do task.wait() end
+		-- the rig streams in: wait until its bones stop arriving (small rigs such as the pigeon have only 14)
+		local n, still = -1, 0
+		while os.clock() - t0 < 10 do
+			local c = #root:GetDescendants()
+			if c == n and c > 0 then
+				still += 1
+				if still > 8 then break end
+			else
+				n, still = c, 0
+			end
+			task.wait()
+		end
 		local isLocal = model == player.Character
 		local variant = model:GetAttribute("SPSO_Variant")
 		local enemy = model:GetAttribute("SPSO_Team") == "Enemy"
 		local ok, ca = pcall(CharacterAnimator.new, model, {
 			-- exact bone-scale skinning (EditableMesh) for the local hero; others use the bones (memory budget)
-			isLocal = isLocal, skin = isLocal, prebuildSkin = isLocal,
+			isLocal = isLocal, skin = isLocal or (Config.Models[model:GetAttribute("SPSO_Hero") or ""] or {}).exactSkin == true,
+			prebuildSkin = isLocal,
 			faces = not (variant and variant ~= ""), lodDistance = 300,
 		})
 		if not ok then

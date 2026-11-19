@@ -1,4 +1,4 @@
-<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4"><External>null</External><External>nil</External><Item class="Folder" referent="RBX000031"><Properties><string name="Name">SPSO_Package</string></Properties><Item class="StringValue" referent="RBX000023"><Properties><string name="Name">_version</string><string name="Value">hub4</string></Properties></Item><Item class="Folder" referent="RBX000024"><Properties><string name="Name">ReplicatedStorage/SPSO/Runtime</string></Properties><Item class="ModuleScript" referent="RBX000001"><Properties><string name="Name">ExactAnimator</string><ProtectedString name="Source"><![CDATA[--!native
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4"><External>null</External><External>nil</External><Item class="Folder" referent="RBX000031"><Properties><string name="Name">SPSO_Package</string></Properties><Item class="StringValue" referent="RBX000023"><Properties><string name="Name">_version</string><string name="Value">hub5</string></Properties></Item><Item class="Folder" referent="RBX000024"><Properties><string name="Name">ReplicatedStorage/SPSO/Runtime</string></Properties><Item class="ModuleScript" referent="RBX000001"><Properties><string name="Name">ExactAnimator</string><ProtectedString name="Source"><![CDATA[--!native
 -- SPSO ExactAnimator: plays a hero's ORIGINAL animation curves exactly the way Unity's legacy
 -- Animation component did: Hermite curves, quaternion components normalised, the full node chain,
 -- crossfades, wrap modes, animation events, facial expressions (FacialAnimation.cs) and root motion
@@ -15303,6 +15303,8 @@ for _, name in (Config.HubData and Config.HubData.Characters) or {} do
 	Config.Models[name] = {
 		name = name, pack = name, template = "Hero_" .. name, headPart = name .. "_Head", bodyPart = name .. "_Body",
 		faceTextures = faces(name), wrapModes = Config.WrapModes, runAnimSpeed = 12,
+		-- the pigeon hides its folded/spread wings with zero-scale bones: exact CPU skinning (a tiny mesh)
+		exactSkin = name == "HubPigeon",
 	}
 end
 
@@ -35929,13 +35931,25 @@ local function attach(model: Instance)
 			return
 		end
 		local t0 = os.clock()
-		while #root:GetDescendants() < 30 and os.clock() - t0 < 10 do task.wait() end
+		-- the rig streams in: wait until its bones stop arriving (small rigs such as the pigeon have only 14)
+		local n, still = -1, 0
+		while os.clock() - t0 < 10 do
+			local c = #root:GetDescendants()
+			if c == n and c > 0 then
+				still += 1
+				if still > 8 then break end
+			else
+				n, still = c, 0
+			end
+			task.wait()
+		end
 		local isLocal = model == player.Character
 		local variant = model:GetAttribute("SPSO_Variant")
 		local enemy = model:GetAttribute("SPSO_Team") == "Enemy"
 		local ok, ca = pcall(CharacterAnimator.new, model, {
 			-- exact bone-scale skinning (EditableMesh) for the local hero; others use the bones (memory budget)
-			isLocal = isLocal, skin = isLocal, prebuildSkin = isLocal,
+			isLocal = isLocal, skin = isLocal or (Config.Models[model:GetAttribute("SPSO_Hero") or ""] or {}).exactSkin == true,
+			prebuildSkin = isLocal,
 			faces = not (variant and variant ~= ""), lodDistance = 300,
 		})
 		if not ok then
@@ -37076,9 +37090,39 @@ return function(): string
 		local old = chars:FindFirstChild(n)
 		if old then old:Destroy() end
 	end
+	-- a single skinned mesh imports with its bones inside the MeshPart (several meshes get a RootPart holding the
+	-- bones): give it the same layout, a RootPart at the rig origin with the bones and a Motor6D to the mesh
+	local function ensureRootPart(rigSrc: Model)
+		if rigSrc:FindFirstChild("RootPart") then return end
+		local mesh = rigSrc:FindFirstChildWhichIsA("MeshPart")
+		if not mesh then return end
+		local tops = {}
+		for _, b in mesh:GetChildren() do
+			if b:IsA("Bone") then table.insert(tops, b) end
+		end
+		if #tops == 0 then return end
+		local root = Instance.new("Part")
+		root.Name = "RootPart"
+		root.Size, root.Transparency = Vector3.new(2, 2, 1), 1
+		root.Anchored, root.CanCollide = true, false
+		root.CFrame = CFrame.identity -- the importer puts the armature origin at the model origin
+		root.Parent = rigSrc
+		for _, b in tops do
+			local w = b.WorldCFrame
+			b.Parent = root
+			b.WorldCFrame = w
+		end
+		local m6 = Instance.new("Motor6D")
+		m6.Name = mesh.Name .. "Motor6D"
+		m6.Part0, m6.Part1 = root, mesh
+		m6.C0 = root.CFrame:ToObjectSpace(mesh.CFrame)
+		m6.Parent = mesh
+		table.insert(log, "root part added for " .. rigSrc.Name)
+	end
 	for _, hero in allModels do
 		local import = source:FindFirstChild(hero .. "_Import")
 		local rigSrc = import and import:FindFirstChild(hero)
+		if rigSrc then ensureRootPart(rigSrc) end
 		if rigSrc and rigSrc:FindFirstChild("RootPart") then
 			local old = chars:FindFirstChild("Hero_" .. hero)
 			if old then old:Destroy() end

@@ -40,14 +40,14 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "FxPlayer",
    "class": "ModuleScript",
-   "sha": "96b23bcdf4a4c81b"
+   "sha": "cadc257eafcdec96"
   },
   {
    "path": "studio/game/shared/GameConfig.lua",
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "GameConfig",
    "class": "ModuleScript",
-   "sha": "77bb6ef697723155"
+   "sha": "021670ee97b5aeb1"
   },
   {
    "path": "studio/game/shared/GameData.lua",
@@ -75,14 +75,14 @@
    "parent": "ServerScriptService/SPSO",
    "name": "Brawler",
    "class": "Script",
-   "sha": "f6a92157c18060ab"
+   "sha": "1318ef8a0bb35fa7"
   },
   {
    "path": "studio/game/client/BrawlerClient.client.lua",
    "parent": "StarterPlayer/StarterPlayerScripts",
    "name": "BrawlerClient",
    "class": "LocalScript",
-   "sha": "70cd347874f4d747"
+   "sha": "0983f5e992d7a5ba"
   },
   {
    "path": "studio/game/character/Animate.client.lua",

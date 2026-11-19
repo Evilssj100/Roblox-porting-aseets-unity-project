@@ -148,7 +148,7 @@ local function attach(model: Instance)
 			return
 		end
 		animators[model] = ca
-		local d = { shadow = (groundDecal("Shadow", 6, Color3.new(0, 0, 0), 0.35)) }
+		local d = { shadow = (groundDecal(G.ShadowAlpha and "ShadowAlpha" or "Shadow", 6, Color3.new(0, 0, 0), G.ShadowAlpha and 0.25 or 0.8)) }
 		if enemy then d.bar = makeHealthBar(model, model:GetAttribute("SPSO_Boss") == true) end
 		decor[model] = d
 	end)
@@ -191,6 +191,9 @@ local function updateCamera(dt: number)
 	if not hrp then return end
 	camera.CameraType = Enum.CameraType.Scriptable
 	local focus = hrp.Position * Vector3.new(1, 0, 1) + Vector3.new(0, hrp.Position.Y - 3.3 + Config.Camera.lookHeight, 0)
+	-- keep the camera inside the arena's front wall (the original camera never left the play space)
+	local maxZ = Config.Camera.maxCameraZ - Config.Camera.offset.Z * zoom
+	if focus.Z > maxZ then focus = Vector3.new(focus.X, focus.Y, maxZ) end
 	camFocus = camFocus and camFocus:Lerp(focus, 1 - math.exp(-7 * dt)) or focus
 	local jitter = Vector3.zero
 	if shake > 0 then
@@ -597,7 +600,9 @@ local loadText = text(loading, "LOADING...", { Font = HEADING, TextSize = 30, Si
 Sound.music(Config.Music.menu)
 local loadProgress = 0
 task.spawn(function()
-	local list = { Assets.SoundSprite }
+	local sprite = Instance.new("Sound")
+	sprite.SoundId = Assets.SoundSprite
+	local list = { sprite }
 	for _, id in G do table.insert(list, id) end
 	for _, id in Assets.Fx do table.insert(list, id) end
 	local done = 0
@@ -656,7 +661,7 @@ local function makeCard(hero: string)
 		ScaleType = Enum.ScaleType.Fit })
 	text(card, string.upper(cfg.displayName), { Font = HEADING, TextSize = 30, Size = UDim2.fromScale(1, 0.09), Position = UDim2.fromScale(0, 0.65),
 		TextColor3 = Color3.fromRGB(255, 250, 230), TextStrokeTransparency = 0 })
-	text(card, info.tagline or "", { TextSize = 14, TextWrapped = true, Size = UDim2.fromScale(0.84, 0.12), Position = UDim2.fromScale(0.08, 0.74),
+	text(card, info.tagline or "", { TextSize = 13, TextWrapped = true, Size = UDim2.fromScale(0.68, 0.12), Position = UDim2.fromScale(0.16, 0.73),
 		TextColor3 = Color3.fromRGB(70, 50, 10), TextStrokeTransparency = 1 })
 	text(card, string.format("HEALTH %d   •   SPEED %d", d.health, math.floor(d.speed / Config.StudsPerUnit + 0.5)),
 		{ TextSize = 13, Size = UDim2.fromScale(1, 0.06), Position = UDim2.fromScale(0, 0.87), TextColor3 = Color3.fromRGB(110, 70, 10),

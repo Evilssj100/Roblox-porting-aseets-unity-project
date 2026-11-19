@@ -88,7 +88,7 @@ Config.Emotes = { "emote_taunt", "emote_cheer", "emote_laugh", "emote_dance" }
 Config.PowerEmotes = { "power_emote_1", "power_emote_2", "power_emote_3" }
 
 -- camera: fixed angle like the original brawler camera, facing the arena's back wall (-Z)
-Config.Camera = { offset = Vector3.new(0, 21, 27), lookHeight = 3.5, fov = 55, zoomMin = 0.6, zoomMax = 1.6 }
+Config.Camera = { offset = Vector3.new(0, 21, 27), lookHeight = 3.5, fov = 55, zoomMin = 0.6, zoomMax = 1.6, maxCameraZ = 47 }
 
 Config.Music = { menu = "Music_game_LoadingPage", battle = "Music_game_MainTheme" }
 Config.Tips = {

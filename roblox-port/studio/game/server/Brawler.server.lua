@@ -45,6 +45,8 @@ local pickups = {}
 local seq, projSeq = 0, 0
 local now = os.clock
 local Score = { team = 0, deaths = 0, kos = 0, running = false }
+local Stats = { attacks = 0, opens = 0, checks = 0, hits = 0, projectiles = 0, beams = 0 }
+_G.SPSO_Stats, _G.SPSO_Fighters = Stats, fighters -- for playtest tooling
 
 local function flat(v: Vector3): Vector3
 	return Vector3.new(v.X, 0, v.Z)
@@ -200,6 +202,7 @@ end
 
 function Fighter:meleeCheck(i: number, imp)
 	local pos = self:colliderPos(imp)
+	if self.team == "Hero" then Stats.checks += 1 end
 	local r = math.max(1.2, imp.radius) * Config.HitRadiusScale
 	for _, t in opponents(self) do
 		if self:canHit(i, imp, t) and bodyDistance(t, pos) <= r + t.radius then
@@ -274,6 +277,7 @@ function Fighter:triggerImpact(i: number, open: boolean)
 		if open then self:targetImpact(i, imp) end
 	elseif imp.type ~= 1 then
 		self.atk.open[i] = open or nil
+		if open and self.team == "Hero" then Stats.opens += 1 end
 		if open then self:meleeCheck(i, imp) end
 	end
 end
@@ -361,6 +365,7 @@ function Fighter:startAttack(key: string): boolean
 		self:addPower(-def.cost)
 	end
 	self:play(def.anim, Config.FadeAttack, "attack", key)
+	Stats.attacks += 1
 	return true
 end
 
@@ -466,6 +471,7 @@ local RECOIL = { [1] = "small", [2] = "big", [3] = "getup", [4] = "knockdown", [
 
 function Fighter:takeHit(attacker, imp, src: Vector3?)
 	if self.dead then return end
+	if attacker.team == "Hero" then Stats.hits += 1 end
 	local dmg = imp.damage * (attacker.damageScale or 1)
 	self.hum.Health = math.max(0, self.hum.Health - dmg)
 	if attacker.team == "Hero" then

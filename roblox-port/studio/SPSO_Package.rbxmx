@@ -1,4 +1,4 @@
-<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4"><External>null</External><External>nil</External><Item class="Folder" referent="RBX000025"><Properties><string name="Name">SPSO_Package</string></Properties><Item class="StringValue" referent="RBX000017"><Properties><string name="Name">_version</string><string name="Value">game-v4</string></Properties></Item><Item class="Folder" referent="RBX000018"><Properties><string name="Name">ReplicatedStorage/SPSO/Runtime</string></Properties><Item class="ModuleScript" referent="RBX000001"><Properties><string name="Name">ExactAnimator</string><ProtectedString name="Source"><![CDATA[--!native
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4"><External>null</External><External>nil</External><Item class="Folder" referent="RBX000025"><Properties><string name="Name">SPSO_Package</string></Properties><Item class="StringValue" referent="RBX000017"><Properties><string name="Name">_version</string><string name="Value">game-v5</string></Properties></Item><Item class="Folder" referent="RBX000018"><Properties><string name="Name">ReplicatedStorage/SPSO/Runtime</string></Properties><Item class="ModuleScript" referent="RBX000001"><Properties><string name="Name">ExactAnimator</string><ProtectedString name="Source"><![CDATA[--!native
 -- SPSO ExactAnimator: plays a hero's ORIGINAL animation curves exactly the way Unity's legacy
 -- Animation component did: Hermite curves, quaternion components normalised, the full node chain,
 -- crossfades, wrap modes, animation events, facial expressions (FacialAnimation.cs) and root motion
@@ -12746,7 +12746,9 @@ local function alphaSeq(cols, tint)
 end
 
 local function texture(key)
-	return key and Assets.Fx[key] or nil
+	if not key then return nil end
+	local id = Assets.Fx[key] or Assets.Fx[(string.gsub(key, "^fx_", ""))]
+	return id ~= "" and id or nil
 end
 
 local function holderFor(model: Model?, node: string?)
@@ -13221,7 +13223,7 @@ Config.Emotes = { "emote_taunt", "emote_cheer", "emote_laugh", "emote_dance" }
 Config.PowerEmotes = { "power_emote_1", "power_emote_2", "power_emote_3" }
 
 -- camera: fixed angle like the original brawler camera, facing the arena's back wall (-Z)
-Config.Camera = { offset = Vector3.new(0, 21, 27), lookHeight = 3.5, fov = 55, zoomMin = 0.6, zoomMax = 1.6 }
+Config.Camera = { offset = Vector3.new(0, 21, 27), lookHeight = 3.5, fov = 55, zoomMin = 0.6, zoomMax = 1.6, maxCameraZ = 47 }
 
 Config.Music = { menu = "Music_game_LoadingPage", battle = "Music_game_MainTheme" }
 Config.Tips = {
@@ -16744,6 +16746,8 @@ local pickups = {}
 local seq, projSeq = 0, 0
 local now = os.clock
 local Score = { team = 0, deaths = 0, kos = 0, running = false }
+local Stats = { attacks = 0, opens = 0, checks = 0, hits = 0, projectiles = 0, beams = 0 }
+_G.SPSO_Stats, _G.SPSO_Fighters = Stats, fighters -- for playtest tooling
 
 local function flat(v: Vector3): Vector3
 	return Vector3.new(v.X, 0, v.Z)
@@ -16899,6 +16903,7 @@ end
 
 function Fighter:meleeCheck(i: number, imp)
 	local pos = self:colliderPos(imp)
+	if self.team == "Hero" then Stats.checks += 1 end
 	local r = math.max(1.2, imp.radius) * Config.HitRadiusScale
 	for _, t in opponents(self) do
 		if self:canHit(i, imp, t) and bodyDistance(t, pos) <= r + t.radius then
@@ -16973,6 +16978,7 @@ function Fighter:triggerImpact(i: number, open: boolean)
 		if open then self:targetImpact(i, imp) end
 	elseif imp.type ~= 1 then
 		self.atk.open[i] = open or nil
+		if open and self.team == "Hero" then Stats.opens += 1 end
 		if open then self:meleeCheck(i, imp) end
 	end
 end
@@ -17060,6 +17066,7 @@ function Fighter:startAttack(key: string): boolean
 		self:addPower(-def.cost)
 	end
 	self:play(def.anim, Config.FadeAttack, "attack", key)
+	Stats.attacks += 1
 	return true
 end
 
@@ -17165,6 +17172,7 @@ local RECOIL = { [1] = "small", [2] = "big", [3] = "getup", [4] = "knockdown", [
 
 function Fighter:takeHit(attacker, imp, src: Vector3?)
 	if self.dead then return end
+	if attacker.team == "Hero" then Stats.hits += 1 end
 	local dmg = imp.damage * (attacker.damageScale or 1)
 	self.hum.Health = math.max(0, self.hum.Health - dmg)
 	if attacker.team == "Hero" then
@@ -17757,7 +17765,7 @@ local function attach(model: Instance)
 			return
 		end
 		animators[model] = ca
-		local d = { shadow = (groundDecal("Shadow", 6, Color3.new(0, 0, 0), 0.35)) }
+		local d = { shadow = (groundDecal(G.ShadowAlpha and "ShadowAlpha" or "Shadow", 6, Color3.new(0, 0, 0), G.ShadowAlpha and 0.25 or 0.8)) }
 		if enemy then d.bar = makeHealthBar(model, model:GetAttribute("SPSO_Boss") == true) end
 		decor[model] = d
 	end)
@@ -17800,6 +17808,9 @@ local function updateCamera(dt: number)
 	if not hrp then return end
 	camera.CameraType = Enum.CameraType.Scriptable
 	local focus = hrp.Position * Vector3.new(1, 0, 1) + Vector3.new(0, hrp.Position.Y - 3.3 + Config.Camera.lookHeight, 0)
+	-- keep the camera inside the arena's front wall (the original camera never left the play space)
+	local maxZ = Config.Camera.maxCameraZ - Config.Camera.offset.Z * zoom
+	if focus.Z > maxZ then focus = Vector3.new(focus.X, focus.Y, maxZ) end
 	camFocus = camFocus and camFocus:Lerp(focus, 1 - math.exp(-7 * dt)) or focus
 	local jitter = Vector3.zero
 	if shake > 0 then
@@ -18206,7 +18217,9 @@ local loadText = text(loading, "LOADING...", { Font = HEADING, TextSize = 30, Si
 Sound.music(Config.Music.menu)
 local loadProgress = 0
 task.spawn(function()
-	local list = { Assets.SoundSprite }
+	local sprite = Instance.new("Sound")
+	sprite.SoundId = Assets.SoundSprite
+	local list = { sprite }
 	for _, id in G do table.insert(list, id) end
 	for _, id in Assets.Fx do table.insert(list, id) end
 	local done = 0
@@ -18265,7 +18278,7 @@ local function makeCard(hero: string)
 		ScaleType = Enum.ScaleType.Fit })
 	text(card, string.upper(cfg.displayName), { Font = HEADING, TextSize = 30, Size = UDim2.fromScale(1, 0.09), Position = UDim2.fromScale(0, 0.65),
 		TextColor3 = Color3.fromRGB(255, 250, 230), TextStrokeTransparency = 0 })
-	text(card, info.tagline or "", { TextSize = 14, TextWrapped = true, Size = UDim2.fromScale(0.84, 0.12), Position = UDim2.fromScale(0.08, 0.74),
+	text(card, info.tagline or "", { TextSize = 13, TextWrapped = true, Size = UDim2.fromScale(0.68, 0.12), Position = UDim2.fromScale(0.16, 0.73),
 		TextColor3 = Color3.fromRGB(70, 50, 10), TextStrokeTransparency = 1 })
 	text(card, string.format("HEALTH %d   •   SPEED %d", d.health, math.floor(d.speed / Config.StudsPerUnit + 0.5)),
 		{ TextSize = 13, Size = UDim2.fromScale(1, 0.06), Position = UDim2.fromScale(0, 0.87), TextColor3 = Color3.fromRGB(110, 70, 10),

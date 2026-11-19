@@ -57,7 +57,9 @@ local function alphaSeq(cols, tint)
 end
 
 local function texture(key)
-	return key and Assets.Fx[key] or nil
+	if not key then return nil end
+	local id = Assets.Fx[key] or Assets.Fx[(string.gsub(key, "^fx_", ""))]
+	return id ~= "" and id or nil
 end
 
 local function holderFor(model: Model?, node: string?)

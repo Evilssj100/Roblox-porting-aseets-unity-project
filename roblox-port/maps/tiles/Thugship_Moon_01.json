@@ -1,0 +1,1 @@
+{"name": "Thugship_Moon_01", "source": "SkrullShip_Misc.asset", "root": "Skrullship_Moon_01", "mirror": false, "studsPerUnit": 2.56, "parts": [{"name": "Thugship_Moon_01", "kind": "baked", "center": [0.1116, 0.5607, 1.1423], "size": [255.7923, 253.378, 253.922], "tris": 680}], "collision": [], "boxes": [], "skipped": []}

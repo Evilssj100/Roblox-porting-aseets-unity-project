@@ -91,47 +91,50 @@ heads, bodies = [], []
 for o in parts:
     used = {p.material_index for p in o.data.polygons}
     (heads if is_head(o.material_slots[min(used)].material) else bodies).append(o)
-assert len(heads) == 1 and bodies, f"expected one head part and a body, got heads={[o.name for o in heads]}"
-head = heads[0]
+assert len(heads) <= 1 and bodies, f"expected at most one head part and a body, got heads={[o.name for o in heads]}"
+head = heads[0] if heads else None  # minions and robots: no separate head / face atlas
 bodies.sort(key=lambda o: -len(o.data.vertices))  # extra materials (props, guns) stay separate parts
 body = bodies[0]
 extra = bodies[1:]
 for i, o in enumerate(extra):
     o.name = o.data.name = f"{hero}_Body{i + 2}"
-parts = [body, head] + extra
+parts = [body] + ([head] if head else []) + extra
 for o in parts:
     bpy.ops.object.select_all(action="DESELECT")
     o.select_set(True)
     bpy.context.view_layer.objects.active = o
     bpy.ops.object.material_slot_remove_unused()
 body.name, body.data.name = f"{hero}_Body", f"{hero}_Body"
-head.name, head.data.name = f"{hero}_Head", f"{hero}_Head"
+face0 = None
+if head:
+    head.name, head.data.name = f"{hero}_Head", f"{hero}_Head"
 
 # face tiles + head UV remap (tile 0: u in [0,.25], v in [.5,1])
-atlas = Image.open(atlas_png).convert("RGB")
-T = atlas.size[0] // 4
-for k in range(8):
-    i, j = k % 4, k // 4
-    atlas.crop((i * T, j * T, (i + 1) * T, (j + 1) * T)).save(os.path.join(tex_dir, f"{hero}_Face_{k}.png"))
-uvl = head.data.uv_layers.active.data
-uv = np.zeros(len(uvl) * 2)
-uvl.foreach_get("uv", uv)
-uv = uv.reshape(-1, 2)
-print("head uv range before:", uv.min(0).round(3), uv.max(0).round(3))
-if uv[:, 0].max() > 0.2505 or uv[:, 1].min() < 0.4995:
-    print("WARNING: head UVs are not inside expression tile 0 (u<=.25, v>=.5); face tiles will be wrong")
-uv[:, 0] = uv[:, 0] * 4.0
-uv[:, 1] = uv[:, 1] * 2.0 - 1.0
-uvl.foreach_set("uv", uv.ravel())
-hm = head.material_slots[0].material
-nt = hm.node_tree
-for n in list(nt.nodes):
-    if n.type in ("MAPPING", "UVMAP"):
-        nt.nodes.remove(n)
-tex = next(n for n in nt.nodes if n.type == "TEX_IMAGE")
-face0 = bpy.data.images.load(os.path.join(tex_dir, f"{hero}_Face_0.png"))
-face0.name = f"{hero}_Face_0"
-tex.image = face0
+atlas = Image.open(atlas_png).convert("RGB") if head else None
+if head:
+    T = atlas.size[0] // 4
+    for k in range(8):
+        i, j = k % 4, k // 4
+        atlas.crop((i * T, j * T, (i + 1) * T, (j + 1) * T)).save(os.path.join(tex_dir, f"{hero}_Face_{k}.png"))
+    uvl = head.data.uv_layers.active.data
+    uv = np.zeros(len(uvl) * 2)
+    uvl.foreach_get("uv", uv)
+    uv = uv.reshape(-1, 2)
+    print("head uv range before:", uv.min(0).round(3), uv.max(0).round(3))
+    if uv[:, 0].max() > 0.2505 or uv[:, 1].min() < 0.4995:
+        print("WARNING: head UVs are not inside expression tile 0 (u<=.25, v>=.5); face tiles will be wrong")
+    uv[:, 0] = uv[:, 0] * 4.0
+    uv[:, 1] = uv[:, 1] * 2.0 - 1.0
+    uvl.foreach_set("uv", uv.ravel())
+    hm = head.material_slots[0].material
+    nt = hm.node_tree
+    for n in list(nt.nodes):
+        if n.type in ("MAPPING", "UVMAP"):
+            nt.nodes.remove(n)
+    tex = next(n for n in nt.nodes if n.type == "TEX_IMAGE")
+    face0 = bpy.data.images.load(os.path.join(tex_dir, f"{hero}_Face_0.png"))
+    face0.name = f"{hero}_Face_0"
+    tex.image = face0
 
 # body texture to file too
 bm = body.material_slots[0].material
@@ -146,6 +149,8 @@ else:
 btex.image.name = f"{hero}_Body"
 # absolute paths next to the output .blend (save_as remaps them to //textures/...), and pack both
 for im, fn in ((btex.image, f"{hero}_Body.png"), (face0, f"{hero}_Face_0.png")):
+    if im is None:
+        continue
     if im.packed_file:
         im.unpack(method="REMOVE")
     im.filepath = os.path.abspath(os.path.join(tex_dir, fn))
@@ -198,8 +203,9 @@ for pb in arm.pose.bones:
 np.savez_compressed(os.path.join(out_dir, f"{hero}_rig.npz"), bones=np.array(bones), parents=np.array(parents),
                     rest=rest, **{f"clip__{k}": v for k, v in clips.items()})
 meta_clips = meta_clips or [{"name": a.name, "duration": a.get("duration")} for a in sorted(bpy.data.actions, key=lambda x: x.name)]
-height = max(v[2] for o in (body, head) for v in [o.matrix_world @ c for c in [vv.co for vv in o.data.vertices]]) - \
-    min(v[2] for o in (body, head) for v in [o.matrix_world @ c for c in [vv.co for vv in o.data.vertices]])
+_vis = [o for o in (body, head) if o is not None]
+height = max(v[2] for o in _vis for v in [o.matrix_world @ c for c in [vv.co for vv in o.data.vertices]]) - \
+    min(v[2] for o in _vis for v in [o.matrix_world @ c for c in [vv.co for vv in o.data.vertices]])
 json.dump({"hero": hero, "height_bu": height, "bones": bones, "parents": parents, "fx_points": fx,
            "clips": meta_clips, "face_tiles": [f"{hero}_Face_{k}.png" for k in range(8)],
            "face_tile_names": ["neutral_smile", "grin", "surprised", "gritted", "wink", "smirk", "shout", "focused"]},
@@ -209,5 +215,5 @@ bpy.ops.object.select_all(action="DESELECT")
 scene.frame_set(1)
 out_blend = os.path.join(out_dir, f"{hero}.blend")
 bpy.ops.wm.save_as_mainfile(filepath=out_blend, compress=True, relative_remap=True)
-print(f"saved {out_blend}: body {len(body.data.vertices)}v, head {len(head.data.vertices)}v, bones {len(bones)}, "
+print(f"saved {out_blend}: body {len(body.data.vertices)}v, head {len(head.data.vertices) if head else 0}v, bones {len(bones)}, "
       f"clips {len(clips)}, slots renamed {renamed}, height {height:.3f} BU, fx {list(fx)}")

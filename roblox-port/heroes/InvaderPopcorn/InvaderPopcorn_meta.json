@@ -1,0 +1,49 @@
+{
+ "hero": "InvaderPopcorn",
+ "height_bu": 1.4514923691749573,
+ "bones": [
+  "Pelvis"
+ ],
+ "parents": [
+  ""
+ ],
+ "fx_points": {},
+ "clips": [
+  {
+   "name": "Take 001",
+   "duration": 1.166667
+  },
+  {
+   "name": "attack_1",
+   "duration": 1.233333
+  },
+  {
+   "name": "movement_idle",
+   "duration": 1.333333
+  },
+  {
+   "name": "movement_run",
+   "duration": 1.166667
+  }
+ ],
+ "face_tiles": [
+  "InvaderPopcorn_Face_0.png",
+  "InvaderPopcorn_Face_1.png",
+  "InvaderPopcorn_Face_2.png",
+  "InvaderPopcorn_Face_3.png",
+  "InvaderPopcorn_Face_4.png",
+  "InvaderPopcorn_Face_5.png",
+  "InvaderPopcorn_Face_6.png",
+  "InvaderPopcorn_Face_7.png"
+ ],
+ "face_tile_names": [
+  "neutral_smile",
+  "grin",
+  "surprised",
+  "gritted",
+  "wink",
+  "smirk",
+  "shout",
+  "focused"
+ ]
+}

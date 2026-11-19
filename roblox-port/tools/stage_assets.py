@@ -117,7 +117,8 @@ def main():
         if os.path.exists(os.path.join(d, f"{hero}.fbx")):
             job(f"model_{hero}", f"heroes/{hero}/{hero}.fbx", "model", hero)
             for i in range(1, 8):
-                job(f"face_{hero}_{i}", f"heroes/{hero}/textures/{hero}_Face_{i}.png", "image", f"{hero}_Face_{i}")
+                if os.path.exists(os.path.join(d, "textures", f"{hero}_Face_{i}.png")):
+                    job(f"face_{hero}_{i}", f"heroes/{hero}/textures/{hero}_Face_{i}.png", "image", f"{hero}_Face_{i}")
         if os.path.exists(os.path.join(port, "studio", "packages", f"Hero_{hero}.rbxmx")):
             job(f"package_{hero}", f"studio/packages/Hero_{hero}.rbxmx", "package", f"SPSO Hero Data {hero}")
     os.makedirs(os.path.join(port, "studio", "upload"), exist_ok=True)

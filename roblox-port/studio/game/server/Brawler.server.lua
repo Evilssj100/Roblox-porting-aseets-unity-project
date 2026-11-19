@@ -22,6 +22,9 @@ local Net = require(Game:WaitForChild("Net"))
 local HeroPack = require(SPSO:WaitForChild("Runtime"):WaitForChild("HeroPack"))
 local ExactAnimator = require(SPSO.Runtime:WaitForChild("ExactAnimator"))
 
+local MissionData = Config.Mission and require(Game:WaitForChild("MissionData")) or nil
+local StageBuilder = Config.Mission and require(Game:WaitForChild("StageBuilder")) or nil
+
 local AttackRemote, EmoteRemote, FxRemote = Net.event("Attack"), Net.event("Emote"), Net.event("Fx")
 local SelectRemote = Net.event("SelectHero")
 local S = GameData.Scoring
@@ -52,7 +55,13 @@ local function flat(v: Vector3): Vector3
 	return Vector3.new(v.X, 0, v.Z)
 end
 
+local Mission = { stage = nil, folder = nil, crates = {} } -- the running original mission (Config.Mission)
+
 local function spawnPoint(prefix: string, i: number): CFrame
+	if Mission.stage and prefix == "Player" and #Mission.stage.players > 0 then
+		local pl = Mission.stage.players
+		return StageBuilder.cf(pl[(i - 1) % #pl + 1])
+	end
 	local pts = {}
 	if spawns then
 		for _, p in spawns:GetChildren() do
@@ -67,6 +76,9 @@ end
 local wallParams = RaycastParams.new()
 wallParams.FilterType = Enum.RaycastFilterType.Include
 wallParams.FilterDescendantsInstances = { arena and arena:FindFirstChild("Collision") or workspace.Terrain }
+local function setWalls(folder)
+	wallParams.FilterDescendantsInstances = { folder or workspace.Terrain }
+end
 
 -- fighters ------------------------------------------------------------------------------------------------------
 local Fighter = {}
@@ -200,6 +212,7 @@ function Fighter:registerHit(i: number, t)
 	a.count[i] += 1
 end
 
+local breakCrate -- mission crates (defined with the mission code)
 function Fighter:meleeCheck(i: number, imp)
 	local pos = self:colliderPos(imp)
 	if self.team == "Hero" then Stats.checks += 1 end
@@ -208,6 +221,11 @@ function Fighter:meleeCheck(i: number, imp)
 		if self:canHit(i, imp, t) and bodyDistance(t, pos) <= r + t.radius then
 			self:registerHit(i, t)
 			t:takeHit(self, imp, pos)
+		end
+	end
+	if self.team == "Hero" and breakCrate then
+		for crate, c in Mission.crates do
+			if not c.broken and (c.pos - pos).Magnitude <= r + c.radius then breakCrate(crate, self) end
 		end
 	end
 end
@@ -441,8 +459,9 @@ function Fighter:die(attacker, imp)
 			publishScore()
 			FxRemote:FireAllClients("score", { pos = self:chest() + Vector3.new(0, 3, 0), points = pts, mult = mult })
 		end
-		dropPickups(self.hrp.Position)
+		if not Mission.stage then dropPickups(self.hrp.Position) end
 		if self.ai and self.ai.boss then FxRemote:FireAllClients("bossKO", { pos = self:chest() }) end
+		if self.onKilled then task.spawn(self.onKilled, self) end
 		if imp and (imp.recoil == 5 or imp.recoil == 4) then
 			self.hum:ChangeState(Enum.HumanoidStateType.Freefall)
 			local dir = attacker and flat(self.hrp.Position - attacker.hrp.Position) or Vector3.zero
@@ -458,6 +477,7 @@ function Fighter:die(attacker, imp)
 		task.delay(Config.DespawnAfter, function()
 			fighters[self.model] = nil
 			self.model:Destroy()
+			if self.onDespawn then self.onDespawn(self) end
 		end)
 	else
 		Score.deaths += 1
@@ -470,8 +490,11 @@ end
 
 local RECOIL = { [1] = "small", [2] = "big", [3] = "getup", [4] = "knockdown", [5] = "launch", [6] = "small", [7] = "stun", [8] = "small" }
 
+local fireEvent -- scenario events (mission code)
 function Fighter:takeHit(attacker, imp, src: Vector3?)
 	if self.dead then return end
+	if self.asleep and self.wakeOnHit ~= false then self.asleep = false end
+	if imp.event and fireEvent and attacker.team == "Enemy" then fireEvent(imp.event) end
 	if attacker.team == "Hero" then Stats.hits += 1 end
 	local dmg = imp.damage * (attacker.damageScale or 1)
 	self.hum.Health = math.max(0, self.hum.Health - dmg)
@@ -572,7 +595,8 @@ function Fighter:pickAttack(dist: number)
 	local keys = {}
 	local tp = self.ai.teleport
 	for k, a in self.data.attacks do
-		if k ~= "Super" and not (tp and k == tp[2]) and (dist <= a.range + 6 or self.ai.keepDistance > 0) then table.insert(keys, k) end
+		if k ~= "Super" and not (tp and k == tp[2]) and not (self.ai.noAttacks and self.ai.noAttacks[k])
+			and (dist <= a.range + 6 or self.ai.keepDistance > 0) then table.insert(keys, k) end
 	end
 	if self.ai.boss and now() >= self.nextSuper and self.data.attacks.Super then
 		self.nextSuper = now() + self.ai.superEvery
@@ -582,18 +606,27 @@ function Fighter:pickAttack(dist: number)
 	return keys[math.random(#keys)]
 end
 
+local shapeshift -- mission code
 function Fighter:think()
 	local t = now()
-	if self.dead or t < self.nextThink then return end
+	if self.dead or t < self.nextThink or self.spawningIn then return end
 	self.nextThink = t + self.ai.think
 	if self.action then
 		self.hum.WalkSpeed = 0
 		return
 	end
-	self.hum.WalkSpeed = self.data.speed
+	self.hum.WalkSpeed = self.data.speed * (self.speedScale or 1)
 	local best, bd = self:nearestOpponent()
+	if self.asleep then
+		if best and bd <= (self.aggro or 50) then self.asleep = false else best = nil end
+	end
 	if not best then
 		self.hum:Move(Vector3.zero)
+		return
+	end
+	if self.ai.shifter and shapeshift and not self.shifted and t >= (self.shiftAt or math.huge) then
+		self.shifted = true
+		shapeshift(self)
 		return
 	end
 	local dir = flat(best.hrp.Position - self.hrp.Position)
@@ -641,6 +674,14 @@ local function stepProjectiles(dt: number)
 		if not done then
 			local wall = workspace:Raycast(from, to - from, wallParams)
 			if wall then done, hitPos = true, wall.Position end
+		end
+		if not done and owner.team == "Hero" and breakCrate then
+			for crate, c in Mission.crates do
+				if not c.broken and (c.pos - to).Magnitude <= math.max(0.8, p.imp.radius) + c.radius then
+					breakCrate(crate, owner)
+					done, hitPos = true, to
+				end
+			end
 		end
 		if not done and owner.model.Parent then
 			local r = math.max(0.8, p.imp.radius)
@@ -814,7 +855,7 @@ end)
 
 -- enemies, waves, scoring ---------------------------------------------------------------------------------------------
 local skinCount = {}
-local function spawnEnemy(arch: string, i: number)
+local function spawnEnemy(arch: string, i: number, at: CFrame?)
 	local spec = GameData.Enemies[arch]
 	local ai = Config.Enemies[arch]
 	local cfg = Config.Models[spec.model]
@@ -840,7 +881,7 @@ local function spawnEnemy(arch: string, i: number)
 	hum.BreakJointsOnDeath = false
 	hum.WalkSpeed = spec.speed
 	hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
-	e:PivotTo(spawnPoint("Enemy", i) + Vector3.new(math.random() * 4 - 2, 3, math.random() * 4 - 2))
+	e:PivotTo(at or (spawnPoint("Enemy", i) + Vector3.new(math.random() * 4 - 2, 3, math.random() * 4 - 2)))
 	e.Parent = enemyFolder
 	e.HumanoidRootPart:SetNetworkOwner(nil)
 	local f = Fighter.new(e, "Enemy", nil, spec.model, arch)
@@ -848,6 +889,7 @@ local function spawnEnemy(arch: string, i: number)
 	if ai.boss then e:SetAttribute("SPSO_Boss", true) end
 	hum.Died:Connect(function() f:die(nil, nil) end)
 	FxRemote:FireAllClients("spawn", { model = e })
+	return f
 end
 
 local function banner(text: string)
@@ -884,7 +926,7 @@ local function medals(playerCount: number)
 		adamantium = math.floor(num2 + num14 * S.medalRatios.adamantium) }
 end
 
-task.spawn(function()
+if not Config.Mission then task.spawn(function()
 	SPSO:SetAttribute("Waves", #Config.Waves)
 	while true do
 		SPSO:SetAttribute("State", "waiting")
@@ -934,4 +976,4 @@ task.spawn(function()
 			if f.team == "Hero" and not f.dead then f.hum.Health = f.hum.MaxHealth end
 		end
 	end
-end)
+end) end

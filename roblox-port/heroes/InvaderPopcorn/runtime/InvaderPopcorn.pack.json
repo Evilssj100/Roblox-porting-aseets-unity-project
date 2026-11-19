@@ -1,0 +1,81 @@
+{
+ "hero": "InvaderPopcorn",
+ "studsPerUnit": 2.56,
+ "rawBytes": 31539,
+ "zstdBytes": 12793,
+ "nodes": [
+  "thug_popcorn_minion_01_prefab",
+  "export_node",
+  "motion_export",
+  "motion_transfer",
+  "Pelvis"
+ ],
+ "bones": [
+  "Pelvis"
+ ],
+ "mesh": [
+  {
+   "name": "InvaderPopcorn_Body",
+   "verts": 323,
+   "normals": 331,
+   "uvs": 100,
+   "tris": 238
+  }
+ ],
+ "curveKeys": 127,
+ "constantCurves": 26,
+ "selfTest": [
+  "attack_1",
+  "movement_run",
+  "Take 001"
+ ],
+ "clips": [
+  {
+   "name": "Take 001",
+   "duration": 1.166667,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.0,
+   "events": []
+  },
+  {
+   "name": "attack_1",
+   "duration": 1.233333,
+   "rootMotion": true,
+   "maxScaleDeviation": 0.67346,
+   "events": [
+    {
+     "time": 0.6166669726371765,
+     "function": "OnCollisionEnableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.75,
+     "function": "OnCollisionDisableAnimTag",
+     "data": "",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "movement_idle",
+   "duration": 1.333333,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.0,
+   "events": []
+  },
+  {
+   "name": "movement_run",
+   "duration": 1.166667,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.0,
+   "events": []
+  }
+ ],
+ "checkVsExact": {
+  "maxMatrixError": 8.208639421525277e-07,
+  "maxVertexErrorStuds": 9.858951061286728e-07
+ }
+}

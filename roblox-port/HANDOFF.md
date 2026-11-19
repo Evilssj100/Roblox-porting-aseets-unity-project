@@ -45,6 +45,19 @@ Place "11032026_2" (placeId 104298000827208). The brawler is playable end to end
 - `_G` is not shared with the Studio Assistant's execute_luau; read game state from attributes instead.
 - Roblox audio uploads are limited per month; keep sounds in sprites.
 
+## Original missions (paused Nov 18 2026 to work on the hub zones)
+First mission in progress: "Unstoppa-Invader!" (original m_1012: stage 1 = bay with 10 waves behind laser gates, stage 2 = boss arena with the warlord, adds, flame traps and health drops).
+- Done (cloud tools, nothing uploaded yet):
+  - `tools/unity_bundle_tree.py` prints any bundle's hierarchy, components and script fields; `tools/index_bundles.py` indexes the archive's 361 `Assets/Unrenamed` bundles by their contents (the popcorn minion, the shared transport FX, the warlord's FX and VO, doombots and the mission-complete music are in there).
+  - `tools/export_scenario.py` scenario bundle -> JSON (every object, world transform, colliders, script fields); `tools/port_tile.py` tile or prop -> FBX built straight in Blender (baked lighting texture, Neon glow parts, collision triangles, mirrored variant `_M`, oversized meshes split); `tools/convert_scenario.py` mission XML + scenario JSON + en-us strings + tagged audio -> `studio/game/shared/MissionData.lua`; `tools/preview_stage.py` renders an assembled stage from the original camera (both stages checked).
+  - `maps/tiles/`: the 12 SkrullShip tiles and props for both stages (FBX + JSON + previews).
+  - `studio/game/shared/StageBuilder.lua` places tiles and props like ObjectPlaceholder, rebuilds tile collision as wedges, adds walls and laser gates (untested in Studio).
+  - `Brawler.server.lua` has inert mission hooks (Config.Mission unset = the old wave run): crates, scenario events from impacts, sleeping spawns with aggro distance, shapeshifter, onKilled/onDespawn, `spawnEnemy(arch, i, at)`.
+  - `heroes/InvaderPopcorn` (the minion: model + exact pack, not uploaded); `convert_game_data.py` has the Popcorn and Shifter archetypes and impact events (GameData.lua not regenerated yet).
+- To resume: append the scenario runtime to the server (ports of ScenarioEventManager, SpawnController, SpawnGroup, CharacterSpawn, ColliderPopulationTrigger, ScenarioEventTransferBox, DisableObjectScenarioEvent, NewObjectiveScenarioEvent, ObjectSpawnRegion, ScenarioEventPeriodicEvent; the decompiled originals are in SHSUnderground/shso-unity-project `Assets/mainData/Assets/Scripts/*.cs`, blobless clone + `git cat-file`), a setup step that inserts the tile models into ServerStorage.SPSO.Tiles, the client objective banner and stage camera (CameraLiteSpring data is in MissionData), a sound sprite for the stage-complete jingle, ambience, crates, flames and boss VO, then upload and set Config.Mission.
+- The original shapeshifters copy licensed heroes; the port maps them to evil copies of its own heroes (FORMS in convert_scenario.py).
+
 ## Next
-1. Port the original missions: the archive's brawler scenarios (tile layouts, spawners, triggers) and tiles (SkrullShip, Rooftops, Sewers, Subway, Factory, Asgard...), then the social zones and more enemies and bosses.
-2. Hero overhaul (new designs) once everything is ported.
+1. Hub zones (social spaces) and hub gameplay, porting their models (current focus).
+2. Resume the original missions (above), then more missions, enemies and bosses.
+3. Hero overhaul (new designs) once everything is ported.

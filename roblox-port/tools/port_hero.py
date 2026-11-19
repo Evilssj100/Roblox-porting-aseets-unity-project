@@ -26,7 +26,8 @@ HEROES = {"Skyvolt": "Falcon_01-darkhawk", "Aurora": "Ms_Marvel_01-classic",
           "Magmaul": "Thing_01-classic", "NightGecko": "spiderman-secretwars"}
 # characters ported with their ORIGINAL look (no repaint yet): port name -> character bundle in the SHSO
 # archive (github.com/SHSUnderground/shso-archive-structured, Assets/Characters/<name>.asset)
-ORIGINALS = {"InvaderGunner": "skrull_01", "InvaderGrenadier": "skrull_02", "InvaderMelee": "skrull_04",
+HEADLESS = {"InvaderPopcorn"}  # no face atlas: one body part
+ORIGINALS = {"InvaderPopcorn": "skrull_popcorn_minion_01", "InvaderGunner": "skrull_01", "InvaderGrenadier": "skrull_02", "InvaderMelee": "skrull_04",
              "InvaderWarlord": "super_skrull_boss_01"}
 
 
@@ -50,6 +51,10 @@ def head_atlas(bundle, dest):
             d = o.read()
             if "head" in d.m_Name.lower() and (best is None or d.m_Width > best.m_Width):
                 best = d
+    if best is None:  # no separate head texture (minions): a neutral atlas keeps the pipeline uniform
+        from PIL import Image
+        Image.new("RGB", (512, 256), (128, 128, 128)).save(dest)
+        return
     best.image.convert("RGB").save(dest)
 
 
@@ -86,7 +91,7 @@ def port(hero, a):
           py + [T("unity_hero_to_blend_exact.py"), bundle, anim, exact],
           ] + ([] if original else [py + [T("uv_bake_maps.py"), exact, os.path.join(W, "maps")]]), {}),
         ("look", [os.path.join(O, f"{hero}.blend")] + ([] if original else [body, atlas]), [exact], look, {}),
-        ("prep", [os.path.join(D, f"{hero}.blend"), os.path.join(D, "textures", f"{hero}_Face_7.png")],
+        ("prep", [os.path.join(D, f"{hero}.blend")] + ([] if hero in HEADLESS else [os.path.join(D, "textures", f"{hero}_Face_7.png")]),
          [os.path.join(O, f"{hero}.blend"), atlas, T("prep_roblox_hero.py")],
          [py + [T("prep_roblox_hero.py"), os.path.join(O, f"{hero}.blend"), atlas, D, hero] + ([] if original else [body])], {}),
         ("mesh", [mesh], [os.path.join(D, f"{hero}.blend")],

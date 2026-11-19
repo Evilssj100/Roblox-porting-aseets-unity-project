@@ -37,6 +37,8 @@ ENEMIES = {  # archetype -> original enemy file and the port model of its charac
     "Bazooka": {"xml": "skrull_bazooka", "model": "InvaderGunner", "displayName": "Invader Bazooka"},
     "Grenadier": {"xml": "skrull_grenade", "model": "InvaderGrenadier", "displayName": "Invader Grenadier"},
     "Warlord": {"xml": "super_skrull_boss", "model": "InvaderWarlord", "displayName": "Invader Warlord"},
+    "Popcorn": {"xml": "skrull_popcorn", "model": "InvaderPopcorn", "displayName": "Invader Minion"},
+    "Shifter": {"xml": "skrull_polymorph", "model": "InvaderMelee", "displayName": "Invader Shapeshifter"},
 }
 RANKS = ["fodder", "regular", "lieutenant", "miniboss", "boss", "megaboss"]
 
@@ -106,6 +108,12 @@ def impact(i, cols):
     eff = clean((i.findtext("impact_effect") or "").strip())
     if eff:
         out["effect"] = eff
+    ev = clean((i.findtext("event_name") or "").strip())  # scenario event fired by the hit (boss flames...)
+    if ev:
+        out["event"] = ev
+    ace = clean((i.findtext("attacker_combat_effect") or "").strip())
+    if ace:
+        out["attackerEffect"] = ace
     if t == 1:
         out.update({"speed": r4(num(i, "projectile_speed") * K), "life": r4(num(i, "projectile_lifespan", 3)),
                     "gravity": r4(num(i, "projectile_gravity") * K), "explode": r4(num(i, "projectile_explosion_radius") * K),

@@ -242,17 +242,33 @@ A.Skins = {
 }
 A.Heroes = {
 	Aurora = { model = 101999774177971, package = 89189136738630, faces = { "", "rbxassetid://104780818177858", "rbxassetid://105716631085952", "rbxassetid://126715674277625", "rbxassetid://87282611287554", "rbxassetid://101687338354384", "rbxassetid://81365336114700", "rbxassetid://73131766328960" } },
+	CivilianFemale1 = { model = 119984961293588, package = 91070720062314, faces = { "", "rbxassetid://93285020316262", "rbxassetid://94692397130334", "rbxassetid://124923662017175", "rbxassetid://137913533006362", "rbxassetid://96360427580956", "rbxassetid://122183910964797", "rbxassetid://73331126320610" } },
+	CivilianFemale2 = { model = 133372120631057, package = 138540838272563, faces = { "", "rbxassetid://133031622601160", "rbxassetid://127827496611254", "rbxassetid://101295573895781", "rbxassetid://101967885454574", "rbxassetid://88963655004416", "rbxassetid://79155739225810", "rbxassetid://102870408206858" } },
+	CivilianFemale3 = { model = 82912743177051, package = 97834688814742, faces = { "", "rbxassetid://128490848568228", "rbxassetid://117420374723572", "rbxassetid://114627492898414", "rbxassetid://96372441060096", "rbxassetid://136338603224754", "rbxassetid://85472304272853", "rbxassetid://138394859804524" } },
+	CivilianFemale4 = { model = 126016590943753, package = 124882893743905, faces = { "", "rbxassetid://85808335522490", "rbxassetid://71995705575247", "rbxassetid://100584434352962", "rbxassetid://122721645841756", "rbxassetid://89225104866200", "rbxassetid://93592325292064", "rbxassetid://75639667261855" } },
+	CivilianMale1 = { model = 120573863741693, package = 102881194985951, faces = { "", "rbxassetid://119249416552488", "rbxassetid://82873202548898", "rbxassetid://122240096120818", "rbxassetid://108912787768567", "rbxassetid://127067238199633", "rbxassetid://137456466758807", "rbxassetid://123816702230020" } },
+	CivilianMale2 = { model = 109855585308591, package = 139114646652326, faces = { "", "rbxassetid://89475765144179", "rbxassetid://85806799586976", "rbxassetid://132383369577406", "rbxassetid://87860567441195", "rbxassetid://86697839842842", "rbxassetid://103549695564577", "rbxassetid://76606780000430" } },
+	CivilianMale3 = { model = 108367509679115, package = 134312636584548, faces = { "", "rbxassetid://85109878191392", "rbxassetid://70606402964051", "rbxassetid://95078870985756", "rbxassetid://108079569140206", "rbxassetid://82624403752522", "rbxassetid://120558126772579", "rbxassetid://137841807791548" } },
+	CivilianMale4 = { model = 133524579346797, package = 104199832201914, faces = { "", "rbxassetid://97831567238138", "rbxassetid://123507333661036", "rbxassetid://97659898410314", "rbxassetid://70777347137062", "rbxassetid://125473869109449", "rbxassetid://100975729374105", "rbxassetid://96460475006328" } },
 	ElRugido = { model = nil, package = 133012638300152, faces = { "rbxassetid://95009761023746", "rbxassetid://87813758884419", "rbxassetid://129014191028706", "rbxassetid://80712657085550", "rbxassetid://125458260096839", "rbxassetid://121373604073448", "rbxassetid://123655553866245", "rbxassetid://126536608314547" } },
 	InvaderGrenadier = { model = 99700760397580, package = 125223635919178, faces = { "", "rbxassetid://122265879781688", "rbxassetid://73406378008266", "rbxassetid://121336335459341", "rbxassetid://122830552716278", "rbxassetid://123787477862907", "rbxassetid://134872190148743", "rbxassetid://140633214125408" } },
 	InvaderGunner = { model = 125194775550400, package = 122658418522513, faces = { "", "rbxassetid://101305487540752", "rbxassetid://82585379726484", "rbxassetid://101578272321848", "rbxassetid://105538963182843", "rbxassetid://120631450655977", "rbxassetid://84650464091210", "rbxassetid://89740081191465" } },
 	InvaderMelee = { model = 91386098833274, package = 125384716801476, faces = { "", "rbxassetid://123393689855943", "rbxassetid://127668603626057", "rbxassetid://137620702735073", "rbxassetid://78039295524490", "rbxassetid://88649847726198", "rbxassetid://120775835098534", "rbxassetid://99589912814676" } },
+	InvaderPopcorn = { model = 96763877686388, package = 105915631914784, faces = { "", "", "", "", "", "", "", "" } },
 	InvaderWarlord = { model = 108251490058281, package = 103767138360255, faces = { "", "rbxassetid://72453534264873", "rbxassetid://101640089449752", "rbxassetid://122723674484440", "rbxassetid://89223648390829", "rbxassetid://105456763143987", "rbxassetid://78752687176209", "rbxassetid://104189672141562" } },
 	Magmaul = { model = 74561640607127, package = 114639259953995, faces = { "", "rbxassetid://109188787594225", "rbxassetid://103730521202971", "rbxassetid://116294699657020", "rbxassetid://126418184433227", "rbxassetid://81291715436218", "rbxassetid://98172990923062", "rbxassetid://123937144247149" } },
 	NightGecko = { model = 138907797664397, package = 139926809616284, faces = { "", "rbxassetid://123481108879426", "rbxassetid://105357032467841", "rbxassetid://99653271167127", "rbxassetid://114642216926471", "rbxassetid://107219662401620", "rbxassetid://102138658126823", "rbxassetid://88378855305141" } },
+	Pigeon = { model = 123671042466146, package = 113280982248989, faces = { "", "", "", "", "", "", "", "" } },
+	Robber = { model = 72346908466013, package = 101339444633670, faces = { "", "rbxassetid://81624735384215", "rbxassetid://105417629159134", "rbxassetid://78900340626860", "rbxassetid://105903820180635", "rbxassetid://110534451786180", "rbxassetid://95222453059145", "rbxassetid://83041150853185" } },
 	Skyvolt = { model = 72788621441505, package = 70923579538688, faces = { "", "rbxassetid://136393826936989", "rbxassetid://110262631905945", "rbxassetid://71575042085951", "rbxassetid://140182766444327", "rbxassetid://88399174208290", "rbxassetid://108506896116576", "rbxassetid://85137913624473" } },
 }
 A.SoundSprites = { "rbxassetid://109669089365026", "rbxassetid://118869727900463", "rbxassetid://74755063125018" }
 A.SoundSprite = "rbxassetid://109669089365026"
+A.Hub = {
+	["Bulletin_1"] = 78175478547167,
+	["Bulletin_2"] = 103025408137751,
+	["Bulletin_Props"] = 108624669451374,
+}
 A.package_code = 113546958541177
 A.model_map_OrbitalArena = 96857863111637
 return A

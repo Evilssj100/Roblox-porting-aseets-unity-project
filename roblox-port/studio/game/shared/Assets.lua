@@ -268,8 +268,16 @@ A.SoundSprite = "rbxassetid://109669089365026"
 A.Hub = {
 	["Bulletin_1"] = 78175478547167,
 	["Bulletin_2"] = 103025408137751,
-	["Bulletin_Props"] = 108624669451374,
+	["Bulletin_Props"] = 104973672732526,
 	["Hub_Pickups"] = 120615367646961,
+	["Plaza_1"] = 134926808945104,
+	["Plaza_2"] = 80641975850820,
+	["Plaza_Props"] = 89088960908257,
+	["Realm_1"] = 130481791675167,
+	["Realm_2"] = 122792631983746,
+	["Realm_Props"] = 105582695984787,
+	["Villains_1"] = 135751334847717,
+	["Villains_2"] = 107515599165388,
 }
 A.package_code = 113546958541177
 A.model_map_OrbitalArena = 96857863111637

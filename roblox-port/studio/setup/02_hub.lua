@@ -6,8 +6,9 @@
 --     (EditableMesh) and rebuilt as exact primitives (a convex decomposition would fill streets, domes and bowls):
 --     rectangles -> one box, right triangles -> one wedge, other triangles -> two wedges, all behind the surface
 --   * props: one template per model, placed at every instance (uniform scale), their own boxes and triangles
--- Idempotent: a zone is rebuilt only when its HubData signature changes.
-return function()
+-- Idempotent: a zone is rebuilt only when its HubData signature changes. Pass a zone name to build only that zone
+-- (each zone takes a while: one per call keeps the Studio MCP call short).
+return function(only: string?)
 	local InsertService = game:GetService("InsertService")
 	local AssetService = game:GetService("AssetService")
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -219,6 +220,7 @@ return function()
 	end
 
 	for zoneName, z in HubData.Zones do
+		if only and zoneName ~= only then continue end
 		local sig = VERSION .. ":" .. #z.geometry.files .. ":" .. #z.props .. ":" .. #z.geometry.collision .. ":" .. tostring(z.offset[1])
 		local zf = hubRoot:FindFirstChild(zoneName)
 		if zf and zf:GetAttribute("Signature") == sig then

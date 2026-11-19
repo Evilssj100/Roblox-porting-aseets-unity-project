@@ -1,4 +1,4 @@
-<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4"><External>null</External><External>nil</External><Item class="Folder" referent="RBX000031"><Properties><string name="Name">SPSO_Package</string></Properties><Item class="StringValue" referent="RBX000023"><Properties><string name="Name">_version</string><string name="Value">hub5</string></Properties></Item><Item class="Folder" referent="RBX000024"><Properties><string name="Name">ReplicatedStorage/SPSO/Runtime</string></Properties><Item class="ModuleScript" referent="RBX000001"><Properties><string name="Name">ExactAnimator</string><ProtectedString name="Source"><![CDATA[--!native
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4"><External>null</External><External>nil</External><Item class="Folder" referent="RBX000031"><Properties><string name="Name">SPSO_Package</string></Properties><Item class="StringValue" referent="RBX000023"><Properties><string name="Name">_version</string><string name="Value">hub6</string></Properties></Item><Item class="Folder" referent="RBX000024"><Properties><string name="Name">ReplicatedStorage/SPSO/Runtime</string></Properties><Item class="ModuleScript" referent="RBX000001"><Properties><string name="Name">ExactAnimator</string><ProtectedString name="Source"><![CDATA[--!native
 -- SPSO ExactAnimator: plays a hero's ORIGINAL animation curves exactly the way Unity's legacy
 -- Animation component did: Hermite curves, quaternion components normalised, the full node chain,
 -- crossfades, wrap modes, animation events, facial expressions (FacialAnimation.cs) and root motion
@@ -133,6 +133,14 @@ function ExactAnimator:_bindRig(model: Model)
 	local root = config.rigRoot or model:FindFirstChild("RootPart", true)
 	assert(root, "hero model has no RootPart")
 	self.rigRoot = root
+	if config.scaleParts then
+		self.scaleParts = {}
+		for partName, boneName in config.scaleParts do
+			local part = model:FindFirstChild(partName, true)
+			local b = pack.boneIndex[boneName]
+			if part and b then table.insert(self.scaleParts, { part = part, node = pack.bones[b].node }) end
+		end
+	end
 	local byName = {}
 	for _, d in root:GetDescendants() do
 		if d:IsA("Bone") then byName[d.Name] = d end
@@ -650,6 +658,15 @@ function ExactAnimator:_apply()
 	local root = self.rigRoot
 	if not root or not root.Parent then return end
 	self:_applyBones()
+	-- parts that the original shows or hides by scaling a bone to zero (config.scaleParts: part name -> bone name)
+	if self.scaleParts then
+		local W = self.W
+		for _, sp in self.scaleParts do
+			local o = (sp.node - 1) * 12
+			local s2 = W[o + 1] * W[o + 1] + W[o + 5] * W[o + 5] + W[o + 9] * W[o + 9]
+			sp.part.LocalTransparencyModifier = s2 < 0.01 and 1 or 0
+		end
+	end
 	local useSkin = false
 	if self.skinEnabled and self:_scaleError() > self.skinTolerance then
 		local cam = workspace.CurrentCamera
@@ -1321,6 +1338,7 @@ function CharacterAnimator.new(model: Model, opts)
 		skin = opts.skin ~= false,
 		prebuildSkin = opts.prebuildSkin,
 		lodDistance = opts.lodDistance or 120,
+		scaleParts = cfg.scaleParts,
 	})
 	self.effects = effectsFor((archetype or heroName), data, heroName)
 	self.fx = nil
@@ -15303,8 +15321,9 @@ for _, name in (Config.HubData and Config.HubData.Characters) or {} do
 	Config.Models[name] = {
 		name = name, pack = name, template = "Hero_" .. name, headPart = name .. "_Head", bodyPart = name .. "_Body",
 		faceTextures = faces(name), wrapModes = Config.WrapModes, runAnimSpeed = 12,
-		-- the pigeon hides its folded/spread wings with zero-scale bones: exact CPU skinning (a tiny mesh)
-		exactSkin = name == "HubPigeon",
+		-- the pigeon hides its folded or spread wings with zero-scale bones: those faces are separate parts
+		-- (prep_roblox_hero SPLIT), shown from the bone's scale
+		scaleParts = name == "HubPigeon" and { HubPigeon_Wings = "Lwing1", HubPigeon_Fold = "l_wing1" } or nil,
 	}
 end
 

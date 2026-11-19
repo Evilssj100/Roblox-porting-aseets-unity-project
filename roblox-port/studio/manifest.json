@@ -5,7 +5,7 @@
    "parent": "ReplicatedStorage/SPSO/Runtime",
    "name": "ExactAnimator",
    "class": "ModuleScript",
-   "sha": "8c569dbd726bdb0d"
+   "sha": "ef0255e97e6ffa46"
   },
   {
    "path": "studio/runtime/HeroPack.lua",
@@ -26,7 +26,7 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "CharacterAnimator",
    "class": "ModuleScript",
-   "sha": "01fb645c791e152b"
+   "sha": "145c4db137295aba"
   },
   {
    "path": "studio/game/shared/FxData.lua",
@@ -47,7 +47,7 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "GameConfig",
    "class": "ModuleScript",
-   "sha": "5d5a47bfbcc36a47"
+   "sha": "04ef4bd2093fc804"
   },
   {
    "path": "studio/game/shared/GameData.lua",
@@ -188,7 +188,7 @@
   {
    "name": "HubPigeon",
    "path": "heroes/HubPigeon/runtime/HubPigeon.spsohero.b64",
-   "sha": "45cff9716f824335"
+   "sha": "a91312f2e466d41b"
   },
   {
    "name": "InvaderGrenadier",

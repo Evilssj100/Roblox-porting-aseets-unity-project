@@ -133,6 +133,14 @@ function ExactAnimator:_bindRig(model: Model)
 	local root = config.rigRoot or model:FindFirstChild("RootPart", true)
 	assert(root, "hero model has no RootPart")
 	self.rigRoot = root
+	if config.scaleParts then
+		self.scaleParts = {}
+		for partName, boneName in config.scaleParts do
+			local part = model:FindFirstChild(partName, true)
+			local b = pack.boneIndex[boneName]
+			if part and b then table.insert(self.scaleParts, { part = part, node = pack.bones[b].node }) end
+		end
+	end
 	local byName = {}
 	for _, d in root:GetDescendants() do
 		if d:IsA("Bone") then byName[d.Name] = d end
@@ -650,6 +658,15 @@ function ExactAnimator:_apply()
 	local root = self.rigRoot
 	if not root or not root.Parent then return end
 	self:_applyBones()
+	-- parts that the original shows or hides by scaling a bone to zero (config.scaleParts: part name -> bone name)
+	if self.scaleParts then
+		local W = self.W
+		for _, sp in self.scaleParts do
+			local o = (sp.node - 1) * 12
+			local s2 = W[o + 1] * W[o + 1] + W[o + 5] * W[o + 5] + W[o + 9] * W[o + 9]
+			sp.part.LocalTransparencyModifier = s2 < 0.01 and 1 or 0
+		end
+	end
 	local useSkin = false
 	if self.skinEnabled and self:_scaleError() > self.skinTolerance then
 		local cam = workspace.CurrentCamera

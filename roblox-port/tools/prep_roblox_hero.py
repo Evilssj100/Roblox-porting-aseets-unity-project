@@ -109,6 +109,40 @@ face0 = None
 if head:
     head.name, head.data.name = f"{hero}_Head", f"{hero}_Head"
 
+# rigs that hide alternative geometry with zero-scale bones (Roblox bones cannot scale): those faces become their own
+# parts, shown or hidden by the runtime from the bone's scale (Config.Models[...].scaleParts)
+SPLIT = {"HubPigeon": {"Wings": ["Lwing1", "Lwing2", "Rwing1", "Rwing2"], "Fold": ["l_wing1", "r_wing1"]}}
+for gname, gbones in SPLIT.get(hero, {}).items():
+    idx = {g.index for g in body.vertex_groups if g.name in gbones}
+    nv = len(body.data.vertices)
+    share, total = np.zeros(nv), np.zeros(nv)
+    for v in body.data.vertices:
+        for g in v.groups:
+            total[v.index] += g.weight
+            if g.group in idx:
+                share[v.index] += g.weight
+    frac = share / np.maximum(total, 1e-9)
+    bpy.ops.object.select_all(action="DESELECT")
+    body.select_set(True)
+    bpy.context.view_layer.objects.active = body
+    bpy.ops.object.mode_set(mode="EDIT")
+    bpy.ops.mesh.select_mode(type="FACE")
+    bpy.ops.mesh.select_all(action="DESELECT")
+    bpy.ops.object.mode_set(mode="OBJECT")
+    picked = 0
+    for poly in body.data.polygons:
+        poly.select = bool(frac[list(poly.vertices)].mean() > 0.5)
+        picked += poly.select
+    if not picked:
+        continue
+    before = set(bpy.data.objects)
+    bpy.ops.object.mode_set(mode="EDIT")
+    bpy.ops.mesh.separate(type="SELECTED")
+    bpy.ops.object.mode_set(mode="OBJECT")
+    new = next(o for o in bpy.data.objects if o not in before)
+    new.name = new.data.name = f"{hero}_{gname}"
+    print(f"split {picked} faces -> {new.name}")
+
 # face tiles + head UV remap (tile 0: u in [0,.25], v in [.5,1])
 atlas = Image.open(atlas_png).convert("RGB") if head else None
 if head:

@@ -1,8 +1,8 @@
 {
  "hero": "HubPigeon",
  "studsPerUnit": 2.56,
- "rawBytes": 599789,
- "zstdBytes": 359335,
+ "rawBytes": 599854,
+ "zstdBytes": 359332,
  "nodes": [
   "Pigeon",
   "export_node",
@@ -42,10 +42,24 @@
  "mesh": [
   {
    "name": "HubPigeon_Body",
-   "verts": 530,
-   "normals": 578,
-   "uvs": 212,
-   "tris": 534
+   "verts": 312,
+   "normals": 356,
+   "uvs": 133,
+   "tris": 294
+  },
+  {
+   "name": "HubPigeon_Fold",
+   "verts": 92,
+   "normals": 92,
+   "uvs": 52,
+   "tris": 124
+  },
+  {
+   "name": "HubPigeon_Wings",
+   "verts": 126,
+   "normals": 130,
+   "uvs": 27,
+   "tris": 116
   }
  ],
  "curveKeys": 15599,

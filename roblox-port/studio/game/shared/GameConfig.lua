@@ -62,8 +62,9 @@ for _, name in (Config.HubData and Config.HubData.Characters) or {} do
 	Config.Models[name] = {
 		name = name, pack = name, template = "Hero_" .. name, headPart = name .. "_Head", bodyPart = name .. "_Body",
 		faceTextures = faces(name), wrapModes = Config.WrapModes, runAnimSpeed = 12,
-		-- the pigeon hides its folded/spread wings with zero-scale bones: exact CPU skinning (a tiny mesh)
-		exactSkin = name == "HubPigeon",
+		-- the pigeon hides its folded or spread wings with zero-scale bones: those faces are separate parts
+		-- (prep_roblox_hero SPLIT), shown from the bone's scale
+		scaleParts = name == "HubPigeon" and { HubPigeon_Wings = "Lwing1", HubPigeon_Fold = "l_wing1" } or nil,
 	}
 end
 

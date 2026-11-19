@@ -82,6 +82,7 @@ function CharacterAnimator.new(model: Model, opts)
 		skin = opts.skin ~= false,
 		prebuildSkin = opts.prebuildSkin,
 		lodDistance = opts.lodDistance or 120,
+		scaleParts = cfg.scaleParts,
 	})
 	self.effects = effectsFor((archetype or heroName), data, heroName)
 	self.fx = nil

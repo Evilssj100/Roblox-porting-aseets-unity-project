@@ -1,2 +1,4 @@
 __pycache__/
 *.spsohero
+heroes/*/*.blend
+!heroes/ElRugido/ElRugido.blend

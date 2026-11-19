@@ -1,0 +1,245 @@
+{
+ "hero": "CivilianMale2",
+ "studsPerUnit": 2.56,
+ "rawBytes": 1107060,
+ "zstdBytes": 646732,
+ "nodes": [
+  "npc_male_02_prefab",
+  "export_node",
+  "motion_export",
+  "motion_transfer",
+  "Pelvis",
+  "LLeg1",
+  "LLeg2",
+  "LLegAnkle",
+  "RLeg1",
+  "RLeg2",
+  "RLegAnkle",
+  "Spine",
+  "Ribcage",
+  "Head",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm2",
+  "LArmPalm",
+  "LArmDigit11",
+  "LArmDigit12",
+  "LArmDigit21",
+  "LArmDigit22",
+  "LArmDigit31",
+  "LArmDigit32",
+  "RArmCollarbone",
+  "RArm1",
+  "RArm2",
+  "RArmPalm",
+  "RArmDigit11",
+  "RArmDigit12",
+  "RArmDigit21",
+  "RArmDigit22",
+  "RArmDigit31",
+  "RArmDigit32"
+ ],
+ "bones": [
+  "Pelvis",
+  "Spine",
+  "Ribcage",
+  "RLeg1",
+  "LLeg1",
+  "Head",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm2",
+  "LArmPalm",
+  "LLeg2",
+  "LLegAnkle",
+  "RLegAnkle",
+  "LArmDigit31",
+  "LArmDigit21",
+  "LArmDigit32",
+  "LArmDigit11",
+  "LArmDigit22",
+  "LArmDigit12",
+  "RLeg2",
+  "RArmCollarbone",
+  "RArm1",
+  "RArm2",
+  "RArmPalm",
+  "RArmDigit31",
+  "RArmDigit21",
+  "RArmDigit32",
+  "RArmDigit11",
+  "RArmDigit22",
+  "RArmDigit12"
+ ],
+ "mesh": [
+  {
+   "name": "CivilianMale2_Body",
+   "verts": 1269,
+   "normals": 1357,
+   "uvs": 534,
+   "tris": 1452
+  },
+  {
+   "name": "CivilianMale2_Head",
+   "verts": 149,
+   "normals": 152,
+   "uvs": 74,
+   "tris": 208
+  }
+ ],
+ "curveKeys": 24779,
+ "constantCurves": 926,
+ "selfTest": [
+  "emote_cheer",
+  "movement_run",
+  "movement_idle"
+ ],
+ "clips": [
+  {
+   "name": "Take 001",
+   "duration": 0.016667,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.08986,
+   "events": []
+  },
+  {
+   "name": "emote_approve",
+   "duration": 4.0,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.19434,
+   "events": []
+  },
+  {
+   "name": "emote_cheer",
+   "duration": 4.0,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.3287,
+   "events": []
+  },
+  {
+   "name": "emote_clap",
+   "duration": 4.0,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.10504,
+   "events": []
+  },
+  {
+   "name": "emote_confused",
+   "duration": 4.0,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.09406,
+   "events": []
+  },
+  {
+   "name": "emote_dance",
+   "duration": 4.0,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.08986,
+   "events": []
+  },
+  {
+   "name": "emote_disapprove",
+   "duration": 4.0,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.09256,
+   "events": []
+  },
+  {
+   "name": "emote_greet",
+   "duration": 4.0,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.08986,
+   "events": []
+  },
+  {
+   "name": "emote_laugh",
+   "duration": 4.0,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.08986,
+   "events": []
+  },
+  {
+   "name": "emote_rude",
+   "duration": 4.0,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.09,
+   "events": []
+  },
+  {
+   "name": "emote_scared",
+   "duration": 4.0,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.00781,
+   "events": []
+  },
+  {
+   "name": "emote_shock",
+   "duration": 4.0,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.17881,
+   "events": []
+  },
+  {
+   "name": "emote_surprise",
+   "duration": 4.0,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.08986,
+   "events": []
+  },
+  {
+   "name": "freeze",
+   "duration": 0.333333,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.08986,
+   "events": [
+    {
+     "time": 0.0,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:0.3333333",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "movement_idle",
+   "duration": 4.0,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.08986,
+   "events": [
+    {
+     "time": 0.5,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:0.366667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.8666669726371765,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:3.133333",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "movement_run",
+   "duration": 4.0,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.03995,
+   "events": []
+  },
+  {
+   "name": "movement_walk",
+   "duration": 17.333334,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.09157,
+   "events": []
+  }
+ ],
+ "checkVsExact": {
+  "maxMatrixError": 1.7235476121868487e-06,
+  "maxVertexErrorStuds": 1.1511582489566037e-06
+ }
+}

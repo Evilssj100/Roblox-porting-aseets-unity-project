@@ -1,0 +1,525 @@
+{
+ "hero": "CivilianMale4",
+ "studsPerUnit": 2.56,
+ "rawBytes": 774014,
+ "zstdBytes": 540371,
+ "nodes": [
+  "npc_male_04_prefab",
+  "export_node",
+  "motion_export",
+  "motion_transfer",
+  "Pelvis",
+  "LLeg1",
+  "LLeg2",
+  "LLegAnkle",
+  "RLeg1",
+  "RLeg2",
+  "RLegAnkle",
+  "Spine",
+  "Ribcage",
+  "Head",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm2",
+  "LArmPalm",
+  "LArmDigit11",
+  "LArmDigit12",
+  "LArmDigit21",
+  "LArmDigit22",
+  "LArmDigit31",
+  "LArmDigit32",
+  "RArmCollarbone",
+  "RArm1",
+  "RArm2",
+  "RArmPalm",
+  "RArmDigit11",
+  "RArmDigit12",
+  "RArmDigit21",
+  "RArmDigit22",
+  "RArmDigit31",
+  "RArmDigit32"
+ ],
+ "bones": [
+  "Pelvis",
+  "Ribcage",
+  "LLeg1",
+  "LArm1",
+  "Head",
+  "LArm2",
+  "LArmPalm",
+  "LArmDigit31",
+  "LArmDigit32",
+  "LArmDigit21",
+  "LArmDigit11",
+  "LArmDigit22",
+  "LArmDigit12",
+  "LLeg2",
+  "LLegAnkle",
+  "RLeg1",
+  "RArm1",
+  "RArm2",
+  "RArmPalm",
+  "RArmDigit31",
+  "RArmDigit32",
+  "RArmDigit21",
+  "RArmDigit11",
+  "RArmDigit22",
+  "RArmDigit12",
+  "RLeg2",
+  "RLegAnkle"
+ ],
+ "mesh": [
+  {
+   "name": "CivilianMale4_Body",
+   "verts": 1267,
+   "normals": 1300,
+   "uvs": 451,
+   "tris": 1334
+  },
+  {
+   "name": "CivilianMale4_Head",
+   "verts": 76,
+   "normals": 76,
+   "uvs": 48,
+   "tris": 58
+  }
+ ],
+ "curveKeys": 17063,
+ "constantCurves": 944,
+ "selfTest": [
+  "emote_cheer",
+  "emote_surprise"
+ ],
+ "clips": [
+  {
+   "name": "Take 001",
+   "duration": 18.6,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.13776,
+   "events": []
+  },
+  {
+   "name": "emote_approve",
+   "duration": 3.5,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.0,
+   "events": [
+    {
+     "time": 0.2666670083999634,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.316666",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.5833330154418945,
+     "function": "OnFaceAnimTag",
+     "data": "happy:0.09999996",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.6833329796791077,
+     "function": "OnFaceAnimTag",
+     "data": "happy:1.199997",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.88332998752594,
+     "function": "OnFaceAnimTag",
+     "data": "happy:1.28334",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.166670083999634,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.1666598",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_cheer",
+   "duration": 3.9,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.21212,
+   "events": [
+    {
+     "time": 0.23333300650119781,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.55",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.7833330035209656,
+     "function": "OnFaceAnimTag",
+     "data": "happy:2.816667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.5999999046325684,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.2",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_clap",
+   "duration": 3.0,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.0,
+   "events": [
+    {
+     "time": 0.20000000298023224,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.183333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.3833329975605011,
+     "function": "OnFaceAnimTag",
+     "data": "happy:2.233337",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.6166698932647705,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.1166601",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_confused",
+   "duration": 2.833333,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.0,
+   "events": [
+    {
+     "time": 0.30000001192092896,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.533333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.8333330154418945,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:1.483337",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.3166699409484863,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.3333302",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_dance",
+   "duration": 1.666667,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.04084,
+   "events": [
+    {
+     "time": 0.0,
+     "function": "OnFaceAnimTag",
+     "data": "happy:1.05",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.0499999523162842,
+     "function": "OnFaceAnimTag",
+     "data": "happy:0.6166668",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_disapprove",
+   "duration": 4.5,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.0,
+   "events": [
+    {
+     "time": 0.18333299458026886,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.233334",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.41666701436042786,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:1.083333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.5,
+     "function": "OnFaceAnimTag",
+     "data": "aggressive:2.43333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.9333300590515137,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.2333398",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_greet",
+   "duration": 4.333333,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.0,
+   "events": [
+    {
+     "time": 0.31666699051856995,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.383333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.699999988079071,
+     "function": "OnFaceAnimTag",
+     "data": "happy:3.11667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.8166699409484863,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.3166599",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_laugh",
+   "duration": 3.1,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.0,
+   "events": [
+    {
+     "time": 0.16666699945926666,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.216666",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.3833329975605011,
+     "function": "OnFaceAnimTag",
+     "data": "happy:2.516667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.9000000953674316,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.1499999",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_rude",
+   "duration": 1.833333,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.0,
+   "events": [
+    {
+     "time": 0.10000000149011612,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.166667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.2666670083999634,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:1.083333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.350000023841858,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.03332996",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_scared",
+   "duration": 4.066667,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.0,
+   "events": [
+    {
+     "time": 0.0,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:2.46667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 2.466670036315918,
+     "function": "OnFaceAnimTag",
+     "data": "squint:1.61666",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 4.083330154418945,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:0.01",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_shock",
+   "duration": 1.666667,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.12749,
+   "events": [
+    {
+     "time": 0.18333299458026886,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.216667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.4000000059604645,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:1",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.399999976158142,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.2",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "emote_surprise",
+   "duration": 1.5,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.0,
+   "events": [
+    {
+     "time": 0.10000000149011612,
+     "function": "OnFaceAnimTag",
+     "data": "squint:0.583333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.6833329796791077,
+     "function": "OnFaceAnimTag",
+     "data": "surprised:0.6499971",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 1.3333300352096558,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.11667",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "movement_fidget_sidekick",
+   "duration": 4.333333,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.0,
+   "events": [
+    {
+     "time": 0.31666699051856995,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.383333",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 0.699999988079071,
+     "function": "OnFaceAnimTag",
+     "data": "happy:3.11667",
+     "float": 0.0,
+     "int": 0
+    },
+    {
+     "time": 3.8166699409484863,
+     "function": "OnFaceAnimTag",
+     "data": "blink:0.3166599",
+     "float": 0.0,
+     "int": 0
+    }
+   ]
+  },
+  {
+   "name": "movement_idle",
+   "duration": 4.0,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.0,
+   "events": []
+  },
+  {
+   "name": "movement_run_sidekick",
+   "duration": 1.966667,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.0,
+   "events": []
+  },
+  {
+   "name": "movement_walk",
+   "duration": 17.300001,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.0,
+   "events": []
+  },
+  {
+   "name": "movement_walk_sidekick",
+   "duration": 0.666667,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.0,
+   "events": []
+  }
+ ],
+ "checkVsExact": {
+  "maxMatrixError": 1.7997999037788759e-06,
+  "maxVertexErrorStuds": 1.1528134278219924e-06
+ }
+}

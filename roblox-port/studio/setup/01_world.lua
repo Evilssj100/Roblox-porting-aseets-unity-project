@@ -40,12 +40,15 @@ return function(): string
 	local Game = ReplicatedStorage:WaitForChild("SPSO"):WaitForChild("Game")
 	local Assets = require(Game:WaitForChild("Assets"):Clone())
 	local GameData = require(Game:WaitForChild("GameData"):Clone())
+	local allModels = table.clone(GameData.Models)
+	local hubOk, HubData = pcall(function() return require(Game:WaitForChild("HubData", 5):Clone()) end)
+	for _, name in (hubOk and HubData.Characters) or {} do table.insert(allModels, name) end
 	local unpack = require(spso.Tools.Unpack:Clone())
 	local source = folder(spso, "Source")
 	local legacy = workspace:FindFirstChild("ElRugido_Import")
 	if legacy then legacy.Parent = source end
 	local heroesFolder = folder(ReplicatedStorage.SPSO, "Heroes")
-	for _, hero in GameData.Models do
+	for _, hero in allModels do
 		local a = Assets.Heroes[hero] or {}
 		if not source:FindFirstChild(hero .. "_Import") and a.model then
 			local m = InsertService:LoadAsset(a.model)
@@ -114,7 +117,7 @@ return function(): string
 		local old = chars:FindFirstChild(n)
 		if old then old:Destroy() end
 	end
-	for _, hero in GameData.Models do
+	for _, hero in allModels do
 		local import = source:FindFirstChild(hero .. "_Import")
 		local rigSrc = import and import:FindFirstChild(hero)
 		if rigSrc and rigSrc:FindFirstChild("RootPart") then

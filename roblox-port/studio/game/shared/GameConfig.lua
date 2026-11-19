@@ -53,6 +53,26 @@ for _, name in GameData.Models do
 		faceTextures = faces(name), wrapModes = Config.WrapModes, runAnimSpeed = math.max(4, speed),
 	}
 end
+-- the social zones' characters (civilians, pigeons, the robber) are models too
+local hubOk, HubData = pcall(function() return require(Game:WaitForChild("HubData", 5)) end)
+Config.HubData = hubOk and HubData or nil
+Config.AllModels = table.clone(GameData.Models)
+for _, name in (Config.HubData and Config.HubData.Characters) or {} do
+	table.insert(Config.AllModels, name)
+	Config.Models[name] = {
+		name = name, pack = name, template = "Hero_" .. name, headPart = name .. "_Head", bodyPart = name .. "_Body",
+		faceTextures = faces(name), wrapModes = Config.WrapModes, runAnimSpeed = 12,
+	}
+end
+
+-- the social zones: players start in a hub zone; the brawler is a mission launched from there
+Config.Mode = Config.HubData and "Hub" or "Brawler"
+Config.StartZone = Config.HubData and Config.HubData.StartZone or nil
+Config.Hub = {
+	collectRadius = 5, fractalRespawn = 90, tokenRespawn = 150, pigeonScare = 14, pigeonRespawn = 25,
+	npcWalkSpeed = 7, starChance = 0.5, jiggleCooldown = 4, cameraZoom = { 0.55, 1.6 },
+}
+
 Config.Heroes = {}
 for _, name in GameData.HeroOrder do
 	local d = GameData.Heroes[name]

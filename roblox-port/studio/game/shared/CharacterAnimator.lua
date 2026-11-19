@@ -133,6 +133,13 @@ function CharacterAnimator:_onAction()
 end
 
 function CharacterAnimator:_loco(name: string, fade: number)
+	if not self.remap then
+		self.remap = {}
+		for _, base in { "movement_idle", "movement_run", "movement_walk" } do
+			if not self.anim:HasClip(base) and self.anim:HasClip(base .. "_sidekick") then self.remap[base] = base .. "_sidekick" end
+		end
+	end
+	name = self.remap[name] or name
 	if self.loco == name and self.anim:IsPlaying(name) then return end
 	self.loco = name
 	self.anim:CrossFade(name, fade)
@@ -177,9 +184,12 @@ function CharacterAnimator:_locomotion(dt: number)
 		self.landLock -= dt
 		return
 	end
-	if horiz > 2.5 then
+	if horiz > 2.5 and self.model:GetAttribute("SPSO_Walk") and anim:HasClip("movement_walk") then
+		self:_loco("movement_walk", 0.25)
+	elseif horiz > 2.5 then
 		self:_loco("movement_run", 0.2)
-		anim:GetState("movement_run").speed = math.clamp(horiz / self.cfg.runAnimSpeed, 0.5, 1.6)
+		local st = anim:GetState(self.loco)
+		if st then st.speed = math.clamp(horiz / self.cfg.runAnimSpeed, 0.5, 1.6) end
 	else
 		self:_loco("movement_idle", 0.3)
 	end

@@ -1,0 +1,75 @@
+{
+ "hero": "Pigeon",
+ "height_bu": 0.9225234985351562,
+ "bones": [
+  "pelvis",
+  "tail",
+  "l_wing1",
+  "neck",
+  "head",
+  "Lwing1",
+  "Lwing2",
+  "r_wing1",
+  "Rwing1",
+  "Rwing2",
+  "LLeg1",
+  "LLeg2",
+  "RLeg1",
+  "RLeg2"
+ ],
+ "parents": [
+  "",
+  "pelvis",
+  "pelvis",
+  "pelvis",
+  "neck",
+  "pelvis",
+  "Lwing1",
+  "pelvis",
+  "pelvis",
+  "Rwing1",
+  "pelvis",
+  "LLeg1",
+  "pelvis",
+  "RLeg1"
+ ],
+ "fx_points": {},
+ "clips": [
+  {
+   "name": "Take 001",
+   "duration": 3.633333
+  },
+  {
+   "name": "emote_fidget_sidekick",
+   "duration": 5.233334
+  },
+  {
+   "name": "movement_idle_sidekick",
+   "duration": 5.333333
+  },
+  {
+   "name": "movement_run_sidekick",
+   "duration": 0.533333
+  }
+ ],
+ "face_tiles": [
+  "Pigeon_Face_0.png",
+  "Pigeon_Face_1.png",
+  "Pigeon_Face_2.png",
+  "Pigeon_Face_3.png",
+  "Pigeon_Face_4.png",
+  "Pigeon_Face_5.png",
+  "Pigeon_Face_6.png",
+  "Pigeon_Face_7.png"
+ ],
+ "face_tile_names": [
+  "neutral_smile",
+  "grin",
+  "surprised",
+  "gritted",
+  "wink",
+  "smirk",
+  "shout",
+  "focused"
+ ]
+}

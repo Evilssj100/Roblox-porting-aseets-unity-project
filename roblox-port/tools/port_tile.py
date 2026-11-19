@@ -98,8 +98,15 @@ def read_mesh(tt):
 
 
 class Tile:
-    def __init__(self, bundle_path, root_name):
+    def __init__(self, bundle_path, root_name, path=None):
         self.b = Bundle(bundle_path)
+        if path:  # an exact object path (scenario props share names)
+            roots = [g for g in self.b.tr_of_go if self.b.path(g) == path]
+            if not roots:
+                raise SystemExit(f"no GameObject at {path}")
+            self.root = roots[0]
+            self.images = {}
+            return
         roots = [g for g in self.b.tr_of_go if self.b.name(g) == root_name]
         if not roots:
             raise SystemExit(f"no GameObject named {root_name}")
@@ -164,6 +171,8 @@ def main():
     ap.add_argument("--lm-gain", type=float, default=1.5)
     ap.add_argument("--no-preview", action="store_true")
     ap.add_argument("--skip", default=None, help="regex of object names to leave out")
+    ap.add_argument("--path", default=None, help="exact GameObject path (overrides the root name lookup)")
+    ap.add_argument("--skip-mesh", default=None, help="regex of mesh names to leave out (indicators, gizmos)")
     ap.add_argument("--max-scale", type=float, default=1.0,
                     help="largest placement scale: meshes are split so no part exceeds 2000 studs when scaled")
     a = ap.parse_args()
@@ -172,7 +181,8 @@ def main():
     if a.mirror:
         name += "_M"
     os.makedirs(os.path.join(a.out, "textures"), exist_ok=True)
-    tile = Tile(a.bundle, a.root)
+    tile = Tile(a.bundle, a.root, a.path)
+    skip_mesh = re.compile(a.skip_mesh) if a.skip_mesh else None
     b = tile.b
     mirror = np.diag([-1.0, 1, 1, 1]) if a.mirror else np.eye(4)
 
@@ -274,6 +284,9 @@ def main():
             continue
         rd = b.read(mr)
         if not rd.get("m_Enabled", 1):
+            continue
+        if skip_mesh and skip_mesh.search(b.read(mref["m_PathID"]).get("m_Name", "")):
+            skipped.append(gname)
             continue
         mesh = read_mesh(b.read(mref["m_PathID"]))
         P = (np.c_[mesh["V"], np.ones(len(mesh["V"]))] @ M.T)[:, :3]

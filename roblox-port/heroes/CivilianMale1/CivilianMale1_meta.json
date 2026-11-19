@@ -1,0 +1,159 @@
+{
+ "hero": "CivilianMale1",
+ "height_bu": 2.1763695627450943,
+ "bones": [
+  "Pelvis",
+  "Spine",
+  "Ribcage",
+  "Head",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm2",
+  "LArmPalm",
+  "LArmDigit31",
+  "LArmDigit32",
+  "LArmDigit21",
+  "LArmDigit22",
+  "LArmDigit11",
+  "LArmDigit12",
+  "RArmCollarbone",
+  "RArm1",
+  "RArm2",
+  "RArmPalm",
+  "RArmDigit31",
+  "RArmDigit32",
+  "RArmDigit21",
+  "RArmDigit22",
+  "RArmDigit11",
+  "RArmDigit12",
+  "RLeg1",
+  "RLeg2",
+  "RLegAnkle",
+  "LLeg1",
+  "LLeg2",
+  "LLegAnkle"
+ ],
+ "parents": [
+  "",
+  "Pelvis",
+  "Spine",
+  "Ribcage",
+  "Ribcage",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm2",
+  "LArmPalm",
+  "LArmDigit31",
+  "LArmPalm",
+  "LArmDigit21",
+  "LArmPalm",
+  "LArmDigit11",
+  "Ribcage",
+  "RArmCollarbone",
+  "RArm1",
+  "RArm2",
+  "RArmPalm",
+  "RArmDigit31",
+  "RArmPalm",
+  "RArmDigit21",
+  "RArmPalm",
+  "RArmDigit11",
+  "Pelvis",
+  "RLeg1",
+  "RLeg2",
+  "Pelvis",
+  "LLeg1",
+  "LLeg2"
+ ],
+ "fx_points": {},
+ "clips": [
+  {
+   "name": "Take 001",
+   "duration": 4.0
+  },
+  {
+   "name": "emote_approve",
+   "duration": 3.5
+  },
+  {
+   "name": "emote_cheer",
+   "duration": 3.9
+  },
+  {
+   "name": "emote_clap",
+   "duration": 2.833333
+  },
+  {
+   "name": "emote_confused",
+   "duration": 2.833333
+  },
+  {
+   "name": "emote_dance",
+   "duration": 1.666667
+  },
+  {
+   "name": "emote_disapprove",
+   "duration": 4.2
+  },
+  {
+   "name": "emote_greet",
+   "duration": 4.333333
+  },
+  {
+   "name": "emote_laugh",
+   "duration": 3.1
+  },
+  {
+   "name": "emote_rude",
+   "duration": 1.5
+  },
+  {
+   "name": "emote_scared",
+   "duration": 4.066667
+  },
+  {
+   "name": "emote_shock",
+   "duration": 1.333333
+  },
+  {
+   "name": "emote_surprise",
+   "duration": 1.5
+  },
+  {
+   "name": "freeze",
+   "duration": 0.166667
+  },
+  {
+   "name": "movement_idle",
+   "duration": 4.0
+  },
+  {
+   "name": "movement_run",
+   "duration": 0.666667
+  },
+  {
+   "name": "movement_walk",
+   "duration": 17.266668
+  }
+ ],
+ "face_tiles": [
+  "CivilianMale1_Face_0.png",
+  "CivilianMale1_Face_1.png",
+  "CivilianMale1_Face_2.png",
+  "CivilianMale1_Face_3.png",
+  "CivilianMale1_Face_4.png",
+  "CivilianMale1_Face_5.png",
+  "CivilianMale1_Face_6.png",
+  "CivilianMale1_Face_7.png"
+ ],
+ "face_tile_names": [
+  "neutral_smile",
+  "grin",
+  "surprised",
+  "gritted",
+  "wink",
+  "smirk",
+  "shout",
+  "focused"
+ ]
+}

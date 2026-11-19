@@ -27,7 +27,12 @@ HEROES = {"Skyvolt": "Falcon_01-darkhawk", "Aurora": "Ms_Marvel_01-classic",
 # characters ported with their ORIGINAL look (no repaint yet): port name -> character bundle in the SHSO
 # archive (github.com/SHSUnderground/shso-archive-structured, Assets/Characters/<name>.asset)
 HEADLESS = {"InvaderPopcorn"}  # no face atlas: one body part
-ORIGINALS = {"InvaderPopcorn": "skrull_popcorn_minion_01", "InvaderGunner": "skrull_01", "InvaderGrenadier": "skrull_02", "InvaderMelee": "skrull_04",
+ORIGINALS = {"InvaderPopcorn": "skrull_popcorn_minion_01",
+             # hub zone characters (civilians, pigeons, the robber of the robber-chase activity)
+             "CivilianMale1": "npc_male_01", "CivilianMale2": "npc_male_02", "CivilianMale3": "npc_male_03",
+             "CivilianMale4": "npc_male_04", "CivilianFemale1": "npc_female_01", "CivilianFemale2": "npc_female_02",
+             "CivilianFemale3": "npc_female_03", "CivilianFemale4": "npc_female_04", "Pigeon": "pigeon_minion_01",
+             "Robber": "npc_robber_01", "InvaderGunner": "skrull_01", "InvaderGrenadier": "skrull_02", "InvaderMelee": "skrull_04",
              "InvaderWarlord": "super_skrull_boss_01"}
 
 

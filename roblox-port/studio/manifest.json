@@ -26,7 +26,7 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "CharacterAnimator",
    "class": "ModuleScript",
-   "sha": "53aff8fabf8f4187"
+   "sha": "27e5d5c6dc516420"
   },
   {
    "path": "studio/game/shared/FxData.lua",
@@ -47,7 +47,7 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "GameConfig",
    "class": "ModuleScript",
-   "sha": "2ef39bdbe3ae33aa"
+   "sha": "19c9d7effddf1726"
   },
   {
    "path": "studio/game/shared/GameData.lua",
@@ -55,6 +55,20 @@
    "name": "GameData",
    "class": "ModuleScript",
    "sha": "7edf7a4b4dc7a5a7"
+  },
+  {
+   "path": "studio/game/shared/HubData.lua",
+   "parent": "ReplicatedStorage/SPSO/Game",
+   "name": "HubData",
+   "class": "ModuleScript",
+   "sha": "74bec27a4e779ea2"
+  },
+  {
+   "path": "studio/game/shared/MissionData.lua",
+   "parent": "ReplicatedStorage/SPSO/Game",
+   "name": "MissionData",
+   "class": "ModuleScript",
+   "sha": "9148b3a50c44a9f4"
   },
   {
    "path": "studio/game/shared/Net.lua",
@@ -71,18 +85,39 @@
    "sha": "4e72b16a73019b34"
   },
   {
+   "path": "studio/game/shared/StageBuilder.lua",
+   "parent": "ReplicatedStorage/SPSO/Game",
+   "name": "StageBuilder",
+   "class": "ModuleScript",
+   "sha": "c415508a94740b21"
+  },
+  {
    "path": "studio/game/server/Brawler.server.lua",
    "parent": "ServerScriptService/SPSO",
    "name": "Brawler",
    "class": "Script",
-   "sha": "64ebb115891b6383"
+   "sha": "ec35cded2870e1fb"
+  },
+  {
+   "path": "studio/game/server/Hub.server.lua",
+   "parent": "ServerScriptService/SPSO",
+   "name": "Hub",
+   "class": "Script",
+   "sha": "61970c857e5c21ae"
   },
   {
    "path": "studio/game/client/BrawlerClient.client.lua",
    "parent": "StarterPlayer/StarterPlayerScripts",
    "name": "BrawlerClient",
    "class": "LocalScript",
-   "sha": "8eebc3128286125f"
+   "sha": "6e06388f39de8a0e"
+  },
+  {
+   "path": "studio/game/client/HubClient.client.lua",
+   "parent": "StarterPlayer/StarterPlayerScripts",
+   "name": "HubClient",
+   "class": "LocalScript",
+   "sha": "1b489292da4d29ab"
   },
   {
    "path": "studio/game/character/Animate.client.lua",
@@ -106,6 +141,46 @@
    "sha": "164b7188ee68bb2e"
   },
   {
+   "name": "CivilianFemale1",
+   "path": "heroes/CivilianFemale1/runtime/CivilianFemale1.spsohero.b64",
+   "sha": "0cb1b413ee0ffb06"
+  },
+  {
+   "name": "CivilianFemale2",
+   "path": "heroes/CivilianFemale2/runtime/CivilianFemale2.spsohero.b64",
+   "sha": "da7a5666f1f9e306"
+  },
+  {
+   "name": "CivilianFemale3",
+   "path": "heroes/CivilianFemale3/runtime/CivilianFemale3.spsohero.b64",
+   "sha": "c762891a885d37c0"
+  },
+  {
+   "name": "CivilianFemale4",
+   "path": "heroes/CivilianFemale4/runtime/CivilianFemale4.spsohero.b64",
+   "sha": "8c16538e5cb6c151"
+  },
+  {
+   "name": "CivilianMale1",
+   "path": "heroes/CivilianMale1/runtime/CivilianMale1.spsohero.b64",
+   "sha": "2f759c85cdc7230e"
+  },
+  {
+   "name": "CivilianMale2",
+   "path": "heroes/CivilianMale2/runtime/CivilianMale2.spsohero.b64",
+   "sha": "e42e81c20185e1ef"
+  },
+  {
+   "name": "CivilianMale3",
+   "path": "heroes/CivilianMale3/runtime/CivilianMale3.spsohero.b64",
+   "sha": "4f9cdd1dbc16d4ad"
+  },
+  {
+   "name": "CivilianMale4",
+   "path": "heroes/CivilianMale4/runtime/CivilianMale4.spsohero.b64",
+   "sha": "558be4f8c04e3fd5"
+  },
+  {
    "name": "ElRugido",
    "path": "heroes/ElRugido/runtime/ElRugido.spsohero.b64",
    "sha": "a9749758ef9aa52d"
@@ -126,6 +201,11 @@
    "sha": "f2e81ef1c4c298b6"
   },
   {
+   "name": "InvaderPopcorn",
+   "path": "heroes/InvaderPopcorn/runtime/InvaderPopcorn.spsohero.b64",
+   "sha": "3416085bd8fa5f95"
+  },
+  {
    "name": "InvaderWarlord",
    "path": "heroes/InvaderWarlord/runtime/InvaderWarlord.spsohero.b64",
    "sha": "252e32dbe9a2940f"
@@ -141,12 +221,23 @@
    "sha": "592d3d4fa1f0e663"
   },
   {
+   "name": "Pigeon",
+   "path": "heroes/Pigeon/runtime/Pigeon.spsohero.b64",
+   "sha": "8d2cefd0c4fbc372"
+  },
+  {
+   "name": "Robber",
+   "path": "heroes/Robber/runtime/Robber.spsohero.b64",
+   "sha": "5b4fc007d5576044"
+  },
+  {
    "name": "Skyvolt",
    "path": "heroes/Skyvolt/runtime/Skyvolt.spsohero.b64",
    "sha": "36029706757191dd"
   }
  ],
  "setup": [
-  "studio/setup/01_world.lua"
+  "studio/setup/01_world.lua",
+  "studio/setup/02_hub.lua"
  ]
 }

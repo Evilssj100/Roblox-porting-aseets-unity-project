@@ -1,0 +1,159 @@
+{
+ "hero": "CivilianMale2",
+ "height_bu": 2.1358157098293304,
+ "bones": [
+  "Pelvis",
+  "Spine",
+  "Ribcage",
+  "Head",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm2",
+  "LArmPalm",
+  "LArmDigit31",
+  "LArmDigit32",
+  "LArmDigit21",
+  "LArmDigit22",
+  "LArmDigit11",
+  "LArmDigit12",
+  "RArmCollarbone",
+  "RArm1",
+  "RArm2",
+  "RArmPalm",
+  "RArmDigit31",
+  "RArmDigit32",
+  "RArmDigit21",
+  "RArmDigit22",
+  "RArmDigit11",
+  "RArmDigit12",
+  "RLeg1",
+  "RLeg2",
+  "RLegAnkle",
+  "LLeg1",
+  "LLeg2",
+  "LLegAnkle"
+ ],
+ "parents": [
+  "",
+  "Pelvis",
+  "Spine",
+  "Ribcage",
+  "Ribcage",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm2",
+  "LArmPalm",
+  "LArmDigit31",
+  "LArmPalm",
+  "LArmDigit21",
+  "LArmPalm",
+  "LArmDigit11",
+  "Ribcage",
+  "RArmCollarbone",
+  "RArm1",
+  "RArm2",
+  "RArmPalm",
+  "RArmDigit31",
+  "RArmPalm",
+  "RArmDigit21",
+  "RArmPalm",
+  "RArmDigit11",
+  "Pelvis",
+  "RLeg1",
+  "RLeg2",
+  "Pelvis",
+  "LLeg1",
+  "LLeg2"
+ ],
+ "fx_points": {},
+ "clips": [
+  {
+   "name": "Take 001",
+   "duration": 0.016667
+  },
+  {
+   "name": "emote_approve",
+   "duration": 4.0
+  },
+  {
+   "name": "emote_cheer",
+   "duration": 4.0
+  },
+  {
+   "name": "emote_clap",
+   "duration": 4.0
+  },
+  {
+   "name": "emote_confused",
+   "duration": 4.0
+  },
+  {
+   "name": "emote_dance",
+   "duration": 4.0
+  },
+  {
+   "name": "emote_disapprove",
+   "duration": 4.0
+  },
+  {
+   "name": "emote_greet",
+   "duration": 4.0
+  },
+  {
+   "name": "emote_laugh",
+   "duration": 4.0
+  },
+  {
+   "name": "emote_rude",
+   "duration": 4.0
+  },
+  {
+   "name": "emote_scared",
+   "duration": 4.0
+  },
+  {
+   "name": "emote_shock",
+   "duration": 4.0
+  },
+  {
+   "name": "emote_surprise",
+   "duration": 4.0
+  },
+  {
+   "name": "freeze",
+   "duration": 0.333333
+  },
+  {
+   "name": "movement_idle",
+   "duration": 4.0
+  },
+  {
+   "name": "movement_run",
+   "duration": 4.0
+  },
+  {
+   "name": "movement_walk",
+   "duration": 17.333334
+  }
+ ],
+ "face_tiles": [
+  "CivilianMale2_Face_0.png",
+  "CivilianMale2_Face_1.png",
+  "CivilianMale2_Face_2.png",
+  "CivilianMale2_Face_3.png",
+  "CivilianMale2_Face_4.png",
+  "CivilianMale2_Face_5.png",
+  "CivilianMale2_Face_6.png",
+  "CivilianMale2_Face_7.png"
+ ],
+ "face_tile_names": [
+  "neutral_smile",
+  "grin",
+  "surprised",
+  "gritted",
+  "wink",
+  "smirk",
+  "shout",
+  "focused"
+ ]
+}

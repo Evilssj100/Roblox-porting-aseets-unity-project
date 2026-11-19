@@ -36,6 +36,7 @@ for name, pre in groups.items():
 heroes = sorted({k.split("_", 1)[1].rsplit("_", 1)[0] for k in assets if k.startswith("face_")} |
                 {k.split("_", 1)[1] for k in assets if k.startswith("model_") and not k.startswith("model_map_")} |
                 {k.split("_", 1)[1] for k in assets if k.startswith(("model_", "package_")) and not k.startswith(("model_map_", "package_code"))})
+heroes = [h for h in heroes if not h.startswith("hub_")]
 lines.append("A.Heroes = {")
 for h in heroes:
     faces = ", ".join(f'"{rid(f"face_{h}_{i}")}"' for i in range(8))
@@ -46,6 +47,10 @@ lines.append("}")
 sprites = sorted((k for k in assets if k.startswith("sound_sprite_v2_")), key=lambda k: int(k.rsplit("_", 1)[1]))
 lines.append("A.SoundSprites = { " + ", ".join(f'"{rid(k)}"' for k in sprites) + " }")
 lines.append(f'A.SoundSprite = "{rid(sprites[0]) if sprites else rid("sound_sprite")}"')
+lines.append("A.Hub = {")  # social zone models (port_zone.py files and merged props)
+for k in sorted(x for x in assets if x.startswith("hub_")):
+    lines.append(f'\t["{k[4:]}"] = {assets[k]},')
+lines.append("}")
 for k in ("package_code", "model_map_OrbitalArena"):
     lines.append(f"A.{k} = {assets.get(k, 'nil')}")
 lines.append("return A")

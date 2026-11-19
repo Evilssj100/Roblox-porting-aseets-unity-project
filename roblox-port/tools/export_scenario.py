@@ -144,10 +144,12 @@ class Exporter:
                        materials=[self.clean(m) for m in d.get("m_Materials", [])])
         return out
 
-    def export(self, root_name=None):
+    def export(self, root_name=None):  # noqa: C901
         b = self.b
         roots = b.roots
-        scen = [g for g in roots if b.name(g).endswith("_scenario_Bundle")]
+        scen = [g for g in roots if (root_name and b.name(g) == root_name) or (not root_name and b.name(g).endswith("_scenario_Bundle"))]
+        if not scen and not root_name:
+            scen = [g for g in roots if b.name(g).endswith("_Bundle")]
         top = scen[0] if scen else roots[0]
         objs = []
         index = {}
@@ -173,13 +175,14 @@ class Exporter:
         for g in roots:
             for n, pid in b.behaviours(g, "ShsAudioSource"):
                 audio[b.name(g)] = self.clean({k: v for k, v in b.read(pid).items() if not k.startswith("m_")})
-        return {"scenario": b.name(top).replace("_Bundle", ""), "tiles": tiles, "objects": objs, "prefabs": prefabs,
+        return {"scenario": b.name(top).replace("_scenario_Bundle", "").replace("_Bundle", ""), "tiles": tiles, "objects": objs, "prefabs": prefabs,
                 "audio_sources": audio}
 
 
 def main():
     src, out = sys.argv[1:3]
-    data = Exporter(src).export()
+    root = sys.argv[3] if len(sys.argv) > 3 else None
+    data = Exporter(src).export(root)
     with open(out, "w") as f:
         json.dump(data, f, indent=1)
     print(f"{data['scenario']}: {len(data['tiles'])} tiles, {len(data['objects'])} objects -> {out}")

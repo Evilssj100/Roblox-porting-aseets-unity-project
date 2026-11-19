@@ -121,6 +121,11 @@ def main():
                     job(f"face_{hero}_{i}", f"heroes/{hero}/textures/{hero}_Face_{i}.png", "image", f"{hero}_Face_{i}")
         if os.path.exists(os.path.join(port, "studio", "packages", f"Hero_{hero}.rbxmx")):
             job(f"package_{hero}", f"studio/packages/Hero_{hero}.rbxmx", "package", f"SPSO Hero Data {hero}")
+    hub = os.path.join(port, "maps", "hub")  # social zones: geometry files and the merged props of each zone
+    for fn in sorted(os.listdir(hub)) if os.path.isdir(hub) else []:
+        if fn.endswith(".fbx"):
+            k = "hub_" + fn[:-4]
+            job(k, f"maps/hub/{fn}", "model", "SPSO Hub " + fn[:-4])
     os.makedirs(os.path.join(port, "studio", "upload"), exist_ok=True)
     json.dump(jobs, open(os.path.join(port, "studio", "upload", "jobs.json"), "w"), indent=0)
     kinds = {}

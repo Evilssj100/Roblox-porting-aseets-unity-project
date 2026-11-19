@@ -1,0 +1,153 @@
+{
+ "hero": "CivilianFemale4",
+ "height_bu": 2.3349912762641907,
+ "bones": [
+  "Pelvis",
+  "Ribcage",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm2",
+  "LArmPalm",
+  "LArmDigit31",
+  "LArmDigit32",
+  "LArmDigit21",
+  "LArmDigit22",
+  "LArmDigit11",
+  "LArmDigit12",
+  "Head",
+  "RArmCollarbone",
+  "RArm1",
+  "RArm2",
+  "RArmPalm",
+  "RArmDigit31",
+  "RArmDigit32",
+  "RArmDigit21",
+  "RArmDigit22",
+  "RArmDigit11",
+  "RArmDigit12",
+  "LLeg1",
+  "LLeg2",
+  "LLegAnkle",
+  "RLeg1",
+  "RLeg2",
+  "RLegAnkle"
+ ],
+ "parents": [
+  "",
+  "Pelvis",
+  "Ribcage",
+  "LArmCollarbone",
+  "LArm1",
+  "LArm2",
+  "LArmPalm",
+  "LArmDigit31",
+  "LArmPalm",
+  "LArmDigit21",
+  "LArmPalm",
+  "LArmDigit11",
+  "Ribcage",
+  "Ribcage",
+  "RArmCollarbone",
+  "RArm1",
+  "RArm2",
+  "RArmPalm",
+  "RArmDigit31",
+  "RArmPalm",
+  "RArmDigit21",
+  "RArmPalm",
+  "RArmDigit11",
+  "Pelvis",
+  "LLeg1",
+  "LLeg2",
+  "Pelvis",
+  "RLeg1",
+  "RLeg2"
+ ],
+ "fx_points": {},
+ "clips": [
+  {
+   "name": "Take 001",
+   "duration": 18.6
+  },
+  {
+   "name": "emote_approve",
+   "duration": 3.5
+  },
+  {
+   "name": "emote_cheer",
+   "duration": 3.9
+  },
+  {
+   "name": "emote_clap",
+   "duration": 3.0
+  },
+  {
+   "name": "emote_confused",
+   "duration": 2.833333
+  },
+  {
+   "name": "emote_dance",
+   "duration": 1.666667
+  },
+  {
+   "name": "emote_disapprove",
+   "duration": 4.5
+  },
+  {
+   "name": "emote_greet",
+   "duration": 4.333333
+  },
+  {
+   "name": "emote_laugh",
+   "duration": 3.1
+  },
+  {
+   "name": "emote_rude",
+   "duration": 1.833333
+  },
+  {
+   "name": "emote_scared",
+   "duration": 4.066667
+  },
+  {
+   "name": "emote_shock",
+   "duration": 1.666667
+  },
+  {
+   "name": "emote_surprise",
+   "duration": 1.5
+  },
+  {
+   "name": "movement_idle",
+   "duration": 4.0
+  },
+  {
+   "name": "movement_run_sidekick",
+   "duration": 9.1
+  },
+  {
+   "name": "movement_walk",
+   "duration": 17.300001
+  }
+ ],
+ "face_tiles": [
+  "CivilianFemale4_Face_0.png",
+  "CivilianFemale4_Face_1.png",
+  "CivilianFemale4_Face_2.png",
+  "CivilianFemale4_Face_3.png",
+  "CivilianFemale4_Face_4.png",
+  "CivilianFemale4_Face_5.png",
+  "CivilianFemale4_Face_6.png",
+  "CivilianFemale4_Face_7.png"
+ ],
+ "face_tile_names": [
+  "neutral_smile",
+  "grin",
+  "surprised",
+  "gritted",
+  "wink",
+  "smirk",
+  "shout",
+  "focused"
+ ]
+}

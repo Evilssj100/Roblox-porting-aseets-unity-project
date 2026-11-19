@@ -172,10 +172,13 @@ function Fighter:addHeat(n: number)
 end
 
 -- impacts --------------------------------------------------------------------------------------------------------
+local function inBrawler(f): boolean -- heroes in a social zone are out of the fight
+	return not f.player or Config.Mode ~= "Hub" or f.player:GetAttribute("SPSO_Zone") == "Brawler"
+end
 local function opponents(f)
 	local out = {}
 	for _, t in fighters do
-		if t ~= f and t.team ~= f.team and not t.dead and t.hrp and t.hrp.Parent then table.insert(out, t) end
+		if t ~= f and t.team ~= f.team and not t.dead and t.hrp and t.hrp.Parent and inBrawler(t) then table.insert(out, t) end
 	end
 	return out
 end
@@ -807,7 +810,8 @@ local function spawnHero(player: Player)
 	end
 	local char = template:Clone()
 	char.Name = player.Name
-	char:PivotTo(spawnPoint("Player", (#Players:GetPlayers() + player.UserId) % 4 + 1) + Vector3.new(0, 3, 0))
+	local hubCF = _G.SPSO_SpawnCF and _G.SPSO_SpawnCF(player)
+	char:PivotTo(hubCF or (spawnPoint("Player", (#Players:GetPlayers() + player.UserId) % 4 + 1) + Vector3.new(0, 3, 0)))
 	char.Parent = workspace
 	player.Character = char
 	pcall(function() char.HumanoidRootPart:SetNetworkOwner(player) end)
@@ -838,6 +842,7 @@ SelectRemote.OnServerEvent:Connect(function(player, hero)
 end)
 
 AttackRemote.OnServerEvent:Connect(function(player, kind)
+	if Config.Mode == "Hub" and player:GetAttribute("SPSO_Zone") ~= "Brawler" then return end
 	local f = player.Character and fighters[player.Character]
 	if f and type(kind) == "string" then f:tryAttack(kind) end
 end)
@@ -899,7 +904,7 @@ end
 
 local function heroAlive(): boolean
 	for _, f in fighters do
-		if f.team == "Hero" and not f.dead then return true end
+		if f.team == "Hero" and not f.dead and inBrawler(f) then return true end
 	end
 	return false
 end
@@ -974,6 +979,11 @@ if not Config.Mission then task.spawn(function()
 		task.wait(Config.ResultsTime)
 		for _, f in fighters do
 			if f.team == "Hero" and not f.dead then f.hum.Health = f.hum.MaxHealth end
+		end
+		if Config.Mode == "Hub" and _G.SPSO_Travel then -- mission over: back to the social zone
+			for _, p in Players:GetPlayers() do
+				if p:GetAttribute("SPSO_Zone") == "Brawler" then _G.SPSO_Travel(p, Config.StartZone) end
+			end
 		end
 	end
 end) end

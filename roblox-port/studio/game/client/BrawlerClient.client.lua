@@ -172,7 +172,13 @@ UserInputService.InputChanged:Connect(function(input, gp)
 	end
 end)
 
+local function inHub(): boolean -- the hub client runs the camera, HUD and music in the social zones
+	local z = player:GetAttribute("SPSO_Zone")
+	return Config.Mode == "Hub" and z ~= nil and z ~= "Brawler"
+end
+
 local function updateCamera(dt: number)
+	if inHub() then return end
 	local char = player.Character
 	local hrp = char and char:FindFirstChild("HumanoidRootPart")
 	if not hrp then return end
@@ -244,7 +250,7 @@ end
 
 local selecting = false
 local function attack(kind)
-	if selecting or not player.Character then return end
+	if selecting or not player.Character or inHub() then return end
 	faceTarget()
 	AttackRemote:FireServer(kind)
 end
@@ -447,7 +453,7 @@ local MEDALS = { "bronze", "silver", "gold", "adamantium" }
 local function updateHUD(dt)
 	local char = player.Character
 	local hum = char and char:FindFirstChildOfClass("Humanoid")
-	hud.Enabled = char ~= nil and not selecting
+	hud.Enabled = char ~= nil and not selecting and not inHub()
 	if not char then return end
 	local hero = char:GetAttribute("SPSO_Hero") or Config.DefaultHero
 	heroName.Text = string.upper((Config.Heroes[hero] or {}).displayName or hero)
@@ -549,7 +555,7 @@ end
 
 -- music: the stage tracks the server names, menu music on the select screen
 SPSO:GetAttributeChangedSignal("Music"):Connect(function()
-	if not selecting and SPSO:GetAttribute("State") ~= "results" then Sound.music(SPSO:GetAttribute("Music")) end
+	if not selecting and not inHub() and SPSO:GetAttribute("State") ~= "results" then Sound.music(SPSO:GetAttribute("Music")) end
 end)
 
 -- effects from the server ---------------------------------------------------------------------------------------------------
@@ -923,5 +929,5 @@ end)
 player.CharacterAdded:Connect(function()
 	selecting = false
 	selectGui.Enabled = false
-	if loadingDone then Sound.music(SPSO:GetAttribute("Music") or Config.Music.loading) end
+	if loadingDone and not inHub() then Sound.music(SPSO:GetAttribute("Music") or Config.Music.loading) end
 end)

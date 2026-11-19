@@ -1,0 +1,53 @@
+{
+ "Fractal": {
+  "parts": {
+   "Fractal__1": {
+    "kind": "glow",
+    "center": [
+     -0.0,
+     -0.0,
+     -0.0
+    ],
+    "color": [
+     0.69,
+     0.41,
+     1.0
+    ]
+   }
+  }
+ },
+ "HeroToken": {
+  "parts": {
+   "HeroToken__1": {
+    "kind": "color",
+    "center": [
+     -0.0,
+     0.0,
+     -0.0
+    ],
+    "color": [
+     1.0,
+     0.8,
+     0.24
+    ]
+   }
+  }
+ },
+ "Star": {
+  "parts": {
+   "Star__1": {
+    "kind": "glow",
+    "center": [
+     -0.0,
+     0.0859,
+     0.0
+    ],
+    "color": [
+     0.6,
+     0.9,
+     1.0
+    ]
+   }
+  }
+ }
+}

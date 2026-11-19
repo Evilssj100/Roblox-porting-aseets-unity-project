@@ -1,0 +1,140 @@
+{
+ "hero": "HubPigeon",
+ "studsPerUnit": 2.56,
+ "rawBytes": 599789,
+ "zstdBytes": 359335,
+ "nodes": [
+  "Pigeon",
+  "export_node",
+  "motion export",
+  "motion_transfer",
+  "pelvis",
+  "l_wing1",
+  "LLeg1",
+  "LLeg2",
+  "Lwing1",
+  "Lwing2",
+  "neck",
+  "head",
+  "r_wing1",
+  "RLeg1",
+  "RLeg2",
+  "Rwing1",
+  "Rwing2",
+  "tail"
+ ],
+ "bones": [
+  "tail",
+  "pelvis",
+  "l_wing1",
+  "neck",
+  "Lwing1",
+  "head",
+  "r_wing1",
+  "Rwing1",
+  "LLeg2",
+  "LLeg1",
+  "RLeg2",
+  "Lwing2",
+  "Rwing2",
+  "RLeg1"
+ ],
+ "mesh": [
+  {
+   "name": "HubPigeon_Body",
+   "verts": 530,
+   "normals": 578,
+   "uvs": 212,
+   "tris": 534
+  }
+ ],
+ "curveKeys": 15599,
+ "constantCurves": 173,
+ "selfTest": [
+  "fly_takeoff_2",
+  "fly_takeoff"
+ ],
+ "clips": [
+  {
+   "name": "Take 001",
+   "duration": 5.333333,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.9999,
+   "events": []
+  },
+  {
+   "name": "falldown",
+   "duration": 1.666667,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.99991,
+   "events": []
+  },
+  {
+   "name": "falldown_2",
+   "duration": 1.666667,
+   "rootMotion": false,
+   "maxScaleDeviation": 2.06483,
+   "events": []
+  },
+  {
+   "name": "fly",
+   "duration": 2.633333,
+   "rootMotion": false,
+   "maxScaleDeviation": 35.96752,
+   "events": []
+  },
+  {
+   "name": "fly_land",
+   "duration": 4.0,
+   "rootMotion": false,
+   "maxScaleDeviation": 3.02783,
+   "events": []
+  },
+  {
+   "name": "fly_land_2",
+   "duration": 4.066667,
+   "rootMotion": false,
+   "maxScaleDeviation": 3.0009,
+   "events": []
+  },
+  {
+   "name": "fly_takeoff",
+   "duration": 3.633333,
+   "rootMotion": false,
+   "maxScaleDeviation": 2.81822,
+   "events": []
+  },
+  {
+   "name": "fly_takeoff_2",
+   "duration": 3.633333,
+   "rootMotion": false,
+   "maxScaleDeviation": 649.62469,
+   "events": []
+  },
+  {
+   "name": "movement_idle",
+   "duration": 5.333333,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.9999,
+   "events": []
+  },
+  {
+   "name": "movement_idle_2",
+   "duration": 10.333334,
+   "rootMotion": false,
+   "maxScaleDeviation": 0.9999,
+   "events": []
+  },
+  {
+   "name": "thing_power_emote_2",
+   "duration": 7.466667,
+   "rootMotion": false,
+   "maxScaleDeviation": 36.54661,
+   "events": []
+  }
+ ],
+ "checkVsExact": {
+  "maxMatrixError": 0.007316212442674441,
+  "maxVertexErrorStuds": 0.005813940158571263
+ }
+}

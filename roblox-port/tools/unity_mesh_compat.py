@@ -38,8 +38,12 @@ def mesh_handler(mesh):
     return h
 
 
-def pick_skinned_renderer(renderers):
-    """the LOD0 skinned mesh when the bundle has LODs, otherwise the one with the most vertices"""
+def pick_skinned_renderer(renderers, bones=None):
+    """the LOD0 skinned mesh when the bundle has LODs, otherwise the one with the most vertices; with `bones` (names),
+    only renderers skinned to exactly those bones count (bundles holding several characters)"""
+    if bones is not None:
+        renderers = [s for s in renderers if s.m_Mesh and s.m_Mesh.m_PathID and
+                     [b.read().m_GameObject.read().m_Name for b in s.m_Bones] == list(bones)] or renderers
     best, best_n = None, -1
     for s in renderers:
         if not (s.m_Mesh and s.m_Mesh.m_PathID):

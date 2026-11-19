@@ -3090,7 +3090,7 @@ return {
 		"CivilianFemale2",
 		"CivilianFemale3",
 		"CivilianFemale4",
-		"Pigeon",
+		"HubPigeon",
 		"Robber",
 	},
 	Civilians = {

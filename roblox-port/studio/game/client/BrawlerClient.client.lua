@@ -926,7 +926,11 @@ RunService.PreRender:Connect(function(dt)
 	updateHUD(dt)
 end)
 
-player.CharacterAdded:Connect(function()
+player.CharacterAdded:Connect(function(char)
+	task.spawn(function() -- the original heroes never climb walls (wall-crawlers have their own movement)
+		local hum = char:WaitForChild("Humanoid", 10)
+		if hum then hum:SetStateEnabled(Enum.HumanoidStateType.Climbing, false) end
+	end)
 	selecting = false
 	selectGui.Enabled = false
 	if loadingDone and not inHub() then Sound.music(SPSO:GetAttribute("Music") or Config.Music.loading) end

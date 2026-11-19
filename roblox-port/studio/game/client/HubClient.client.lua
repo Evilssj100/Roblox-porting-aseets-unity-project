@@ -114,7 +114,19 @@ end
 
 HubRemote.OnClientEvent:Connect(function(kind, data)
 	if kind == "collect" then
-		Sound.ui("FX_Pickups_Generic_Collect")
+		Sound.ui(data.kind == "Token" and "coins" or "star")
+		local tpl = SPSO:FindFirstChild("HubPickups") and SPSO.HubPickups:FindFirstChild(data.kind == "Token" and "HeroToken" or data.kind)
+		if tpl and data.kind == "Star" then -- a star pops out of the prop and fades
+			local star = tpl:Clone()
+			star.Anchored, star.CanCollide, star.CanQuery, star.CanTouch = true, false, false, false
+			star.TextureID, star.Material, star.Color = "", Enum.Material.Neon, Color3.fromRGB(150, 230, 255)
+			star.CFrame = CFrame.new(data.pos)
+			star.Parent = workspace
+			TweenService:Create(star, TweenInfo.new(0.9, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+				{ CFrame = CFrame.new(data.pos + Vector3.new(0, 5, 0)) * CFrame.Angles(0, math.pi * 3, 0), Transparency = 1 }):Play()
+			task.delay(1, function() star:Destroy() end)
+			return
+		end
 		local pop = Instance.new("Part")
 		pop.Anchored, pop.CanCollide, pop.CanQuery = true, false, false
 		pop.Material, pop.Shape = Enum.Material.Neon, Enum.PartType.Ball
@@ -168,8 +180,14 @@ RunService:BindToRenderStep("SPSO_HubCamera", Enum.RenderPriority.Camera.Value +
 	local z = HubData.Zones[zn]
 	applyZone(z, zn)
 	for k, l in counts do l.Text = tostring(player:GetAttribute("SPSO_" .. k) or 0) end
-	for _, c in CollectionService:GetTagged("SPSO_Collectible") do
-		c.CFrame = CFrame.new(c.Position) * CFrame.Angles(0, os.clock() * 2.2, c.Name == "Fractal" and 0.6 or math.pi / 2)
+	local t = os.clock()
+	for i, c in CollectionService:GetTagged("SPSO_Collectible") do
+		local base = c:GetAttribute("Base") or c.Position
+		if c:IsA("MeshPart") then -- the pickup models stand upright: spin and bob
+			c.CFrame = CFrame.new(base + Vector3.new(0, math.sin(t * 2 + i) * 0.3, 0)) * CFrame.Angles(0, t * 2.2, 0)
+		else
+			c.CFrame = CFrame.new(base) * CFrame.Angles(0, t * 2.2, c.Name == "Fractal" and 0.6 or math.pi / 2)
+		end
 	end
 	local char = player.Character
 	local hrp = char and char:FindFirstChild("HumanoidRootPart")

@@ -26,7 +26,7 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "CharacterAnimator",
    "class": "ModuleScript",
-   "sha": "27e5d5c6dc516420"
+   "sha": "01fb645c791e152b"
   },
   {
    "path": "studio/game/shared/FxData.lua",
@@ -61,7 +61,7 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "HubData",
    "class": "ModuleScript",
-   "sha": "74bec27a4e779ea2"
+   "sha": "3b9f85870a504c3a"
   },
   {
    "path": "studio/game/shared/MissionData.lua",
@@ -103,21 +103,21 @@
    "parent": "ServerScriptService/SPSO",
    "name": "Hub",
    "class": "Script",
-   "sha": "2036aab138cbb1b3"
+   "sha": "f67ed723b715fd5b"
   },
   {
    "path": "studio/game/client/BrawlerClient.client.lua",
    "parent": "StarterPlayer/StarterPlayerScripts",
    "name": "BrawlerClient",
    "class": "LocalScript",
-   "sha": "6e06388f39de8a0e"
+   "sha": "a853c4ace4a9275e"
   },
   {
    "path": "studio/game/client/HubClient.client.lua",
    "parent": "StarterPlayer/StarterPlayerScripts",
    "name": "HubClient",
    "class": "LocalScript",
-   "sha": "1b489292da4d29ab"
+   "sha": "a156e505914cb0e7"
   },
   {
    "path": "studio/game/character/Animate.client.lua",
@@ -184,6 +184,11 @@
    "name": "ElRugido",
    "path": "heroes/ElRugido/runtime/ElRugido.spsohero.b64",
    "sha": "a9749758ef9aa52d"
+  },
+  {
+   "name": "HubPigeon",
+   "path": "heroes/HubPigeon/runtime/HubPigeon.spsohero.b64",
+   "sha": "45cff9716f824335"
   },
   {
    "name": "InvaderGrenadier",

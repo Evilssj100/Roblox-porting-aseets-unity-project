@@ -26,18 +26,23 @@ HEROES = {"Skyvolt": "Falcon_01-darkhawk", "Aurora": "Ms_Marvel_01-classic",
           "Magmaul": "Thing_01-classic", "NightGecko": "spiderman-secretwars"}
 # characters ported with their ORIGINAL look (no repaint yet): port name -> character bundle in the SHSO
 # archive (github.com/SHSUnderground/shso-archive-structured, Assets/Characters/<name>.asset)
-HEADLESS = {"InvaderPopcorn"}  # no face atlas: one body part
+HEADLESS = {"InvaderPopcorn", "HubPigeon"}  # no face atlas: one body part
 ORIGINALS = {"InvaderPopcorn": "skrull_popcorn_minion_01",
              # hub zone characters (civilians, pigeons, the robber of the robber-chase activity)
              "CivilianMale1": "npc_male_01", "CivilianMale2": "npc_male_02", "CivilianMale3": "npc_male_03",
              "CivilianMale4": "npc_male_04", "CivilianFemale1": "npc_female_01", "CivilianFemale2": "npc_female_02",
              "CivilianFemale3": "npc_female_03", "CivilianFemale4": "npc_female_04", "Pigeon": "pigeon_minion_01",
              "Robber": "npc_robber_01", "InvaderGunner": "skrull_01", "InvaderGrenadier": "skrull_02", "InvaderMelee": "skrull_04",
-             "InvaderWarlord": "super_skrull_boss_01"}
+             "InvaderWarlord": "super_skrull_boss_01",
+             # the social-zone pigeon (pigeon_01) lives in the activity-objects bundle, not in Characters
+             "HubPigeon": "/home/claude/spso-port/unrenamed/CustomAssetBundle-6112f86c24ca5de418ac693ad672a8ef.asset"}
 
 
 def archive_bundle(name, a):
-    """materialise one character bundle from the archive clone (blobs are fetched on demand)"""
+    """materialise one character bundle from the archive clone (blobs are fetched on demand); an absolute path is
+    a bundle already on disk"""
+    if name.startswith("/"):
+        return name
     out = os.path.join(a.archive_out, "Characters", name + ".asset")
     if not os.path.exists(out):
         os.makedirs(os.path.dirname(out), exist_ok=True)

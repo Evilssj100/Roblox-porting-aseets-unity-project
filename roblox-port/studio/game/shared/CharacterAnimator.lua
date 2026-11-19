@@ -140,6 +140,7 @@ function CharacterAnimator:_loco(name: string, fade: number)
 		end
 	end
 	name = self.remap[name] or name
+	if not self.anim:HasClip(name) then return end -- civilians and pigeons have no jump set: keep the current clip
 	if self.loco == name and self.anim:IsPlaying(name) then return end
 	self.loco = name
 	self.anim:CrossFade(name, fade)
@@ -167,7 +168,7 @@ function CharacterAnimator:_locomotion(dt: number)
 				local cur = self.loco
 				if cur == "jump_fall" or cur == "jump_run_fall" then
 					local st = anim:GetState(cur)
-					if st.time >= st.length then self:_loco("jump_fall_loop", 0.2) end
+					if not st or st.time >= st.length then self:_loco("jump_fall_loop", 0.2) end
 				elseif cur ~= "jump_fall_loop" then
 					self:_loco(horiz > 6 and "jump_run_fall" or "jump_fall", 0.2)
 				end

@@ -1,0 +1,103 @@
+{
+ "hero": "HubPigeon",
+ "height_bu": 0.9225234081968665,
+ "bones": [
+  "pelvis",
+  "tail",
+  "l_wing1",
+  "neck",
+  "head",
+  "Lwing1",
+  "Lwing2",
+  "r_wing1",
+  "Rwing1",
+  "Rwing2",
+  "LLeg1",
+  "LLeg2",
+  "RLeg1",
+  "RLeg2"
+ ],
+ "parents": [
+  "",
+  "pelvis",
+  "pelvis",
+  "pelvis",
+  "neck",
+  "pelvis",
+  "Lwing1",
+  "pelvis",
+  "pelvis",
+  "Rwing1",
+  "pelvis",
+  "LLeg1",
+  "pelvis",
+  "RLeg1"
+ ],
+ "fx_points": {},
+ "clips": [
+  {
+   "name": "Take 001",
+   "duration": 5.333333
+  },
+  {
+   "name": "falldown",
+   "duration": 1.666667
+  },
+  {
+   "name": "falldown_2",
+   "duration": 1.666667
+  },
+  {
+   "name": "fly",
+   "duration": 2.633333
+  },
+  {
+   "name": "fly_land",
+   "duration": 4.0
+  },
+  {
+   "name": "fly_land_2",
+   "duration": 4.066667
+  },
+  {
+   "name": "fly_takeoff",
+   "duration": 3.633333
+  },
+  {
+   "name": "fly_takeoff_2",
+   "duration": 3.633333
+  },
+  {
+   "name": "movement_idle",
+   "duration": 5.333333
+  },
+  {
+   "name": "movement_idle_2",
+   "duration": 10.333334
+  },
+  {
+   "name": "thing_power_emote_2",
+   "duration": 7.466667
+  }
+ ],
+ "face_tiles": [
+  "HubPigeon_Face_0.png",
+  "HubPigeon_Face_1.png",
+  "HubPigeon_Face_2.png",
+  "HubPigeon_Face_3.png",
+  "HubPigeon_Face_4.png",
+  "HubPigeon_Face_5.png",
+  "HubPigeon_Face_6.png",
+  "HubPigeon_Face_7.png"
+ ],
+ "face_tile_names": [
+  "neutral_smile",
+  "grin",
+  "surprised",
+  "gritted",
+  "wink",
+  "smirk",
+  "shout",
+  "focused"
+ ]
+}

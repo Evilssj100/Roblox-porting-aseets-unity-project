@@ -26,7 +26,7 @@ ZONES = {
                              {"text": "DAILY BULLETIN", "center": [169.84, 4.18, -60.53], "size": [9.9, 1.7], "normal": [0, 0, 1]}]},
 }
 CHARACTERS = ["CivilianMale1", "CivilianMale2", "CivilianMale3", "CivilianMale4", "CivilianFemale1", "CivilianFemale2",
-              "CivilianFemale3", "CivilianFemale4", "Pigeon", "Robber"]
+              "CivilianFemale3", "CivilianFemale4", "HubPigeon", "Robber"]
 CIVILIANS = {f"npc_{g}_0{i}": f"Civilian{g.capitalize()}{i}" for g in ("male", "female") for i in range(1, 5)}
 LAUNCHERS = {"brawler": "mission", "card": "cardgame", "hq": "hq", "worldmap": "zones"}
 

@@ -1,8 +1,9 @@
 -- SPSO social zones (hub), after the original game's social space: players arrive in a zone with their hero and
---   * collect fractals and hero tokens at the zone's original spawn points (they come back after a while)
+--   * find their hero's daily pickups (original activities): 10 fractals, 5 hero tokens and the golden fractal a
+--     day per hero, each player seeing their own at seeded spots of the zone's original spawn points
 --   * meet civilians walking the original NPC paths and pigeons that take off when a hero runs at them
 --   * poke the interactive props (hydrants, mailboxes, bins...) to make them jiggle and drop stars
---   * use doors (pairs teleport), the game launchers (mission -> the brawler, zones -> travel) and shops (soon)
+--   * use doors (pairs teleport), the game launchers (mission -> the brawler, zones -> travel) and the store
 -- Zone data: HubData (tools/convert_hub.py); geometry and props are built by setup/02_hub.
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -42,28 +43,12 @@ _G.SPSO_SpawnCF = function(player: Player): CFrame?
 	if not z or #z.spawns == 0 then return nil end
 	return cfOf(z.spawns[math.random(#z.spawns)]) + Vector3.new(0, 3.5, 0)
 end
-local function counters(p: Player)
-	for _, k in { "Fractals", "Tokens", "Stars" } do
-		if p:GetAttribute("SPSO_" .. k) == nil then p:SetAttribute("SPSO_" .. k, 0) end
-	end
-	local ls = p:FindFirstChild("leaderstats") or Instance.new("Folder")
-	ls.Name = "leaderstats"
-	for _, k in { "Fractals", "Tokens" } do
-		local v = ls:FindFirstChild(k) or Instance.new("IntValue")
-		v.Name = k
-		v.Value = p:GetAttribute("SPSO_" .. k)
-		v.Parent = ls
-	end
-	ls.Parent = p
-end
-local function add(p: Player, k: string, n: number)
-	p:SetAttribute("SPSO_" .. k, (p:GetAttribute("SPSO_" .. k) or 0) + n)
-	local v = p:FindFirstChild("leaderstats") and p.leaderstats:FindFirstChild(k)
-	if v then v.Value = p:GetAttribute("SPSO_" .. k) end
-end
+local assignPickups -- daily pickups, below
 local function onPlayer(p: Player)
 	if not zoneOf(p) then p:SetAttribute("SPSO_Zone", Config.StartZone) end
-	counters(p)
+	p:GetAttributeChangedSignal("SPSO_Zone"):Connect(function() assignPickups(p) end)
+	p:GetAttributeChangedSignal("SPSO_Hero"):Connect(function() assignPickups(p) end)
+	p.CharacterAdded:Connect(function() task.defer(assignPickups, p) end)
 end
 Players.PlayerAdded:Connect(onPlayer)
 for _, p in Players:GetPlayers() do task.spawn(onPlayer, p) end
@@ -76,9 +61,8 @@ local function travel(player: Player, zone: string)
 end
 _G.SPSO_Travel = travel
 
--- collectibles: fractals (crystals) and hero tokens (coins) -------------------------------------------------------
--- models: Hub_Pickups (tools/build_hub_pickups.py: the original fractal shard, an original token coin and star),
--- inserted by setup/02_hub; a copy goes to ReplicatedStorage for the client's pickup effects
+-- pickup models: Hub_Pickups (tools/build_hub_pickups.py: the original fractal shard, an original token coin and
+-- star), inserted by setup/02_hub; a copy goes to ReplicatedStorage: each client shows its own pickups
 local pickupSrc = ServerStorage:FindFirstChild("SPSO") and ServerStorage.SPSO:FindFirstChild("HubSource")
 pickupSrc = pickupSrc and pickupSrc:FindFirstChild("Hub_Pickups")
 local pickupTpl = {}
@@ -96,39 +80,89 @@ if pickupSrc then
 	end
 	rep.Parent = SPSO
 end
-local PICKUP_LOOK = {
-	Fractal = { model = "Fractal", color = Color3.fromRGB(176, 104, 255), material = Enum.Material.Neon },
-	Token = { model = "HeroToken", color = Color3.fromRGB(255, 205, 60), material = Enum.Material.Metal },
-}
-local collectibles = {}
-local function collectible(zf: Instance, zone: string, kind: string, pos: Vector3, respawn: number)
-	local lookOf = PICKUP_LOOK[kind]
-	local tpl = pickupTpl[lookOf.model]
-	local p
-	if tpl then
-		p = tpl:Clone()
-		p.TextureID = ""
-	else
-		p = Instance.new("Part")
-		if kind == "Fractal" then
-			p.Size = Vector3.new(1.3, 2.2, 1.3)
-		else
-			p.Shape = Enum.PartType.Cylinder
-			p.Size = Vector3.new(0.35, 2.2, 2.2)
+
+-- daily pickups (original SHSFractalsActivity / SHSFeathersActivity / SHSGoldenFractalActivity): for a hero, a
+-- zone and a day, a seeded pick of the zone's spawn points the hero can reach gets the fractal indices 1..10 and
+-- the token indices 1..5; an index collected anywhere is gone for that hero until tomorrow. The golden fractal
+-- shows in one zone a day per hero. Spots for flying or wall-crawling heroes wait until the hub has those moves.
+local E = Config.Economy
+local PICKUP_LIFT = Vector3.new(0, 2.2, 0)
+local PRIMARY = {}
+for name, z in HubData.Zones do
+	if #z.fractals > 0 then table.insert(PRIMARY, name) end
+end
+table.sort(PRIMARY, function(a, b) return HubData.Zones[a].order < HubData.Zones[b].order end)
+local function hash(s: string): number
+	local h = 5381
+	for i = 1, #s do h = (h * 33 + string.byte(s, i)) % 2147483647 end
+	return h
+end
+local function reachable(list)
+	local out = {}
+	for _, s in list do
+		if not s.flying and not s.wallcrawl then table.insert(out, s) end
+	end
+	return out
+end
+local function pick(rng: Random, list, n: number)
+	local pool, out = table.clone(list), {}
+	for i = 1, math.min(n, #pool) do out[i] = table.remove(pool, rng:NextInteger(1, #pool)) end
+	return out, pool
+end
+local mine = {} -- player -> { zone, hero, day, list = { { id, kind, index, pos } } }
+assignPickups = function(player: Player)
+	local zone, hero = zoneOf(player), player:GetAttribute("SPSO_Hero")
+	local z = zone and HubData.Zones[zone]
+	local eco = _G.SPSO_Economy
+	local st = eco and z and hero and eco.dailyState(player, hero)
+	if not st then
+		mine[player] = nil
+		if player.Parent then notify(player, "pickups", { list = {} }) end
+		if z and hero and player.Parent then task.delay(1, function() -- the profile is still loading
+			if not mine[player] then assignPickups(player) end
+		end) end
+		return
+	end
+	local list = {}
+	local seed = hash(hero) + st.dayNumber * 7919
+	local fr, rest = pick(Random.new(seed + z.order * 104729), reachable(z.fractals), E.dailyFractals)
+	for i, s in fr do
+		if not st.fractal[i] then table.insert(list, { id = "f" .. i, kind = "Fractal", index = i, pos = v3(s.pos) }) end
+	end
+	local gzone = #PRIMARY > 0 and PRIMARY[Random.new(seed):NextInteger(1, #PRIMARY)]
+	if gzone == zone and not st.golden and #rest > 0 then
+		local s = rest[Random.new(seed + 17):NextInteger(1, #rest)]
+		table.insert(list, { id = "g1", kind = "Golden", index = 1, pos = v3(s.pos) })
+	end
+	local tk = pick(Random.new(seed + z.order * 104729 + 1), reachable(z.tokens), E.dailyTokens)
+	for i, s in tk do
+		if not st.token[i] then table.insert(list, { id = "t" .. i, kind = "Token", index = i, pos = v3(s.pos) }) end
+	end
+	mine[player] = { zone = zone, hero = hero, day = st.day, list = list }
+	local send = {}
+	for _, c in list do table.insert(send, { id = c.id, kind = c.kind, pos = c.pos + PICKUP_LIFT }) end
+	notify(player, "pickups", { zone = zone, hero = hero, list = send, fractals = st.fractalCount,
+		tokens = st.tokenCount, golden = st.golden })
+end
+Players.PlayerRemoving:Connect(function(player) mine[player] = nil end)
+local function checkPickups()
+	local today = os.date("!%Y-%m-%d")
+	for player, m in mine do
+		if m.day ~= today then
+			task.spawn(assignPickups, player) -- a new day: new pickups
+			continue
+		end
+		local hrp = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+		if not hrp or zoneOf(player) ~= m.zone then continue end
+		for i = #m.list, 1, -1 do
+			local c = m.list[i]
+			if (hrp.Position - (c.pos + PICKUP_LIFT)).Magnitude < H.collectRadius + 1 then
+				table.remove(m.list, i)
+				local ok, info = _G.SPSO_Economy.collectDaily(player, m.hero, c.kind, c.index)
+				notify(player, "collect", { id = c.id, kind = c.kind, pos = c.pos + PICKUP_LIFT, ok = ok, info = info })
+			end
 		end
 	end
-	p.Name = kind
-	p.Anchored, p.CanCollide, p.CanQuery, p.CanTouch = true, false, false, false
-	p.CastShadow = false
-	p.Material, p.Color = lookOf.material, lookOf.color
-	p.CFrame = CFrame.new(pos + Vector3.new(0, 2.2, 0))
-	p:SetAttribute("Base", p.Position) -- the client spins and bobs it around this point
-	local light = Instance.new("PointLight")
-	light.Color, light.Range, light.Brightness = lookOf.color, 8, 1.2
-	light.Parent = p
-	CollectionService:AddTag(p, "SPSO_Collectible")
-	p.Parent = zf
-	table.insert(collectibles, { part = p, kind = kind, zone = zone, respawn = respawn, back = 0 })
 end
 
 -- civilians and pigeons -------------------------------------------------------------------------------------------------
@@ -340,8 +374,7 @@ local function jiggle(m: Model, player: Player)
 		m:PivotTo(base * CFrame.Angles(a, 0, a * 0.6))
 	end)
 	if math.random() < H.starChance then
-		add(player, "Stars", 1)
-		notify(player, "collect", { kind = "Star", pos = base.Position + Vector3.new(0, 4, 0) })
+		notify(player, "star", { pos = base.Position + Vector3.new(0, 4, 0) })
 	end
 end
 
@@ -355,8 +388,6 @@ local function setupZone(zoneName: string, z)
 	live.Name = "Live"
 	live:ClearAllChildren()
 	live.Parent = zf
-	for _, f in z.fractals do collectible(live, zoneName, "Fractal", v3(f.pos), H.fractalRespawn) end
-	for _, t in z.tokens do collectible(live, zoneName, "Token", v3(t.pos), H.tokenRespawn) end
 	startCivilians(zoneName, z, live)
 	startPigeons(zoneName, z, live)
 	local props = zf:FindFirstChild("Props")
@@ -385,8 +416,14 @@ local function setupZone(zoneName: string, z)
 	end
 	for _, s in z.shops do
 		local a = anchor(live, v3(s.pos) + Vector3.new(0, 3, 0), "Shop")
-		prompt(a, "Browse", string.upper(s.kind), 8).Triggered:Connect(function(player)
-			notify(player, "message", { text = "The " .. s.kind .. " is closed for now: come back soon!" })
+		local label = ({ store = "Shop", snack = "Snack Stand", arcade = "Arcade" })[s.kind] or s.kind
+		prompt(a, "Browse", label, 8).Triggered:Connect(function(player)
+			if zoneOf(player) ~= zoneName then return end
+			if s.kind == "store" then
+				notify(player, "openStore", {})
+			else
+				notify(player, "message", { text = "The " .. label .. " is coming soon!" })
+			end
 		end)
 	end
 	for _, l in z.launchers do
@@ -425,24 +462,5 @@ RunService.Heartbeat:Connect(function(dt)
 	end
 	if t - lastCollect < 0.15 then return end
 	lastCollect = t
-	for _, c in collectibles do
-		if c.back > 0 then
-			if t >= c.back then
-				c.back = 0
-				c.part.Transparency = 0
-				c.part.PointLight.Enabled = true
-			end
-			continue
-		end
-		for _, h in heroesIn(c.zone) do
-			if (h.hrp.Position - c.part.Position).Magnitude < H.collectRadius then
-				c.back = t + c.respawn
-				c.part.Transparency = 1
-				c.part.PointLight.Enabled = false
-				add(h.player, c.kind == "Fractal" and "Fractals" or "Tokens", 1)
-				notify(h.player, "collect", { kind = c.kind, pos = c.part.Position })
-				break
-			end
-		end
-	end
+	checkPickups()
 end)

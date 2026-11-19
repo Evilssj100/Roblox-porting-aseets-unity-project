@@ -835,6 +835,8 @@ end)
 
 SelectRemote.OnServerEvent:Connect(function(player, hero)
 	if type(hero) ~= "string" or not Config.Heroes[hero] then return end
+	-- heroes are owned (store); the port's five are starter heroes everyone owns
+	if _G.SPSO_Economy and not _G.SPSO_Economy.ownsHero(player, hero) then return end
 	local f = player.Character and fighters[player.Character]
 	if f and f.actionKind == "attack" then return end
 	player:SetAttribute("SPSO_Hero", hero)

@@ -47,7 +47,7 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "GameConfig",
    "class": "ModuleScript",
-   "sha": "04ef4bd2093fc804"
+   "sha": "2ad2cdbfb091b518"
   },
   {
    "path": "studio/game/shared/GameData.lua",
@@ -75,7 +75,7 @@
    "parent": "ReplicatedStorage/SPSO/Game",
    "name": "Net",
    "class": "ModuleScript",
-   "sha": "cc7eb7257363c524"
+   "sha": "d2e5be5b8ac6c08e"
   },
   {
    "path": "studio/game/shared/Sound.lua",
@@ -92,32 +92,53 @@
    "sha": "c415508a94740b21"
   },
   {
+   "path": "studio/game/shared/StoreData.lua",
+   "parent": "ReplicatedStorage/SPSO/Game",
+   "name": "StoreData",
+   "class": "ModuleScript",
+   "sha": "0c813adf23dbf4be"
+  },
+  {
    "path": "studio/game/server/Brawler.server.lua",
    "parent": "ServerScriptService/SPSO",
    "name": "Brawler",
    "class": "Script",
-   "sha": "ec35cded2870e1fb"
+   "sha": "50fedf2c7ebfa3ef"
+  },
+  {
+   "path": "studio/game/server/Economy.server.lua",
+   "parent": "ServerScriptService/SPSO",
+   "name": "Economy",
+   "class": "Script",
+   "sha": "689bbbf01bebe4a0"
   },
   {
    "path": "studio/game/server/Hub.server.lua",
    "parent": "ServerScriptService/SPSO",
    "name": "Hub",
    "class": "Script",
-   "sha": "2fd6d691fa91e599"
+   "sha": "e203c3efa8b6a910"
   },
   {
    "path": "studio/game/client/BrawlerClient.client.lua",
    "parent": "StarterPlayer/StarterPlayerScripts",
    "name": "BrawlerClient",
    "class": "LocalScript",
-   "sha": "5f473cf02c67d208"
+   "sha": "646796089c363306"
   },
   {
    "path": "studio/game/client/HubClient.client.lua",
    "parent": "StarterPlayer/StarterPlayerScripts",
    "name": "HubClient",
    "class": "LocalScript",
-   "sha": "a156e505914cb0e7"
+   "sha": "d56a482ef3fb06a6"
+  },
+  {
+   "path": "studio/game/client/ShopClient.client.lua",
+   "parent": "StarterPlayer/StarterPlayerScripts",
+   "name": "ShopClient",
+   "class": "LocalScript",
+   "sha": "a6b339674b26772f"
   },
   {
    "path": "studio/game/character/Animate.client.lua",

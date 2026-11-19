@@ -75,6 +75,13 @@ Config.Hub = {
 	collectRadius = 5, fractalRespawn = 90, tokenRespawn = 150, pigeonScare = 14, pigeonRespawn = 25,
 	npcWalkSpeed = 7, starChance = 0.5, jiggleCooldown = 4, cameraZoom = { 0.55, 1.6 },
 }
+-- the player profile and store (Economy.server). Daily pickups per hero (original shs_activities): 10 fractals,
+-- 5 hero tokens, 1 golden fractal worth 10. tokenFractals: tokens "earn fractals for your squad" in the original,
+-- the amount was server-side (not in the archive): the port's value
+Config.Economy = {
+	dataStore = "SPSO_Profile_v1", startGold = 100, startFractals = 0, dailyFractals = 10, dailyTokens = 5,
+	fractalValue = 1, goldenValue = 10, tokenFractals = 5, potionMinutes = 30, autosaveSeconds = 120,
+}
 
 Config.Heroes = {}
 for _, name in GameData.HeroOrder do

@@ -838,6 +838,9 @@ showSelect = function()
 	Sound.ui("windowIn")
 	Sound.music(Config.Music.select)
 end
+_G.SPSO_ShowSelect = function() -- the zone HUD's "Change Hero" portrait
+	if not selecting then showSelect() end
+end
 
 -- results: the original mission complete screen ----------------------------------------------------------------------
 local results = screen("SPSO_Results", 15)

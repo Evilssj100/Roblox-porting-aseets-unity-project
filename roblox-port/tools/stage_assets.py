@@ -126,6 +126,10 @@ def main():
         if fn.endswith(".fbx"):
             k = "hub_" + fn[:-4]
             job(k, f"maps/hub/{fn}", "model", "SPSO Hub " + fn[:-4])
+    shop = os.path.join(A, "shop")  # the store, hub menus and zone HUD (tools/shop_assets.py)
+    for fn in sorted(os.listdir(shop)) if os.path.isdir(shop) else []:
+        if fn.endswith(".png"):
+            job(fn[:-4], f"assets/shop/{fn}", "image", fn[:-4])
     os.makedirs(os.path.join(port, "studio", "upload"), exist_ok=True)
     json.dump(jobs, open(os.path.join(port, "studio", "upload", "jobs.json"), "w"), indent=0)
     kinds = {}

@@ -36,4 +36,19 @@ function Net.event(name: string): RemoteEvent
 	return e
 end
 
+function Net.func(name: string): RemoteFunction
+	local f = getFolder()
+	local e = f:FindFirstChild(name)
+	if not e then
+		if RunService:IsServer() then
+			e = Instance.new("RemoteFunction")
+			e.Name = name
+			e.Parent = f
+		else
+			e = f:WaitForChild(name)
+		end
+	end
+	return e
+end
+
 return Net

@@ -75,14 +75,14 @@
    "parent": "ServerScriptService/SPSO",
    "name": "Brawler",
    "class": "Script",
-   "sha": "8fb0d5f456dec088"
+   "sha": "64ebb115891b6383"
   },
   {
    "path": "studio/game/client/BrawlerClient.client.lua",
    "parent": "StarterPlayer/StarterPlayerScripts",
    "name": "BrawlerClient",
    "class": "LocalScript",
-   "sha": "adf7a1b47be0ae7e"
+   "sha": "8eebc3128286125f"
   },
   {
    "path": "studio/game/character/Animate.client.lua",

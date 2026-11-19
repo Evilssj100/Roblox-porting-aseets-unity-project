@@ -404,11 +404,12 @@ local function setPortrait(hero)
 	world.Parent = portraitVp
 	local rig = src:Clone()
 	rig.Parent = world
-	local ext = rig:GetExtentsSize()
+	local box, size = rig:GetBoundingBox()
+	local head = rig:FindFirstChild(hero .. "_Head", true)
+	local look = head and head.Position or (box.Position + Vector3.new(0, size.Y * 0.36, 0))
 	local cam = Instance.new("Camera")
 	cam.FieldOfView = 30
-	local headY = ext.Y * 0.84
-	cam.CFrame = CFrame.lookAt(Vector3.new(0, headY, -ext.Y * 0.95), Vector3.new(0, headY - ext.Y * 0.04, 0))
+	cam.CFrame = CFrame.lookAt(look + Vector3.new(0, size.Y * 0.04, -size.Y * 0.62), look - Vector3.new(0, size.Y * 0.05, 0))
 	cam.Parent = portraitVp
 	portraitVp.CurrentCamera = cam
 	local ok, anim = pcall(ExactAnimator.new, HeroPack.get(hero), rig, { wrapModes = Config.WrapModes, skin = false })
@@ -792,11 +793,11 @@ local function makeCard(hero: string)
 		world.Parent = vp
 		local rig = src:Clone()
 		rig.Parent = world
-		local ext = rig:GetExtentsSize()
+		local box, size = rig:GetBoundingBox()
 		local cam = Instance.new("Camera")
 		cam.FieldOfView = 30
-		local h = math.max(4, ext.Y)
-		cam.CFrame = CFrame.lookAt(Vector3.new(0, h * 0.55, -h * 2.3), Vector3.new(0, h * 0.48, 0))
+		local h = math.max(4, size.Y)
+		cam.CFrame = CFrame.lookAt(box.Position + Vector3.new(0, h * 0.05, -h * 2.3), box.Position)
 		cam.Parent = vp
 		vp.CurrentCamera = cam
 		local ok, anim = pcall(ExactAnimator.new, HeroPack.get(hero), rig, { wrapModes = Config.WrapModes, skin = false,

@@ -897,7 +897,9 @@ task.spawn(function()
 		SPSO:SetAttribute("MedalAdamantium", m.adamantium)
 		SPSO:SetAttribute("State", "playing")
 		local start = now()
+		local first = RunService:IsStudio() and SPSO:GetAttribute("TestStartWave") or 1
 		for w, wave in Config.Waves do
+			if w < first then continue end
 			SPSO:SetAttribute("Wave", w)
 			SPSO:SetAttribute("Music", wave.music)
 			banner(wave.boss and "BOSS FIGHT!" or ("WAVE " .. w))
